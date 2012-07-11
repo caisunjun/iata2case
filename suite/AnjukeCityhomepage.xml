@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Default suite]">
+    <parameter name = "websiteName" value = "Anjuke"/>
+    <parameter name = "suiteName" value = "--城市主页搜索区域链接查询--"/> 
+	<test name="Default" preserve-order="false">
+		<classes>
+			<class name="com.anjukeinc.iata.ui.init.Init"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeCityhomepageSearchareaLink"></class>
+		</classes>
+	</test>
+</suite>

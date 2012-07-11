@@ -1,0 +1,1 @@
+ant -f suite/anjukeAllCaseBuild.xml
