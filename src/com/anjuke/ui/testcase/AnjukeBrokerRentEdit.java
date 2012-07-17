@@ -42,7 +42,6 @@ public class AnjukeBrokerRentEdit {
 	}
 
 	private AnjukeSaleInfo rentUpInfo_init() {
-		rentUpInfo.setUserName("shyzhang");
 		rentUpInfo.setHouseType("老公房");
 		rentUpInfo.setFloorCur("1");
 		rentUpInfo.setFloorTotal("6");
@@ -65,7 +64,7 @@ public class AnjukeBrokerRentEdit {
 		return rentUpInfo;
 	}
 	
-	@Test(timeOut = 300000)
+	@Test(timeOut = 500000)
 	public void rentEdit() {
 		rentUpInfo = rentUpInfo_init();
 		PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);

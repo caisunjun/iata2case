@@ -7,7 +7,6 @@ import com.anjukeinc.iata.ui.init.Init;
 public class BrokerRentOperating {
 	private static String releaseUrl = "http://my.anjuke.com/user/broker/property/rent/step1/";
 	private static String editUrl = "http://my.anjuke.com/user/brokerpropmanage/W0QQactZrent#proptop";
-	private static int num = 0;
 	
 	/**
 	 * 发布租房，访问发布房源页面，输入rentinfo提交发布，到房源详情页验证数据。
@@ -20,12 +19,12 @@ public class BrokerRentOperating {
 	}
 	
 	/**
-	 * 编辑租房，点击管理房源列表的第num条房源编辑，默认第一条，编辑成功后到房源详情页验证数据。
+	 * 编辑租房，点击管理房源列表的第num条房源编辑，0为第1条，编辑成功后到房源详情页验证数据。
 	 * @param driver browserDriver
 	 * @param info	 AnjukeSaleInfo
 	 * @param Num    管理房源，编辑第几条房源
 	 */
-	public static final void editRent(Browser driver, AnjukeSaleInfo info , int um){
+	public static final void editRent(Browser driver, AnjukeSaleInfo info , int num){
 		driver.get(editUrl);
 		driver.click("id^edit_"+num, "编辑第"+num+"套房源");
 		rent(driver, info, "Edit");
@@ -35,15 +34,15 @@ public class BrokerRentOperating {
 		driver.assertFalse(driver.check(Init.G_objMap.get("ajk_releaseSale_div_full")), "本月发布房源是否到上限", "本期发布房源未到上限！", "抱歉，您本期发布的新房源已达上限，无法再发布了。");
 
 		//小区名
-		if( type == "Release"){
+		if( type.equals("Release")){
 			driver.type(Init.G_objMap.get("anjuke_wangluojingjiren_sale_xiaoqu_yinyu"), info.getCommunityName(), "小区名称");
 			driver.click(".//*[@id='targetid']/li[2]", "选择小区", 60); 
 		}
 		//房屋类型
 		if(info.getRentType().equals("合租")){
-			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_radlsDolmus0_for_ie6"), "出租方式：合租");
+			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_radlsDolmus0"), "出租方式：合租");
 		}else{
-			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_radlsDolmus0_for_ie6"), "出租方式：整租");
+			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_radlsDolmus1"), "出租方式：整租");
 		}
 		// 租金
 		driver.type(Init.G_objMap.get("anjuke_wangluojingjiren_sale_proPrice"), info.getRental(), "租金："+info.getRental() +"元/月");
@@ -88,7 +87,7 @@ public class BrokerRentOperating {
 		driver.exitFrame();
 		
 		//推荐房源
-		if(type == "Release" && info.getRecommendation().equals("不推荐")){
+		if(type.equals("Release") && info.getRecommendation().equals("不推荐")){
 			driver.click("id^checkbox-r", "发布类型：不推荐该房源");
 		}
 			
@@ -110,6 +109,12 @@ public class BrokerRentOperating {
 
 		// 跳转到房源详细页  
 		driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_setp3_danye"), "点击房源单页");
+		
+		//小区名检查
+		if(type.equals("Edit")){
+			String communityName = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_rent_detail_communityname"), "获取房源小区名");
+			driver.assertEquals(info.getCommunityName(), communityName, "房源详细页", "房源小区名是否正确");
+		}
 		
 		// 房源详细页，房源标题检查
 		driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_title"));

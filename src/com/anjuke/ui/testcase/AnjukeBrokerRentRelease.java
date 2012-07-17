@@ -37,7 +37,7 @@ public class AnjukeBrokerRentRelease {
 	}
 
 	private AnjukeSaleInfo rentInfo_init() {
-		rentInfo.setUserName("shyzhang");
+		rentInfo.setCommunityName("红星农场");
 		rentInfo.setHouseType("公寓");
 		rentInfo.setFloorCur("3");
 		rentInfo.setFloorTotal("6");
@@ -61,10 +61,10 @@ public class AnjukeBrokerRentRelease {
 		return rentInfo;
 	}
 	
-	@Test (timeOut = 300000)
+	@Test (timeOut = 500000)
 	public void rentRelease(){
 		rentInfo = rentInfo_init();
-		PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);
+		PublicProcess.logIn(driver, "test1","123456", false, 1);
 		BrokerRentOperating.releaseRent(driver, rentInfo);
 	}
 }
