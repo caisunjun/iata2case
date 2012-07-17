@@ -58,8 +58,11 @@ public class AnjukeCityhomepageSearchareaLink {
         	//返回所有城市名称和URL
         	resultList = getCommunityCount(tmpCount);
         	Iterator<Entry<String, String>> iterComm = resultList.entrySet().iterator();
-        	while(iterComm.hasNext()){
+        	//不要跑64遍啊
+        	int i = 0;
+        	while(iterComm.hasNext()&& i<5){
             	Map.Entry<String, String> result = iterComm.next();
+            	i = i+1;
             	cityName = result.getKey();
             	cityUrl = result.getValue();
             	if(cityName!=null&&cityUrl!=null){
