@@ -22,7 +22,7 @@ import com.anjukeinc.iata.ui.report.Report;
  * @UpdateAuthor ccyang
  * @last updatetime 2012-07-11 10:00
  */
-public class AnjukeReleaseSale {
+public class AnjukeBrokerSaleRelease {
 	private Browser driver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
 	private ArrayList<String> houseListNumber = null;

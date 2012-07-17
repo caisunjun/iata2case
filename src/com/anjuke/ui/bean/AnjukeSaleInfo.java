@@ -7,7 +7,7 @@ public class AnjukeSaleInfo {
 	private String userName ;
 	//小区名称
 	private String communityName;
-	//放我类型
+	//房屋类型
 	private String houseType;
 	//当前楼层
 	private String floorCur;
@@ -47,6 +47,10 @@ public class AnjukeSaleInfo {
 	private String rentType;
 	//房屋配置情况
 	private String configuration;
+	//推荐情况
+	private String recommendation;
+	//图片情况
+	private String houseImage;
 	
 	public String getRentType() {
 		return rentType;
@@ -180,5 +184,17 @@ public class AnjukeSaleInfo {
 	}
 	public void setHouseDescribe(String houseDescribe) {
 		this.houseDescribe = houseDescribe;
+	}
+	public String getRecommendation() {
+		return recommendation;
+	}
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
+	}
+	public String getHouseImage() {
+		return houseImage;
+	}
+	public void setHouseImage(String houseImage) {
+		this.houseImage = houseImage;
 	}
 }
