@@ -49,24 +49,24 @@ public class KeywordsAnjukeProperty {
 
 		String url = "";
 		int dataCount = 0;
+		//设定要跑几个城市
+		int cityNum = 0;
 		// 遍历敏感词
 		Map<String, String> keywordsMap = LogFile.getConfigInfo("keywords");
-		Iterator<Entry<String, String>> keywordsIter = keywordsMap.entrySet()
-				.iterator();
+		Iterator<Entry<String, String>> keywordsIter = keywordsMap.entrySet().iterator();
 		while (keywordsIter.hasNext()) {
 			Map.Entry<String, String> keywordsEntry = keywordsIter.next();
 			Object keywordsVal = keywordsEntry.getValue();
 			// System.out.println(val);
 
 			// 遍历城市
-			Map<String, String> cityMap = LogFile
-					.getConfigInfo("anjukeCityInfo");
-			Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet()
-					.iterator();
-			while (cityInfoIter.hasNext()) {
+			Map<String, String> cityMap = LogFile.getConfigInfo("anjukeCityInfo");
+			Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet().iterator();
+			while (cityInfoIter.hasNext()&&cityNum < 5) {
 				Map.Entry<String, String> cityEntry = (Map.Entry<String, String>) cityInfoIter.next();
 				Object cityKey = cityEntry.getKey();
 				Object cityVal = cityEntry.getValue();
+				cityNum = cityNum + 1;
 
 				// 检查二手房列表页搜索敏感词
 				url = "http://" + cityVal + ".anjuke.com/sale/rd1/?kw="
