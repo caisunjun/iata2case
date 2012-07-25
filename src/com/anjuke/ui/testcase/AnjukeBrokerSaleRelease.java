@@ -22,7 +22,7 @@ import com.anjuke.ui.publicfunction.BrokerSaleOperating;
  * @Author gabrielgao
  * @time 2012-04-11 17:00
  * @UpdateAuthor ccyang
- * @last updatetime 2012-07-17 13:00
+ * @last updatetime 2012-07-25 13:00
  */
 public class AnjukeBrokerSaleRelease {
 	private Browser driver = null;
