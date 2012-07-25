@@ -17,6 +17,7 @@ import com.anjukeinc.iata.ui.report.Report;
  * 1、填写出售信息，添加图片附件
  * 2、发布成功后，验证出售基本信息
  * 3、在出售详细页，验证房屋出售详细信息
+ * 
  * @Author gabrielgao
  * @time 2012-04-11 17:00
  * @UpdateAuthor ccyang

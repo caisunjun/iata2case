@@ -13,8 +13,8 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 /**
  * 
  * 该用例完成安居客出租发布、修改操作，逻辑如下
- * 1、输入租房信息，上传图片
- * 2、发布成功后，修改租房信息
+ * 1、编辑房源管理列表第一条房源（可选第几条，默认第一条）
+ * 2、修改租房信息，上次图片（可选，默认上传）
  * 3、修改成功后，在详细页验证修改后房屋出租信息
  * 
  * @Author grayhu
@@ -68,6 +68,6 @@ public class AnjukeBrokerRentEdit {
 	public void rentEdit() {
 		rentUpInfo = rentUpInfo_init();
 		PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);
-		BrokerRentOperating.editRent(driver, rentUpInfo, 1);
+		BrokerRentOperating.editRent(driver, rentUpInfo, 0);
 	}
 }
