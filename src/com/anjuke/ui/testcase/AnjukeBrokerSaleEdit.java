@@ -23,7 +23,7 @@ import com.anjukeinc.iata.ui.report.Report;
  * @Author gabrielgao
  * @time 2012-04-11 17:00
  * @UpdateAuthor ccyang
- * @last updatetime 2012-07-11 10:00
+ * @last updatetime 2012-07-25 10:00
  */
 public class AnjukeBrokerSaleEdit {
 	private Browser driver = null;
