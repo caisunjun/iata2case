@@ -188,12 +188,18 @@ public class AnjukeSaleInfo {
 	public String getRecommendation() {
 		return recommendation;
 	}
+	/**
+	 * @param recommendation  推荐、不推荐
+	 */
 	public void setRecommendation(String recommendation) {
 		this.recommendation = recommendation;
 	}
 	public String getHouseImage() {
 		return houseImage;
 	}
+	/**
+	 * @param houseImage   有图片、无图片
+	 */
 	public void setHouseImage(String houseImage) {
 		this.houseImage = houseImage;
 	}

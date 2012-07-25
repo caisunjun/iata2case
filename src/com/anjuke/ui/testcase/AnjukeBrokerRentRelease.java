@@ -11,7 +11,10 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjuke.ui.publicfunction.BrokerRentOperating;
 
 /**
- * 该用例完成安居客出租发布改版后操作，逻辑如下 1、填写出租信息，添加图片附件 2、验证发布成功 3、在出租详细页，验证房屋出租详细信息
+ * 该用例完成安居客出租发布改版后操作，逻辑如下 
+ * 1、填写出租信息，添加图片附件 
+ * 2、验证发布成功 
+ * 3、在出租详细页，验证房屋出租详细信息
  * 
  * @Author gabrielgao
  * @time 2012-04-11 17:00
