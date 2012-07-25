@@ -43,18 +43,18 @@ public class AnjukeSale {
 	}
 	
 	private AnjukeSaleInfo saleInfo_init() {
-		saleInfo.setCommunityName("潍坊八村");
-		saleInfo.setPriceTaxe("200");
-		saleInfo.setHouseArea("120");	
-		saleInfo.setHouseType_S("3");
-		saleInfo.setHouseType_T("2");
-		saleInfo.setHouseType_W("1");
-		saleInfo.setFloorCur("3");
-		saleInfo.setFloorTotal("6");
-		saleInfo.setHouseType("公寓");
-		saleInfo.setFitmentInfo("精装修");
-		saleInfo.setOrientations("东西");
-		saleInfo.setBuildYear("2009");
+		saleInfo.setCommunityName("潍坊八村");//小区
+		saleInfo.setPriceTaxe("200");//售价
+		saleInfo.setHouseArea("120.00");//面积	
+		saleInfo.setHouseType_S("3");//室
+		saleInfo.setHouseType_T("2");//厅
+		saleInfo.setHouseType_W("1");//卫
+		saleInfo.setFloorCur("3");//第几层
+		saleInfo.setFloorTotal("6");//共几层
+		saleInfo.setHouseType("公寓");//房屋类型
+		saleInfo.setFitmentInfo("精装修");//装修类型
+		saleInfo.setOrientations("东西");//朝向
+		saleInfo.setBuildYear("2009");//建造年代
 		String time = PublicProcess.getNowDateTime("HH:mm:ss");
 		saleInfo.setHouseTitle("发布出售请勿联系谢谢" + time);
 		saleInfo.setHouseDescribe("发布出售，此房源为测试房源，房源信息没有经过验证，请勿联系，感谢您对的支持。谢谢！");
@@ -99,7 +99,6 @@ public class AnjukeSale {
 			//driver.select(Init.G_objMap.get("anjuke_wangluojingjiren_sale_gongyu_click"), "公寓");
 			driver.select(Init.G_objMap.get("anjuke_wangluojingjiren_sale_housetype"),saleInfo.getHouseType());
 			
-			
 			// 装修情况
 			// XPATH 适配IE6不行 使用id定位IE6   --新版发房ie6还没改 --ie6 must die
 			// driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_fitMent2_ie6"),"装修情况：精装修");
@@ -111,7 +110,6 @@ public class AnjukeSale {
 			// driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_chaoxiang_south_ie6"),"方向：朝南");
 			//driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_chaoxiang_south"),"方向：朝南");
 			driver.select(Init.G_objMap.get("anjuke_wangluojingjiren_sale_chaoxiang"), saleInfo.getOrientations());
-			
 			
 			// 建筑年代
 			driver.type(Init.G_objMap.get("anjuke_wangluojingjiren_sale_houseAge"),	saleInfo.getBuildYear(), "建筑年代："+saleInfo.getBuildYear()+"年");
@@ -156,8 +154,6 @@ public class AnjukeSale {
 					Report.writeHTMLLog("发布成功", "出售房源发布成功"+"本期已发布的房源:"+houseListNumber.get(0)+"剩余发布房源数:"+houseListNumber.get(1), Report.PASS, "");
 				} else if(releaseMess.equals("发布成功！") && Integer.parseInt(houseList) < 10){
 					Report.writeHTMLLog("发布成功", "出售房源发布成功"+"本期已发布的房源:"+houseListNumber.get(0)+"剩余发布房源数:"+houseListNumber.get(1), Report.WARNING, "");
-				
-				
 				}else{
 					String ps = driver.printScreen();
 					Report.writeHTMLLog("发布失败", "出售房源发布失败" + "本期已发布的房源:"+houseListNumber.get(0)+"剩余发布房源数:"+houseListNumber.get(1), Report.FAIL, ps);
@@ -197,7 +193,7 @@ public class AnjukeSale {
 			
 			// 检查房型
 			String houseType = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_housetype"),"获取房型");
-			String saleInfo_houseT = "房型：" + saleInfo.getHouseType_S()+ saleInfo.getHouseType_T() + saleInfo.getHouseType_W();
+			String saleInfo_houseT = "房型：" + saleInfo.getHouseType_S()+"室"+saleInfo.getHouseType_T()+"厅"+ saleInfo.getHouseType_W()+"卫";
 			if (houseType.equals(saleInfo_houseT)) {
 				Report.writeHTMLLog("房源详细页", "房型详细信息：" + houseType,Report.PASS, "");
 			} else {
@@ -212,14 +208,14 @@ public class AnjukeSale {
 			}
 			// 朝向
 			String houseDire = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_dire"), "房子朝向");
-			if (houseDire.equals(saleInfo.getOrientations())) {
+			if (houseDire.equals("朝向："+saleInfo.getOrientations())) {
 				Report.writeHTMLLog("房源详细页", "朝向：" + houseDire, Report.PASS, "");
 			} else {
 				Report.writeHTMLLog("房源详细页", "朝向错误：" + houseDire + "正确为："+ saleInfo.getOrientations(), Report.FAIL,driver.printScreen());
 			}
 			// 建筑年代
 			String buildYear = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_year"), "建筑年代");
-			if (buildYear.equals(saleInfo.getBuildYear() + "年")) {
+			if (buildYear.equals("建造年代："+saleInfo.getBuildYear() + "年")) {
 				Report.writeHTMLLog("房源详细页", "建筑年代：" + buildYear, Report.PASS,"");
 			} else {
 				Report.writeHTMLLog("房源详细页", "建筑年代错误：" + buildYear + "正确为："+ saleInfo.getBuildYear() + "年", Report.FAIL,driver.printScreen());
@@ -234,7 +230,7 @@ public class AnjukeSale {
 			}
 			// 装修
 			String fitment = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_fitment"), "装修");
-			if (fitment.equals(saleInfo.getFitmentInfo())) {
+			if (fitment.equals("装修："+saleInfo.getFitmentInfo())) {
 				Report.writeHTMLLog("房源详细页", "装修：" + fitment, Report.PASS, "");
 			} else {
 				Report.writeHTMLLog("房源详细页", "装修：" + fitment + "正确为："+ saleInfo.getFitmentInfo(), Report.FAIL,driver.printScreen());
@@ -265,13 +261,6 @@ public class AnjukeSale {
 		{
 			houseln.add(driver.getText("//dl[5]/dd/a", "获取已发布房源数"));
 			houseln.add(driver.getText("//dl[6]/dd/a", "获取剩余发布房源数"));
-		}
-		else
-		{
-			//非付费经纪人·已发布数·假的
-			houseln.add("2");
-			//非付费经纪人·剩余发布数·假的
-			houseln.add("22");
 		}
 		return houseln;
 	}
