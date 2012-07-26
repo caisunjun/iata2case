@@ -43,7 +43,7 @@ public class AnjukeCityhomepageSearchareaLink {
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); 
 		int tmpCount = 0;
 		//判断城市列表是否存在
-		if(bs.check(tmpCityList,60)){
+		if(bs.check(tmpCityList,10)){
 			tmpCount = bs.getElementCount(Init.G_objMap.get("cityhomepage_text_city_list"));
 		}else{
 			String ps = bs.printScreen();

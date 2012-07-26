@@ -106,7 +106,8 @@ public class AnjukeCommunityListPrice {
 		String cityName = null;
 		String cityUrl = null;
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
-		for(int i=1;i<=count;i++){
+		//只跑5个城市吧
+		for(int i=1;i<=5;i++){
 			tmpCityList = tmpCityList+"["+i+"]";
 			if(bs.check(tmpCityList)){
 				cityName = bs.getText(tmpCityList, "获取城市名称");
