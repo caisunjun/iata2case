@@ -29,8 +29,6 @@ public class AnjukeBrokerSaleEdit {
 	private Browser driver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
 	private AnjukeSaleInfo updateInfo = new AnjukeSaleInfo();
-	private ArrayList<String> houseListNumber = null;
-	private int isPayed = 0;
 	private boolean needPic = false;
 	
 	@BeforeMethod
@@ -42,7 +40,6 @@ public class AnjukeBrokerSaleEdit {
 	
 	@AfterMethod
 	public void tearDown(){
-		Report.seleniumReport("", "");
 		driver.quit();
 		driver=null;		
 	}
@@ -100,10 +97,6 @@ public class AnjukeBrokerSaleEdit {
 		}else{
 			BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
 		}
-	}
-
-	private void updateRelease(){
-
 	}
 
 }

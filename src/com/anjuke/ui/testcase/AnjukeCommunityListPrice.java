@@ -32,6 +32,7 @@ public class AnjukeCommunityListPrice {
 
 	@AfterMethod
 	public void tearDown() {
+		Report.seleniumReport("", "");
 		bs.quit();
 		bs = null;
 	}
@@ -41,6 +42,7 @@ public class AnjukeCommunityListPrice {
 		bs.get("http://shanghai.anjuke.com");
 		String cityUrl = null;
 		String cityName =null;
+		int checkTimes = 0;
 		HashMap<String,String> resultList =null;
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
 		int tmpCount = 0;
@@ -56,7 +58,9 @@ public class AnjukeCommunityListPrice {
         if(tmpCount!=0){
         	resultList = getCommunityCount(tmpCount);
         	Iterator<Entry<String, String>> iterComm = resultList.entrySet().iterator();
-        	while(iterComm.hasNext()){
+        	//本来要跑完所有的城市··················先跑5个吧·······································
+        	while(iterComm.hasNext()&& checkTimes<5 ){
+        		checkTimes = checkTimes + 1;
             	Map.Entry<String, String> result = iterComm.next();
             	cityName = result.getKey();
             	cityUrl = result.getValue();
