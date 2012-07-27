@@ -27,7 +27,7 @@ import com.anjuke.ui.publicfunction.BrokerSaleOperating;
 public class AnjukeBrokerSaleRelease {
 	private Browser driver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
-	private boolean needPic = false;
+	private boolean needPic = true;
 
 	@BeforeMethod
 	public void startUp() {
@@ -38,7 +38,6 @@ public class AnjukeBrokerSaleRelease {
 
 	@AfterMethod
 	public void tearDown() {
-		Report.seleniumReport("", "");
 		driver.quit();
 		driver = null;
 	}
@@ -66,8 +65,10 @@ public class AnjukeBrokerSaleRelease {
 	@Test(groups = {"unstable"})
 	public void releaseSale() {
 		driver.deleteAllCookies();
+		//for daily
+		//saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+		//for test
 		saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
-		
 		BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
 		
 		driver.close();

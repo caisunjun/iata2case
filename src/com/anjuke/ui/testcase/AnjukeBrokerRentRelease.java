@@ -67,7 +67,7 @@ public class AnjukeBrokerRentRelease {
 	@Test (timeOut = 500000)
 	public void rentRelease(){
 		rentInfo = rentInfo_init();
-		PublicProcess.logIn(driver, "test1","123456", false, 1);
+		PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);
 		BrokerRentOperating.releaseRent(driver, rentInfo);
 	}
 }

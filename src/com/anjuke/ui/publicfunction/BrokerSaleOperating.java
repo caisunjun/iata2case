@@ -282,6 +282,8 @@ public class BrokerSaleOperating {
 //			driver.switchWindo(2);
 		//房源详细页，房源标题检查
 		driver.check("className^propInfoTitle");
+		
+
 		//driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_title"));
 		String propInfoTitle = driver.getText("className^propInfoTitle", "获取房源标题");
 		//String propInfoTitle = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_title"), "获取房源标题");
@@ -362,6 +364,8 @@ public class BrokerSaleOperating {
 		}else{
 			Report.writeHTMLLog("房源详细页", "验证房源描述-->"+description+"正确为："+updateInfo.getHouseDescribe(), Report.FAIL, driver.printScreen());		
 		}
+	
+		
 		//删除发布房源
 //			driver.close();
 //			driver.switchWindo(1);
