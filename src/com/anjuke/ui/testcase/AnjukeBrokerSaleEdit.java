@@ -1,8 +1,5 @@
 package com.anjuke.ui.testcase;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,8 +9,6 @@ import com.anjuke.ui.publicfunction.BrokerSaleOperating;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjukeinc.iata.ui.init.Init;
-import com.anjukeinc.iata.ui.report.Report;
 /**
  * 该用例完成安居客出售更新操作，逻辑如下
  * 1、编辑出售信息，添加图片附件

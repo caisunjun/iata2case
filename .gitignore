@@ -1,0 +1,7 @@
+*.bak
+/bin
+config.ini
+/bulid
+chromedriver.log
+/test-output
+/config.ini
