@@ -57,6 +57,7 @@ public class KeywordsAnjukeProperty {
 		while (keywordsIter.hasNext()) {
 			Map.Entry<String, String> keywordsEntry = keywordsIter.next();
 			Object keywordsVal = keywordsEntry.getValue();
+			Object keywordsURL = keywordsEntry.getValue();
 			// System.out.println(val);
 
 			// 遍历城市
@@ -70,7 +71,7 @@ public class KeywordsAnjukeProperty {
 
 				// 检查二手房列表页搜索敏感词
 				url = "http://" + cityVal + ".anjuke.com/sale/rd1/?kw="
-						+ URLEncoder.encode((String) keywordsVal, "UTF-8");
+						+ URLEncoder.encode((String) keywordsURL, "UTF-8");
 
 				bs.get(url);
 
