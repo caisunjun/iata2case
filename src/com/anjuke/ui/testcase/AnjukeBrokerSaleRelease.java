@@ -63,9 +63,9 @@ public class AnjukeBrokerSaleRelease {
 	public void releaseSale() {
 		driver.deleteAllCookies();
 		//for daily
-		//saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+		saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
 		//for test
-		saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
+		//saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
 		BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
 		
 		driver.close();
