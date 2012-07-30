@@ -83,7 +83,11 @@ public class AnjukeBrokerSaleEdit {
 		driver.deleteAllCookies();
 		//Report.setTCNameLog("管理出售编辑-- AnjukeUpdateReleaseSale --Hendry_huang");
 		driver.deleteAllCookies();
-		updateInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456", false,1));
+		//for daily
+		updateInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+		//for test
+		//updateInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
+		
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
 		//driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firstEdit"));
 		

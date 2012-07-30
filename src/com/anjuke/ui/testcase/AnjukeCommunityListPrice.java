@@ -20,7 +20,7 @@ import com.anjukeinc.iata.ui.report.Report;
  * 2、判断每个城市首页的均价统计文字
  * 3、判断小区列表页小区的均价以及均价趋势是否存在
  * @updateAuthor gabrielgao
- * @last updatetime 2012-05-10 13:30
+ * @last updatetime 2012-05-10 13:30112333
  */
 public class AnjukeCommunityListPrice {
 	private Browser bs = null;
@@ -110,7 +110,8 @@ public class AnjukeCommunityListPrice {
 		String cityName = null;
 		String cityUrl = null;
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
-		for(int i=1;i<=count;i++){
+		//只跑5个城市吧
+		for(int i=1;i<=5;i++){
 			tmpCityList = tmpCityList+"["+i+"]";
 			if(bs.check(tmpCityList)){
 				cityName = bs.getText(tmpCityList, "获取城市名称");
