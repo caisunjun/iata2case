@@ -247,7 +247,7 @@ public class AnjukeCommonUserModifyInfo {
 
 		//上传尺寸正确的头像
 		String picPath = Init.G_config.get("picPath") + "Correct Icon.gif";
-		bs.uploadFile(Init.G_objMap.get("anjuke_commonuser_info_modification_icon_upload_fi"), picPath, "选中一张头像尺寸不符的图片上传");
+		bs.uploadFile(Init.G_objMap.get("anjuke_commonuser_info_modification_icon_upload_fi"), picPath, "选中一张头像尺寸正确的图片上传");
 
 		//检查正确提示是否显示正确
 		if(bs.getText(Init.G_objMap.get("anjuke_commonuser_info_modification_icon_prompt"), "获取上传成功提示").contains("按钮保存您的设置")){

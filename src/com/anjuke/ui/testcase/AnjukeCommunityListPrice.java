@@ -32,7 +32,6 @@ public class AnjukeCommunityListPrice {
 
 	@AfterMethod
 	public void tearDown() {
-		Report.seleniumReport("", "");
 		bs.quit();
 		bs = null;
 	}
@@ -136,19 +135,27 @@ public class AnjukeCommunityListPrice {
 
 		// 获取列表页第一个小区流水号
 		String tmpFirstCommID = Init.G_objMap.get("community_list_first");
+		System.out.println("到此一游1");
+		
 		String firstCommIDString = bs.getAttribute(tmpFirstCommID, "id");
+		System.out.println("到此一游2");
+		
 		if(inCityName.equals("北京")||inCityName.equals("上海")){
 			firstCommIDString = firstCommIDString.replace("li_apf_html_id_", "");
 		}else{
 			firstCommIDString = firstCommIDString.replace("li_apf_id_", "");
 		}
-
+		System.out.println("到此一游3");
+		
 		int firstCommID = Integer.parseInt(firstCommIDString); 
-
+		System.out.println("到此一游4");
+		
 		for (int i = 0; i <= 9; i++) {
 			// 获取小区名
 			// CommName=bs.getText("//a[@id='comm_name_qt_apf_id_"+(firstCommID+i*2)+"']",
 			// "获取小区名称");
+			System.out.println("到循环里了");
+			
             if(inCityName.equals("北京")||inCityName.equals("上海")){
     			// 获取小区均价
     			tmpPrice = "//div[@id='apf_html_id_" + (firstCommID + i) + "']/div[3]/label[1]/span/strong";

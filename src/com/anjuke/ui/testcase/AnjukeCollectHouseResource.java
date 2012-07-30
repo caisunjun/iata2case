@@ -70,7 +70,11 @@ public class AnjukeCollectHouseResource {
 					//获取第一条二手房记录
 					firstdataTitle = driver.getText(anjuke_salefirstdata_title, "获取第一条合格的记录标题");
 					price = driver.getText(anjuke_salefirstdata_price, "获取第一条合格的记录价格");
+					//经纪人姓名的控件里可能出现其他内容
 					releaseName = driver.getText(anjuke_salefirstdata_releaseName, "获取第一条合格的记录经纪人姓名").trim();
+					String s = new String(releaseName);   
+			        String a[] = s.split(" ");  
+			        releaseName = a[0];
 					driver.click(anjuke_salefirstdata_img, "访问第一条记录的图片");
 					break;
 				}
@@ -112,7 +116,7 @@ public class AnjukeCollectHouseResource {
                     	Report.writeHTMLLog("collect data title", "collect data title is correct!"+"<br>"+collectDatatitle+"<br>VS "+firstdataTitle, Report.PASS, "");
                     }else{
                     	String ps = driver.printScreen();
-                    	Report.writeHTMLLog("collect data title", "collect data title is fault", Report.FAIL, ps);
+                    	Report.writeHTMLLog("collect data title", "collect data title is fault"+"<br>"+collectDatatitle+"<br>VS "+firstdataTitle, Report.FAIL, ps);
                     }
                     //判断选房单价格
                     String collectPrice = driver.getText(Init.G_objMap.get("anjuke_sale_member_houselist_firstdataprice"), "获取房源价格");

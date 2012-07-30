@@ -194,7 +194,18 @@ public class PublicProcess {
 		password = "test1234";
 
 		driver.get(homeUrl);
-		driver.click(Init.G_objMap.get("public_link_reg"), "点击主页右上角的注册按钮");
+		//以防打开页面后，这里经常找不到登陆的元素--------------------------2012.7.30
+		if(driver.check(Init.G_objMap.get("public_link_reg")))
+		{
+			driver.click(Init.G_objMap.get("public_link_reg"), "点击主页右上角的注册按钮");		
+		}
+		else
+		{
+			String ps = driver.printScreen();
+			Report.writeHTMLLog("从首页注册", "又没有找到注册按钮，尝试刷新页面", Report.DONE,ps);
+			driver.refresh();
+			driver.click(Init.G_objMap.get("public_link_reg"), "点击主页右上角的注册按钮");
+		}
 
 		driver.type(Init.G_objMap.get("anjuke_register_username"), userName, "输入用户名");
 		driver.type(Init.G_objMap.get("anjuke_register_password"), password, "输入密码");
