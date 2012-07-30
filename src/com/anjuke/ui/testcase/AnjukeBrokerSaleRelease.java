@@ -35,7 +35,6 @@ public class AnjukeBrokerSaleRelease {
 
 	@AfterMethod
 	public void tearDown() {
-		Report.seleniumReport("", "");
 		driver.quit();
 		driver = null;
 	}
