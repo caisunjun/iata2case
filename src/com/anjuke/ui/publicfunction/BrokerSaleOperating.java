@@ -375,14 +375,18 @@ public class BrokerSaleOperating {
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_hideprop"), "删除发布房源");
 			
 			if(driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"))){
-				System.out.println(driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_list_firstTitle"), "删除后再获取房源标题"));
+				String firstTitle = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_list_firstTitle"), "删除后再获取房源标题");
+				System.out.println(firstTitle);
+				
 				System.out.println("-----------");
-				System.out.println(updateInfo.getHouseTitle());
-				if(!driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_list_firstTitle"), "删除后再获取房源标题").equals(updateInfo.getHouseTitle())){
-					
-					Report.writeHTMLLog("删除房源", "删除编辑后的房源", "DONE", "");
+				
+				String houseTitle = updateInfo.getHouseTitle();
+				System.out.println(houseTitle);
+				
+				if(!firstTitle.equals(houseTitle)){
+					Report.writeHTMLLog("删除房源", "删除编辑后的房源"+firstTitle+"<br>vs"+houseTitle, "DONE", "");
 				}else{
-					Report.writeHTMLLog("删除房源", "删除编辑后的房源,删除失败", "FAIL", driver.printScreen());
+					Report.writeHTMLLog("删除房源", "删除编辑后的房源,删除失败"+firstTitle+"<br>vs"+houseTitle, "FAIL", driver.printScreen());
 				}
 			}else{
 				Report.writeHTMLLog("删除房源", "删除编辑后的房源", "DONE", "");
