@@ -69,8 +69,10 @@ public class AnjukeCancelRecommendHouse {
 			// 清空当前浏览器的cookie
 			bs.deleteAllCookies();
 		} 
-		
-        PublicProcess.dologin(bs, "cdtest", "anjukeqa");
+		//For anjuke daily
+		PublicProcess.dologin(bs, "cdtest", "anjukeqa");
+        //For other
+//		PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
 
 
 		// 点击主页右上角的我的经纪人链接
