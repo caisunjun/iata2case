@@ -365,32 +365,13 @@ public class BrokerSaleOperating {
 			Report.writeHTMLLog("房源详细页", "验证房源描述-->"+description+"正确为："+updateInfo.getHouseDescribe(), Report.FAIL, driver.printScreen());		
 		}
 	
-		
-		//删除发布房源
+		//删除发布房源```删除后再做验证？删的对不对？在这个case里验证？需要考虑回收站翻页
 //			driver.close();
 //			driver.switchWindo(1);
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");		
 		if(driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"))&&driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_list_firstTitle"), "获取房源名称").equals(updateInfo.getHouseTitle())){
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"), "选中发布房源");		
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_hideprop"), "删除发布房源");
-			
-			if(driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"))){
-				String firstTitle = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_list_firstTitle"), "删除后再获取房源标题");
-				System.out.println(firstTitle);
-				
-				System.out.println("-----------");
-				
-				String houseTitle = updateInfo.getHouseTitle();
-				System.out.println(houseTitle);
-				
-				if(!firstTitle.equals(houseTitle)){
-					Report.writeHTMLLog("删除房源", "删除编辑后的房源"+firstTitle+"<br>vs"+houseTitle, "DONE", "");
-				}else{
-					Report.writeHTMLLog("删除房源", "删除编辑后的房源,删除失败"+firstTitle+"<br>vs"+houseTitle, "FAIL", driver.printScreen());
-				}
-			}else{
-				Report.writeHTMLLog("删除房源", "删除编辑后的房源", "DONE", "");
-			}
 		}else{
 			Report.writeHTMLLog("删除房源", "没有可以删除的房源", "DONE", driver.printScreen());
 		}
