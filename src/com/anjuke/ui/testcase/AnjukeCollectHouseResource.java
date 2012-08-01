@@ -19,6 +19,9 @@ import com.anjukeinc.iata.ui.report.Report;
  * 6、判断房源列表当前页，是否存在多条相同的数据
  * @UpdateAuthor Gabrielgao
  * @last updatetime 2012-05-08 11:30
+ * @UpdateAuthor ccyang
+ * @last updatetime 2012-08-01 10:30
+ * 列表页里经纪人名称模块，可能取到其他信息，需要将经纪人的名称取出来
  */
 public class AnjukeCollectHouseResource {
 	private Browser driver = null;

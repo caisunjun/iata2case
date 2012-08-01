@@ -70,7 +70,7 @@ public class AnjukeCancelRecommendHouse {
 			bs.deleteAllCookies();
 		} 
 		
-        PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
+        PublicProcess.dologin(bs, "cdtest", "anjukeqa");
 
 
 		// 点击主页右上角的我的经纪人链接

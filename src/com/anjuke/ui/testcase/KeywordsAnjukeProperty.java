@@ -24,6 +24,9 @@ import com.anjukeinc.iata.ui.report.Report;
  * 5、经纪人列表页敏感词检查
  * @updateAuthor gabrielgao
  * @last updatetime 2012-05-08 17:00
+ * @modifyAuthor ccyang
+ * @last updatetime 2012-08-01 10:30
+ * 加了一个城市数量控制 :now 和 cityNum
  */
 public class KeywordsAnjukeProperty {
 	private Browser bs = null;
@@ -50,7 +53,8 @@ public class KeywordsAnjukeProperty {
 		String url = "";
 		int dataCount = 0;
 		//设定要跑几个城市
-		int cityNum = 0;
+		int now = 0;
+		int cityNum = 5;
 		// 遍历敏感词
 		Map<String, String> keywordsMap = LogFile.getConfigInfo("keywords");
 		Iterator<Entry<String, String>> keywordsIter = keywordsMap.entrySet().iterator();
@@ -63,11 +67,11 @@ public class KeywordsAnjukeProperty {
 			// 遍历城市
 			Map<String, String> cityMap = LogFile.getConfigInfo("anjukeCityInfo");
 			Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet().iterator();
-			while (cityInfoIter.hasNext()&&cityNum < 5) {
+			while (cityInfoIter.hasNext()&&now < cityNum) {
 				Map.Entry<String, String> cityEntry = (Map.Entry<String, String>) cityInfoIter.next();
 				Object cityKey = cityEntry.getKey();
 				Object cityVal = cityEntry.getValue();
-				cityNum = cityNum + 1;
+				now = now + 1;
 
 				// 检查二手房列表页搜索敏感词
 				url = "http://" + cityVal + ".anjuke.com/sale/rd1/?kw="

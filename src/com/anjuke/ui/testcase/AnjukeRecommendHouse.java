@@ -75,7 +75,7 @@ public class AnjukeRecommendHouse {
 			bs.deleteAllCookies();			
 		}		
 
-        PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
+        PublicProcess.dologin(bs, "cdtest", "anjukeqa");
 
 		//点击主页右上角我的经纪人目录链接
 		bs.check(Init.G_objMap.get("cityhomepage_login_broker_username_link"), 5);
