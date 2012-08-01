@@ -85,7 +85,10 @@ public class AnjukeCommonUserModifyInfo {
 		PublicProcess.registerCommonUser(bs);
 
 		//点击右上角用户名链接
-		bs.check(Init.G_objMap.get("anjuke_citypage_login_success_username"));
+		if(!bs.check(Init.G_objMap.get("anjuke_citypage_login_success_username")))
+		{
+			bs.refreshPage();
+		}
 		bs.click(Init.G_objMap.get("anjuke_citypage_login_success_username"), "点击主页右上角用户名链接");		
 
 		//点击修改资料链接
