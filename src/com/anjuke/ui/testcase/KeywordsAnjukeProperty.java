@@ -38,6 +38,7 @@ public class KeywordsAnjukeProperty {
 
 	@AfterMethod
 	public void tearDown() {
+		Report.seleniumReport("", "");
 		bs.quit();
 		bs=null;
 	}
@@ -106,7 +107,7 @@ public class KeywordsAnjukeProperty {
 
 				// 检查租房列表页搜索敏感词
 				url = "http://" + cityVal + ".anjuke.com/rental/rd1?kw="
-						+ keywordsVal;
+						+ URLEncoder.encode((String) keywordsURL, "UTF-8");
 
 				bs.get(url);
 
@@ -139,7 +140,7 @@ public class KeywordsAnjukeProperty {
 				if (cityVal.equals("shanghai") || cityVal.equals("beijing")) {
 					url = "http://" + cityVal
 							+ ".anjuke.com/community/list/W0QQkwZ"
-							+ keywordsVal;
+							+ URLEncoder.encode((String) keywordsURL, "UTF-8");
 					bs.get(url);
 					// 获取小区列表页无结果字符串元素个数
 					if (bs.check(Init.G_objMap
@@ -158,7 +159,7 @@ public class KeywordsAnjukeProperty {
 
 				} else {
 					url = "http://" + cityVal + ".anjuke.com/community/list/"
-							+ keywordsVal + "W0QQrdZ1";
+							+ URLEncoder.encode((String) keywordsURL, "UTF-8") + "W0QQrdZ1";
 					bs.get(url);
 					// 获取小区列表页无结果字符串元素个数
 					if (bs.check(Init.G_objMap
@@ -191,7 +192,7 @@ public class KeywordsAnjukeProperty {
 
 				// 检查经纪人列表页搜索敏感词
 				url = "http://" + cityVal
-						+ ".anjuke.com/tycoon/W0QQtxtKeywordZ" + keywordsVal;
+						+ ".anjuke.com/tycoon/W0QQtxtKeywordZ" + URLEncoder.encode((String) keywordsURL, "UTF-8");
 				bs.get(url);
 
 				if (bs.check(Init.G_objMap.get("anjuke_broker_no_found"))) {
