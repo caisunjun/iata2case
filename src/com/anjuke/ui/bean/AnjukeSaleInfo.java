@@ -7,7 +7,7 @@ public class AnjukeSaleInfo {
 	private String userName ;
 	//小区名称
 	private String communityName;
-	//放我类型
+	//房屋类型
 	private String houseType;
 	//当前楼层
 	private String floorCur;
