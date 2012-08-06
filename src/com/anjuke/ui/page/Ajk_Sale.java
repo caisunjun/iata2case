@@ -1,7 +1,7 @@
 package com.anjuke.ui.page;
 
 /**
- * 安居客 - 问答首页 http://shanghai.anjuke.com/ask
+ * 安居客 - 二手房列表 http://shanghai.anjuke.com/sale/
  * 
  * @author grayhu
  * */
