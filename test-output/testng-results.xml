@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="25421" started-at="2012-08-01T18:06:30Z" finished-at="2012-08-01T18:06:55Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="25421" started-at="2012-08-01T18:06:30Z" finished-at="2012-08-01T18:06:55Z">
+      <class name="com.anjuke.ui.testcase.sellhouse">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.anjuke.ui.testcase.sellhouse@eb017e]" name="setUp" is-config="true" duration-ms="8734" started-at="2012-08-01T18:06:30Z" finished-at="2012-08-01T18:06:39Z">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:com.anjuke.ui.testcase.sellhouse@eb017e]" name="test1" duration-ms="16375" started-at="2012-08-01T18:06:39Z" finished-at="2012-08-01T18:06:55Z">
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.anjuke.ui.testcase.sellhouse@eb017e]" name="tearDown" is-config="true" duration-ms="312" started-at="2012-08-01T18:06:55Z" finished-at="2012-08-01T18:06:55Z">
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.anjuke.ui.testcase.sellhouse -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
