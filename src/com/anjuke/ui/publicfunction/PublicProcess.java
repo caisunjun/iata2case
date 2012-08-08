@@ -266,7 +266,7 @@ public class PublicProcess {
 			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_fangxingtu"), "d:\\image\\600x600.jpg", picMess);
 		}
 		exception(driver, picMess);
-		// 上传室内图片
+		// 上传房型图片
 		if (type.equals("sale")) {
 			picMess = "上传房型图";
 			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_shineitu"), "d:\\image\\600x600.jpg", picMess);
