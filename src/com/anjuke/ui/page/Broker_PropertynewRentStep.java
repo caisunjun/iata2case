@@ -9,16 +9,21 @@ package com.anjuke.ui.page;
 
 public class Broker_PropertynewRentStep {
 
-	/* 发布租房第一步 */
-
+	/** 发布出租1 - 房源数量达到上限 */
+	public static final String SHANGXIAN = "//div[@class='p-popresult alert']/h2";
+	
+	/* 发布租房第一步 */ //div[@class='p-popresult alert']/h2
+	
 	/** 发布出租1 - 输入小区名 */
-	public static final String XIAOQU = "id^txtCommunity";
+	public static final String XIAOQUMING = "id^txtCommunity";
+	/** 发布出租1 - 下拉框 - 选小区 */
+	public static final String XUANXIAOQU = "//ul[@id='targetid']/li[2]/span";
 	/** 发布出租1 - 选择合租 */
 	public static final String HEZU = "id^radIsDolmus_0";
 	/** 发布出租1 - 选择整租 */
 	public static final String ZHENGZU = "id^radIsDolmus_1";
 	/** 发布出租1 - 输入租金 */
-	public static final String PRICE = "id^txtProPrice";
+	public static final String ZUJIN = "id^txtProPrice";
 	/** 发布出租1 - 付款方式 -付 */
 	public static final String FUKUAN = "id^txtPayNum";
 	/** 发布出租1 - 付款方式 -押 */
@@ -44,13 +49,13 @@ public class Broker_PropertynewRentStep {
 	/** 发布出租1 - 建筑年代 */
 	public static final String HOUSE_AGE = "id^txtHouseAge";
 	/** 发布出租1 - 配置 - 电视机 */
-	public static final String HAVE_TV = "id^chkHaveTvbox";
+	public static final String CONFIG_TV = "id^chkHaveTvbox";
 	/** 发布出租1 - 房源标题 */
 	public static final String TITLE = "id^txtProName]";
 	/** 发布出租1 - 房源描述 - frame定位 */
-	public static final String HOUSE_DESC = "//td[@id='cke_contents_txtExplain']/iframe";
+	public static final String MIAOSHU = "//td[@id='cke_contents_txtExplain']/iframe";
 	/** 发布出租1 - 房源推荐 */
-	public static final String RECOM = "id^checkbox-r";
+	public static final String TUIJIAN = "id^checkbox-r";
 	/** 发布出租1 - 去上传照片 - 按钮 */
 	public static final String UPLOAD_PHOTO = "id^btnSaveEditp";
 	/** 发布出租1 - 立即发布 - 按钮 */
@@ -69,9 +74,9 @@ public class Broker_PropertynewRentStep {
 	/* 发布租房第三步 */
 	/** 发布出租3 - 发布成功 - 文字提示 */
 	public static final String SUCCEED = "//div[@class='p-popresult succeed']/h2";
-	/** 发布出租3 - 房源单页 - 文字提示 */
+	/** 发布出租3 - 房源单页 - 文字链接 */
 	public static final String PROPRENT = "//div[@class='p-popresult succeed']/p/a[1]";
-	/** 发布出租3 - 管理房源 - 文字提示 */
+	/** 发布出租3 - 管理房源 - 文字链接 */
 	public static final String PROPMANAGE = "//div[@class='p-popresult succeed']/p/a[2]";
 
 }
