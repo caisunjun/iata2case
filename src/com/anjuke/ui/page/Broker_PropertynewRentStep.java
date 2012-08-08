@@ -12,66 +12,66 @@ public class Broker_PropertynewRentStep {
 	/* 发布租房第一步 */
 
 	/** 发布出租1 - 输入小区名 */
-	public static final String RENT_XIAOQU = "//input[@id='txtCommunity']";
+	public static final String XIAOQU = "id^txtCommunity";
 	/** 发布出租1 - 选择合租 */
-	public static final String RENT_HEZU = "id^radIsDolmus_0";
+	public static final String HEZU = "id^radIsDolmus_0";
 	/** 发布出租1 - 选择整租 */
-	public static final String RENT_ZHENGZU = "id^radIsDolmus_1";
+	public static final String ZHENGZU = "id^radIsDolmus_1";
 	/** 发布出租1 - 输入租金 */
-	public static final String RENT_PRICE = "//input[@id='txtProPrice']";
+	public static final String PRICE = "id^txtProPrice";
 	/** 发布出租1 - 付款方式 -付 */
-	public static final String RENT_FUKUAN = "//input[@id='txtPayNum']";
+	public static final String FUKUAN = "id^txtPayNum";
 	/** 发布出租1 - 付款方式 -押 */
-	public static final String RENT_YAJIN = "//input[@id='txtDepositNum']";
+	public static final String YAJIN = "id^txtDepositNum";
 	/** 发布出租1 - 建筑面积 */
-	public static final String RENT_AREA = "//input[@id='txtAreaNum']";
+	public static final String AREA = "id^txtAreaNum";
 	/** 发布出租1 - 房型 - 室 */
-	public static final String RENT_ROOM = "//input[@id='txtRoomNum']";
+	public static final String ROOM = "id^txtRoomNum";
 	/** 发布出租1 - 房型 - 厅 */
-	public static final String RENT_HALL = "//input[@id='txtHallNum']";
+	public static final String HALL = "id^txtHallNum";
 	/** 发布出租1 - 房型 - 卫 */
-	public static final String RENT_TOILE = "//input[@id='txtToiletNum']";
+	public static final String TOILE = "id^txtToiletNum";
 	/** 发布出租1 - 楼层 - 所在楼层 */
-	public static final String RENT_FLOOR = "//input[@id='txtProFloor']";
+	public static final String FLOOR = "id^txtProFloor";
+	/** 发布出租1 - 楼层 - 总楼层 */
+	public static final String FLOOR_T = "id^txtFloorNum";
 	/** 发布出租1 - 房屋情况 - 房屋类型 */
-	public static final String RENT_LEIXING = "//input[@id='radUseType']";
+	public static final String LEIXING = "id^radUseType";
 	/** 发布出租1 - 房屋情况 - 装修情况 */
-	public static final String RENT_ZHUANGXIU = "//input[@id='radFitment']";
+	public static final String ZHUANGXIU = "id^radFitment";
 	/** 发布出租1 - 房屋情况 - 朝向 */
-	public static final String RENT_CHAOXIANG = "//input[@id='radHouseOri']";
+	public static final String CHAOXIANG = "id^radHouseOri";
 	/** 发布出租1 - 建筑年代 */
-	public static final String RENT_HOUSE_AGE = "//input[@id='txtHouseAge']";
+	public static final String HOUSE_AGE = "id^txtHouseAge";
 	/** 发布出租1 - 配置 - 电视机 */
-	public static final String RENT_HAVE_TV = "//input[@id='chkHaveTvbox']";
+	public static final String HAVE_TV = "id^chkHaveTvbox";
 	/** 发布出租1 - 房源标题 */
-	public static final String RENT_TITLE = "//input[@id='txtProName']";
+	public static final String TITLE = "id^txtProName]";
 	/** 发布出租1 - 房源描述 - frame定位 */
-	public static final String RENT_HOUSE_DESC = "//td[@id='cke_contents_txtExplain']/iframe";
+	public static final String HOUSE_DESC = "//td[@id='cke_contents_txtExplain']/iframe";
 	/** 发布出租1 - 房源推荐 */
-	public static final String RENT_RECOM = "//input[@id='checkbox-r']";
+	public static final String RECOM = "id^checkbox-r";
 	/** 发布出租1 - 去上传照片 - 按钮 */
-	public static final String RENT_UPLOAD_PHOTO = "//input[@id='btnSaveEditp']";
+	public static final String UPLOAD_PHOTO = "id^btnSaveEditp";
 	/** 发布出租1 - 立即发布 - 按钮 */
-	public static final String RENT_PUBLISH = "//input[@id='btnSaveEdit']";
-	
-	
+	public static final String PUBLISH = "id^btnSaveEdit";
+
 	/* 发布租房第二步 */
 	/** 发布出租2 - 上传图片 - 室内图 */
-	public static final String RENT_SHINEITU = "//object[@id='multi_upload_apf_id_6Uploader']";
+	public static final String SHINEITU = "//object[@id='multi_upload_apf_id_6Uploader']";
 	/** 发布出租2 - 上传图片 - 房型图 */
-	public static final String RENT_FANGXINGTU = "//object[@id='multi_upload_apf_id_7Uploader']";
+	public static final String FANGXINGTU = "//object[@id='multi_upload_apf_id_7Uploader']";
 	/** 发布出租2 - 上传图片 - 小区图 */
-	public static final String RENT_XIAOQUTU = "//object[@id='multi_upload_apf_id_8Uploader']";
+	public static final String XIAOQUTU = "//object[@id='multi_upload_apf_id_8Uploader']";
 	/** 发布出租2 - 发布房源 - 按钮 */
-	public static final String RENT_PUBLISH2 = "//input[@id='submitup']";
+	public static final String PUBLISH2 = "id^submitup";
 
-	
 	/* 发布租房第三步 */
 	/** 发布出租3 - 发布成功 - 文字提示 */
-	public static final String RENT_SUCCEED = "//div[@class='p-popresult succeed']/h2";
+	public static final String SUCCEED = "//div[@class='p-popresult succeed']/h2";
 	/** 发布出租3 - 房源单页 - 文字提示 */
-	public static final String RENT_PROPVIEW = "//div[@class='p-popresult succeed']/p/a[1]";
+	public static final String PROPRENT = "//div[@class='p-popresult succeed']/p/a[1]";
 	/** 发布出租3 - 管理房源 - 文字提示 */
-	public static final String RENT_PROPMANAGE = "//div[@class='p-popresult succeed']/p/a[2]";
+	public static final String PROPMANAGE = "//div[@class='p-popresult succeed']/p/a[2]";
 
 }
