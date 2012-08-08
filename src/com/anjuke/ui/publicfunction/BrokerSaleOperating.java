@@ -341,7 +341,7 @@ public class BrokerSaleOperating {
 			Report.writeHTMLLog("房源详细页", "验证建筑年代-->"+buildYear, Report.PASS, "");
 		}else{
 			Report.writeHTMLLog("房源详细页", "验证建筑年代错误-->"+buildYear+"正确为："+updateInfo.getBuildYear()+"年", Report.FAIL, driver.printScreen());		
-		}		
+		}
 		//楼层
 		String floor = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_floor"), "楼层");
 		String floorInfo = "楼层："+updateInfo.getFloorCur()+"/"+updateInfo.getFloorTotal();
@@ -356,7 +356,7 @@ public class BrokerSaleOperating {
 			Report.writeHTMLLog("房源详细页", "验证装修-->"+fitment, Report.PASS, "");
 		}else{
 			Report.writeHTMLLog("房源详细页", "验证装修-->"+fitment+"正确为："+updateInfo.getFitmentInfo(), Report.FAIL, driver.printScreen());		
-		}	
+		}
 		//房源描述
 		String description = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detaile_desc"), "房源描述");
 		if(description.equals(updateInfo.getHouseDescribe())){
