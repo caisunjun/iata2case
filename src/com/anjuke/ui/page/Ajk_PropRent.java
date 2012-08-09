@@ -19,9 +19,9 @@ public class Ajk_PropRent {
 	/** 房源详情页 - 押金方式 */
 	public static final String YAJIN = "//ul[@class='prop_basic']/li[1]/span[2]";
 	/** 房源详情页 - 建筑类型 */
-	public static final String LEIXING = "//li[@class='prop_basic_righ']/div[1]";
+	public static final String LEIXING = "//ul/li[7]/div[1]";
 	/** 房源详情页 - 房型、合租方式 */
-	public static final String FANGXING = "//ul[@class='prop_basic']/li[2";
+	public static final String FANGXING = "//ul[@class='prop_basic']/li[2]";
 	/** 房源详情页 - 朝向 */
 	public static final String CHAOXIANG = "//li[@class='prop_basic_right']/div[2]";
 	/** 房源详情页 - 面积 */

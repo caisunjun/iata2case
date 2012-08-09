@@ -51,7 +51,7 @@ public class Broker_PropertynewRentStep {
 	/** 发布出租1 - 配置 - 电视机 */
 	public static final String CONFIG_TV = "id^chkHaveTvbox";
 	/** 发布出租1 - 房源标题 */
-	public static final String TITLE = "id^txtProName]";
+	public static final String TITLE = "id^txtProName";
 	/** 发布出租1 - 房源描述 - frame定位 */
 	public static final String MIAOSHU = "//td[@id='cke_contents_txtExplain']/iframe";
 	/** 发布出租1 - 房源推荐 */
