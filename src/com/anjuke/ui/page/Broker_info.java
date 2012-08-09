@@ -87,5 +87,31 @@ public class Broker_info {
      * 提交成功 文本
      */
     public static final String INFOOKTEXT = "id^tpok32";
+    /**
+     * 修改密码 旧密码
+     */
+    public static final String OLDPASS = "id^old_pass";
+    /**
+     * 修改密码 新密码
+     */
+    public static final String NEWPASS = "id^new_pass1";
+    /**
+     * 修改密码 确认密码
+     */
+    public static final String NEWPASS1 = "id^new_pass2";
+    /**
+     * 修改密码 submit
+     */
+    public static final String SUBMITPASS = "id^submit_form";
+    /**
+     * 修改密码成功
+     */
+    public static final String PASSOK = "id^tpok5";
+
+    /**
+     * 执业认证提交成功文本
+     */
+    public static final String VIPSUBTEXT = "id^tpok6";
+
 }
 

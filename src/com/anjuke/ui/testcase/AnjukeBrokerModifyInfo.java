@@ -36,7 +36,7 @@ public class AnjukeBrokerModifyInfo {
         bs.quit();
         bs = null;
     }
-    public void Login(){ //经纪人登录
+    public void Login(String username,String passwd){ //经纪人登录
         bs.get(url);
         bs.type(Login_Anget.USERNAME, username, "输入用户账号");
         bs.type(Login_Anget.PASSWORD,passwd, "输入用户密码");
@@ -53,12 +53,12 @@ public class AnjukeBrokerModifyInfo {
         }
         return sel;
     }
-    //@Test
+    @Test
     public void testBrokeremail(){
         /**
          * 修改经纪人邮件地址
          */
-        Login();
+        Login(username,passwd);
         bs.click(Broker_info.updateinfo, "进入更新经纪人资料页面");
         bs.click(Broker_info.updateemail, "更新电子邮件");
         String oldemail = bs.getText(Broker_info.oldemail, "获得旧的邮件地址");
@@ -83,7 +83,7 @@ public class AnjukeBrokerModifyInfo {
         /**
          * 更新经纪人资料信息
          */
-        Login();
+        Login(username,passwd);
         bs.get("http://my.anjuke.com/user/broker/brokerinfo");
         bs.click(Broker_info.UPDATEAREALINK, "进入修改经纪人资料页面");
         //更新区域
@@ -101,6 +101,20 @@ public class AnjukeBrokerModifyInfo {
         bs.click(Broker_info.SUBMIT, "提交资料修改");
         String actualText = bs.getText(Broker_info.INFOOKTEXT, "获取修改资料提交成功文本");
         bs.assertContains(actualText, "您的资料修改已提交，工作人员会在1-2个工作日内为您审核。");
+    }
+    @Test
+    public void testBrokerUpdatePasswd(){
+        String username="13000170010";
+        String passwd = "123123";
+        String url = "http://my.anjuke.com/user/modify/password";
+        Login(username,passwd);
+        bs.get(url);
+        bs.type(Broker_info.OLDPASS, "123123", "输入旧密码");
+        bs.type(Broker_info.NEWPASS, "123123", "输入新密码");
+        bs.type(Broker_info.NEWPASS1, "123123", "确认密码");
+        bs.click(Broker_info.SUBMITPASS, "提交修改密码");
+        String actualText = bs.getText(Broker_info.PASSOK, "获取修改密码成功文本");
+        bs.assertContains(actualText, "密码修改成功");
     }
 
 }
