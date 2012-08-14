@@ -61,25 +61,30 @@ public class AnjukeBrokerprofile {
         String constellation = bs.selectReturn(Broker_profile.CONSTELLATION,
                 GetRandom.getrandom(10));
         String expectedText = province+city+lunar+constellation; //期望的文本串
+
+
         // 喜欢的书
         ArrayList<String> likebook = new ArrayList<String>();
-        likebook = ulSelect(Broker_profile.LIKEBOOK,
-                Broker_profile.SELECTLIKEBOOK, "获取喜欢的书的列表", "获取选择好的喜欢的书的列表");
-        for( String aa : likebook){
-            System.out.println("介绍页："+aa);
-        }
+        ulSelect(Broker_profile.LIKEBOOK,
+                Broker_profile.SELECTLIKEBOOK, "获取喜欢的书的列表", "获取选择书的列表");
+
         // 喜欢的食物
         ArrayList<String> likefood = new ArrayList<String>();
-        likefood = ulSelect(Broker_profile.LIKEFOOD,
-                Broker_profile.SELECTLIKEFOOD, "获取喜欢的食物的列表", "获取选择好的喜欢的食物的列表");
+        ulSelect(Broker_profile.LIKEFOOD,
+                Broker_profile.SELECTLIKEFOOD, "获取喜欢的食物的列表", "获取喜欢的食物的列表");
         for( String aa : likefood){
             System.out.println("介绍页："+aa);
         }
         // 娱乐活动
         ArrayList<String> recretional = new ArrayList<String>();
-        recretional = ulSelect(Broker_profile.RECRETIONAL,
-                Broker_profile.SELECTRECRETIONAL, "获取喜欢的娱乐活动", "获取选择好的娱乐活动列表");
+        ulSelect(Broker_profile.RECRETIONAL,
+                Broker_profile.SELECTRECRETIONAL, "获取喜欢的娱乐活动", "获取娱乐活动列表");
         bs.click(Broker_profile.SAVE, "保存个人介绍修改");
+        
+        likebook = ulSelect1(Broker_profile.LIKEBOOK,"获取选择好的书的列表");
+        likefood = ulSelect1(Broker_profile.LIKEFOOD,"获取选择好的食物的列表");
+        recretional = ulSelect1(Broker_profile.RECRETIONAL,"获取选择好的娱乐活动");
+
         String actualText = bs.getText(Broker_profile.SAVETEXT, "获取保存成功文本");
         bs.assertContains(actualText, "保存成功");
         for( String aa : recretional){
@@ -150,7 +155,7 @@ public class AnjukeBrokerprofile {
         }
     }
 
-    private ArrayList<String> ulSelect(String ullocator, String tdlocator,
+    private void ulSelect(String ullocator, String tdlocator,
             String Info1, String Info2){
         /**
          * 安居客 经济人个人介绍 的 喜欢的图书，喜欢的食物，娱乐活动的公用函数
@@ -159,13 +164,18 @@ public class AnjukeBrokerprofile {
         for (WebElement op : ul.findElements(By.tagName("a"))) {// 将所有喜欢的列表清除
             op.click();
         }
+        ul = null;
         WebElement td = bs.findElement(tdlocator, Info2, 60);
         int len = td.findElements(By.tagName("a")).size();// 获取供选择的长度
         List<WebElement> tds = td.findElements(By.tagName("a"));
         for (int i = 0; i < 5; i++) {// 选择喜欢的
             tds.get(GetRandom.getrandom(len)).click();
         }
-        ul = null;
+    }
+    private ArrayList<String> ulSelect1(String ullocator,String Info1){
+        /**
+         * 安居客 经济人个人介绍 的 喜欢的图书，喜欢的食物，娱乐活动的公用函数
+         */
         WebElement ul1 = bs.findElement(ullocator, Info1, 60); // 重新获取喜欢的列表
         int ul1len = ul1.findElements(By.tagName("a")).size();// 选择好的喜欢的列表的长度
         List<WebElement> ullist = ul1.findElements(By.tagName("a")); // 获取选择好的喜欢
