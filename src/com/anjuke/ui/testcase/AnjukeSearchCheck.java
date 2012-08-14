@@ -4,6 +4,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Ajk_Ask;
+import com.anjuke.ui.page.Ajk_Community;
+import com.anjuke.ui.page.Ajk_Rental;
+import com.anjuke.ui.page.Ajk_Sale;
+import com.anjuke.ui.page.Ajk_Tycoon;
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
@@ -19,8 +25,8 @@ import com.anjukeinc.iata.ui.report.Report;
  * 
  * @author Gabrielgao
  * @time 2012-04-13 13:30
- * @updateAuthor Hendry_huang
- * @last updatetime 2012-05-07 14:48
+ * @updateAuthor gray_hu
+ * @last updatetime 2012-08-13 
  */
 public class AnjukeSearchCheck {
 	private Browser driver = null;
@@ -105,12 +111,12 @@ public class AnjukeSearchCheck {
 	// 正常搜索问答模块
 	public void normalAskSearch(String asksearch) {
 		// Report.setTCNameLog("检查安居客问答正常关键字搜索-- checkGuideLan");
-		driver.type(Init.G_objMap.get("anjuke_ask_text"), asksearch, "关键字搜索");
-		driver.click(Init.G_objMap.get("anjuke_asksearch_button"), "点击搜索");
+		driver.type(Ajk_Ask.S_BOX, asksearch, "关键字搜索");
+		driver.click(Ajk_Ask.S_BTN, "点击搜索");
 		int count = 0;
-		count = driver.getElementCount(Init.G_objMap.get("ajk_ask_search_resultlist"));
+		count = driver.getElementCount(Ajk_Ask.LIST_COUNT);
 		// 判断搜索结果页是否存在翻页按钮
-		boolean present = driver.check(Init.G_objMap.get("ajk_ask_search_button_flip"));
+		boolean present = driver.check(Ajk_Ask.FANYE);
 		// 如果存在翻页，但是每页数量不为12则报错
 		if (present && count != 12) {
 			String ps = driver.printScreen();
@@ -124,7 +130,7 @@ public class AnjukeSearchCheck {
 			Report.writeHTMLLog("search result", "search result count is:" + count + "条记录", Report.PASS, "");
 		}
 		// 获取搜索结果第一条记录标题中高亮的关键字个数
-		int keyWordscount = driver.getElementCount(Init.G_objMap.get("ajk_ask_search_text_strongSpan"));
+		int keyWordscount = driver.getElementCount(Ajk_Ask.HIGHLIGHT_KEY);
 		// 获取搜索结果中出现的高亮关键字与搜索输入的关键字进行比较
 		String expect = "";
 		if (keyWordscount == 0) {
@@ -143,9 +149,9 @@ public class AnjukeSearchCheck {
 	public void unusualAskSearch(String search) {
 		// Report.setTCNameLog("检查安居客问答异常关键字搜索-- checkGuideLan");
 		int dataCount = 0;
-		driver.type(Init.G_objMap.get("anjuke_ask_text"), search, "关键字搜索");
-		driver.click(Init.G_objMap.get("anjuke_asksearch_button"), "点击搜索");
-		dataCount = driver.getElementCount(Init.G_objMap.get("anjuke_interlocution_text_no_found"), 5);
+		driver.type(Ajk_Ask.S_BOX, search, "关键字搜索");
+		driver.click(Ajk_Ask.S_BTN, "点击搜索");
+		dataCount = driver.getElementCount(Ajk_Ask.NO_FOUND, 5);
 		if (search == null || search.equals("  ")) {
 			if (dataCount == 0) {
 				Report.writeHTMLLog("异常搜索问答", "使用空格搜索，显示所有记录", "PASS", "");
@@ -175,26 +181,26 @@ public class AnjukeSearchCheck {
 		//获取当前url，以应对关键字输入框位置会变的问题
 		String currentURL = driver.getCurrentUrl();
 
-		driver.type(Init.G_objMap.get("anjuke_keywords_search"), search, "关键字搜索");
-		driver.click(Init.G_objMap.get("anjuke_keywords_searchBtn"), "点击搜索");
+		driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
+		driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
 		// 根据不同页面搜索结果，取回每页显示数量，以及搜索结果搜索数量
 		if (site.equals("sale") || site.equals("rental")) {
-			searchResult = driver.getText(Init.G_objMap.get("ajk_sale_houseList_total_count"), "获取房源搜索结果");
+			searchResult = driver.getText(Ajk_Sale.S_COUNT, "获取房源搜索结果");
 			// 获取搜索所有数量
 			toutleCount = Integer.parseInt(searchResult);
 			// 获取单页显示数量
-			count = driver.getElementCount(Init.G_objMap.get("ajk_sale_houseList_data_count"));
+			count = driver.getElementCount(Ajk_Sale.LIST_COUNT);
 			Report.writeHTMLLog("二手房/租房搜索结果", "二手房/租房搜索结果总量为：" + toutleCount + "套-----单页数量为：" + count + "套", Report.DONE, "");
 		} else if (site.equals("community")) {
-			searchResult = driver.getText(Init.G_objMap.get("ajk_community_list_toutalCount"), "获取房源搜索结果");
+			searchResult = driver.getText(Ajk_Community.C_COUNT, "获取房源搜索结果");
 			// 获取搜索所有数量
 			toutleCount = Integer.parseInt(searchResult);
 			// 获取单页显示数量
-			count = driver.getElementCount(Init.G_objMap.get("ajk_community_list_data_count"));
+			count = driver.getElementCount(Ajk_Community.LIST_COUNT);
 			Report.writeHTMLLog("小区搜索结果", "小区搜索结果总量为：" + toutleCount + "套-----单页数量为：" + count + "套", Report.DONE, "");
 		} else {
 			// 获取单页显示数量
-			count = driver.getElementCount(Init.G_objMap.get("ajk_agentList_data_count"));
+			count = driver.getElementCount(Ajk_Tycoon.LIST_COUNT);
 			Report.writeHTMLLog("经纪人搜索结果", "经纪人搜索结果单页数量：" + count, Report.DONE, "");
 		}
 		// 判断搜索结果是否为空
@@ -234,18 +240,18 @@ public class AnjukeSearchCheck {
 		//获取当前url，以应对关键字输入框位置会变的问题
 		String currentURL = driver.getCurrentUrl();
 		
-		driver.type(Init.G_objMap.get("anjuke_keywords_search"), search, "关键字搜索");
-		driver.click(Init.G_objMap.get("anjuke_keywords_searchBtn"), "点击搜索");
+		driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
+		driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
 		if (site.equals("sale")) 
 		{
-			dataCount = driver.getElementCount(Init.G_objMap.get("sale_text_no_found"), 5);
+			dataCount = driver.getElementCount(Ajk_Sale.NO_FOUND, 5);
 		} else if(site.equals("rental")) 
 		{
-			dataCount = driver.getElementCount(Init.G_objMap.get("rental_text_no_found"), 5);
+			dataCount = driver.getElementCount(Ajk_Rental.NO_FOUND, 5);
 		} else if (site.equals("community")) {
-			dataCount = driver.getElementCount(Init.G_objMap.get("community_text_no_found"), 5);
+			dataCount = driver.getElementCount(Ajk_Community.NO_FOUND, 5);
 		} else {
-			dataCount = driver.getElementCount(Init.G_objMap.get("tycoon_text_no_found"), 5);
+			dataCount = driver.getElementCount(Ajk_Tycoon.NO_FOUND, 5);
 		}
 		if (search == null || search.equals("  ")) {
 			if (dataCount == 0) {
@@ -273,7 +279,7 @@ public class AnjukeSearchCheck {
 			// 默认引导语显示
 			// Report.setTCNameLog("检查安居客关键字搜索引导语（默认显示） -- checkGuideLan");
 			String guideLan = null;
-			guideLan = driver.getAttribute(Init.G_objMap.get("anjuke_keywords_search"), "value");
+			guideLan = driver.getAttribute(Public_HeaderFooter.S_BOX, "value");
 			if (guideLan == null || guideLan.equals("")) {
 				String ps = driver.printScreen();
 				Report.writeHTMLLog("default search guide language", "search guide content is null", Report.FAIL, ps);
@@ -297,7 +303,7 @@ public class AnjukeSearchCheck {
 			// 问答版块默认引导语显示
 			// Report.setTCNameLog("检查安居客问答版本搜索引导语（默认显示） -- checkGuideLan");
 			String askguideLan = null;
-			askguideLan = driver.getAttribute(Init.G_objMap.get("anjuke_ask_text"), "nullvalue");
+			askguideLan = driver.getAttribute(Ajk_Ask.S_BOX, "nullvalue");
 			if (askguideLan == null || askguideLan.equals("")) {
 				String ps = driver.printScreen();
 				Report.writeHTMLLog("default search guide language", "search guide language is null", Report.FAIL, ps);
