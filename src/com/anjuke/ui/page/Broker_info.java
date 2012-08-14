@@ -113,5 +113,22 @@ public class Broker_info {
      */
     public static final String VIPSUBTEXT = "id^tpok6";
 
+    /**
+     * 大学堂-线上考试-列表对象
+     */
+    public static final String UNIVERSITYLIST = "//div[@class='activecenter']/ul";
+    /**
+     * 大学堂 链接
+     */
+    public static final String UNIVERSITYLINK = "//div[@id='nav']/div/ul/li[2]/a/strong";
+    /**
+     * 线上考试链接
+     */
+    public static final String ONLINECHECK = "//li[@id='6_2']/a";
+    /**
+     * 开始考试
+     */
+    public static final String EXAM = "//div[@id='content']/div/a";
+
 }
 
