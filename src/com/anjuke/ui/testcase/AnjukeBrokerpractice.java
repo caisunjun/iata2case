@@ -35,7 +35,6 @@ public class AnjukeBrokerpractice {
     }
     @AfterMethod
     public void tearDown(){
-        Report.seleniumReport("", "");
         bs.quit();
         bs = null;
     }
@@ -81,7 +80,6 @@ public class AnjukeBrokerpractice {
         bs.switchWindo(2);
         String knowncomm = bs.getText(Broker_shopview.KNOWNCOMM, "获取最熟悉的小区 ");
         String knownarea = bs.getText(Broker_shopview.KNOWNAREA, "获取最熟悉的区域");
-        System.out.println(comm1+"--"+comm2+"--"+comm3);
         bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3);
         bs.assertOneContainsMany(knownarea, "验证我的店铺中区域板块显示是否完整", area1,area2);
     }
