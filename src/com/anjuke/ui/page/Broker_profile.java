@@ -6,6 +6,8 @@ package com.anjuke.ui.page;
 * @since 2012-8-14
 * @file Broker_profile.java
 *http://my.anjuke.com/user/broker/profile
+*
+*包括http://my.anjuke.com/user/broker/introduction 自我介绍
 */
 public class Broker_profile {
 
@@ -63,5 +65,17 @@ public class Broker_profile {
      * 我的店铺链接
      */
     public static final String MYSHOP = "html/body/div[1]/div[2]/a[3]";
+     /**
+      * 自我介绍  卖房宣言
+      */
+    public static final String  SELLHOUSE= "id^shopnotic";
+    /**
+     * 自我介绍 详细介绍
+     */
+    public static final String  SELFINTRO= "id^userintro";
+    /**
+     * 自我介绍 保存
+     */
+    public static final String OKENTER = "id^submit_apf_id_1";
 }
 
