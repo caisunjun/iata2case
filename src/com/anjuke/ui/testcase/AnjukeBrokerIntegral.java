@@ -35,7 +35,6 @@ public class AnjukeBrokerIntegral {
 
     @AfterMethod
     public void tearDown() {
-        Report.seleniumReport("", "");
         bs.quit();
         bs = null;
     }

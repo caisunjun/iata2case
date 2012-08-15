@@ -36,7 +36,6 @@ public class AnjukeBrokerprofile {
 
     @AfterMethod
     public void tearDown() {
-        Report.seleniumReport("", "");
         bs.quit();
         bs = null;
     }
@@ -80,7 +79,7 @@ public class AnjukeBrokerprofile {
         ulSelect(Broker_profile.RECRETIONAL,
                 Broker_profile.SELECTRECRETIONAL, "获取喜欢的娱乐活动", "获取娱乐活动列表");
         bs.click(Broker_profile.SAVE, "保存个人介绍修改");
-        
+
         likebook = ulSelect1(Broker_profile.LIKEBOOK,"获取选择好的书的列表");
         likefood = ulSelect1(Broker_profile.LIKEFOOD,"获取选择好的食物的列表");
         recretional = ulSelect1(Broker_profile.RECRETIONAL,"获取选择好的娱乐活动");
