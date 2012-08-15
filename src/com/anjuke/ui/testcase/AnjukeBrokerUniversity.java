@@ -8,7 +8,6 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

@@ -10,11 +10,6 @@ import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 /**
 * @Todo http://my.anjuke.com/user/broker/introduction
 * @author fjzhang

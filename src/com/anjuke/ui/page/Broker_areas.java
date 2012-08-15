@@ -6,7 +6,7 @@ package com.anjuke.ui.page;
 * @author fjzhang
 * @since 2012-8-15
 * @file Broker_areas.java
-*
+*	也包括http://my.anjuke.com/user/broker/expertise###
 */
 public class Broker_areas {
 
@@ -47,5 +47,19 @@ public class Broker_areas {
      * 保存成功
      */
     public static final String SAVEOK = "//*[@id='userbox']/ul";
+
+    /**
+     * http://my.anjuke.com/user/broker/expertise###
+     *执业特长
+     */
+    public static final String JOBS = "html/body/div[2]/div[1]/div[1]/div[2]/div[1]/ul";
+    /**
+     * 待选择特长
+     */
+    public static final String SELECTJOBS = "id^foreach0";
+    /**
+     * 职业特长 保存按钮
+     */
+    public static final String OKBUTTON = "id^saveTag";
 }
 
