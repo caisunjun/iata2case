@@ -29,7 +29,6 @@ public class AnjukeBrokerIntro {
     }
     @AfterMethod
     public void tearDown(){
-        Report.seleniumReport("", "");
         bs.quit();
         bs = null;
     }
