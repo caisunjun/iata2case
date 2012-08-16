@@ -27,5 +27,10 @@ public class Broker_shopview {
      * 最熟悉的小区
      */
     public static final String KNOWNCOMM = "//*[@id='content']/div[1]/div[1]/div[1]/div[1]/div[2]/dl/dd[1]";
+
+    /**
+     * 业务特长
+     */
+    public static final String EXPERTISE = "//*[@id='content']/div[1]/div[1]/div[1]/div[1]/div[2]/dl/dd[3]";
 }
 
