@@ -9,6 +9,7 @@ import com.anjuke.ui.publicfunction.BrokerSaleOperating;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.init.Init;
 
 /**
  * 该用例完成安居客出售发布操作，逻辑如下 1、填写出售信息，添加图片附件 2、发布成功后，验证出售基本信息 3、在出售详细页，验证房屋出售详细信息
@@ -16,7 +17,7 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
  * @Author gabrielgao
  * @time 2012-04-11 17:00
  * @UpdateAuthor ccyang
- * @last updatetime 2012-07-25 13:00
+ * @last updatetime 2012-08-16 16:00
  */
 public class AnjukeBrokerSaleRelease {
 	private Browser driver = null;
@@ -59,12 +60,20 @@ public class AnjukeBrokerSaleRelease {
 	@Test(groups = { "unstable" })
 	public void releaseSale() {
 		driver.deleteAllCookies();
-		// for daily
-		saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",
-				false, 1));
-		// for test
-		// saleInfo.setUserName(PublicProcess.logIn(driver, "test1",
-		// "123456",false, 1));
+		String casestatus = "";
+		String testing = "testing";
+		//从config.ini中取出casestatus
+		casestatus = Init.G_config.get("casestatus");
+		//如果取出的值等于testing 则用另一个账号登陆
+		if(testing.equals(casestatus))
+		{
+			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
+		}
+		//如果config中casestatus的值不为testing或config未配置casestatus，用原先的账号登陆
+		else
+		{
+			saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+		}
 		BrokerSaleOperating.releaseSale(driver, saleInfo, needPic);
 
 		driver.close();
