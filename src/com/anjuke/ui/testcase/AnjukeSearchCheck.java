@@ -63,6 +63,9 @@ public class AnjukeSearchCheck {
         if (checkType == "sale" || checkType == "rental" || checkType == "tycoon" || checkType == "community") {
             if (checkType == "sale" || checkType == "rental") {
                 driver.get("http://shanghai.anjuke.com/" + checkType + "/");
+                //防页面打开后 无控件可点
+            	if(!driver.check("id^header"))
+        		{driver.refresh();}
                 // 引导词检查
                 checkGuideLan(checkType);
                 // 正常关键字搜索
