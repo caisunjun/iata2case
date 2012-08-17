@@ -35,7 +35,6 @@ public class AnjukeBrokerExpertise {
     }
     @AfterMethod
     public void tearDown(){
-        Report.seleniumReport("", "");
         bs.quit();
         bs = null;
     }
