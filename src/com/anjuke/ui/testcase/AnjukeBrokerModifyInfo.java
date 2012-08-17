@@ -21,7 +21,7 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 */
 public class AnjukeBrokerModifyInfo {
     Browser bs = null;
-    String url = "http://my.anjuke.com/login/";
+    String url = "http://agent.anjuke.com/login/";
     String username = "ajk_sh";
     String passwd = "anjukeqa";
 
@@ -39,6 +39,8 @@ public class AnjukeBrokerModifyInfo {
         bs.type(Login_Anget.USERNAME, username, "输入用户账号");
         bs.type(Login_Anget.PASSWORD,passwd, "输入用户密码");
         bs.click(Login_Anget.BTN, "点击登录");
+        if(!bs.check("class^logo"))
+        {bs.refresh();}
     }
     public int getrandom(){ //取得4以内的随机数
         Random a = new Random();
