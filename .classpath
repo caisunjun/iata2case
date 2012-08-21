@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
@@ -42,48 +41,3 @@
 	<classpathentry kind="lib" path="lib/iata1.1-srcs.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="lib/activation.jar"/>
-	<classpathentry kind="lib" path="lib/apache-mime4j-0.6.jar"/>
-	<classpathentry kind="lib" path="lib/bsh-1.3.0.jar"/>
-	<classpathentry kind="lib" path="lib/cglib-nodep-2.1_3.jar"/>
-	<classpathentry kind="lib" path="lib/commons-codec-1.4.jar"/>
-	<classpathentry kind="lib" path="lib/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-exec-1.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-io-2.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/commons-jxpath-1.3.jar"/>
-	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
-	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="lib/cssparser-0.9.5.jar"/>
-	<classpathentry kind="lib" path="lib/guava-10.0.1.jar"/>
-	<classpathentry kind="lib" path="lib/hamcrest-all-1.1.jar"/>
-	<classpathentry kind="lib" path="lib/htmlunit-2.9.jar"/>
-	<classpathentry kind="lib" path="lib/htmlunit-core-js-2.9.jar"/>
-	<classpathentry kind="lib" path="lib/httpclient-4.1.2.jar"/>
-	<classpathentry kind="lib" path="lib/httpcore-4.1.3.jar"/>
-	<classpathentry kind="lib" path="lib/httpmime-4.1.2.jar"/>
-	<classpathentry kind="lib" path="lib/jcommander-1.13.jar"/>
-	<classpathentry kind="lib" path="lib/jna-3.3.0.jar"/>
-	<classpathentry kind="lib" path="lib/JSErrorCollector-0.2.jar"/>
-	<classpathentry kind="lib" path="lib/json-20080701.jar"/>
-	<classpathentry kind="lib" path="lib/mail.jar"/>
-	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.6-bin.jar"/>
-	<classpathentry kind="lib" path="lib/nekohtml-1.9.15.jar"/>
-	<classpathentry kind="lib" path="lib/operadriver-v0.8.1.jar"/>
-	<classpathentry kind="lib" path="lib/protobuf-java-2.4.1.jar"/>
-	<classpathentry kind="lib" path="lib/sac-1.3.jar"/>
-	<classpathentry kind="lib" path="lib/serializer-2.7.1.jar"/>
-	<classpathentry kind="lib" path="lib/testng-6.1.1.jar"/>
-	<classpathentry kind="lib" path="lib/xalan-2.7.1.jar"/>
-	<classpathentry kind="lib" path="lib/xercesImpl-2.9.1.jar"/>
-	<classpathentry kind="lib" path="lib/xml-apis-1.3.04.jar"/>
-	<classpathentry kind="lib" path="lib/selenium-java-2.21.0.jar" sourcepath="lib/selenium-java-2.21.0-srcs.jar"/>
-	<classpathentry kind="lib" path="lib/iata1.1.jar" sourcepath="lib/iata1.1-srcs.jar"/>
-	<classpathentry kind="lib" path="lib/iata1.1-srcs.jar" sourcepath="lib/iata1.1-srcs.jar"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
->>>>>>> fb337175b48975a5123386e6856e7314562ecd88
