@@ -42,17 +42,30 @@ public class AnjukeAttentionCommunity {
     //(timeOut = 250000)
 	@Test
 	public void attentionCommunity() {
-		// 普通用户登录
-		driver.deleteAllCookies();
-		String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
-		// 判断用户是否登录成功
-		if (!(loginName == null || loginName.equals(""))) {
-			
-			Report.writeHTMLLog("user login", "user login sucess,and name is: " + loginName, Report.DONE, "");
-		} else {
-			String ps = driver.printScreen();
-			Report.writeHTMLLog("user login", "user login fail,and name is: " + loginName, Report.FAIL, ps);
+		String brow = "";
+		//从config.ini中取出browser
+		brow = Init.G_config.get("browser");
+		if(brow.contains("ie"))
+		{
+			//IE6兼容性
+//			PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
+			PublicProcess.dologin(driver, "小瓶盖001", "6634472");
 		}
+		else
+		{
+			// 普通用户登录
+			driver.deleteAllCookies();
+			String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
+			// 判断用户是否登录成功
+			if (!(loginName == null || loginName.equals(""))) {
+				
+				Report.writeHTMLLog("user login", "user login sucess,and name is: " + loginName, Report.DONE, "");
+			} else {
+				String ps = driver.printScreen();
+				Report.writeHTMLLog("user login", "user login fail,and name is: " + loginName, Report.FAIL, ps);
+			}
+		}
+		
 		// 访问小区列表
 		driver.get("http://shanghai.anjuke.com/community/");
 		// 判断小区列表数据是否存在数据

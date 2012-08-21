@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.anjuke.ui.page.Broker_PropertynewRentStep;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
@@ -263,16 +264,16 @@ public class PublicProcess {
 			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_fangxingtu"), "d:\\image\\600x600x0.jpg", picMess);
 		} else {
 			picMess = "上传室内图";
-			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_fangxingtu"), "d:\\image\\600x600.jpg", picMess);
+			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, "d:\\image\\600x600.jpg", picMess);
 		}
 		exception(driver, picMess);
-		// 上传室内图片
+		// 上传房型图片
 		if (type.equals("sale")) {
 			picMess = "上传房型图";
 			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_shineitu"), "d:\\image\\600x600.jpg", picMess);
 		} else {
 			picMess = "上传房型图";
-			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_shineitu"), "d:\\image\\800x800.jpg", picMess);
+			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, "d:\\image\\800x800.jpg", picMess);
 		}
 		exception(driver, picMess);
 		// 上传小区图片
@@ -281,7 +282,7 @@ public class PublicProcess {
 			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_xiaoqutu"), "d:\\image\\800x800.jpg", picMess);
 		} else {
 			picMess = "上传小区图";
-			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_xiaoqutu"), "d:\\image\\600x600x0.jpg", picMess);
+			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, "d:\\image\\600x600x0.jpg", picMess);
 		}
 		exception(driver, picMess);
 
