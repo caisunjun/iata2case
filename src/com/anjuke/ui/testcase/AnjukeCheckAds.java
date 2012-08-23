@@ -33,7 +33,7 @@ public class AnjukeCheckAds {
 	@Test(groups = {"unstable"})
 	public void testSart() throws InterruptedException {
 		checkCityHomePage("http://shanghai.anjuke.com");
-		checkSaleListPage("http://shanghai.anjuke.com/v2/sale/");
+		checkSaleListPage("http://shanghai.anjuke.com/sale/");
 		checkSaleListSearchResultPage("http://shanghai.anjuke.com/sale/?kw=aaaa");
 	}
 
@@ -58,6 +58,10 @@ public class AnjukeCheckAds {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		if(!bs.check("salelist_right_baidu_ads1"))
+		{
+			bs.refresh();
 		}
 		checkAD("salelist_right_baidu_ads1", "二手房列表页-右侧baidu广告位1");
 		checkAD("salelist_right_baidu_ads2", "二手房列表页-右侧baidu广告位2");
