@@ -5,10 +5,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
+import com.anjuke.ui.publicfunction.BrokerRentOperating;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjuke.ui.publicfunction.BrokerRentOperating;
 
 /**
  * 该用例完成安居客出租发布改版后操作，逻辑如下 
