@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite verbose="0" name="suite">
-    <parameter name = "websiteName" value = "Anjuke"/>
-    <parameter name = "suiteName" value = "--所有测试用例--"/> 
+    <parameter name = "websiteName" value = "Anjuke Part2"/>
+    <parameter name = "suiteName" value = "--安居客常规测试--"/> 
 	<test name="Default" preserve-order="true">
 	    <groups>
 	        <run>
