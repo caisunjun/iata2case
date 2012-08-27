@@ -38,7 +38,7 @@ public class AnjukeBrokerIntegral {
         bs = null;
     }
 
-    @Test
+    @Test(groups = {"unstable"})
     public void testIntegral() {
         /**
          * 获取兑换列表中第一个兑换，兑换成功后判断 积分余额和 成功文本
