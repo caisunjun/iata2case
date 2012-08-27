@@ -28,6 +28,7 @@ public class AnjukeBrokerReport {
     String username = "";
     String passwd = "";
     String reportDate = "";
+    Date currentTime;
 
     @BeforeMethod
     public void setUp() {
@@ -42,10 +43,12 @@ public class AnjukeBrokerReport {
     public void getTwoDay(String reportDate,long day) throws ParseException
     {
 //		传入的 reportDate 格式必须为 "yyyy-MM-dd"类
-    	Date currentTime = new Date();
+    	currentTime = new Date();
 //		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 //		String currentDate = formatter.format(currentTime);
 		SimpleDateFormat myFormatter = new SimpleDateFormat("yyyy-MM-dd");
+
+		
 		Date repdate = myFormatter.parse(reportDate);
 		day = (currentTime.getTime() - repdate.getTime())/ (24 * 60 * 60 * 1000);
 		System.out.println(day);
@@ -95,11 +98,17 @@ public class AnjukeBrokerReport {
     	reportDate = reportDate.replace("日", "");
     	//比较数据的日期和now，相差几天
     	getTwoDay(reportDate,day);
-    	//相差一天为正常情况，不是一天说明有问题，但方法不完善（如每日凌晨），先warning
-    	if(day == 1)
+    	
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String currentHour = formatter.format(currentTime);
+		String hour;
+		hour = currentHour.substring(11, 13);
+
+    	//相差一天为正常情况，不是一天说明有问题，当前时间小于9点时 相差按两天算，先warning·························
+    	if((Integer.parseInt(hour)<9 && day == 2) || (Integer.parseInt(hour)>=9 && day== 1))
     	{Report.writeHTMLLog("网络助手数据日期正确", "网络助手数据日期为: " + reportDate, Report.PASS, "");}
     	else
-    	{Report.writeHTMLLog("网络助手数据日期有问题", "网络助手数据日期为: " + reportDate, Report.WARNING, "");}
+    	{Report.writeHTMLLog("网络助手数据日期有问题", "网络助手数据日期为: " + reportDate+" | | "+"今天是："+currentTime, Report.WARNING, "");}
     	//建个数组拿7天的新增房源数
     	ArrayList<String> newProp1to7 = new ArrayList<String>();
     	for(int i = 0;i<7;i++)

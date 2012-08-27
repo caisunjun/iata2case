@@ -45,11 +45,9 @@ public class AnjukeBrokerIntegral {
          */
         PublicProcess.dologin(bs, username, passwd);
         bs.get(url);
-        String allpoint = bs.getText(Broker_gradeexchanges.UNCHANGEPOINT,
-                "获取消耗前积分");
+        String allpoint = bs.getText(Broker_gradeexchanges.UNCHANGEPOINT,"获取消耗前积分");
         System.out.println(allpoint);
-        WebElement list = bs.findElement(Broker_gradeexchanges.CHANGELIST,
-                "获取兑换列表", 60);
+        WebElement list = bs.findElement(Broker_gradeexchanges.CHANGELIST,"获取兑换列表", 60);
         // 获取每一个兑换条目
         List<WebElement> ul = list.findElements(By.tagName("ul"));
         // 获取每个条目中的 列
@@ -60,14 +58,19 @@ public class AnjukeBrokerIntegral {
         li.get(3).click();
         bs.click(Broker_gradeexchanges.POPUP, "点击确认");
         // 获取消耗后的积分
-        String chagepoint = bs.getText(Broker_gradeexchanges.REMAINPOINTS,
-                "获取消耗后的积分");
+        String chagepoint = bs.getText(Broker_gradeexchanges.REMAINPOINTS,"获取消耗后的积分");
         // 获取成功文本
-        String succtext = bs
-                .getText(Broker_gradeexchanges.CHANGESUCC, "获取成功文本");
-        bs.assertContains(succtext, "兑换成功");
-        bs.assertIntEquals(Integer.parseInt(chagepoint), Integer
-                .parseInt(allpoint)
-                - Integer.parseInt(point), "验证积分兑换余额", "验证积分兑换余额是否正确");
+        String succtext = bs.getText(Broker_gradeexchanges.CHANGESUCC, "获取成功文本");
+        //增加判断：如当前积分数不足以兑换，给另一种判断
+        if(Integer.parseInt(allpoint) - Integer.parseInt(point)< 0)
+        {	
+        	bs.assertContains(succtext, "无法兑换");
+        	bs.assertTrue(Integer.parseInt(chagepoint) - Integer.parseInt(allpoint) >= 0, "验证积分兑换余额", "由于积分不足以兑换，所以此时积分不能减少");
+        }
+        else
+        {
+        	bs.assertContains(succtext, "兑换成功");
+        	bs.assertIntEquals(Integer.parseInt(chagepoint), Integer.parseInt(allpoint)- Integer.parseInt(point), "验证积分兑换余额", "验证积分兑换余额是否正确");
+        }
     }
 }

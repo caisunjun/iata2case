@@ -1,5 +1,5 @@
 package com.anjuke.ui.testcase;
-import java.util.Random;
+import java.util.*;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -97,7 +97,9 @@ public class AnjukeBrokerModifyInfo {
         }
         //更新版块
         bs.select(Broker_info.BLOCK, getrandom());
-        bs.uploadFile(Broker_info.IMAGEUPLOAD, "d:\\320x240.jpg", "上传用户图片");
+        //获得项目\tools里图片的绝对路径
+        String imgPath = System.getProperty("user.dir") + "\\tools\\320x240.jpg";
+        bs.uploadFile(Broker_info.IMAGEUPLOAD, imgPath, "上传用户图片");
         bs.click(Broker_info.SUBMIT, "提交资料修改");
         String actualText = bs.getText(Broker_info.INFOOKTEXT, "获取修改资料提交成功文本");
         bs.assertContains(actualText, "您的资料修改已提交，工作人员会在1-2个工作日内为您审核。");
