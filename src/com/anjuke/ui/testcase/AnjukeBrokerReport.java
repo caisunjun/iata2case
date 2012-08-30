@@ -40,7 +40,7 @@ public class AnjukeBrokerReport {
         bs = null;
     }
     
-    public void getTwoDay(String reportDate,long day) throws ParseException
+    public long getTwoDay(String reportDate) throws ParseException
     {
 //		传入的 reportDate 格式必须为 "yyyy-MM-dd"类
     	currentTime = new Date();
@@ -48,18 +48,17 @@ public class AnjukeBrokerReport {
 //		String currentDate = formatter.format(currentTime);
 		SimpleDateFormat myFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
-		
 		Date repdate = myFormatter.parse(reportDate);
-		day = (currentTime.getTime() - repdate.getTime())/ (24 * 60 * 60 * 1000);
-		System.out.println(day);
+		return(currentTime.getTime() - repdate.getTime())/ (24 * 60 * 60 * 1000);
     }
     @Test
     public void testBrokerReport() throws ParseException{
     	long day = 0;
+    	String hour;
     	String tmp = "";
     	String c = "";
     	int zerotao = 0;
-    	
+		
 		String casestatus = "";
 		String testing = "testing";
 		//从config.ini中取出casestatus
@@ -97,11 +96,10 @@ public class AnjukeBrokerReport {
     	reportDate = reportDate.replace("月", "-");
     	reportDate = reportDate.replace("日", "");
     	//比较数据的日期和now，相差几天
-    	getTwoDay(reportDate,day);
+    	day = getTwoDay(reportDate);
     	
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String currentHour = formatter.format(currentTime);
-		String hour;
 		hour = currentHour.substring(11, 13);
 
     	//相差一天为正常情况，不是一天说明有问题，当前时间小于9点时 相差按两天算，先warning·························

@@ -11,6 +11,9 @@ package com.anjuke.ui.page;
 public class Ajk_PropView {
 
 	/* 房源信息 */
+	/** 二手房单页 - 面包屑处小区名 */
+	public static final String NavCommName = "//*[@id='propNav']/a[5]";
+	
 	
 	/** 二手房单页 - 房源标题 */
 	public static final String HOUSETITLE = "className^propInfoTitle";
@@ -30,8 +33,11 @@ public class Ajk_PropView {
 	public static final String ZHUANGXIU = "//ul/li[7]/div[3]";
 	/** 二手房单页 - 建造年代 */
 	public static final String HOUSEAGE = "//ul/li[7]/div[4]";
-	/** 二手房单页 - 小区名 */
+	/** 二手房单页 - 房源信息处小区名 */
 	public static final String COMMNAME = "//a[@id='text_for_school_1']";
+	/** 二手房单页 - 经纪人姓名 */
+	public static final String BROKERNAME = "//div[@class='prop_new_line']";
+	
 	/** 二手房单页 - 房源编号 */
 	public static final String PROPID = "id^propID";
 	

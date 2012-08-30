@@ -11,8 +11,10 @@ public class Ajk_HomePage {
 	//搜索框
 	/** 首页 - 搜索 - 输入框 */
 	public static final String H_BOX = "//input[@id='home_kw']";
-	/** 问答 - 搜索 - 找二手房按钮 */
+	/** 首页 - 搜索 - 找二手房按钮 */
 	public static final String H_BTN = "//input[@class='find-button']";
+	/** 首页 - 导航 - 二手房tab */
+	public static final String SALETAB = "//li[@class='sale']";
 	
 	
 
