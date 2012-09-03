@@ -50,8 +50,11 @@ public class AnjukeCommunityPropertyMaster {
 		// 打开主营小区单页
 		bs.get(url);
 
+		if(bs.check(tmpCommunityNameObj))
+		{bs.refresh();}
 		// 获取小区名称
 		String CommunityName = bs.getText(tmpCommunityNameObj, "获取小区名称");
+		
 
 		// 检查主营小区精选房源是否存在 
 		int propCount = bs.getElementCount(tmpCommPropMasterObj);
