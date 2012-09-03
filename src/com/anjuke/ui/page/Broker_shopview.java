@@ -8,6 +8,10 @@ package com.anjuke.ui.page;
 *
 */
 public class Broker_shopview {
+	
+	/**店铺首页 - 经纪人姓名*/
+    public static final String BROKERNAME = "//div[@class='left_pad']/h4";
+	//div[@class='left_pad']/h4
 
     /**
      * 卖房宣言

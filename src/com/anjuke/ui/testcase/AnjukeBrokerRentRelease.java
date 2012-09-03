@@ -5,10 +5,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
+import com.anjuke.ui.publicfunction.BrokerRentOperating;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjuke.ui.publicfunction.BrokerRentOperating;
+import com.anjukeinc.iata.ui.init.Init;
+
 
 /**
  * 该用例完成安居客出租发布改版后操作，逻辑如下 
@@ -66,8 +68,22 @@ public class AnjukeBrokerRentRelease {
 	
 	@Test (timeOut = 500000)
 	public void rentRelease(){
+		String casestatus = "";
+		String testing = "testing";
+		//从config.ini中取出casestatus
+		casestatus = Init.G_config.get("casestatus");
+		//如果取出的值等于testing 则用另一个账号登陆
+		
+		if(testing.equals(casestatus))
+		{
+			PublicProcess.logIn(driver, "test1", "123456",false, 1);
+		}
+		//如果config中casestatus的值不为testing或config未配置casestatus，用原先的账号登陆
+		else
+		{
+			PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1);
+		}
 		rentInfo = rentInfo_init();
-		PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);
 		BrokerRentOperating.releaseRent(driver, rentInfo);
 	}
 }
