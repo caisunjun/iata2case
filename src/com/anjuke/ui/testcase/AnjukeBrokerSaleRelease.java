@@ -10,6 +10,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
+import com.anjukeinc.iata.ui.report.Report;
 
 /**
  * 该用例完成安居客出售发布操作，逻辑如下 1、填写出售信息，添加图片附件 2、发布成功后，验证出售基本信息 3、在出售详细页，验证房屋出售详细信息
@@ -22,7 +23,7 @@ import com.anjukeinc.iata.ui.init.Init;
 public class AnjukeBrokerSaleRelease {
 	private Browser driver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
-	private boolean needPic = true;
+	private boolean needPic = false;
 
 	@BeforeMethod
 	public void startUp() {
@@ -33,6 +34,7 @@ public class AnjukeBrokerSaleRelease {
 
 	@AfterMethod
 	public void tearDown() {
+		Report.seleniumReport("anjuke", "");
 		driver.quit();
 		driver = null;
 	}
@@ -78,4 +80,4 @@ public class AnjukeBrokerSaleRelease {
 
 		driver.close();
 	}
-}
+} 
