@@ -208,7 +208,7 @@ public class BrokerSaleOperating {
 	}
 	
 	//出售房源编辑的方法==============================================================================================
-	public static void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic)
+	public static void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic) throws InterruptedException
 	{
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
 		driver.click("id^edit_0", "编辑第一条数据");
@@ -279,6 +279,10 @@ public class BrokerSaleOperating {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("发布失败", "出售房源编辑失败", Report.FAIL, ps);			
 		}
+		
+		//等3秒钟，让数据更新
+		Thread.sleep(3000);
+		
 		// 跳转到房源单页
 		driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_newSucc_pageLink"),"点击房源链接");
 //			------------------------------------新版发房在当前页面打开房源单页

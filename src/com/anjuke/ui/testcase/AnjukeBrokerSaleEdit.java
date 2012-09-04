@@ -80,7 +80,7 @@ public class AnjukeBrokerSaleEdit {
 	
 	//(timeOut = 200000)
 	@Test
-	public void editSale(){
+	public void editSale() throws InterruptedException{
 		driver.deleteAllCookies();
 		//Report.setTCNameLog("管理出售编辑-- AnjukeUpdateReleaseSale --Hendry_huang");
 		String casestatus = "";
