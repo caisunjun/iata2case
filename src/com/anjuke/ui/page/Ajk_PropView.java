@@ -16,6 +16,9 @@ public class Ajk_PropView {
 	public static final String BLOCK = "//div[@id='propNav']/a[4]";
 
 	/* 房源信息 */
+	/** 二手房单页 - 面包屑处小区名 */
+	public static final String NavCommName = "//*[@id='propNav']/a[5]";
+	
 	
 	/** 二手房单页 - 房源标题 */
 	public static final String HOUSETITLE = "className^propInfoTitle";
@@ -35,8 +38,16 @@ public class Ajk_PropView {
 	public static final String ZHUANGXIU = "//ul/li[7]/div[3]";
 	/** 二手房单页 - 建造年代 */
 	public static final String HOUSEAGE = "//ul/li[7]/div[4]";
-	/** 二手房单页 - 小区名 */
+	/** 二手房单页 - 房源信息处小区名 */
 	public static final String COMMNAME = "//a[@id='text_for_school_1']";
+	/** 二手房单页 - 房贷计算器链接 */
+	public static final String CALCULATOR = "id^caculator";
+	/** 二手房单页 - 经纪人姓名 */
+	public static final String BROKERNAME = "//div[@class='prop_new_line']";
+	/** 二手房单页 - 经纪人 公司门店 */
+	public static final String COMPANYNAME = "//div[@class='mycompany shop2c']";
+	/** 二手房单页 - 小区简介tab */
+	public static final String COMMINTROTAB = "//*[@id='extra-propview']/ul/li[4]/a";
 	/** 二手房单页 - 房源编号 */
 	public static final String PROPID = "id^propID";
 	
@@ -47,6 +58,12 @@ public class Ajk_PropView {
 	
 	/* 近期评价 */
 	/* 地图 */
+	/** 二手房单页 - 小区地图 - 小区名链接 */
+	public static final String MAPCOMMNAME = "//*[@id='bottom_map_container']/dl/dt/a";
 	/* 小区简介 */
+	/** 二手房单页 - 按售价统计房源数量 */
+	public static final String PriceCount = "//div[@class='commtrends']/dl/dd[1]/a";
+	/** 二手房单页 - 按面积统计房源数量 */
+	public static final String AreaCount = "//div[@class='commtrends']/dl/dd[2]/a";
 	/* 等等 */
 }

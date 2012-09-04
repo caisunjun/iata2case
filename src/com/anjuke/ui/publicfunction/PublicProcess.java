@@ -8,6 +8,7 @@ import com.anjuke.ui.page.Broker_PropertynewRentStep;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {
 	private static String url = "http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v";
@@ -260,29 +261,29 @@ public class PublicProcess {
 	public static void uploadPic(Browser driver, String type) {
 		String picMess = null;
 		if (type.equals("sale")) {
-			picMess = "上传室内图";
-			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_fangxingtu"), "d:\\image\\600x600x0.jpg", picMess);
+			picMess = "上传室内图3";
+			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_fangxingtu"), TcTools.imgPath("600x600x0.jpg"), picMess);
 		} else {
-			picMess = "上传室内图";
-			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, "d:\\image\\600x600.jpg", picMess);
+			picMess = "上传室内图多图";
+			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, TcTools.imgPath("600x600.jpg"), picMess);
 		}
 		exception(driver, picMess);
 		// 上传房型图片
 		if (type.equals("sale")) {
 			picMess = "上传房型图";
-			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_shineitu"), "d:\\image\\600x600.jpg", picMess);
+			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_shineitu"), TcTools.imgPath("600x600.jpg"), picMess);
 		} else {
 			picMess = "上传房型图";
-			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, "d:\\image\\800x800.jpg", picMess);
+			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, TcTools.imgPath("800x800.jpg"), picMess);
 		}
 		exception(driver, picMess);
 		// 上传小区图片
 		if (type.equals("sale")) {
 			picMess = "上传小区图";
-			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_xiaoqutu"), "d:\\image\\800x800.jpg", picMess);
+			driver.uploadFile(Init.G_objMap.get("anjuke_wangluojingjiren_sale_xiaoqutu"), TcTools.imgPath("800x800.jpg"), picMess);
 		} else {
 			picMess = "上传小区图";
-			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, "d:\\image\\600x600x0.jpg", picMess);
+			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, TcTools.imgPath("600x600x0.jpg"), picMess);
 		}
 		exception(driver, picMess);
 

@@ -8,6 +8,8 @@ package com.anjuke.ui.page;
 
 public class Ajk_Sale {
 	
+	/** 二手房列表 - 第一套房源 */
+	public static final String FIRSTPROP = "id^prop_1";
 	/** 二手房列表 - 搜索 - 搜索结果数量 */
 	public static final String S_COUNT = "//div[@class='totalnum']/strong";
 	/** 二手房列表 - 搜索 - 第一页房源数量 */
