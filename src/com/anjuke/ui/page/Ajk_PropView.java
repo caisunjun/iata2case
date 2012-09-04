@@ -9,6 +9,11 @@ package com.anjuke.ui.page;
  * */
 
 public class Ajk_PropView {
+	/* 房源面包屑*/
+	/** 二手房单页 - 区域 */
+	public static final String REGION = "//div[@id='propNav']/a[3]";
+	/** 二手房单页 - 板块 */
+	public static final String BLOCK = "//div[@id='propNav']/a[4]";
 
 	/* 房源信息 */
 	
