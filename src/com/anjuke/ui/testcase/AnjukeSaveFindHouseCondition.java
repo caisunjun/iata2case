@@ -73,8 +73,12 @@ public class AnjukeSaveFindHouseCondition{
 		driver.click(Init.G_objMap.get("anjuke_sale_condition_room"), "选择房型");
 		condition.put("room", "三室");
 		driver.check("//form/div/span[5][@class='newpropcond']");
-		//选择类型
-		driver.click(Init.G_objMap.get("anjuke_sale_condition_type"), "选择类型");
+		//选择房屋类型
+		driver.moveToElement("//*[@id='condusetype_id']");
+		driver.click("//*[@id='condusetype_id']/ul/li[3]/a", "选择类型");
+//		driver.findElement("//a[contains(.,'老公房')]", "", 10).click();
+//		System.out.println("老公房标题为：" + driver.getTitle());
+//		driver.click(Init.G_objMap.get("anjuke_sale_condition_type"), "选择类型");
 		condition.put("type", "公寓");
 		driver.check("//form/div/span[6][@class='newpropcond']");
 		//访问二手房列表
