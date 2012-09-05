@@ -57,7 +57,7 @@ public class AnjukeBrokerRentEdit {
 		rentUpInfo.setConfiguration("电视 ");
 		rentUpInfo.setOrientations("东南");
 		rentUpInfo.setRentType("整租");
-		rentUpInfo.setHouseImage("有图片");
+		rentUpInfo.setHouseImage("无图片");
 		String time = PublicProcess.getNowDateTime("HH：MM:SS");
 		rentUpInfo.setHouseTitle("发布出租测试房源勿联系" + time);
 		rentUpInfo.setHouseDescribe("发布出租，此出租房源为测试房源，如果您看到该房源，请勿联系。感谢您的配合。谢谢！");

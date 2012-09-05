@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="suite">
+    <parameter name = "websiteName" value = "Anjuke"/>
+    <parameter name = "suiteName" value = "--测试hudson运行beta自动化--"/> 
+	<test name="Default" preserve-order="true">
+		<classes>
+			<class name="com.anjukeinc.iata.ui.init.Init"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEdit"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRentEdit"></class>
+		</classes>
+	</test>
+</suite>
