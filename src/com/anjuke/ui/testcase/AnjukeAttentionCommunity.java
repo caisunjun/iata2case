@@ -73,7 +73,7 @@ public class AnjukeAttentionCommunity {
 			// 获取第一条记录标题
 			commTitle = driver.getText(Init.G_objMap.get("anjuke_community_list_firstData_title"), "第一条记录标题");
 			// 获取第一条记录价格
-			commPrice = driver.getText(Init.G_objMap.get("anjuke_community_list_firstData_price"), "第一条记录价格");
+			commPrice = driver.getText("//*[@id='mid_price_1550']/em", "第一条记录价格");
 			// 获取当前URL
 			formerUrl = driver.getAttribute(Init.G_objMap.get("anjuke_community_list_firstData_title"), "href");
 			// 访问第一条记录
