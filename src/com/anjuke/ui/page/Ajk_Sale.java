@@ -30,6 +30,12 @@ public class Ajk_Sale {
 		return element;
 	}
 	
+	/** 二手房列表 - 搜索结果 - 房源 - 小区名 */
+	public static String getKeyDistrict(int val){
+		String element = "//div[@id='prop_" + val + "']/div[2]/address/a/em";
+		return element;
+	}
+	
 	/** 二手房列表 - 搜索结果 - 房源 - 高亮户型室 */
 	public static String getKeyRoom(int val){
 		String element = "//p[@id='prop_detail_qt_prop_" + val + "']/em";
