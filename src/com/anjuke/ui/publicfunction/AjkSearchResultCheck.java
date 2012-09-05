@@ -25,32 +25,32 @@ public class AjkSearchResultCheck {
 	
 	// 筛选条件搜索 - 验证房源的总价
 	public boolean verifyPrice(String val) {
-		return compareSiftResult(val, "price");
+		return compareFilterResult(val, "price");
 	}
 
 	// 筛选条件搜索 - 验证房源的户型室
 	public boolean verifyRoom(String val) {
-		return compareSiftResult(val, "room");
+		return compareFilterResult(val, "room");
 	}
 
 	// 筛选条件搜索 - 验证房源的面积
 	public boolean verifyArea(String val) {
-		return compareSiftResult(val, "area");
+		return compareFilterResult(val, "area");
 	}
 
 	// 筛选条件搜索 - 验证房源的板块
 	public boolean verifyRegionBlock(String val) {
-		return compareSiftRegion(val, "regionblock");
+		return compareFilterRegion(val, "regionblock");
 	}
 
 	// 筛选条件搜索 - 验证房源的区域
 	public boolean verifyRegion(String val) {
-		return compareSiftRegion(val, "region");
+		return compareFilterRegion(val, "region");
 	}
 
 	// 筛选条件搜索 - 验证房源的板块
 	public boolean verifyBlock(String val) {
-		return compareSiftRegion(val, "block");
+		return compareFilterRegion(val, "block");
 	}
 
 	// 关键字搜索 -验证房源的高亮区域
@@ -118,6 +118,10 @@ public class AjkSearchResultCheck {
 		if (value.indexOf("房") != -1) {
 			val = value.split("房");
 		}
+		
+		if (value.indexOf("房") != -1 && value.indexOf("大") != -1) {
+			val[0] = value.substring(1, value.length()-1);
+		}
 
 		return val;
 	}
@@ -125,8 +129,13 @@ public class AjkSearchResultCheck {
 	private double getDoubleVal(String val) {
 		return Double.parseDouble(val);
 	}
-
-	private boolean compareSiftRegion(String val, String category) {
+	
+	/**
+	 * @param val  筛选条件，可分3种："浦东"、"陆家嘴"、"浦东陆家嘴"
+	 * @param category   对应val值，可分3种：region、block、regionblock
+	 * @return
+	 */
+	private boolean compareFilterRegion(String val, String category) {
 		boolean result = false;
 		int listCount = getListCount();
 		String value = val;
@@ -163,6 +172,11 @@ public class AjkSearchResultCheck {
 		return result;
 	}
 
+	/**
+	 * @param val   搜索词，需拆分；上海康城2室：上海康城、2室，分别调用。
+	 * @param category  分为：region、block、room、district
+	 * @return
+	 */
 	private boolean compareKeywordResult(String val, String category) {
 		boolean result = false;
 		String searchKeyword = val;
@@ -180,6 +194,9 @@ public class AjkSearchResultCheck {
 			if (locater.equals("room")) {
 				locater = Ajk_Sale.getKeyRoom(j);
 			}
+			if (locater.equals("district")) {
+				locater = Ajk_Sale.getKeyDistrict(j);
+			}
 			listEm[i] = driver.getText(locater, "获取第" + j + "条房源高亮");
 			if (listEm[i].equals(searchKeyword)) {
 				result = true;
@@ -191,7 +208,7 @@ public class AjkSearchResultCheck {
 		return result;
 	}
 
-	private boolean compareSiftResult(String val, String category) {
+	private boolean compareFilterResult(String val, String category) {
 		boolean result = false;
 		int listCount = getListCount();
 		String[] vals = getValueSplit(val.trim());

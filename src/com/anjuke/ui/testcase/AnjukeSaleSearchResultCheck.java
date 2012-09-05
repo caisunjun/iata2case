@@ -32,7 +32,7 @@ public class AnjukeSaleSearchResultCheck {
 	}
 
 	@Test
-	public void siftSearch() {
+	public void filterSearch() {
 		driver.get("http://shanghai.anjuke.com/sale/");
 		driver.click("//div[@id='apf_id_13_areacontainer']/a[1]",
 				"点击浦东区域的筛选条件");
