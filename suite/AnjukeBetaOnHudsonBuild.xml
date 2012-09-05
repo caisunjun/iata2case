@@ -13,14 +13,6 @@
         <pathelement location="${src}" />
         <pathelement location="${dest}" />
     </path>
-    <delete dir="${dest}" />
-    <replace encoding="UTF-8">
-           <fileset dir="${src}">
-            <include name="**/*.java"/>
-            </fileset>
-        <replacetoken>Report.seleniumReport("", "");</replacetoken>
-        <replacevalue>//Report.seleniumReport("", "");</replacevalue>
-    </replace>
     <target name="init">
         <mkdir dir="${dest}" />
     </target>
