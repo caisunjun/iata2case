@@ -63,8 +63,8 @@ public class AnjukeCommunityPropertyMaster {
 		bs.click(tmpCommPropTabPriceObj, "点击【价格行情】");
 		
 		// 看价格行情页该门店人数，再判断小区首页是否应该有主营小区模块
-		String brokerNum = bs.getText("//*[@id='content']/div/div[6]/div[1]/div[2]/ul/li[1]/a", "获得该主营门店当前经纪人数");
-		String propNum = bs.getText("//*[@id='content']/div/div[6]/div[1]/div[2]/ul/li[2]/a", "获得该主营门店当前房源数");
+		String brokerNum = bs.getText("//*[@id='content']/div/div[4]/div[1]/div[2]/ul/li[1]/a", "获得该主营门店当前经纪人数");
+		String propNum = bs.getText("//*[@id='content']/div/div[4]/div[1]/div[2]/ul/li[2]/a", "获得该主营门店当前房源数");
 
 		if (propCount!=0) {
 			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区模块检查成功", "PASS", "");
