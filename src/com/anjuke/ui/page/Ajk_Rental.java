@@ -7,5 +7,8 @@ package com.anjuke.ui.page;
  * */
 
 public class Ajk_Rental {
+	
+	/** 租房列表 - 搜索 - 搜索无结果 */
+	public static final String NO_FOUND = "//div[@class='SearchIndepNoResult']";
 
 }

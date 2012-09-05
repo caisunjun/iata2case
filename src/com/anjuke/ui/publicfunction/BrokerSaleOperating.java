@@ -77,6 +77,9 @@ public class BrokerSaleOperating {
 				driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_nextBtn"),"去上传照片");
 				// 上传房型图
 				PublicProcess.uploadPic(driver, "sale");
+				
+				driver.click("//div[@id='popup-layer']/div/div[2]/a","防重复图片提示");
+				
 				// 点击发布房源
 				driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_step2_submitup"),"发房第二步-发布房源");
 			}
@@ -205,7 +208,7 @@ public class BrokerSaleOperating {
 	}
 	
 	//出售房源编辑的方法==============================================================================================
-	public static void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic)
+	public static void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic) throws InterruptedException
 	{
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
 		driver.click("id^edit_0", "编辑第一条数据");
@@ -276,13 +279,17 @@ public class BrokerSaleOperating {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("发布失败", "出售房源编辑失败", Report.FAIL, ps);			
 		}
+		
+		//等3秒钟，让数据更新
+		Thread.sleep(3000);
+		
 		// 跳转到房源单页
 		driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_newSucc_pageLink"),"点击房源链接");
 //			------------------------------------新版发房在当前页面打开房源单页
 //			driver.switchWindo(2);
 		//房源详细页，房源标题检查
 		driver.check("className^propInfoTitle");
-		
+		driver.refresh();
 
 		//driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_title"));
 		String propInfoTitle = driver.getText("className^propInfoTitle", "获取房源标题");
@@ -368,13 +375,13 @@ public class BrokerSaleOperating {
 		//删除发布房源```删除后再做验证？删的对不对？在这个case里验证？需要考虑回收站翻页
 //			driver.close();
 //			driver.switchWindo(1);
-		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");		
-		if(driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"))&&driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_list_firstTitle"), "获取房源名称").equals(updateInfo.getHouseTitle())){
-			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"), "选中发布房源");		
-			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_hideprop"), "删除发布房源");
-		}else{
-			Report.writeHTMLLog("删除房源", "没有可以删除的房源", "DONE", driver.printScreen());
-		}
+//		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");		
+//		if(driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"))&&driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_list_firstTitle"), "获取房源名称").equals(updateInfo.getHouseTitle())){
+//			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firestsele"), "选中发布房源");		
+//			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_hideprop"), "删除发布房源");
+//		}else{
+//			Report.writeHTMLLog("删除房源", "没有可以删除的房源", "DONE", driver.printScreen());
+//		}
 	}
 
 }

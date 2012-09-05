@@ -87,5 +87,48 @@ public class Broker_info {
      * 提交成功 文本
      */
     public static final String INFOOKTEXT = "id^tpok32";
+    /**
+     * 修改密码 旧密码
+     */
+    public static final String OLDPASS = "id^old_pass";
+    /**
+     * 修改密码 新密码
+     */
+    public static final String NEWPASS = "id^new_pass1";
+    /**
+     * 修改密码 确认密码
+     */
+    public static final String NEWPASS1 = "id^new_pass2";
+    /**
+     * 修改密码 submit
+     */
+    public static final String SUBMITPASS = "id^submit_form";
+    /**
+     * 修改密码成功
+     */
+    public static final String PASSOK = "id^tpok5";
+
+    /**
+     * 执业认证提交成功文本
+     */
+    public static final String VIPSUBTEXT = "id^tpok6";
+
+    /**
+     * 大学堂-线上考试-列表对象
+     */
+    public static final String UNIVERSITYLIST = "//div[@class='activecenter']/ul";
+    /**
+     * 大学堂 链接
+     */
+    public static final String UNIVERSITYLINK = "//div[@id='nav']/div/ul/li[2]/a/strong";
+    /**
+     * 线上考试链接
+     */
+    public static final String ONLINECHECK = "//li[@id='6_2']/a";
+    /**
+     * 开始考试
+     */
+    public static final String EXAM = "//div[@id='content']/div/a";
+
 }
 

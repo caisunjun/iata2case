@@ -9,6 +9,7 @@ import com.anjuke.ui.publicfunction.BrokerSaleOperating;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.init.Init;
 /**
  * 该用例完成安居客出售更新操作，逻辑如下
  * 1、编辑出售信息，添加图片附件
@@ -18,7 +19,7 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
  * @Author gabrielgao
  * @time 2012-04-11 17:00
  * @UpdateAuthor ccyang
- * @last updatetime 2012-07-25 10:00
+ * @last updatetime 2012-08-16 16:00
  */
 public class AnjukeBrokerSaleEdit {
 	private Browser driver = null;
@@ -78,15 +79,22 @@ public class AnjukeBrokerSaleEdit {
 	}
 	
 	//(timeOut = 200000)
-	@Test(groups = {"unstable"})
-	public void editSale(){
+	@Test
+	public void editSale() throws InterruptedException{
 		driver.deleteAllCookies();
 		//Report.setTCNameLog("管理出售编辑-- AnjukeUpdateReleaseSale --Hendry_huang");
-		driver.deleteAllCookies();
-		//for daily
-		updateInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
-		//for test
-		//updateInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
+		String casestatus = "";
+		String testing = "testing";
+		casestatus = Init.G_config.get("casestatus");
+
+		if(testing.equals(casestatus))
+		{
+			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
+		}
+		else
+		{
+			saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+		}
 		
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
 		//driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firstEdit"));

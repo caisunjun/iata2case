@@ -50,19 +50,37 @@ public class AnjukeCommunityPropertyMaster {
 		// 打开主营小区单页
 		bs.get(url);
 
+		if(bs.check(tmpCommunityNameObj))
+		{bs.refresh();}
 		// 获取小区名称
 		String CommunityName = bs.getText(tmpCommunityNameObj, "获取小区名称");
+		
 
-		// 检查主营小区精选房源是否存在
-		if (bs.getElementCount(tmpCommPropMasterObj) != 0) {
+		// 检查主营小区精选房源是否存在 
+		int propCount = bs.getElementCount(tmpCommPropMasterObj);
+		
+		// 点击“价格行情”
+		bs.click(tmpCommPropTabPriceObj, "点击【价格行情】");
+		
+		// 看价格行情页该门店人数，再判断小区首页是否应该有主营小区模块
+		String brokerNum = bs.getText("//*[@id='content']/div/div[4]/div[1]/div[2]/ul/li[1]/a", "获得该主营门店当前经纪人数");
+		String propNum = bs.getText("//*[@id='content']/div/div[4]/div[1]/div[2]/ul/li[2]/a", "获得该主营门店当前房源数");
+
+		if (propCount!=0) {
 			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区模块检查成功", "PASS", "");
-		} else {
+		} else if(propNum.contains("0套"))
+		{
+			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区当前有 "+propNum+" 房源, 所以该小区首页没有主营小区模块", "PASS", "");}
+		else
+		{
 			String tmpPicName = bs.printScreen();
 			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区模块检查失败", "FAIL", tmpPicName);
 		}
-
-		// 点击“价格行情”
-		bs.click(tmpCommPropTabPriceObj, "点击【价格行情】");
+		if(brokerNum.contains("0人")&& !propNum.contains("0套"))
+		{
+			String ps = bs.printScreen();
+			Report.writeHTMLLog("价格行情页-主营小区经纪人与房源数", "小区单页-主营小区模块数据出现异常 ：门店经纪人为“"+brokerNum+"”,门店房源数为“"+propNum+"”", "FAIL", ps);
+		}
 
 		// 检查价格行情页，右侧主营小区模块是否存在
 		if (bs.getElementCount(tmpCommPriceMasterObj) != 0) {

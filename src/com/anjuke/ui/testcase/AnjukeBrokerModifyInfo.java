@@ -1,5 +1,5 @@
 package com.anjuke.ui.testcase;
-import java.util.Random;
+import java.util.*;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -9,7 +9,6 @@ import com.anjuke.ui.page.Broker_info;
 import com.anjuke.ui.page.Login_Anget;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjukeinc.iata.ui.report.Report;
 
 
 /**
@@ -22,7 +21,7 @@ import com.anjukeinc.iata.ui.report.Report;
 */
 public class AnjukeBrokerModifyInfo {
     Browser bs = null;
-    String url = "http://my.anjuke.com/login/";
+    String url = "http://agent.anjuke.com/login/";
     String username = "ajk_sh";
     String passwd = "anjukeqa";
 
@@ -32,15 +31,16 @@ public class AnjukeBrokerModifyInfo {
     }
     @AfterMethod
     public void tearDown(){
-        Report.seleniumReport("", "");
         bs.quit();
         bs = null;
     }
-    public void Login(){ //经纪人登录
+    public void Login(String username,String passwd){ //经纪人登录
         bs.get(url);
         bs.type(Login_Anget.USERNAME, username, "输入用户账号");
         bs.type(Login_Anget.PASSWORD,passwd, "输入用户密码");
         bs.click(Login_Anget.BTN, "点击登录");
+        if(!bs.check("class^logo"))
+        {bs.refresh();}
     }
     public int getrandom(){ //取得4以内的随机数
         Random a = new Random();
@@ -53,12 +53,12 @@ public class AnjukeBrokerModifyInfo {
         }
         return sel;
     }
-    //@Test
+    @Test
     public void testBrokeremail(){
         /**
          * 修改经纪人邮件地址
          */
-        Login();
+        Login(username,passwd);
         bs.click(Broker_info.updateinfo, "进入更新经纪人资料页面");
         bs.click(Broker_info.updateemail, "更新电子邮件");
         String oldemail = bs.getText(Broker_info.oldemail, "获得旧的邮件地址");
@@ -83,7 +83,7 @@ public class AnjukeBrokerModifyInfo {
         /**
          * 更新经纪人资料信息
          */
-        Login();
+        Login(username,passwd);
         bs.get("http://my.anjuke.com/user/broker/brokerinfo");
         bs.click(Broker_info.UPDATEAREALINK, "进入修改经纪人资料页面");
         //更新区域
@@ -97,10 +97,26 @@ public class AnjukeBrokerModifyInfo {
         }
         //更新版块
         bs.select(Broker_info.BLOCK, getrandom());
-        bs.uploadFile(Broker_info.IMAGEUPLOAD, "d:\\320x240.jpg", "上传用户图片");
+        //获得项目\tools里图片的绝对路径
+        String imgPath = System.getProperty("user.dir") + "\\tools\\320x240.jpg";
+        bs.uploadFile(Broker_info.IMAGEUPLOAD, imgPath, "上传用户图片");
         bs.click(Broker_info.SUBMIT, "提交资料修改");
         String actualText = bs.getText(Broker_info.INFOOKTEXT, "获取修改资料提交成功文本");
         bs.assertContains(actualText, "您的资料修改已提交，工作人员会在1-2个工作日内为您审核。");
+    }
+    @Test
+    public void testBrokerUpdatePasswd(){
+        String username="13000170010";
+        String passwd = "123123";
+        String url = "http://my.anjuke.com/user/modify/password";
+        Login(username,passwd);
+        bs.get(url);
+        bs.type(Broker_info.OLDPASS, "123123", "输入旧密码");
+        bs.type(Broker_info.NEWPASS, "123123", "输入新密码");
+        bs.type(Broker_info.NEWPASS1, "123123", "确认密码");
+        bs.click(Broker_info.SUBMITPASS, "提交修改密码");
+        String actualText = bs.getText(Broker_info.PASSOK, "获取修改密码成功文本");
+        bs.assertContains(actualText, "密码修改成功");
     }
 
 }
