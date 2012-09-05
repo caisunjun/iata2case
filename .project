@@ -3,6 +3,7 @@
 	<name>IATACaseAnjuke</name>
 	<comment></comment>
 	<projects>
+		<project>IATA</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
