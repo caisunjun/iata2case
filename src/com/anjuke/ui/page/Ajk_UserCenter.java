@@ -14,7 +14,9 @@ public class Ajk_UserCenter {
 	public static final String USERCENTER_BROKERHEADIMG = "//*[@id='MyAnjuke']/div[2]/div/div/ul/li[1]/a/img";
 	/** 用户中心 - 我的评价 - 获取经纪人手机号 */
 	public static final String USERCENTER_BROKERTEL = "//*[@id='MyAnjuke']/div[2]/div/div/ul/li[1]/div/div[2]/span[1]";
-	/** 用户中心 - 我的评价 - 获取房源信息 */
+	/** 用户中心 - 我的评价 - 获取经纪人公司和门店 */
+	public static final String USERCENTER_BROKERCOMPANYSTORE = "//*[@id='MyAnjuke']/div[2]/div/div/ul/li[1]/div/div[2]/span[2]";
+	/** 用户中心 - 我的评价 - 获取房源质量 */
 	public static final String USERCENTER_HOUSEQUALITY = "//*[@id='MyAnjuke']/div[2]/div/div/ul/li[1]/div/div[3]/span[1]/strong";
 	/** 用户中心 - 我的评价 - 获取服务态度 */
 	public static final String USERCENTER_SERVICEATTITUDE = "//*[@id='MyAnjuke']/div[2]/div/div/ul/li[1]/div/div[3]/span[2]/strong";
