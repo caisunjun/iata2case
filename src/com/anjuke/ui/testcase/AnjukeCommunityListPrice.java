@@ -45,13 +45,15 @@ public class AnjukeCommunityListPrice {
 		HashMap<String,String> resultList =null;
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
 		int tmpCount = 0;
-		//判断城市列表是否存在
-		if(bs.check(tmpCityList,30)){
-			tmpCount = bs.getElementCount(Init.G_objMap.get("cityhomepage_text_city_list"));
-		}else{
+		int num = 0;
+		//判断城市列表是否存在  首页经常vanish 暂时用refresh破
+		while(!bs.check(tmpCityList,10)&&num<3)
+		{
 			bs.refresh();
-			tmpCount = bs.getElementCount(Init.G_objMap.get("cityhomepage_text_city_list"));			
+			num++;
+			System.out.println("刷了一次");
 		}
+		tmpCount = bs.getElementCount(Init.G_objMap.get("cityhomepage_text_city_list"));
 		Report.writeHTMLLog("获取城市列表", "城市个数："+tmpCount, Report.DONE, "");
 		//执行循环操作各个城市
         if(tmpCount!=0){

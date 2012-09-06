@@ -5,6 +5,8 @@ package com.anjuke.ui.page;
  * @author agneszhang
  * */
 public class Ajk_AskQuestion {
+	/** 问答提问页 - 页头注册按钮 */
+	public static final String REG = "//*[@id='ajax_nologin_apf_id_6']/li[5]/a";
 	/** 问答提问页 - 标题输入框 */
 	public static final String TITLE = "id^question_title";
 	/** 问答提问页 - 描述输入框 */
