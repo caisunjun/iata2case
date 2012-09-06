@@ -23,49 +23,54 @@ public class AjkSearchResultCheck {
 		this.driver = driver;
 	}
 	
-	// 筛选条件搜索 - 验证房源的总价
+	/** 筛选条件搜索 - 验证房源的总价*/
 	public boolean verifyPrice(String val) {
 		return compareFilterResult(val, "price");
 	}
 
-	// 筛选条件搜索 - 验证房源的户型室
+	/** 筛选条件搜索 - 验证房源的户型室*/
 	public boolean verifyRoom(String val) {
 		return compareFilterResult(val, "room");
 	}
 
-	// 筛选条件搜索 - 验证房源的面积
+	/** 筛选条件搜索 - 验证房源的面积*/
 	public boolean verifyArea(String val) {
 		return compareFilterResult(val, "area");
 	}
 
-	// 筛选条件搜索 - 验证房源的板块
+	/** 筛选条件搜索 - 验证房源的板块*/
 	public boolean verifyRegionBlock(String val) {
 		return compareFilterRegion(val, "regionblock");
 	}
 
-	// 筛选条件搜索 - 验证房源的区域
+	/** 筛选条件搜索 - 验证房源的区域*/
 	public boolean verifyRegion(String val) {
 		return compareFilterRegion(val, "region");
 	}
 
-	// 筛选条件搜索 - 验证房源的板块
+	/** 筛选条件搜索 - 验证房源的板块*/
 	public boolean verifyBlock(String val) {
 		return compareFilterRegion(val, "block");
 	}
 
-	// 关键字搜索 -验证房源的高亮区域
+	/** 关键字搜索 -验证房源的高亮区域*/
 	public boolean verifyKeyRegion(String val) {
 		return compareKeywordResult(val, "region");
 	}
 
-	// 关键字搜索 - 验证房源的高亮板块
+	/** 关键字搜索 - 验证房源的高亮板块*/
 	public boolean verifyKeyBlock(String val) {
 		return compareKeywordResult(val, "block");
 	}
 
-	// 关键字搜索 -验证房源的高亮户型室
+	/** 关键字搜索 -验证房源的高亮户型室*/
 	public boolean verifyKeyRoom(String val) {
 		return compareKeywordResult(val, "room");
+	}
+	
+	/** 关键字搜索 -验证房源的高亮小区名*/
+	public boolean verifyDistrict(String val) {
+		return compareKeywordResult(val, "district");
 	}
 
 	// 获取列表页房源数量
