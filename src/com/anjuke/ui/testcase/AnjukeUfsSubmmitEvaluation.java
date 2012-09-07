@@ -70,7 +70,7 @@ public class AnjukeUfsSubmmitEvaluation {
 		bs = null;		
 	}
 	
-	@Test
+	@Test(groups = { "unstable" })
 	public void submitEvaluate() throws Exception {			
 		//登录
 		UserName = "jessi21";
