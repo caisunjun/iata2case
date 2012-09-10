@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.anjuke.ui.page.Broker_PropertynewRentStep;
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
@@ -12,8 +13,8 @@ import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {
 	private static String url = "http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v";
-	private static String homeUrl = "http://shanghai.anjuke.com";
-	private static String versionUrl = "http://www.anjuke.com/version/switch/?f1=ga";
+	private static String homeUrl = "http://shanghai.anjuke.com/";
+	private static String versionUrl = "http://www.anjuke.com/version/switch/";
 	private static String logInSuccName = null;
 
 	/*
@@ -30,22 +31,21 @@ public class PublicProcess {
 		String nowUrl = driver.getCurrentUrl();
 		// 如果当前url为空，或者为新开浏览器，启动的版本切换url。则执行登录操作
 		if (nowUrl == null || nowUrl.equals("") || nowUrl.equals(versionUrl)) {
-			driver.get(url);
+//			driver.get(url);    //意义不明 dologin里会打开上海首页的
 			dologin(driver, name, pass);
-			// 经纪人用户
+			// 获得经纪人、用户的登录名
 			if (id == 1) {
 				tycoonLogin(driver);
 			} else {
-				// 普通用户
 				commLoin(driver);
 			}
 			// 如果当前url不为空，则跳转到首页，判断是否登录
 		} else {
 			// 跳转到主页
-			driver.get(homeUrl);
-			driver.check(Init.G_objMap.get("public_text_loginusername"));
-			boolean tycoonStatus = driver.check(Init.G_objMap.get("public_text_loginusername"));
-			boolean commStatus = driver.check(Init.G_objMap.get("public_text_common_loginusername"));
+			if(nowUrl != homeUrl)
+			{driver.get(homeUrl);}
+			boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName);
+			boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName);
 			// 如果当前是经纪人用户
 			if (tycoonStatus) {
 				Report.writeHTMLLog("当前登录状态", "状态：经纪人登录", "Done", "");
@@ -54,7 +54,7 @@ public class PublicProcess {
 				Report.writeHTMLLog("当前登录状态", "经纪人登录", "Done", "");
 				// 且不需要从新登录
 				if (!relogin) {
-					logInSuccName = driver.getText(Init.G_objMap.get("public_text_loginusername"), "获取用户名");
+					logInSuccName = driver.getText(Public_HeaderFooter.HEADER_BrokerName, "获取用户名");
 					Report.writeHTMLLog("current user name", logInSuccName, "Done", "");
 					driver.get(nowUrl);
 				} else {
@@ -67,7 +67,7 @@ public class PublicProcess {
 				Report.writeHTMLLog("当前登录状态", "状态：普通用户登录", "Done", "");
 				// 且不需要从新登录
 				if (!relogin) {
-					logInSuccName = driver.getText(Init.G_objMap.get("public_text_common_loginusername"), "获取用户名");
+					logInSuccName = driver.getText(Public_HeaderFooter.HEADER_UserName, "获取用户名");
 					Report.writeHTMLLog("current user name", logInSuccName, "Done", "");
 					driver.get(nowUrl);
 				} else {
@@ -77,7 +77,7 @@ public class PublicProcess {
 			// 如果未登录
 			if ((!commStatus) && (!tycoonStatus)) {
 				Report.writeHTMLLog("当前登录状态", "状态：用户未登录", "Done", "");
-				driver.get(url);
+//				driver.get(url);
 				dologin(driver, name, pass);
 				// 经纪人用户
 				if (id == 1) {
@@ -97,7 +97,7 @@ public class PublicProcess {
 	private static void reLogin(Browser driver, int currentId, int id, String name, String pass, String nowUrl) {
 		if (id == 1) {
 			logOut(driver);
-			driver.get(url);
+//			driver.get(url);
 			dologin(driver, name, pass);
 			tycoonLogin(driver);
 			if (currentId == id) {
@@ -105,7 +105,7 @@ public class PublicProcess {
 			}
 		} else {
 			logOut(driver);
-			driver.get(url);
+//			driver.get(url);
 			dologin(driver, name, pass);
 			commLoin(driver);
 			if (currentId == id) {
@@ -116,27 +116,27 @@ public class PublicProcess {
 
 	// 处理普通用户登录后操作，获取登录后用户名
 	private static void commLoin(Browser driver) {
-		if (driver.check(Init.G_objMap.get("public_text_common_loginusername"), 20)) {
+		if (driver.check(Public_HeaderFooter.HEADER_UserName, 20)) {
 			try {
-				String welcomeinfo = driver.getText(Init.G_objMap.get("public_text_common_loginusername"), "登录成功,获取用户名", 20);
+				String welcomeinfo = driver.getText(Public_HeaderFooter.HEADER_UserName, "登录成功,获取用户名", 20);
 				logInSuccName = PublicProcess.splitString(welcomeinfo, "，");
 				Report.writeHTMLLog("login user name", logInSuccName, "Done", "");
 			} catch (NullPointerException e) {
 				String ps = driver.printScreen();
-				Report.writeHTMLLog("login fial", "return username is null", Report.FAIL, ps);
+				Report.writeHTMLLog("login fail", "return username is null", Report.FAIL, ps);
 			}
 		}
 	}
 
 	// 处理经纪人登录后操作，获取登录后用户名
 	private static void tycoonLogin(Browser driver) {
-		if (driver.check(Init.G_objMap.get("public_text_loginusername"), 20)) {
+		if (driver.check(Public_HeaderFooter.HEADER_BrokerName, 20)) {
 			try {
-				logInSuccName = driver.getText(Init.G_objMap.get("public_text_loginusername"), "登录成功,获取用户名", 20);
+				logInSuccName = driver.getText(Public_HeaderFooter.HEADER_BrokerName, "登录成功,获取用户名", 20);
 				Report.writeHTMLLog("login user name", logInSuccName, "Done", "");
 			} catch (NullPointerException e) {
 				String ps = driver.printScreen();
-				Report.writeHTMLLog("login fial", "return username is null", Report.FAIL, ps);
+				Report.writeHTMLLog("login fail", "return username is null", Report.FAIL, ps);
 			}
 		}
 	}
@@ -147,8 +147,8 @@ public class PublicProcess {
 		driver.get(homeUrl);
 
 		// 判断当前的登录用户类型
-		boolean tycoonStatus = driver.check(Init.G_objMap.get("public_text_loginusername"));
-		boolean commStatus = driver.check(Init.G_objMap.get("public_text_common_loginusername"));
+		boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName);
+		boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName);
 
 		if (tycoonStatus) { // 经纪人退出
 			if (driver.check(Init.G_objMap.get("anjuke_use_logout_button"))) {
@@ -176,7 +176,7 @@ public class PublicProcess {
 			driver.refresh();
 			driver.click(Init.G_objMap.get("anjuke_click_login"), "点击登录按钮");
 		}
-		driver.check(Init.G_objMap.get("anjuke_login_userName"));
+		
 		driver.type(Init.G_objMap.get("anjuke_login_userName"), name, "用户名");
 		driver.type(Init.G_objMap.get("anjuke_login_password"), pass, "密码");
 		driver.click(Init.G_objMap.get("anjuke_login_button"), "登录");
