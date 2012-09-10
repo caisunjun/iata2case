@@ -65,12 +65,12 @@ public class AnjukeUfsSubmmitEvaluation {
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
-		Report.seleniumReport("www.anjuke.com", "UFS功能验证_提交评价并核对数据正确性");
-//		bs.quit();
-//		bs = null;		
+//		Report.seleniumReport("www.anjuke.com", "UFS功能验证_提交评价并核对数据正确性");
+		bs.quit();
+		bs = null;		
 	}
 	
-	@Test
+	@Test(groups = { "unstable" })
 	public void submitEvaluate() throws Exception {			
 		//登录
 		UserName = "jessi21";

@@ -279,17 +279,18 @@ public class BrokerSaleOperating {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("发布失败", "出售房源编辑失败", Report.FAIL, ps);			
 		}
-		
-		//等3秒钟，让数据更新
-		Thread.sleep(3000);
+//		String url = "";
+//		url = driver.getAttribute(Init.G_objMap.get("anjuke_wangluojingjiren_sale_newSucc_pageLink"), "href");
+		//等5秒钟，让数据更新
+		Thread.sleep(5000);
 		
 		// 跳转到房源单页
 		driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_newSucc_pageLink"),"点击房源链接");
-//			------------------------------------新版发房在当前页面打开房源单页
-//			driver.switchWindo(2);
+
+//		url = url+"?cc=cc";
+//		driver.get(url);
 		//房源详细页，房源标题检查
 		driver.check("className^propInfoTitle");
-		driver.refresh();
 
 		//driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_detail_title"));
 		String propInfoTitle = driver.getText("className^propInfoTitle", "获取房源标题");
