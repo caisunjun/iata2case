@@ -72,7 +72,7 @@ public class AnjukeRecommendHouse {
 		//以经纪人账号登陆anjuke网站
 		if(!bool){
 			//删除当前浏览器所有Cookie
-			bs.deleteAllCookies();			
+//			bs.deleteAllCookies();			
 		}		
 
 		//For anjuke daily

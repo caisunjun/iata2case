@@ -54,7 +54,7 @@ public class AnjukeAttentionCommunity {
 		else
 		{
 			// 普通用户登录
-			driver.deleteAllCookies();
+//			driver.deleteAllCookies();
 			String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
 			// 判断用户是否登录成功
 			if (!(loginName == null || loginName.equals(""))) {

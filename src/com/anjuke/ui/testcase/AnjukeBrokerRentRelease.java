@@ -30,7 +30,7 @@ public class AnjukeBrokerRentRelease {
 	@BeforeMethod
 	public void startUp() {
 		driver = FactoryBrowser.factoryBrowser();
-		driver.deleteAllCookies();
+//		driver.deleteAllCookies();
 	}
 
 	@AfterMethod

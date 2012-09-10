@@ -67,7 +67,7 @@ public class AnjukeCancelRecommendHouse {
 		// 以经纪人身份登录anjuke网站
 		if (!bool) {
 			// 清空当前浏览器的cookie
-			bs.deleteAllCookies();
+//			bs.deleteAllCookies();
 		} 
 		//For anjuke daily
 		PublicProcess.dologin(bs, "cdtest", "anjukeqa");

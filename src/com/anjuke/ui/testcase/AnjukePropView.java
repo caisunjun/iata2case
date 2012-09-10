@@ -31,7 +31,7 @@ public class AnjukePropView {
     }
     @Test
     public void testPropView(){
-    	bs.deleteAllCookies();
+//    	bs.deleteAllCookies();
 //    	bs.get("http://www.anjuke.com/version/switch/?f1=" + Init.G_config.get("version").toLowerCase());
     	String brokerName = "";
     	String brokerCompany = "";

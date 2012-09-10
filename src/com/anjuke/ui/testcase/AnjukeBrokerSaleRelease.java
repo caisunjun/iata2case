@@ -27,7 +27,7 @@ public class AnjukeBrokerSaleRelease {
 	@BeforeMethod
 	public void startUp() {
 		driver = FactoryBrowser.factoryBrowser();
-		driver.deleteAllCookies();
+//		driver.deleteAllCookies();
 		saleInfo = saleInfo_init();
 	}
 
@@ -59,7 +59,7 @@ public class AnjukeBrokerSaleRelease {
 	// (timeOut = 200000)
 	@Test
 	public void releaseSale() {
-		driver.deleteAllCookies();
+//		driver.deleteAllCookies();
 		String casestatus = "";
 		String testing = "testing";
 		//从config.ini中取出casestatus

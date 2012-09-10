@@ -58,7 +58,7 @@ public class AnjukeUfsSubmmitEvaluation {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		bs = FactoryBrowser.factoryBrowser();
-		bs.deleteAllCookies();
+//		bs.deleteAllCookies();
 //		baseUrl = "http://shanghai.anjuke.com";	
 		baseUrl = "http://shenzhen.anjuke.com/prop/view/121857833";
 	}
