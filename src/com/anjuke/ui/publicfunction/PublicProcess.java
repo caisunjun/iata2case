@@ -42,7 +42,8 @@ public class PublicProcess {
 			// 如果当前url不为空，则跳转到首页，判断是否登录
 		} else {
 			// 跳转到主页
-			if(nowUrl != homeUrl)
+			nowUrl = driver.getCurrentUrl();
+			if(!nowUrl.equals(homeUrl))
 			{driver.get(homeUrl);}
 			boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName);
 			boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName);
@@ -86,7 +87,8 @@ public class PublicProcess {
 					// 普通用户
 					commLoin(driver);
 				}
-				driver.get(nowUrl);
+				//登陆后会回到原页面的
+				//driver.get(nowUrl);
 			}
 
 		}
