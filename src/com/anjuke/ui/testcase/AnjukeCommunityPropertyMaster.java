@@ -4,6 +4,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Ajk_CommunityTrends;
+import com.anjuke.ui.page.Ajk_CommunityView;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
@@ -33,19 +35,18 @@ public class AnjukeCommunityPropertyMaster {
 	@Test
 	public void testStart() {
 		//Report.setTCNameLog("检查主营小区-- AnjukeCommunityPropertyMaster --gabrielgao");
-		checkCommPropMaster("http://shanghai.anjuke.com/v2/community/view/1550");
-		checkCommPropMaster("http://shanghai.anjuke.com/v2/community/view/147");
-		checkCommPropMaster("http://shanghai.anjuke.com/v2/community/view/27");
+		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1550");
+		checkCommPropMaster("http://shanghai.anjuke.com/community/view/147");
+		checkCommPropMaster("http://shanghai.anjuke.com/community/view/27");
 	}
 
 	private void checkCommPropMaster(String url) {
 		Report.writeHTMLLog("*****小区单页-主营小区*****", "=================================================", "DONE", "");
-
-		String tmpCommunityNameObj = Init.G_objMap.get("community_text_title");
-		String tmpCommPropMasterObj = Init.G_objMap.get("community_property_master");
-		String tmpCommPropTabPriceObj = Init.G_objMap.get("community_tab_price");
-		String tmpCommPriceMasterObj = Init.G_objMap.get("community_price_master");
-		String tmpCommPriceGoldStoreObj = Init.G_objMap.get("community_price_goldstore");
+		String tmpCommunityNameObj = Ajk_CommunityView.COMMTITLE;
+		String tmpCommPropMasterObj = Ajk_CommunityView.CommMaster;
+		String tmpCommPropTabPriceObj = Ajk_CommunityView.TrendsTab;
+		String tmpCommPriceMasterObj = Ajk_CommunityTrends.MasterStoreIMG;
+		String tmpCommPriceGoldStoreObj = Ajk_CommunityTrends.MasterStore;
 
 		// 打开主营小区单页
 		bs.get(url);
@@ -63,8 +64,8 @@ public class AnjukeCommunityPropertyMaster {
 		bs.click(tmpCommPropTabPriceObj, "点击【价格行情】");
 		
 		// 看价格行情页该门店人数，再判断小区首页是否应该有主营小区模块
-		String brokerNum = bs.getText("//*[@id='content']/div/div[4]/div[1]/div[2]/ul/li[1]/a", "获得该主营门店当前经纪人数");
-		String propNum = bs.getText("//*[@id='content']/div/div[4]/div[1]/div[2]/ul/li[2]/a", "获得该主营门店当前房源数");
+		String brokerNum = bs.getText(Ajk_CommunityTrends.MasterStoreBrokerNum, "获得该主营门店当前经纪人数");
+		String propNum = bs.getText(Ajk_CommunityTrends.MasterStorePropNum, "获得该主营门店当前房源数");
 
 		if (propCount!=0) {
 			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区模块检查成功", "PASS", "");
