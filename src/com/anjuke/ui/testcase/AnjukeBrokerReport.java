@@ -79,7 +79,8 @@ public class AnjukeBrokerReport {
     	PublicProcess.logIn(bs,username,passwd,false, 1);
     	if(!bs.check("Public_HeaderFooter.HEADER_BROKERLINK"))
     	{bs.refresh();}
-    	if(bs.check("//p[contains(.,'抱歉，您暂时无法访问网络助手页面')]"))
+    	System.out.println(bs.getElementCount("//h1[contains(.,'温馨提示')]"));
+    	if(bs.getElementCount("//p[contains(.,'抱歉，您暂时无法访问网络助手页面')]") != 0)
     	{
     		bs.printScreen();
     		System.out.println("这个经纪人没有网络助手数据");
