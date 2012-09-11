@@ -51,7 +51,7 @@ public class AnjukeCheckAds {
 		Report.writeHTMLLog("*****检查广告-二手房列表页*****", "=================================================", "DONE", "");
 		bs.quit();
 		bs = null;
-		bs = FactoryBrowser.factoryBrowser();
+		bs = FactoryBrowser.factoryBrowser("ie");
 		bs.get(url);
 		try {
 			Thread.sleep(30000);
