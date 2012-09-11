@@ -38,7 +38,7 @@ public class Anjukekeywords {
 		bs = null;
 	}
 
-	@Test
+	@Test (groups = "{unstable}")
 	public void testlistpage() throws UnsupportedEncodingException {
 		String url = "";
 		int dataCount = 0;
@@ -101,7 +101,7 @@ public class Anjukekeywords {
 		}
 	}
 
-	@Test
+	@Test (groups = "{unstable}")
 	public void testRentlist() throws UnsupportedEncodingException {
 		String url = "";
 		int dataCount = 0;
@@ -163,7 +163,7 @@ public class Anjukekeywords {
 		}
 	}
 
-	@Test
+	@Test (groups = "{unstable}")
 	public void testcommunity() throws UnsupportedEncodingException {
 		String url = "";
 		int dataCount = 0;
@@ -249,7 +249,7 @@ public class Anjukekeywords {
 			}
 		}
 	}
-	//@Test
+	//@Test (groups = "{unstable}")
 	public void testvip() throws UnsupportedEncodingException{
 		String url = "";
 		int dataCount = 0;
