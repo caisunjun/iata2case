@@ -16,6 +16,7 @@
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerReport"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition"></class>
+			<class name="com.anjuke.ui.testcase.AnjukePropView"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSearchCheck"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster"></class>
 		</classes>

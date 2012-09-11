@@ -64,7 +64,8 @@ public class AnjukeCityhomepageSearchareaLink {
             	Map.Entry<String, String> result = iterComm.next();
             	i = i+1;
             	cityName = result.getKey();
-            	cityUrl = result.getValue();
+            	cityUrl = result.getValue().replace("sale/", "");
+            	System.out.println(cityUrl);
             	if(cityName!=null&&cityUrl!=null){
                 	bs.get(cityUrl);
                 	checkLink(cityName);  
@@ -84,7 +85,7 @@ public class AnjukeCityhomepageSearchareaLink {
 		String areaName;
 		String areaLink;
 		String actualTitle;
-		String areaList = Init.G_objMap.get("ajk_anjukeMain_search_link_area");		
+		String areaList = "//div[@class='filter-box hot-area']/a";		
 		HashMap<String,String> areaLinkList = new HashMap<String,String>();
 		if(bs.check(areaList,10)){
 			int linkCount = bs.getElementCount(areaList);

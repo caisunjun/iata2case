@@ -45,8 +45,8 @@ public class PublicProcess {
 			nowUrl = driver.getCurrentUrl();
 			if(!nowUrl.equals(homeUrl))
 			{driver.get(homeUrl);}
-			boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName);
-			boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName);
+			boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName,5);
+			boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName,5);
 			// 如果当前是经纪人用户
 			if (tycoonStatus) {
 				Report.writeHTMLLog("当前登录状态", "状态：经纪人登录", "Done", "");
