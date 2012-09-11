@@ -22,7 +22,7 @@ public class AnjukePropView {
 
     @BeforeMethod
     public void setUp() {
-        bs = FactoryBrowser.factoryBrowser("ie");
+        bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod
     public void tearDown(){
