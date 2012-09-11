@@ -43,17 +43,18 @@ public class Anjukekeywords {
 		String url = "";
 		int dataCount = 0;
 		// 设定要跑几个城市
-		int now = 0;
+		
 		int cityNum = 5;
 		// 遍历敏感词
 		Map<String, String> keywordsMap = LogFile.getConfigInfo("keywords");
 		Iterator<Entry<String, String>> keywordsIter = keywordsMap.entrySet()
 				.iterator();
 		while (keywordsIter.hasNext()) {
+			int now = 0;
 			Map.Entry<String, String> keywordsEntry = keywordsIter.next();
 			Object keywordsVal = keywordsEntry.getValue();
 			Object keywordsURL = keywordsEntry.getValue();
-			// System.out.println(val);
+			System.out.println(keywordsVal + "--" + keywordsURL);
 
 			// 遍历城市
 			Map<String, String> cityMap = LogFile
@@ -76,9 +77,9 @@ public class Anjukekeywords {
 					Report.writeHTMLLog("检查安居客敏感词-二手房列表页", "未搜索到任何结果的页面元素成功找到",
 							Report.PASS, "");
 				} else {
-					String ps = bs.printScreen();
+					//String ps = bs.printScreen();
 					Report.writeHTMLLog("检查安居客敏感词-二手房列表页",
-							"未搜索到任何结果的页面元素未找到，尝试刷新页面", "", ps);
+							"未搜索到任何结果的页面元素未找到，尝试刷新页面", "", "");
 
 					// 尝试刷新当前页面
 					bs.refreshPage();
@@ -88,10 +89,10 @@ public class Anjukekeywords {
 				dataCount = bs.getElementCount(
 						Init.G_objMap.get("sale_text_no_found"), 5);
 				if (dataCount == 0) {
-					String tmpPicName = bs.printScreen();
+					//String tmpPicName = bs.printScreen();
 					Report.writeHTMLLog("检查安居客敏感词-二手房列表页", "二手房列表页【" + cityKey
 							+ "】敏感词【" + keywordsVal + "】发现记录", "FAIL",
-							tmpPicName);
+							"");
 				} else {
 					Report.writeHTMLLog("检查安居客敏感词-二手房列表页", "二手房列表页【" + cityKey
 							+ "】敏感词【" + keywordsVal + "】查无结果", "PASS", "");
@@ -138,9 +139,9 @@ public class Anjukekeywords {
 					Report.writeHTMLLog("检查安居客敏感词-租房列表页", "未搜索到任何结果的页面元素成功找到",
 							Report.PASS, "");
 				} else {
-					String ps = bs.printScreen();
+					//String ps = bs.printScreen();
 					Report.writeHTMLLog("检查安居客敏感词-租房列表页",
-							"未搜索到任何结果的页面元素未找到，尝试刷新页面", "", ps);
+							"未搜索到任何结果的页面元素未找到，尝试刷新页面", "", "");
 
 					// 尝试刷新当前页面
 					bs.refreshPage();
@@ -150,10 +151,10 @@ public class Anjukekeywords {
 				dataCount = bs.getElementCount(
 						Init.G_objMap.get("rental_text_no_found"), 5);
 				if (dataCount == 0) {
-					String tmpPicName = bs.printScreen();
+					//String tmpPicName = bs.printScreen();
 					Report.writeHTMLLog("检查安居客敏感词-租房列表页", "租房列表页【" + cityKey
 							+ "】敏感词【" + keywordsVal + "】发现记录", "FAIL",
-							tmpPicName);
+							"");
 				} else {
 					Report.writeHTMLLog("检查安居客敏感词-租房列表页", "租房列表页【" + cityKey
 							+ "】敏感词【" + keywordsVal + "】查无结果", "PASS", "");
@@ -202,9 +203,9 @@ public class Anjukekeywords {
 						Report.writeHTMLLog("检查安居客敏感词-小区列表页",
 								"未搜索到任何结果的页面元素成功找到", Report.PASS, "");
 					} else {
-						String ps = bs.printScreen();
+						//String ps = bs.printScreen();
 						Report.writeHTMLLog("检查安居客敏感词-小区列表页",
-								"未搜索到任何结果的页面元素未找到，尝试刷新页面", Report.DONE, ps);
+								"未搜索到任何结果的页面元素未找到，尝试刷新页面", Report.DONE, "");
 
 						// 尝试刷新当前页面
 						bs.refreshPage();
@@ -223,9 +224,9 @@ public class Anjukekeywords {
 						Report.writeHTMLLog("检查安居客敏感词-小区列表页",
 								"未搜索到任何结果的页面元素成功找到", Report.PASS, "");
 					} else {
-						String ps = bs.printScreen();
+						//String ps = bs.printScreen();
 						Report.writeHTMLLog("检查安居客敏感词-小区列表页",
-								"未搜索到任何结果的页面元素未找到，尝试刷新页面", "", ps);
+								"未搜索到任何结果的页面元素未找到，尝试刷新页面", "", "");
 
 						// 尝试刷新当前页面
 						bs.refreshPage();
@@ -237,10 +238,10 @@ public class Anjukekeywords {
 				}
 
 				if (dataCount == 0) {
-					String tmpPicName = bs.printScreen();
+					//String tmpPicName = bs.printScreen();
 					Report.writeHTMLLog("检查安居客敏感词-小区列表页", "小区列表页【" + cityKey
 							+ "】敏感词【" + keywordsVal + "】发现记录", "FAIL",
-							tmpPicName);
+							"");
 				} else {
 					Report.writeHTMLLog("检查安居客敏感词-小区列表页", "小区列表页【" + cityKey
 							+ "】敏感词【" + keywordsVal + "】查无结果", "PASS", "");
@@ -248,7 +249,7 @@ public class Anjukekeywords {
 			}
 		}
 	}
-	@Test
+	//@Test
 	public void testvip() throws UnsupportedEncodingException{
 		String url = "";
 		int dataCount = 0;
@@ -296,10 +297,10 @@ public class Anjukekeywords {
 		dataCount = bs.getElementCount(
 				Init.G_objMap.get("anjuke_broker_no_found"), 5);
 		if (dataCount == 0) {
-			String tmpPicName = bs.printScreen();
+			//String tmpPicName = bs.printScreen();
 			Report.writeHTMLLog("检查安居客敏感词-经纪人列表页", "经纪人列表页【" + cityKey
 					+ "】敏感词【" + keywordsVal + "】发现记录", "FAIL",
-					tmpPicName);
+					"");
 		} else {
 			Report.writeHTMLLog("检查安居客敏感词-经纪人列表页", "经纪人列表页【" + cityKey
 					+ "】敏感词【" + keywordsVal + "】查无结果", "PASS", "");
