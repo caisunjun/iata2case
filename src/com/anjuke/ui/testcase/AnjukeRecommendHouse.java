@@ -3,6 +3,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -40,7 +41,11 @@ public class AnjukeRecommendHouse {
 		bs.quit();
 		bs = null;	
 	}
-
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeRecommendHouse is done***");
+	}
 
 	//(timeOut = 250000)
 	@Test

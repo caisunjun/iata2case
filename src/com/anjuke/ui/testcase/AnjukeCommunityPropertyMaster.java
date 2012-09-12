@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.page.Ajk_CommunityTrends;
@@ -30,7 +31,11 @@ public class AnjukeCommunityPropertyMaster {
 		bs.quit();
 		bs = null;
 	}
-
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeCommunityPropertyMaster is done***");
+	}
 	//(timeOut = 120000)
 	@Test
 	public void testStart() {

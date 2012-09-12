@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -38,6 +39,11 @@ public class AnjukeSaveFindHouseCondition{
 	public void tearDown(){
 		driver.quit();
 		driver=null;
+	}
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeSaveFindHouseCondition is done***");
 	}
 	//(timeOut = 250000)
 	@Test

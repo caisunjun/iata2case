@@ -218,7 +218,7 @@ public class AjkSaleSearchAction {
 		if (value.indexOf("-") != -1) {
 			val = value.split("-");
 			if (val[1].indexOf("万") != -1) {
-				val[1] = val[1].substring(0, val[1].length() - 2);
+				val[1] = val[1].substring(0, val[1].length() - 1);
 			} else {
 				val[1] = val[1].substring(0, val[1].length() - 2);
 			}

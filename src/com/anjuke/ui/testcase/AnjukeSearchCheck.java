@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.page.Ajk_Ask;
@@ -40,7 +41,11 @@ public class AnjukeSearchCheck {
         driver.quit();
         driver = null;
     }
-
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeSearchCheck is done***");
+	}
     @Test
     public void searchCheck() {
         //Report.setTCNameLog("检查二手房搜索功能-- AnjukeSearchCheck --williamhu");

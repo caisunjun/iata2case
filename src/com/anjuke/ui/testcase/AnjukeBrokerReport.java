@@ -6,6 +6,7 @@ import java.util.*;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -22,6 +23,7 @@ import com.anjuke.ui.page.*;
  * 
  * @author ccyang
  */
+
 
 public class AnjukeBrokerReport {
     Browser bs = null;
@@ -85,7 +87,6 @@ public class AnjukeBrokerReport {
     	bs.click(Broker_Checked.REPORTICON, "点首页的网络助手icon");
     	//到网络助手页面了
     	
-    	System.out.println(bs.getElementCount("//h1[contains(.,'温馨提示')]"));
     	if(bs.getElementCount("//p[contains(.,'抱歉，您暂时无法访问网络助手页面')]") != 0)
     	{
     		bs.printScreen();
@@ -93,7 +94,6 @@ public class AnjukeBrokerReport {
     	}
     	else
     	{
-    		System.out.println("这个经纪人有网络助手数据");
 	    	reportDate = bs.getText(Broker_Report.REPORTDATE, "网络助手当前数据的日期");
 	    	//替换数据日期的格式
 	    	reportDate = reportDate.replace("年", "-");
@@ -133,4 +133,10 @@ public class AnjukeBrokerReport {
 	    	}
     	}
     }
+    
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeBrokerReport is done***");
+	}
 }
