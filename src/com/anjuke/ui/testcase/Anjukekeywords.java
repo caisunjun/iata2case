@@ -249,7 +249,7 @@ public class Anjukekeywords {
 			}
 		}
 	}
-	//@Test (groups = "{unstable}")
+	@Test (groups = "{unstable}")
 	public void testvip() throws UnsupportedEncodingException{
 		String url = "";
 		int dataCount = 0;
