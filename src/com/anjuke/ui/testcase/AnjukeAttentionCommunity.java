@@ -177,7 +177,7 @@ public class AnjukeAttentionCommunity {
 			}
 			// 获取第一条记录的小区名称,且判断是否为关注小区的名称
 			String resultTitle = driver.getText(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink_IE8"), "获取第一条数据小区名称");
-			resultTitle = resultTitle.substring(resultTitle.lastIndexOf("（") + 1, resultTitle.length()).trim();
+			resultTitle = resultTitle.substring(0 ,resultTitle.lastIndexOf("（")).trim();
 			if (commTitle.equals(resultTitle)) {
 				Report.writeHTMLLog("关注小区成功", "关注小区成功，前后小区名称一致：" + commTitle, Report.PASS, "");
 			} else {
