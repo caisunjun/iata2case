@@ -1,7 +1,6 @@
 package com.anjuke.ui.publicfunction;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
-import com.anjuke.ui.bean.Evaluate;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
 
@@ -22,13 +21,13 @@ public class BrokerRentOperating {
 	/**
 	 * 编辑租房，点击管理房源列表的第num条房源编辑，0为第1条，编辑成功后到房源详情页验证数据。
 	 * @param driver browserDriver
-	 * @param eva	 AnjukeSaleInfo
+	 * @param info	 AnjukeSaleInfo
 	 * @param Num    管理房源，编辑第几条房源
 	 */
-	public static final void editRent(Browser driver, Evaluate eva , int num){
+	public static final void editRent(Browser driver, AnjukeSaleInfo info , int num){
 		driver.get(editUrl);
 		driver.click("id^edit_"+num, "编辑第"+num+"套房源");
-		rent(driver, eva, "Edit");
+		rent(driver, info, "Edit");
 	}
 	
 	public static final void rent(Browser driver, AnjukeSaleInfo info, String type){
