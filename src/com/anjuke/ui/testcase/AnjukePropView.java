@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.browser.Browser;
@@ -29,9 +30,14 @@ public class AnjukePropView {
         bs.quit();
         bs = null;
     }
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukePropView is done***");
+	}
     @Test
     public void testPropView(){
-    	bs.deleteAllCookies();
+//    	bs.deleteAllCookies();
 //    	bs.get("http://www.anjuke.com/version/switch/?f1=" + Init.G_config.get("version").toLowerCase());
     	String brokerName = "";
     	String brokerCompany = "";
@@ -72,6 +78,8 @@ public class AnjukePropView {
     	bs.click(Ajk_PropView.COMMNAME, "点击房源信息处的小区名链接");
     	bs.switchWindo(3);
     	//验证小区名是否一致
+    	if(textCommName.lastIndexOf("（") != -1)
+    	{textCommName = textCommName.substring(0 ,textCommName.lastIndexOf("（")).trim();}
     	bs.assertEquals(textCommName,bs.getText(Ajk_CommunityView.COMMTITLE, "获取小区单页的小区名"), "验证小区名是否一致", "房源单页的小区名和小区单页里的一致") ;
     	bs.close();
     	//回到房源单页

@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
@@ -39,6 +40,12 @@ public class AnjukeBrokerSaleEdit {
 		driver.quit();
 		driver=null;		
 	}
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeBrokerSaleEdit is done***");
+	}
+	
 	//发布时的房源信息，如果账号里没房源需要发布的话
 	private AnjukeSaleInfo saleInfo_init() {
 		saleInfo.setCommunityName("潍坊八村");//小区
@@ -79,9 +86,9 @@ public class AnjukeBrokerSaleEdit {
 	}
 	
 	//(timeOut = 200000)
-	@Test
+	@Test (groups = {"unstable"})
 	public void editSale() throws InterruptedException{
-		driver.deleteAllCookies();
+//		driver.deleteAllCookies();
 		//Report.setTCNameLog("管理出售编辑-- AnjukeUpdateReleaseSale --Hendry_huang");
 		String casestatus = "";
 		String testing = "testing";

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -39,12 +40,17 @@ public class AnjukeSaveFindHouseCondition{
 		driver.quit();
 		driver=null;
 	}
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeSaveFindHouseCondition is done***");
+	}
 	//(timeOut = 250000)
 	@Test
 	public void testSaveCon(){
 		//Report.setTCNameLog("保存搜索条件-- AnjukeSaveFindHouseCondition --williamhu");
 		//普通用户登录
-	    driver.deleteAllCookies();
+//	    driver.deleteAllCookies();
 		String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false,0);
 		//判断用户是否登录成功
 		if(!(loginName==null||loginName.equals(""))){

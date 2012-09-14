@@ -79,7 +79,7 @@ public class AnjukeCommonUserModifyInfo {
 	private void modifyCommonUserInfo(){	 
 
 		//删除当前浏览器所有Cookie
-		bs.deleteAllCookies();
+//		bs.deleteAllCookies();
 		
 		//注册普通账户
 		PublicProcess.registerCommonUser(bs);

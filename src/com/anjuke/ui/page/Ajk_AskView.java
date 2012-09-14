@@ -17,10 +17,21 @@ public class Ajk_AskView {
 	public static final String CANCELANSWER = "id^cancel_answer";
 	/** 问答单页 - 回答列表各条元素集 */
 	public static final String ANSWERLISTS = "//*[@id='content']/div[3]/div[3]/ul/li";
-	/** 问答单页 - 获取回答列表中的某一条数据的元素，n表示第几条 */
+
+	/** 问答单页 - 获取回答列表中的某一条数据的元素，
+	 * @param n表示第几条
+	 * */
 	public static String getAnswerElement(int n){
 		String element = "//*[@id='content']/div[3]/div[3]/ul/li["+n+"]/div[2]";
 		return element;
 	}
-
+	/** 问答单页 - 问题标题 */
+	public static final String TITLE = "//*[@id='content']/div[3]/div[1]/div[1]/dl/dt/h1";
+	/** 问答单页 - 问题描述 */
+	public static final String DESCRIPTION = "//*[@id='content']/div[3]/div[1]/div[1]/div[1]";
+	/** 问答单页 - 问题补充 */
+	public static final String DESCRIPTIONADD = "//*[@id='content']/div[3]/div[1]/div[1]/div[2]/div[2]";
+	
 }
+
+

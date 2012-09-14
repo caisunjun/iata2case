@@ -1,8 +1,6 @@
 package com.anjuke.ui.testcase;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
@@ -39,6 +37,7 @@ public class AnjukeAttentionCommunity {
 		driver.quit();
 		driver = null;
 	}
+	
     //(timeOut = 250000)
 	@Test
 	public void attentionCommunity() {
@@ -54,7 +53,7 @@ public class AnjukeAttentionCommunity {
 		else
 		{
 			// 普通用户登录
-			driver.deleteAllCookies();
+//			driver.deleteAllCookies();
 			String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
 			// 判断用户是否登录成功
 			if (!(loginName == null || loginName.equals(""))) {
@@ -178,6 +177,8 @@ public class AnjukeAttentionCommunity {
 			}
 			// 获取第一条记录的小区名称,且判断是否为关注小区的名称
 			String resultTitle = driver.getText(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink_IE8"), "获取第一条数据小区名称");
+			if(resultTitle.lastIndexOf("（") != -1)
+			{resultTitle = resultTitle.substring(0 ,resultTitle.lastIndexOf("（")).trim();}
 			if (commTitle.equals(resultTitle)) {
 				Report.writeHTMLLog("关注小区成功", "关注小区成功，前后小区名称一致：" + commTitle, Report.PASS, "");
 			} else {
@@ -258,5 +259,11 @@ public class AnjukeAttentionCommunity {
 			Report.writeHTMLLog("关注小区列表", "关注小区列表不存在相同记录", Report.PASS, "");
 		}
 
+	}
+
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeAttentionCommunity is done***");
 	}
 }

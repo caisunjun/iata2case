@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
@@ -27,7 +28,7 @@ public class AnjukeBrokerSaleRelease {
 	@BeforeMethod
 	public void startUp() {
 		driver = FactoryBrowser.factoryBrowser();
-		driver.deleteAllCookies();
+//		driver.deleteAllCookies();
 		saleInfo = saleInfo_init();
 	}
 
@@ -35,6 +36,12 @@ public class AnjukeBrokerSaleRelease {
 	public void tearDown() {
 		driver.quit();
 		driver = null;
+	}
+	
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeBrokerSaleRelease is done***");
 	}
 
 	private AnjukeSaleInfo saleInfo_init() {
@@ -59,7 +66,7 @@ public class AnjukeBrokerSaleRelease {
 	// (timeOut = 200000)
 	@Test
 	public void releaseSale() {
-		driver.deleteAllCookies();
+//		driver.deleteAllCookies();
 		String casestatus = "";
 		String testing = "testing";
 		//从config.ini中取出casestatus
@@ -78,4 +85,5 @@ public class AnjukeBrokerSaleRelease {
 
 		driver.close();
 	}
+	
 } 

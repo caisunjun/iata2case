@@ -11,6 +11,11 @@ public class Public_HeaderFooter {
 	
 	/** 公用头部信息 **/
 	
+	/** 头部 - 普通用户登录后 - 用户名 */
+	public static final String HEADER_UserName = "//li[@class='username_boxer']/a[@class='username']";
+	/** 头部 - 经纪人登录后 - 用户名 */
+	public static final String HEADER_BrokerName = "//ul[@id='top_broker_panel']/li[4]/a";
+	
 	/** 头部 - 经纪人登录 - 我的网络经济人链接 */
 	public static final String HEADER_BROKERLINK = "//li[@class='broker_boxer']/a";
 	

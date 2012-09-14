@@ -22,7 +22,7 @@ public class Ajk_AskNormalUserInfo {
 	/** 问答普通用户的个性化推荐页 - 我回答的问题TAB */
 	public static final String MYANSWERS = "//*[@id='myanswer_tab']";
 	/** 问答普通用户的个性化推荐页 - 左侧我的问答导航 */
-	public static final String MYASK = "//*[@id='menus_apf_id_9']/div/div[3]/h2[1]/dl/a";
+	public static final String MYASK = "//*[@id='menus_apf_id_9']/div/div[3]/h2[2]/dl/a";
 	/** 问答普通用户的个性化推荐页 - 头部个性化推荐导航 */
 	public static final String PERSONALIAED = "//*[@id='user_info']/li[2]/a";
 	
