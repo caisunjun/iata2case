@@ -43,7 +43,7 @@ public class AnjukeCityhomepageSearchareaLink {
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); 
 		int tmpCount = 0;
 		//判断城市列表是否存在
-		if(bs.check(tmpCityList,60)){
+		if(bs.check(tmpCityList,10)){
 			tmpCount = bs.getElementCount(Init.G_objMap.get("cityhomepage_text_city_list"));
 		}else{
 			String ps = bs.printScreen();
@@ -58,8 +58,11 @@ public class AnjukeCityhomepageSearchareaLink {
         	//返回所有城市名称和URL
         	resultList = getCommunityCount(tmpCount);
         	Iterator<Entry<String, String>> iterComm = resultList.entrySet().iterator();
-        	while(iterComm.hasNext()){
+        	//不要跑64遍啊
+        	int i = 0;
+        	while(iterComm.hasNext()&& i<5){
             	Map.Entry<String, String> result = iterComm.next();
+            	i = i+1;
             	cityName = result.getKey();
             	cityUrl = result.getValue();
             	if(cityName!=null&&cityUrl!=null){

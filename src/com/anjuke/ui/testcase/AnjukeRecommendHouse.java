@@ -1,7 +1,6 @@
 package com.anjuke.ui.testcase;
 
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -76,7 +75,10 @@ public class AnjukeRecommendHouse {
 			bs.deleteAllCookies();			
 		}		
 
-        PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
+		//For anjuke daily
+		PublicProcess.dologin(bs, "cdtest", "anjukeqa");
+        //For other
+//		PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
 
 		//点击主页右上角我的经纪人目录链接
 		bs.check(Init.G_objMap.get("cityhomepage_login_broker_username_link"), 5);
@@ -245,26 +247,25 @@ public class AnjukeRecommendHouse {
 		bs.close();
 		bs.switchWindo(1);
 
-		//删除掉推荐房源
-		bs.type(Init.G_objMap.get("anjuke_broke_manage_sale_houseID_search_input"), houseID, "在房源编号搜索框中输入推荐的房源编号");
-
-		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_houseID_search_btn"), "点击搜索按钮");
-
-		Report.writeHTMLLog("推荐房源", "正确搜索到房源", Report.PASS, "" );
-
-		//选中第一套房源
-		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_first_house_checkbox_IE8"),"选中第一套房源");
-
-		//点击删除按钮
-		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_delete_btn_IE8"),"点击删除按钮");
-
-		//判断是否出现成功删除标志
-		if(bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"))) {
-			Report.writeHTMLLog("推荐房源", "删除推荐房源成功提示正确显示", Report.PASS,"" );
-		}else{
-			String ps = bs.printScreen();
-			Report.writeHTMLLog("推荐房源", "删除推荐房源成功提示未正确显示", Report.FAIL, ps);
-		}
+//		是不是应该把删除房源的操作放在删除房源的脚本里？
+//		bs.type(Init.G_objMap.get("anjuke_broke_manage_sale_houseID_search_input"), houseID, "在房源编号搜索框中输入推荐的房源编号");
+//
+//		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_houseID_search_btn"), "点击搜索按钮");
+//
+//		Report.writeHTMLLog("推荐房源", "正确搜索到房源", Report.PASS, "" );
+//		//选中第一套房源
+//		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_first_house_checkbox_IE8"),"选中第一套房源");
+//
+//		//点击删除按钮
+//		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_delete_btn_IE8"),"点击删除按钮");
+//
+//		//判断是否出现成功删除标志
+//		if(bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"))) {
+//			Report.writeHTMLLog("推荐房源", "删除推荐房源成功提示正确显示", Report.PASS,"" );
+//		}else{
+//			String ps = bs.printScreen();
+//			Report.writeHTMLLog("推荐房源", "删除推荐房源成功提示未正确显示", Report.FAIL, ps);
+//		}
 	}
 
 }

@@ -1,38 +1,58 @@
 package com.anjuke.ui.testcase;
 
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-//import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
-import com.anjukeinc.iata.ui.init.Init;
+//import com.anjuke.ui.bean.AnjukeSaleInfo;
+import com.anjuke.ui.publicfunction.PublicProcess;
+
 
 public class sellhouse {
 	private String  baseUrl;
+	private String  str;
 	private WebDriver driver;
 	private StringBuffer verificationErrors = new StringBuffer();
+	
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		baseUrl = "http://shanghai.anjuke.com/";
+		baseUrl = ("http://shanghai.anjuke.com/");
+		
 		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 	}
+
 
 	@AfterMethod
 	public void tearDown() throws Exception {
 		driver.quit();
+		
+
 		}
 
-	@Test
-	public void test1() throws Exception {
-		driver.get(baseUrl);
+/*Test
+	public void sale() throws Exception{
+	for (int i=0; i<=2;i++);
+	    test1();
+	
+	}
+
+	*/
+		@Test
+		public void test1() throws Exception{
+		driver.get (baseUrl);
 		driver.get("http://agent.anjuke.com/login/");
-		//driver.findElement(By.xpath("//ul[@id='ajax_nologin_apf_id_6']/li/a")).click();
 		driver.findElement(By.id("loginName")).clear();
 		driver.findElement(By.id("loginName")).sendKeys("ajk_sh");
 		driver.findElement(By.name("password")).clear();
@@ -42,15 +62,6 @@ public class sellhouse {
 		driver.findElement(By.id("txtCommunity")).clear();
 	    driver.findElement(By.id("txtCommunity")).sendKeys("申良花园");
 		waitForPageToLoad(1000);
-		//driver.type(Init.G_objMap
-				//.get("anjuke_wangluojingjiren_sale_xiaoqu_yinyu"), "潍坊八村",
-				//"小区名称");
-		//driver.switchToIframe(Init.G_objMap
-				//.get("anjuke_wangluojingjiren_salse_ifrCommunityList"),
-				//"选择小区");
-		//.get("anjuke_wangluojingjiren_sale_xiaoqu_nameClick"),
-		//"选择小区");
-        //driver.exitFrame()
 		driver.findElement(By.cssSelector("span.code")).click();
 		driver.findElement(By.id("txtProPrice")).clear();
 		driver.findElement(By.id("txtProPrice")).sendKeys("115");
@@ -79,10 +90,23 @@ public class sellhouse {
 		driver.switchTo().activeElement().sendKeys("测试 测试 测试");
 		driver.switchTo().defaultContent();
 		driver.findElement(By.id("btnSubmit")).click();
+		driver.findElement(By.linkText("管理出售")).click();
+		str = driver.findElement(By.linkText("管理出售")).getText();
+		
+		{Pattern p = Pattern.compile("\\d+");
+		Matcher m = p.matcher(str);
+		if(m.find()){
+			System.out.println(m);}}
+		//driver.findElement(By.xpath(".//*[@id='my_bpm_on_sale']")).click();
+		
 		//driver.findElement(By.id("radSaleType_2")).click();
 		//driver.findElement(By.id("chkUploadPic")).click();
 		//driver.findElement(By.id("btnNext")).click();
+		
+		
+
 	}
+	@Test
 	public void waitForPageToLoad(long longtime) {
 		try {
 			Thread.sleep(longtime);

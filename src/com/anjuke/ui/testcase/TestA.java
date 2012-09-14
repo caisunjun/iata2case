@@ -83,7 +83,7 @@ public class TestA {
 		//关闭成功评价提示层
 		driver.findElement(By.cssSelector("#ajk_firend > div.view_prop_popup_fav > div.my_member_marked_mm > div.border > form > div.login > div.title > span.close > img")).click();
 		
-//		str1 = driver.findElement(By.xpath("//*[@id='yonghuhaoping']/b/cite")).getText();		
+		str1 = driver.findElement(By.xpath("//*[@id='yonghuhaoping']/b/cite")).getText();		
 //		if(str1 == "暂无评价"){
 //			System.out.println(str1);			
 //		}

@@ -236,8 +236,12 @@ public class AnjukeSearchCheck {
 		
 		driver.type(Init.G_objMap.get("anjuke_keywords_search"), search, "关键字搜索");
 		driver.click(Init.G_objMap.get("anjuke_keywords_searchBtn"), "点击搜索");
-		if (site.equals("sale") || site.equals("rental")) {
+		if (site.equals("sale")) 
+		{
 			dataCount = driver.getElementCount(Init.G_objMap.get("sale_text_no_found"), 5);
+		} else if(site.equals("rental")) 
+		{
+			dataCount = driver.getElementCount(Init.G_objMap.get("rental_text_no_found"), 5);
 		} else if (site.equals("community")) {
 			dataCount = driver.getElementCount(Init.G_objMap.get("community_text_no_found"), 5);
 		} else {

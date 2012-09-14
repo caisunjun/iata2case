@@ -20,7 +20,7 @@ import com.anjukeinc.iata.ui.report.Report;
  * 2、判断每个城市首页的均价统计文字
  * 3、判断小区列表页小区的均价以及均价趋势是否存在
  * @updateAuthor gabrielgao
- * @last updatetime 2012-05-10 13:30
+ * @last updatetime 2012-05-10 13:30112333
  */
 public class AnjukeCommunityListPrice {
 	private Browser bs = null;
@@ -41,6 +41,7 @@ public class AnjukeCommunityListPrice {
 		bs.get("http://shanghai.anjuke.com");
 		String cityUrl = null;
 		String cityName =null;
+		int checkTimes = 0;
 		HashMap<String,String> resultList =null;
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
 		int tmpCount = 0;
@@ -56,7 +57,9 @@ public class AnjukeCommunityListPrice {
         if(tmpCount!=0){
         	resultList = getCommunityCount(tmpCount);
         	Iterator<Entry<String, String>> iterComm = resultList.entrySet().iterator();
-        	while(iterComm.hasNext()){
+        	//本来要跑完所有的城市··················先跑5个吧·······································
+        	while(iterComm.hasNext()&& checkTimes<5 ){
+        		checkTimes = checkTimes + 1;
             	Map.Entry<String, String> result = iterComm.next();
             	cityName = result.getKey();
             	cityUrl = result.getValue();
@@ -106,7 +109,8 @@ public class AnjukeCommunityListPrice {
 		String cityName = null;
 		String cityUrl = null;
 		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
-		for(int i=1;i<=count;i++){
+		//只跑5个城市吧
+		for(int i=1;i<=5;i++){
 			tmpCityList = tmpCityList+"["+i+"]";
 			if(bs.check(tmpCityList)){
 				cityName = bs.getText(tmpCityList, "获取城市名称");
@@ -131,19 +135,27 @@ public class AnjukeCommunityListPrice {
 
 		// 获取列表页第一个小区流水号
 		String tmpFirstCommID = Init.G_objMap.get("community_list_first");
+		System.out.println("到此一游1");
+		
 		String firstCommIDString = bs.getAttribute(tmpFirstCommID, "id");
+		System.out.println("到此一游2");
+		
 		if(inCityName.equals("北京")||inCityName.equals("上海")){
 			firstCommIDString = firstCommIDString.replace("li_apf_html_id_", "");
 		}else{
 			firstCommIDString = firstCommIDString.replace("li_apf_id_", "");
 		}
-
+		System.out.println("到此一游3");
+		
 		int firstCommID = Integer.parseInt(firstCommIDString); 
-
+		System.out.println("到此一游4");
+		
 		for (int i = 0; i <= 9; i++) {
 			// 获取小区名
 			// CommName=bs.getText("//a[@id='comm_name_qt_apf_id_"+(firstCommID+i*2)+"']",
 			// "获取小区名称");
+			System.out.println("到循环里了");
+			
             if(inCityName.equals("北京")||inCityName.equals("上海")){
     			// 获取小区均价
     			tmpPrice = "//div[@id='apf_html_id_" + (firstCommID + i) + "']/div[3]/label[1]/span/strong";

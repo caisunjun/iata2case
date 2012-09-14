@@ -24,6 +24,9 @@ import com.anjukeinc.iata.ui.report.Report;
  * 5、经纪人列表页敏感词检查
  * @updateAuthor gabrielgao
  * @last updatetime 2012-05-08 17:00
+ * @modifyAuthor ccyang
+ * @last updatetime 2012-08-01 10:30
+ * 加了一个城市数量控制 :now 和 cityNum
  */
 public class KeywordsAnjukeProperty {
 	private Browser bs = null;
@@ -49,28 +52,30 @@ public class KeywordsAnjukeProperty {
 
 		String url = "";
 		int dataCount = 0;
+		//设定要跑几个城市
+		int now = 0;
+		int cityNum = 5;
 		// 遍历敏感词
 		Map<String, String> keywordsMap = LogFile.getConfigInfo("keywords");
-		Iterator<Entry<String, String>> keywordsIter = keywordsMap.entrySet()
-				.iterator();
+		Iterator<Entry<String, String>> keywordsIter = keywordsMap.entrySet().iterator();
 		while (keywordsIter.hasNext()) {
 			Map.Entry<String, String> keywordsEntry = keywordsIter.next();
 			Object keywordsVal = keywordsEntry.getValue();
+			Object keywordsURL = keywordsEntry.getValue();
 			// System.out.println(val);
 
 			// 遍历城市
-			Map<String, String> cityMap = LogFile
-					.getConfigInfo("anjukeCityInfo");
-			Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet()
-					.iterator();
-			while (cityInfoIter.hasNext()) {
+			Map<String, String> cityMap = LogFile.getConfigInfo("anjukeCityInfo");
+			Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet().iterator();
+			while (cityInfoIter.hasNext()&&now < cityNum) {
 				Map.Entry<String, String> cityEntry = (Map.Entry<String, String>) cityInfoIter.next();
 				Object cityKey = cityEntry.getKey();
 				Object cityVal = cityEntry.getValue();
+				now = now + 1;
 
 				// 检查二手房列表页搜索敏感词
 				url = "http://" + cityVal + ".anjuke.com/sale/rd1/?kw="
-						+ URLEncoder.encode((String) keywordsVal, "UTF-8");
+						+ URLEncoder.encode((String) keywordsURL, "UTF-8");
 
 				bs.get(url);
 
@@ -101,7 +106,7 @@ public class KeywordsAnjukeProperty {
 
 				// 检查租房列表页搜索敏感词
 				url = "http://" + cityVal + ".anjuke.com/rental/rd1?kw="
-						+ keywordsVal;
+						+ URLEncoder.encode((String) keywordsURL, "UTF-8");
 
 				bs.get(url);
 
@@ -134,7 +139,7 @@ public class KeywordsAnjukeProperty {
 				if (cityVal.equals("shanghai") || cityVal.equals("beijing")) {
 					url = "http://" + cityVal
 							+ ".anjuke.com/community/list/W0QQkwZ"
-							+ keywordsVal;
+							+ URLEncoder.encode((String) keywordsURL, "UTF-8");
 					bs.get(url);
 					// 获取小区列表页无结果字符串元素个数
 					if (bs.check(Init.G_objMap
@@ -153,7 +158,7 @@ public class KeywordsAnjukeProperty {
 
 				} else {
 					url = "http://" + cityVal + ".anjuke.com/community/list/"
-							+ keywordsVal + "W0QQrdZ1";
+							+ URLEncoder.encode((String) keywordsURL, "UTF-8") + "W0QQrdZ1";
 					bs.get(url);
 					// 获取小区列表页无结果字符串元素个数
 					if (bs.check(Init.G_objMap
@@ -186,7 +191,7 @@ public class KeywordsAnjukeProperty {
 
 				// 检查经纪人列表页搜索敏感词
 				url = "http://" + cityVal
-						+ ".anjuke.com/tycoon/W0QQtxtKeywordZ" + keywordsVal;
+						+ ".anjuke.com/tycoon/W0QQtxtKeywordZ" + URLEncoder.encode((String) keywordsURL, "UTF-8");
 				bs.get(url);
 
 				if (bs.check(Init.G_objMap.get("anjuke_broker_no_found"))) {

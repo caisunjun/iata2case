@@ -60,7 +60,7 @@ public class AnjukeBrokerRecycleOps {
 			bs.deleteAllCookies();
 			bs.get("http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v");
 			//PublicProcess.logIn(bs, "13651894954", "123456", false, 1);
-			PublicProcess.dologin(bs, "13651894954", "123456");
+			PublicProcess.dologin(bs, "test1", "123456");
 		}else{
 			bs.get("http://shanghai.anjuke.com");
 		}

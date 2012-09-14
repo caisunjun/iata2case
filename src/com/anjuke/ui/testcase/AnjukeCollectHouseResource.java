@@ -19,6 +19,9 @@ import com.anjukeinc.iata.ui.report.Report;
  * 6、判断房源列表当前页，是否存在多条相同的数据
  * @UpdateAuthor Gabrielgao
  * @last updatetime 2012-05-08 11:30
+ * @UpdateAuthor ccyang
+ * @last updatetime 2012-08-01 10:30
+ * 列表页里经纪人名称模块，可能取到其他信息，需要将经纪人的名称取出来
  */
 public class AnjukeCollectHouseResource {
 	private Browser driver = null;
@@ -70,7 +73,11 @@ public class AnjukeCollectHouseResource {
 					//获取第一条二手房记录
 					firstdataTitle = driver.getText(anjuke_salefirstdata_title, "获取第一条合格的记录标题");
 					price = driver.getText(anjuke_salefirstdata_price, "获取第一条合格的记录价格");
+					//经纪人姓名的控件里可能出现其他内容
 					releaseName = driver.getText(anjuke_salefirstdata_releaseName, "获取第一条合格的记录经纪人姓名").trim();
+					String s = new String(releaseName);   
+			        String a[] = s.split(" ");  
+			        releaseName = a[0];
 					driver.click(anjuke_salefirstdata_img, "访问第一条记录的图片");
 					break;
 				}
@@ -112,7 +119,7 @@ public class AnjukeCollectHouseResource {
                     	Report.writeHTMLLog("collect data title", "collect data title is correct!"+"<br>"+collectDatatitle+"<br>VS "+firstdataTitle, Report.PASS, "");
                     }else{
                     	String ps = driver.printScreen();
-                    	Report.writeHTMLLog("collect data title", "collect data title is fault", Report.FAIL, ps);
+                    	Report.writeHTMLLog("collect data title", "collect data title is fault"+"<br>"+collectDatatitle+"<br>VS "+firstdataTitle, Report.FAIL, ps);
                     }
                     //判断选房单价格
                     String collectPrice = driver.getText(Init.G_objMap.get("anjuke_sale_member_houselist_firstdataprice"), "获取房源价格");

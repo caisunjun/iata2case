@@ -37,6 +37,8 @@
 	<classpathentry kind="lib" path="lib/xercesImpl-2.9.1.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis-1.3.04.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-java-2.21.0.jar" sourcepath="lib/selenium-java-2.21.0-srcs.jar"/>
-	<classpathentry kind="lib" path="lib/iata1.0.jar" sourcepath="lib/iata1.0-srcs.jar"/>
+	<classpathentry kind="lib" path="lib/iata1.1.jar" sourcepath="C:/Documents and Settings/zhaoqinchu/git/IATACaseAnjuke/lib/iata1.1-srcs.jar"/>
+	<classpathentry kind="lib" path="lib/iata1.1-srcs.jar"/>
+	<classpathentry kind="lib" path="D:/jxl.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -47,6 +47,10 @@ public class AnjukeSaleInfo {
 	private String rentType;
 	//房屋配置情况
 	private String configuration;
+	//推荐情况
+	private String recommendation;
+	//图片情况
+	private String houseImage;
 	
 	public String getRentType() {
 		return rentType;
@@ -180,5 +184,23 @@ public class AnjukeSaleInfo {
 	}
 	public void setHouseDescribe(String houseDescribe) {
 		this.houseDescribe = houseDescribe;
+	}
+	public String getRecommendation() {
+		return recommendation;
+	}
+	/**
+	 * @param recommendation  推荐、不推荐
+	 */
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
+	}
+	public String getHouseImage() {
+		return houseImage;
+	}
+	/**
+	 * @param houseImage   有图片、无图片
+	 */
+	public void setHouseImage(String houseImage) {
+		this.houseImage = houseImage;
 	}
 }
