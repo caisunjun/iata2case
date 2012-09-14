@@ -9,6 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Ajk_Community;
+import com.anjuke.ui.page.Ajk_HomePage;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
@@ -43,15 +45,17 @@ public class AnjukeCommunityListPrice {
 		String cityName =null;
 		int checkTimes = 0;
 		HashMap<String,String> resultList =null;
-		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
+		String tmpCityList = Ajk_HomePage.HotCityList; // 底部，"房地产热门城市"列表
 		int tmpCount = 0;
-		//判断城市列表是否存在
-		if(bs.check(tmpCityList,30)){
-			tmpCount = bs.getElementCount(Init.G_objMap.get("cityhomepage_text_city_list"));
-		}else{
+		int num = 0;
+		//判断城市列表是否存在  首页经常vanish 暂时用refresh破
+		while(!bs.check(tmpCityList,10)&&num<3)
+		{
 			bs.refresh();
-			tmpCount = bs.getElementCount(Init.G_objMap.get("cityhomepage_text_city_list"));			
+			num++;
+			System.out.println("刷了一次");
 		}
+		tmpCount = bs.getElementCount(Ajk_HomePage.HotCityList);
 		Report.writeHTMLLog("获取城市列表", "城市个数："+tmpCount, Report.DONE, "");
 		//执行循环操作各个城市
         if(tmpCount!=0){
@@ -63,6 +67,7 @@ public class AnjukeCommunityListPrice {
             	Map.Entry<String, String> result = iterComm.next();
             	cityName = result.getKey();
             	cityUrl = result.getValue();
+            	cityUrl = cityUrl.replace("sale/", "");
             	if(cityName!=null&&cityUrl!=null){
                 	bs.get(cityUrl);
                 	checkPrice(cityName,cityUrl);  
@@ -78,8 +83,8 @@ public class AnjukeCommunityListPrice {
 
 	private void checkPrice(String inCityName,String cityUrl) {
 
-		String tmpStat = Init.G_objMap.get("cityhomepage_marketbox_text_stat"); // 房价行情，右侧均价统计文字
-		String tmpCommPriceLink = Init.G_objMap.get("cityhomepage_marketbox_link_comm_price"); // XX小区房价链接
+		String tmpStat = Ajk_HomePage.MarketStat; // 房价行情，右侧均价统计文字
+		String tmpCommPriceLink = Ajk_HomePage.CommHideLink; // XX小区房价链接
 		String tmpTabCommunity = cityUrl+"community/"; // tab页，小区链接
 
 		// 检查 房价行情，右侧均价统计文字 是否存在
@@ -108,7 +113,7 @@ public class AnjukeCommunityListPrice {
 		HashMap<String,String> communityList = new HashMap<String,String>();
 		String cityName = null;
 		String cityUrl = null;
-		String tmpCityList = Init.G_objMap.get("cityhomepage_text_city_list"); // 底部，"房地产热门城市"列表
+		String tmpCityList = Ajk_HomePage.HotCityList; // 底部，"房地产热门城市"列表
 		//只跑5个城市吧
 		for(int i=1;i<=5;i++){
 			tmpCityList = tmpCityList+"["+i+"]";
@@ -120,7 +125,7 @@ public class AnjukeCommunityListPrice {
 				Report.writeHTMLLog("获取当前城市名称和URL", "获取当前城市和URL失败"+tmpCityList, Report.DONE, "");
 				continue;
 			}
-			tmpCityList=Init.G_objMap.get("cityhomepage_text_city_list");
+			tmpCityList=Ajk_HomePage.HotCityList;
 		}
 		return communityList;
 	}
@@ -134,31 +139,27 @@ public class AnjukeCommunityListPrice {
 		String result = "fail";
 
 		// 获取列表页第一个小区流水号
-		String tmpFirstCommID = Init.G_objMap.get("community_list_first");
-		System.out.println("到此一游1");
+		String tmpFirstCommID = Ajk_Community.FirsrComm;
 		
 		String firstCommIDString = bs.getAttribute(tmpFirstCommID, "id");
-		System.out.println("到此一游2");
 		
 		if(inCityName.equals("北京")||inCityName.equals("上海")){
 			firstCommIDString = firstCommIDString.replace("li_apf_html_id_", "");
 		}else{
 			firstCommIDString = firstCommIDString.replace("li_apf_id_", "");
 		}
-		System.out.println("到此一游3");
 		
 		int firstCommID = Integer.parseInt(firstCommIDString); 
-		System.out.println("到此一游4");
 		
 		for (int i = 0; i <= 9; i++) {
 			// 获取小区名
 			// CommName=bs.getText("//a[@id='comm_name_qt_apf_id_"+(firstCommID+i*2)+"']",
 			// "获取小区名称");
-			System.out.println("到循环里了");
 			
             if(inCityName.equals("北京")||inCityName.equals("上海")){
     			// 获取小区均价
-    			tmpPrice = "//div[@id='apf_html_id_" + (firstCommID + i) + "']/div[3]/label[1]/span/strong";
+            	//div[@id='apf_html_id_0']/div[2]/strong/em
+    			tmpPrice = "//div[@id='apf_html_id_" + (firstCommID + i) + "']/div[2]/strong/em";
     			if (bs.getElementCount(tmpPrice, 10) != 0) {
     				CommPrice = bs.getText(tmpPrice, "获取小区均价");
     			} else {
@@ -166,7 +167,7 @@ public class AnjukeCommunityListPrice {
     			}
 
     			// 获取小区均价趋势
-    			tmpTrend = "//div[@id='apf_html_id_" + (firstCommID + i) + "']/div[3]/label[2]/span";
+    			tmpTrend = "//div[@id='apf_html_id_" + (firstCommID + i) + "']/div[2]/p/span";
     			if (bs.getElementCount(tmpTrend, 10) != 0) {
     				CommTrend = bs.getText(tmpTrend, "获取小区价格趋势");
     			} else {
@@ -186,7 +187,7 @@ public class AnjukeCommunityListPrice {
     			}
             }else{
         		// 获取小区均价
-    			tmpPrice = "//div[@id='apf_id_" + (firstCommID + i*2) + "']/div[3]/label[1]/span/strong";
+    			tmpPrice = "//div[@id='apf_id_" + (firstCommID + i*2) + "']/div[2]/strong/em";
     			if (bs.getElementCount(tmpPrice, 10) != 0) {
     				CommPrice = bs.getText(tmpPrice, "获取小区均价");
     			} else {
@@ -194,7 +195,7 @@ public class AnjukeCommunityListPrice {
     			}
 
     			// 获取小区均价趋势
-    			tmpTrend = "//div[@id='apf_id_" + (firstCommID + i*2) + "']/div[3]/label[2]/span";
+    			tmpTrend = "//div[@id='apf_id_" + (firstCommID + i*2) + "']/div[2]/p/span";
     			if (bs.getElementCount(tmpTrend, 10) != 0) {
     				CommTrend = bs.getText(tmpTrend, "获取小区价格趋势");
     			} else {

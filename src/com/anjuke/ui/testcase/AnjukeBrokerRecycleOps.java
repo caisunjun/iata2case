@@ -3,6 +3,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -37,7 +38,11 @@ public class AnjukeBrokerRecycleOps {
 		bs.quit();
 		bs = null;	
 	}
-
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeBrokerRecycleOps is done***");
+	}
 	//(timeOut = 120000)
 	@Test
 	public void testStart() throws InterruptedException{
@@ -57,10 +62,10 @@ public class AnjukeBrokerRecycleOps {
 		//以经纪人账号登陆anjuke网站
 		if(id == 1 ){
 			//删除当前浏览器所有cookie
-			bs.deleteAllCookies();
+//			bs.deleteAllCookies();
 			bs.get("http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v");
 			//PublicProcess.logIn(bs, "13651894954", "123456", false, 1);
-			PublicProcess.dologin(bs, "test1", "123456");
+			PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
 		}else{
 			bs.get("http://shanghai.anjuke.com");
 		}

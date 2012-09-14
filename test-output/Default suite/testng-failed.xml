@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="com.anjuke.ui.testcase.TestB">
+      <class name="com.anjuke.ui.testcase.GujiaDetail">
         <methods>
-          <include name="setUp"/>
+          <include name="gujia"/>
+          <include name="startUp"/>
           <include name="tearDown"/>
-          <include name="test1"/>
         </methods>
-      </class> <!-- com.anjuke.ui.testcase.TestB -->
+      </class> <!-- com.anjuke.ui.testcase.GujiaDetail -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

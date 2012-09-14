@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -39,21 +40,37 @@ public class AnjukeCollectHouseResource {
 		driver.quit();
 		driver=null;
 	}
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeCollectHouseResource is done***");
+	}
 	//(timeOut = 250000)
 	@Test
 	public void collectHouse(){
 		//Report.setTCNameLog("收藏房源-- AnjukeCollectHouseResource --williamhu");
-		
-		//删除当前浏览器所有cookie
-	     driver.deleteAllCookies();	     
-		//普通用户登录
-		String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", true,0);
-		//判断用户是否登录成功
-		if(!(loginName==null||loginName.equals(""))){
-			Report.writeHTMLLog("user login", "user login sucess,and name is: "+loginName, Report.DONE, "");
-		}else{
-			String ps = driver.printScreen();
-			Report.writeHTMLLog("user login", "user login fail,and name is: "+loginName, Report.FAIL, ps);
+		String brow = "";
+		//从config.ini中取出browser
+		brow = Init.G_config.get("browser");
+		if(brow.contains("ie"))
+		{
+			//IE6兼容性
+//			PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
+			PublicProcess.dologin(driver, "小瓶盖001", "6634472");
+		}
+		else
+		{
+			// 普通用户登录
+//			driver.deleteAllCookies();
+			String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
+			// 判断用户是否登录成功
+			if (!(loginName == null || loginName.equals(""))) {
+				
+				Report.writeHTMLLog("user login", "user login sucess,and name is: " + loginName, Report.DONE, "");
+			} else {
+				String ps = driver.printScreen();
+				Report.writeHTMLLog("user login", "user login fail,and name is: " + loginName, Report.FAIL, ps);
+			}
 		}
 		//访问二手房列表
 		driver.check(Init.G_objMap.get("public_link_sale"),10);

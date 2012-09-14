@@ -1,1 +1,0 @@
-ant -f suite/AutoSeleniumBuild.xml

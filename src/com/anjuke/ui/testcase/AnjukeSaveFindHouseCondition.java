@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -39,12 +40,17 @@ public class AnjukeSaveFindHouseCondition{
 		driver.quit();
 		driver=null;
 	}
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeSaveFindHouseCondition is done***");
+	}
 	//(timeOut = 250000)
 	@Test
 	public void testSaveCon(){
 		//Report.setTCNameLog("保存搜索条件-- AnjukeSaveFindHouseCondition --williamhu");
 		//普通用户登录
-	    driver.deleteAllCookies();
+//	    driver.deleteAllCookies();
 		String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false,0);
 		//判断用户是否登录成功
 		if(!(loginName==null||loginName.equals(""))){
@@ -73,8 +79,12 @@ public class AnjukeSaveFindHouseCondition{
 		driver.click(Init.G_objMap.get("anjuke_sale_condition_room"), "选择房型");
 		condition.put("room", "三室");
 		driver.check("//form/div/span[5][@class='newpropcond']");
-		//选择类型
-		driver.click(Init.G_objMap.get("anjuke_sale_condition_type"), "选择类型");
+		//选择房屋类型
+		driver.moveToElement("//*[@id='condusetype_id']");
+		driver.click("//*[@id='condusetype_id']/ul/li[3]/a", "选择类型");
+//		driver.findElement("//a[contains(.,'老公房')]", "", 10).click();
+//		System.out.println("老公房标题为：" + driver.getTitle());
+//		driver.click(Init.G_objMap.get("anjuke_sale_condition_type"), "选择类型");
 		condition.put("type", "公寓");
 		driver.check("//form/div/span[6][@class='newpropcond']");
 		//访问二手房列表

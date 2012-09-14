@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -38,7 +39,11 @@ public class AnjukeCancelRecommendHouse {
 		bs.quit();
 		bs = null;
 	}
-
+    @SuppressWarnings("deprecation")
+	@Configuration(afterTestClass = true)
+	public void doBeforeTests() {
+		System.out.println("***AnjukeCancelRecommendHouse is done***");
+	}
 	//(timeOut = 250000)
 	@Test
 	public void testCancelRecommendBuyHouse() throws InterruptedException {		
@@ -67,7 +72,7 @@ public class AnjukeCancelRecommendHouse {
 		// 以经纪人身份登录anjuke网站
 		if (!bool) {
 			// 清空当前浏览器的cookie
-			bs.deleteAllCookies();
+//			bs.deleteAllCookies();
 		} 
 		//For anjuke daily
 		PublicProcess.dologin(bs, "cdtest", "anjukeqa");
