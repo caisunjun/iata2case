@@ -60,7 +60,7 @@ public class GujiaDetail {
 		//String time = PublicProcess.getNowDateTime("HH:mm:ss");
 		return GjInfo;
 	  }
-		@Test
+		@Test(groups = {"unstable"})
 		public void gujia() {
 //			driver.deleteAllCookies();
 			AjkGujia.GJDetail(driver, GjInfo);
