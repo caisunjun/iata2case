@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import com.anjuke.ui.page.Broker_areas;
 import com.anjuke.ui.page.Broker_profile;
-import com.anjuke.ui.page.Broker_shopview;
+import com.anjuke.ui.page.Ajk_ShopView;
 import com.anjuke.ui.publicfunction.BrokerInfo;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
@@ -51,7 +51,7 @@ public class AnjukeBrokerExpertise {
         jobs = BrokerInfo.ulSelect1(bs, Broker_areas.JOBS, "重新获取职业特长列表");
         bs.click(Broker_profile.MYSHOP, "进入我的店铺");
         bs.switchWindo(2);
-        WebElement shopjob = bs.findElement(Broker_shopview.EXPERTISE, "获得职业特长对象", 60);
+        WebElement shopjob = bs.findElement(Ajk_ShopView.EXPERTISE, "获得职业特长对象", 60);
         ArrayList<String> shopjobs = new ArrayList<String>();
         for (WebElement job : shopjob.findElements(By.tagName("a"))){
             shopjobs.add(job.getText());

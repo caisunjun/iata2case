@@ -76,8 +76,8 @@ public class AnjukeBrokerpractice {
          */
         bs.click(Broker_profile.MYSHOP, "进入我的店铺");
         bs.switchWindo(2);
-        String knowncomm = bs.getText(Broker_shopview.KNOWNCOMM, "获取最熟悉的小区 ");
-        String knownarea = bs.getText(Broker_shopview.KNOWNAREA, "获取最熟悉的区域");
+        String knowncomm = bs.getText(Ajk_ShopView.KNOWNCOMM, "获取最熟悉的小区 ");
+        String knownarea = bs.getText(Ajk_ShopView.KNOWNAREA, "获取最熟悉的区域");
         String tmpUrl = bs.getCurrentUrl()+"?cc=cc";
         bs.get(tmpUrl);
         bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3);

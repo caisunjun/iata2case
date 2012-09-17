@@ -33,7 +33,6 @@ public class Anjukekeywords {
 
 	@AfterMethod
 	public void teardown() {
-		Report.seleniumReport("", "");
 		bs.quit();
 		bs = null;
 	}
