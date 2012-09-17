@@ -111,8 +111,8 @@ public class AnjukePropView {
     	bs.click(Ajk_PropView.BROKERNAME, "点头像下经纪人名字的链接");
     	bs.switchWindo(3);
     	//验证经纪人姓名是否一致
-    	bs.getElementCount(Broker_shopview.BROKERNAME);
-    	bs.assertEquals(brokerName,bs.getText(Broker_shopview.BROKERNAME, "获取经纪人店铺首页的经纪人名"), "验证经纪人姓名是否一致", "房源单页的经纪人姓名和店铺首页里的一致") ;
+    	bs.getElementCount(Ajk_ShopView.BROKERNAME);
+    	bs.assertEquals(brokerName,bs.getText(Ajk_ShopView.BROKERNAME, "获取经纪人店铺首页的经纪人名"), "验证经纪人姓名是否一致", "房源单页的经纪人姓名和店铺首页里的一致") ;
     	bs.close();
     	//回到房源单页
     	bs.switchWindo(2);

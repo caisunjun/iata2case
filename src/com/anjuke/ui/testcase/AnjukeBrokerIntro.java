@@ -50,8 +50,8 @@ public class AnjukeBrokerIntro {
         //验证店铺页上 是否一致
         bs.click(Broker_profile.MYSHOP, "进入我的店铺");
         bs.switchWindo(2);
-        String actualslogan = bs.findElement(Broker_shopview.SLOGAN, "获得卖房宣言文本", 60).getText();
-        String actualselfintro = bs.findElement(Broker_shopview.SELFINTRO, "获取自我介绍文本", 60).getText();
+        String actualslogan = bs.findElement(Ajk_ShopView.SLOGAN, "获得卖房宣言文本", 60).getText();
+        String actualselfintro = bs.findElement(Ajk_ShopView.SELFINTRO, "获取自我介绍文本", 60).getText();
         bs.assertContains(actualslogan, slogan);
         bs.assertContains(actualselfintro, selfintro);
     }
