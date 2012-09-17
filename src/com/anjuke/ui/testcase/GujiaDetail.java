@@ -41,12 +41,12 @@ public class GujiaDetail {
 
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+		driver.close();
 		driver = null;
 	}
 	
 	private AnjukeGujiaInformation gujiaInfo_init(){
-		GjInfo.setCommunityName("潍坊八村 ");//小区
+		GjInfo.setCommunityName("潍坊八村");//小区
 		GjInfo.setHouseType_S("4");//室
 		GjInfo.setHouseType_T("4");//厅
 		GjInfo.setHouseType_W("4");//卫
@@ -59,11 +59,13 @@ public class GujiaDetail {
 		GjInfo.setBuildYear("2009");//建造年代
 		//String time = PublicProcess.getNowDateTime("HH:mm:ss");
 		return GjInfo;
+		
 	  }
 		@Test
 		public void gujia() {
 //			driver.deleteAllCookies();
 			AjkGujia.GJDetail(driver, GjInfo);
+			driver.close();
 		}
 }
 			
