@@ -1,7 +1,6 @@
 package com.anjuke.ui.testcase;
 
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -25,25 +24,24 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
  */
 
 public class AnjukeBrokerRentEdit {
-	private  AnjukeSaleInfo rentUpInfo = new AnjukeSaleInfo();
-	private WebDriver driver;
-	private String baseUrl;
+	private Browser driver = null;
+	private AnjukeSaleInfo rentUpInfo = new AnjukeSaleInfo();
 		
 	@BeforeMethod
 	public void startUp() {
-		driver = (WebDriver) FactoryBrowser.factoryBrowser();
-		((Browser) driver).deleteAllCookies();
+		driver = FactoryBrowser.factoryBrowser();
+//		driver.deleteAllCookies();
 	}
 
 	@AfterMethod
 	public void tearDown() {
 		// driver.closeAllwindow();
+		driver.close();
 		driver.quit();
 		driver = null;
 	}
 
 	private AnjukeSaleInfo rentUpInfo_init() {
-		
 		rentUpInfo.setHouseType("老公房");
 		rentUpInfo.setFloorCur("1");
 		rentUpInfo.setFloorTotal("6");
@@ -59,7 +57,7 @@ public class AnjukeBrokerRentEdit {
 		rentUpInfo.setConfiguration("电视 ");
 		rentUpInfo.setOrientations("东南");
 		rentUpInfo.setRentType("整租");
-		rentUpInfo.setHouseImage("有图片");
+		rentUpInfo.setHouseImage("无图片");
 		String time = PublicProcess.getNowDateTime("HH：MM:SS");
 		rentUpInfo.setHouseTitle("发布出租测试房源勿联系" + time);
 		rentUpInfo.setHouseDescribe("发布出租，此出租房源为测试房源，如果您看到该房源，请勿联系。感谢您的配合。谢谢！");
@@ -69,7 +67,7 @@ public class AnjukeBrokerRentEdit {
 	@Test(timeOut = 500000)
 	public void rentEdit() {
 		rentUpInfo = rentUpInfo_init();
-	//	PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);
-	//	BrokerRentOperating.editRent(driver, rentUpInfo, 0);
+		PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);
+		BrokerRentOperating.editRent(driver, rentUpInfo, 0);
 	}
 }
