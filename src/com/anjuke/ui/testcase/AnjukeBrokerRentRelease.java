@@ -34,7 +34,6 @@ public class AnjukeBrokerRentRelease {
 	@AfterMethod
 	public void tearDown() {
 		// driver.closeAllwindow();
-		driver.close();
 		driver.quit();
 		driver= null;
 	} 
