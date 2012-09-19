@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.bean.AnjukeCommonUserInfo;
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -314,8 +315,7 @@ public class AnjukeCommonUserModifyInfo {
 		bs.click(Init.G_objMap.get("anjuke_commonuser_info_modification_password_link"),"点击修改个人登录密码");
 		
 		//获取登录用户名
-		String tempUserName = bs.getText(Init.G_objMap.get("anjuke_index_login_commonuser_succ"), "获取包含用户名在内的欢迎信息");
-		
+		String tempUserName = bs.getText(Public_HeaderFooter.HEADER_UserName, "获取包含用户名在内的欢迎信息");
 			
 		userName = PublicProcess.splitString(tempUserName, "，");
 		
