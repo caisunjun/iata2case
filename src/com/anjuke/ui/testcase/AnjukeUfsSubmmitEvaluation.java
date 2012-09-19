@@ -65,8 +65,8 @@ public class AnjukeUfsSubmmitEvaluation {
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
-		driver.quit();
-		driver = null;
+		bs.quit();
+		bs = null;
 	}
 	
 	@Test(groups = { "unstable" })
