@@ -157,8 +157,8 @@ public class PublicProcess {
 				driver.click(Init.G_objMap.get("anjuke_use_logout_button"), "经纪人退出登录");
 			}
 		} else if (commStatus) { // 普通用户退出
-			if (driver.check(Init.G_objMap.get("ajk_head_button_logoutComm"))) {
-				driver.click(Init.G_objMap.get("ajk_head_button_logoutComm"), "普通用户退出登录");
+			if (driver.check(Public_HeaderFooter.HEADER_UserLogOut)) {
+				driver.click(Public_HeaderFooter.HEADER_UserLogOut, "普通用户退出登录");
 			}
 		}
 	}

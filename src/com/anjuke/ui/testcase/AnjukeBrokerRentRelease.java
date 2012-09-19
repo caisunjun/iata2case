@@ -28,13 +28,12 @@ public class AnjukeBrokerRentRelease {
 	@BeforeMethod
 	public void startUp() {
 		driver = FactoryBrowser.factoryBrowser();
-		driver.deleteAllCookies();
+//		driver.deleteAllCookies();
 	}
 
 	@AfterMethod
 	public void tearDown() {
 		// driver.closeAllwindow();
-		driver.close();
 		driver.quit();
 		driver= null;
 	} 

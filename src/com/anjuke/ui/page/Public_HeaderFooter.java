@@ -13,6 +13,8 @@ public class Public_HeaderFooter {
 	
 	/** 头部 - 普通用户登录后 - 用户名 */
 	public static final String HEADER_UserName = "//li[@class='username_boxer']/a[@class='username']";
+	/** 头部 - 普通用户登录后 - 退出 */
+	public static final String HEADER_UserLogOut = "//ul[@id='toplogin_cont_userlogin']/li[5]/a";
 	/** 头部 - 经纪人登录后 - 用户名 */
 	public static final String HEADER_BrokerName = "//ul[@id='top_broker_panel']/li[4]/a";
 	

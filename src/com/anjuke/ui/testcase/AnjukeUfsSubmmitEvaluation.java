@@ -65,9 +65,8 @@ public class AnjukeUfsSubmmitEvaluation {
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
-	Report.seleniumReport("www.anjuke.com", "UFS功能验证_提交评价并核对数据正确性");
-//		bs.quit();
-//		bs = null;		
+		driver.quit();
+		driver = null;
 	}
 	
 	@Test(groups = { "unstable" })
