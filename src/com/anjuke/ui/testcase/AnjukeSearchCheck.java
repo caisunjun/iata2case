@@ -107,7 +107,7 @@ public class AnjukeSearchCheck {
             // 引导词检查
             checkGuideLan(checkType);
             // 正常关键字搜索
-            normalAskSearch("地铁");
+            normalAskSearch("二手房过户");
             // 异常关键字搜索
             driver.get("http://shanghai.anjuke.com/" + checkType);
             unusualAskSearch("  ");

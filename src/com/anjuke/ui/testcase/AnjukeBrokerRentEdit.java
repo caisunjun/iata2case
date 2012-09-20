@@ -9,6 +9,7 @@ import com.anjuke.ui.publicfunction.BrokerRentOperating;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.init.Init;
 
 /**
  * 
@@ -67,7 +68,17 @@ public class AnjukeBrokerRentEdit {
 	@Test(timeOut = 500000)
 	public void rentEdit() {
 		rentUpInfo = rentUpInfo_init();
-		PublicProcess.logIn(driver, "ajk_sh","anjukeqa", false, 1);
+		String casestatus = "";
+		String testing = "testing";
+		casestatus = Init.G_config.get("casestatus");
+		if(testing.equals(casestatus))
+		{
+			PublicProcess.logIn(driver, "test1", "123456",false, 1);
+		}
+		else
+		{
+			PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1);
+		}
 		BrokerRentOperating.editRent(driver, rentUpInfo, 0);
 	}
 }
