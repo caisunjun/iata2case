@@ -1,0 +1,14 @@
+[0.012][INFO]:      ChromeDriver 19.0.1068.0 C:\Documents and Settings\zhaoqinchu\git\IATACaseAnjuke\tools\chromedriver.exe
+[0.496][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chrome.switches": [ "--start-maximized" ],
+   "chromeOptions": {
+      "args": [ "--start-maximized" ],
+      "extensions": [  ]
+   },
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.504][INFO]:      Launching chrome: "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --ignore-certificate-errors --homepage=about:blank --start-maximized
+[45.545][SEVERE]:   Failed to initialize connection

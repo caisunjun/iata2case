@@ -57,17 +57,16 @@ public class AnjukeUfsSubmmitEvaluation {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
-		bs = FactoryBrowser.factoryBrowser();
 //		bs.deleteAllCookies();
+		bs = FactoryBrowser.factoryBrowser();
 //		baseUrl = "http://shanghai.anjuke.com";	
 		baseUrl = "http://shenzhen.anjuke.com/prop/view/121857833";
 	}
 	
 	@AfterMethod
 	public void tearDown() throws Exception {
-//		Report.seleniumReport("www.anjuke.com", "UFS功能验证_提交评价并核对数据正确性");
 		bs.quit();
-		bs = null;		
+		bs = null;
 	}
 	
 	@Test(groups = { "unstable" })
@@ -84,7 +83,7 @@ public class AnjukeUfsSubmmitEvaluation {
 		getSaleBrokerInfo();
 		
 		//点击提交评价入口
-		bs.click(Ajk_SaleView.SALE_WOYAOPINGJIA, "点击“我要评价”");
+		bs.click(Ajk_PropView.SALE_WOYAOPINGJIA, "点击“我要评价”");
 		
 		//不同类型的用户提交评价
 		if(isLogin==true){
@@ -95,23 +94,23 @@ public class AnjukeUfsSubmmitEvaluation {
 //			String brokerSubmitContentPrompt_Expected = "对不起，只有找房用户才可以评价";
 			
 			//判断经纪人已登录的标志控件是否存在
-			while(bs.check(Ajk_SaleView.SALE_BROKERLOGINFLAG)){
+			while(bs.check(Ajk_PropView.SALE_BROKERLOGINFLAG)){
 				//验证提示信息是否正确
 //				bs.assertContains(brokerSubmitContentPrompt_Actual, brokerSubmitContentPrompt_Expected);
-				bs.click(Ajk_SaleView.SALE_CLOSEBROKERPROMPT, "关闭经纪人评价提示");	
+				bs.click(Ajk_PropView.SALE_CLOSEBROKERPROMPT, "关闭经纪人评价提示");	
 				
 				//注销用户
-				bs.click(Ajk_SaleView.SALE_LOGOUTBROKER, "注销用户");	
+				bs.click(Ajk_PropView.SALE_LOGOUTBROKER, "注销用户");	
 				isLogin = false;
 			}
 
 			//普通用户提交评价
 			//判断普通用户已登录的标志控件是否存在
-			while(bs.check(Ajk_SaleView.SALE_USERLOGINFLAG)){
+			while(bs.check(Ajk_PropView.SALE_USERLOGINFLAG)){
 				//给经纪人打分
 				Scoring();
 				
-				bs.click(Ajk_SaleView.SALE_USERSUBMITCONTENT,"普通用户提交评价");
+				bs.click(Ajk_PropView.SALE_USERSUBMITCONTENT,"普通用户提交评价");
 				
 				//获取并验证提示信息
 				//提示信息期望值
@@ -120,7 +119,7 @@ public class AnjukeUfsSubmmitEvaluation {
 //				String SubbmitPrompt_Actual = bs.getText(Ajk_SaleView.SALE_USERSUBMITCONTENTPROMPT, "获取提交成功的提示信息");								
 //				bs.assertContains(SubbmitPrompt_Actual, SubbmitPrompt_Expected);			
 				waitForPageToLoad(500);
-				bs.click(Ajk_SaleView.SALE_SEEMYEVALUATION, "查看我的评价");
+				bs.click(Ajk_PropView.SALE_SEEMYEVALUATION, "查看我的评价");
 					
 				//切换窗口
 				switchWindow();			
@@ -129,18 +128,18 @@ public class AnjukeUfsSubmmitEvaluation {
 				UserCenterUFSinfoCheck();
 				
 				//注销用户
-				bs.click(Ajk_SaleView.SALE_LOGOUTUSER, "注销用户");	
+				bs.click(Ajk_PropView.SALE_LOGOUTUSER, "注销用户");	
 				isLogin = false;
 			}				
 		}else{
 			//给经纪人打分
 			Scoring();	
 			//提交评价
-			bs.click(Ajk_SaleView.SALE_USERSUBMITCONTENT,"普通用户提交评价");
-			bs.click(Ajk_SaleView.SALE_ANONYMOUSEVALUATION,"不登录，匿名评价");			
+			bs.click(Ajk_PropView.SALE_USERSUBMITCONTENT,"普通用户提交评价");
+			bs.click(Ajk_PropView.SALE_ANONYMOUSEVALUATION,"不登录，匿名评价");			
 			waitForPageToLoad(500);
 			//关闭成功评价提示层
-			bs.click(Ajk_SaleView.SALE_CLOSEANONYMOUSEVALUATIONPROMPT, "关闭成功评价提示层");
+			bs.click(Ajk_PropView.SALE_CLOSEANONYMOUSEVALUATIONPROMPT, "关闭成功评价提示层");
 		}						
 		
 	}	
@@ -177,11 +176,11 @@ public class AnjukeUfsSubmmitEvaluation {
 	
 	//获取房源单页经纪人信息
 	private void getSaleBrokerInfo(){
-		s_BrokerName = bs.getText(Ajk_SaleView.SALE_BROKERNAME, "获取经纪人姓名");
-		s_BrokerHeadImgUrl = bs.getAttribute(Ajk_SaleView.SALE_BROKERHEADIMG,"src");
-		s_BrokerCompany = bs.getText(Ajk_SaleView.SALE_BROKERCOMPANY,"获取经纪人公司名");
-		s_BrokerStore = bs.getText(Ajk_SaleView.SALE_BROKERSTORE,"获取经纪人门店名");
-		s_BrokerTel = bs.getText(Ajk_SaleView.SALE_BROKERTEL,"获取经纪人手机号");
+		s_BrokerName = bs.getText(Ajk_PropView.BROKERNAME, "获取经纪人姓名");
+		s_BrokerHeadImgUrl = bs.getAttribute(Ajk_PropView.BROKERHEADIMG,"src");
+		s_BrokerCompany = bs.getText(Ajk_PropView.SALE_BROKERCOMPANY,"获取经纪人公司名");
+		s_BrokerStore = bs.getText(Ajk_PropView.SALE_BROKERSTORE,"获取经纪人门店名");
+		s_BrokerTel = bs.getText(Ajk_PropView.BROKERTEL,"获取经纪人手机号");
 	}
 	
 	
@@ -205,7 +204,7 @@ public class AnjukeUfsSubmmitEvaluation {
 		waitForPageToLoad(500);
 		Report.writeHTMLLog("给经纪人打分", "打分成功", Report.PASS, "");	
 		s_UserContent = "房源真实，服务态度好,考虑这套房源!";
-		bs.findElement(Ajk_SaleView.SALE_USERINPUTCONTENT, "输入评论内容",5).sendKeys(s_UserContent);
+		bs.findElement(Ajk_PropView.SALE_USERINPUTCONTENT, "输入评论内容",5).sendKeys(s_UserContent);
 		waitForPageToLoad(500);		
 	}
 	
@@ -255,7 +254,7 @@ public class AnjukeUfsSubmmitEvaluation {
 		bs.assertIntEquals(s_HouseQuality, HouseQuality, "比较房屋信息打分", "房屋信息打分："+HouseQuality+">>"+s_HouseQuality);		
 		
 		//服务态度打分检测
-		bs.assertIntEquals(s_ServiceAttitude-5, ServiceAttitude, "比较服务态度打分", "服务态度打分："+ServiceAttitude+">>"+s_ServiceAttitude);
+		bs.assertIntEquals(s_ServiceAttitude-5, ServiceAttitude, "比较服务态度打分", "服务态度打分："+ServiceAttitude+">>"+(s_ServiceAttitude-5));
 		
 		//业务水平打分检测
 		bs.assertIntEquals(s_Professional-10, Professional, "比较业务水平打分", "业务水平打分："+Professional+">>"+s_Professional);	

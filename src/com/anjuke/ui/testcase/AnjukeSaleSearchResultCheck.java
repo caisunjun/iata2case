@@ -54,7 +54,7 @@ public class AnjukeSaleSearchResultCheck {
 		driver.assertTrue(ass.verifyRoom("2室"), "筛选条件搜索", "搜索结果中的房源户型是否正确");
 	}
 
-	// @Test
+	@Test
 	public void keywordSearch() {
 		driver.get("http://shanghai.anjuke.com/sale/");
 		driver.type("//*[@id='keyword_apf_id_9']", "北新泾2室", "输入查询条件：北新泾2室");
