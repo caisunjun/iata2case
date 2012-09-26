@@ -71,8 +71,3 @@ public class GujiaDetail {
 			driver.close();
 		}
 }
-			
-		
-
-
-
