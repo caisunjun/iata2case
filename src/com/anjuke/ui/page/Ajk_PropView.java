@@ -52,7 +52,7 @@ public class Ajk_PropView {
 	
 	/*右侧经纪人模块*/
 	/** 二手房单页 - 经纪人头像 */
-	public static final String BROKERHEADIMG = "//[@class='propBrokerPhoto']/a/img";
+	public static final String BROKERHEADIMG = "//div[@class='propBrokerPhoto']/a/img";
 	/** 二手房单页 - 经纪人姓名 */
 	public static final String BROKERNAME = "//div[@class='prop_new_line']";
 	/** 二手房单页 - 经纪人 公司门店 */

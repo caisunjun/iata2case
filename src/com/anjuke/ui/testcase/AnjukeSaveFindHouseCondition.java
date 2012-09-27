@@ -66,19 +66,19 @@ public class AnjukeSaveFindHouseCondition{
 		driver.click(Init.G_objMap.get("anjuke_sale_condition_range"), "选择区域");
 		condition.put("range", "浦东");
 		//等待加载完毕
-		driver.check("//form/div/span[2][@class='newpropcond']");
+		driver.check("//form[@id='propcondform']/div/span[2]");
 		//选择售价
 		driver.click(Init.G_objMap.get("anjuke_sale_condition_price"), "选择价格");
 		condition.put("price", "100-120万元");
-		driver.check("//form/div/span[3][@class='newpropcond']");
+		driver.check("//form[@id='propcondform']/div/span[3]");
 		//选择面积
 		driver.click(Init.G_objMap.get("anjuke_sale_condition_area"), "选择面积");
 		condition.put("area", "90-110平米");
-		driver.check("//form/div/span[4][@class='newpropcond']");
+		driver.check("//form[@id='propcondform']/div/span[4]");
 		//选择房型
 		driver.click(Init.G_objMap.get("anjuke_sale_condition_room"), "选择房型");
 		condition.put("room", "三室");
-		driver.check("//form/div/span[5][@class='newpropcond']");
+		driver.check("//form[@id='propcondform']/div/span[5]");
 		//选择房屋类型
 		driver.moveToElement("//*[@id='condusetype_id']");
 		driver.click("//*[@id='condusetype_id']/ul/li[3]/a", "选择类型");
@@ -86,7 +86,7 @@ public class AnjukeSaveFindHouseCondition{
 //		System.out.println("老公房标题为：" + driver.getTitle());
 //		driver.click(Init.G_objMap.get("anjuke_sale_condition_type"), "选择类型");
 		condition.put("type", "公寓");
-		driver.check("//form/div/span[6][@class='newpropcond']");
+		driver.check("//form[@id='propcondform']/div/span[6]");
 		//访问二手房列表
 		driver.click(Init.G_objMap.get("public_link_sale"), "访问二手房列表");
 		driver.check(Init.G_objMap.get("anjuke_sale_condition_range"));
