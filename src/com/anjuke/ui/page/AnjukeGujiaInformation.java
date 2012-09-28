@@ -23,10 +23,16 @@ public class AnjukeGujiaInformation {
 	private String houseType_W;
 	//建筑时间
 	private String buildYear;
+	//房屋类型
+	private String typeOfHousing;
 	//装修情况
 	private String fitmentInfo;
 	//房屋朝向
 	private String orientations;
+	//赠送面积
+	private String garden;
+	//地下室
+	private String basement;
 	
 	public String getCommunityName() {
 		return communityName;
@@ -84,6 +90,12 @@ public class AnjukeGujiaInformation {
 	public void setBuildYear(String buildYear) {
 		this.buildYear = buildYear;
 	}
+	public String getTypeOfHousing() {
+		return typeOfHousing;
+	}
+	public void setTypeOfHousing(String typeOfHousing) {
+		this.typeOfHousing = typeOfHousing;
+	}
 	public String getFitmentInfo() {
 		return fitmentInfo;
 	}
@@ -96,5 +108,16 @@ public class AnjukeGujiaInformation {
 	public void setOrientations(String orientations) {
 		this.orientations = orientations;
 	}
-
+    public String getGarden(){
+    	return garden;
+    }
+    public void setGarden(String garden){
+    	this.garden=garden;
+    }
+    public String getBasement(){
+    	return basement;
+    }
+    public void setBasement(String basement){
+    	this.basement=basement;
+    }
 }
