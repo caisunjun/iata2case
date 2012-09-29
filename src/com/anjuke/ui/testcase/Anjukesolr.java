@@ -56,6 +56,7 @@ public class Anjukesolr {
 		int[] city = { 11 };
 		String solrServer = "http://10.10.6.51:8983/ajk-prop11/";
 		Report.writeHTMLLog("新开solr", "ajk-prop11", Report.DONE, "");
+		System.out.println("it is running 11");
 		try {
 			solrmain(solrServer, city);
 		} catch (Exception e) {
@@ -71,6 +72,7 @@ public class Anjukesolr {
 		int[] city = { 14 };
 		String solrServer = "http://10.10.6.51:8983/ajk-prop14/";
 		Report.writeHTMLLog("新开solr", "ajk-prop14", Report.DONE, "");
+		System.out.println("it is running 14");
 		try {
 			solrmain(solrServer, city);
 		} catch (Exception e) {
@@ -86,15 +88,14 @@ public class Anjukesolr {
 		int[] city = { 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,
 				56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
 				72, 73, 74, 75 };
-		for (int i = 0; i < city.length; i++) {
-			String solrServer = "http://10.10.6.51:8983/ajk-prop04/";
-			Report.writeHTMLLog("新开solr", "ajk-prop04/", Report.DONE, "");
-			try {
-				solrmain(solrServer, city);
-			} catch (Exception e) {
-				e.printStackTrace();
-			} 
-		}
+		System.out.println("it is running 04");
+		String solrServer = "http://10.10.6.51:8983/ajk-prop04/";
+		Report.writeHTMLLog("新开solr", "ajk-prop04/", Report.DONE, "");
+		try {
+			solrmain(solrServer, city);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 
 	@Test(groups = { "unstable" })
