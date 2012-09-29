@@ -28,12 +28,12 @@ public class Ajk_AskView {
 	 * @param relate为true时，表示存在相关问题模块;为false时，表示不存在相关问题模块;
 	 * */
 	public static String getAnswerElement (int n,boolean relate){
-		String element;
+		String element = null;
 		try{
-		if(relate = true){
+		if(relate == true){
 			element = "//*[@id='content']/div[3]/div[3]/ul/li["+n+"]/div[2]";
 			}
-		else{
+		else if(relate == false){
 			element = "//*[@id='content']/div[3]/div[2]/ul/li["+n+"]/div[2]";
 			}
 			return element;
@@ -51,6 +51,10 @@ public class Ajk_AskView {
 	public static final String DESCRIPTION = "//*[@id='content']/div[3]/div[1]/div[1]/div[1]";
 	/** 问答单页 - 问题补充 */
 	public static final String DESCRIPTIONADD = "//*[@id='content']/div[3]/div[1]/div[1]/div[2]/div[2]";
+	/** 问答单页 - 回答列表第一条数据的采纳最佳答案 */
+	public static final String AdoptBestAnswer = "//*[@id='content']/div[3]/div[2]/ul/li[1]/div[6]/div[2]/a[2]";
+	/** 问答单页 - 最佳答案模块上的”最佳答案“4个字 */
+	public static final String BestAnswer = "//*[@id='content']/div[3]/div[2]/h2";
 	
 }
 

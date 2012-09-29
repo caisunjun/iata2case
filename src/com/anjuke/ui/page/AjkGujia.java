@@ -29,7 +29,7 @@ public class AjkGujia {
 
 		//小区名
 		if( type.equals("Release")){
-//			driver.click(Init.G_objMap.get("anjuke_gujia_commname"), "选中小区名输入框");
+			driver.click(Init.G_objMap.get("anjuke_gujia_commname"), "选中小区名输入框");
 			driver.type(Init.G_objMap.get("anjuke_gujia_commname"), gujiaInfo.getCommunityName(), "小区名称");
 			driver.findElement(Init.G_objMap.get("anjuke_gujia_commname"), "", 30).sendKeys(" ");
 			driver.click(Init.G_objMap.get("anjuke_gujia_commname_keywords"),"下拉框");

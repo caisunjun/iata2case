@@ -14,27 +14,18 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
 /**
- * 该用例完成安居客出售发布操作，逻辑如下
- * 1、填写出售信息，添加图片附件
- * 2、发布成功后，验证出售基本信息
- * 3、在出售详细页，验证房屋出售详细信息
- * 
- * @Author gabrielgao
- * @time 2012-04-11 17:00
- * @UpdateAuthor ccyang
- * @last updatetime 2012-07-25 13:00
+ * 验证估价页面与普通用户中心显示的估价信息是否一致
+ * @Author chuzhaoqin
  */
-public class GujiaDetail {
+public class AnjukeGujiaDetail {
 	private Browser driver = null;
 	private AnjukeGujiaInformation GjInfo = new AnjukeGujiaInformation();
-	//private AnjukeGujiaInformation GjInfosuccess = new AnjukeGujiaInformation();
 
 	@BeforeMethod
 	public void startUp() {
 		driver = FactoryBrowser.factoryBrowser();
 //		driver.deleteAllCookies();
 		GjInfo = gujiaInfo_init();
-		//Report.seleniumReport("shanghai.anjuke.com", "房价评估页验证");
 		
 	}
 
@@ -42,6 +33,7 @@ public class GujiaDetail {
 	public void tearDown() {
 		driver.quit();
 		driver = null;
+		Report.seleniumReport("shanghai.anjuke.com", "房价评估页验证");
 	}
 	
 	private AnjukeGujiaInformation gujiaInfo_init(){
