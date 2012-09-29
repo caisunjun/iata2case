@@ -2,7 +2,7 @@ package com.anjuke.ui.page;
 /**
  * 安居客 - 估价信息页   http://shanghai.anjuke.com/gujia/
  * 
- * @author zhaoqinchu
+ * @author chuzhaoqin
  * */
 public class AnjukeGujiaInformation {
 	//小区名称
