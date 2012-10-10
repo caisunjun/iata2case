@@ -141,7 +141,7 @@ public class Anjukesolr {
 					for (SolrDocument doc : docs) {
 						int id = (Integer) doc.getFieldValue("id");
 						String url = haozuhouseurl(id, city[i], citypinyin);
-						solrReport.writeHTMLLogKeyword( keywordsVal,String.valueOf(id), url);
+						solrReport.collectionKeywords( keywordsVal,String.valueOf(id), url);
 					}
 				}
 			}
