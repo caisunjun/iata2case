@@ -8,6 +8,17 @@ package com.anjuke.ui.page;
 
 public class Ajk_PropRent {
 
+	/* 房源面包屑*/
+	/** 租房单页 - 区域 */
+	public static final String REGION = "//div[@id='propNav']/a[3]";
+	/** 租房单页 - 板块 */
+	public static final String BLOCK = "//div[@id='propNav']/a[4]";
+
+	/* 房源信息 */
+	/** 租房单页 - 面包屑处小区名 */
+	public static final String NavCommName = "//*[@id='propNav']/a[5]";
+	
+	
 	// 房源基本信息
 
 	/** 房源详情页 - 标题 */
