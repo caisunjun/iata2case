@@ -15,7 +15,6 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 /**该用例用来检查二手房房源单页
  * 包括小区名，经济人，中介公司，各种链接，同小区房源数量统计
  * @author ccyang
- *
  */
 
 public class AnjukePropView {
@@ -24,6 +23,7 @@ public class AnjukePropView {
     @BeforeMethod
     public void setUp() {
         bs = FactoryBrowser.factoryBrowser();
+    	bs.get("http://shanghai.anjuke.com/");
     }
     @AfterMethod
     public void tearDown(){
@@ -35,14 +35,12 @@ public class AnjukePropView {
 	public void doBeforeTests() {
 		System.out.println("***AnjukePropView is done***");
 	}
+    
     @Test
     public void testPropView(){
-//    	bs.deleteAllCookies();
-//    	bs.get("http://www.anjuke.com/version/switch/?f1=" + Init.G_config.get("version").toLowerCase());
     	String brokerName = "";
     	String brokerCompany = "";
     	
-    	bs.get("http://shanghai.anjuke.com/");
     	//点导航里的二手房tab
     	if(!bs.check(Ajk_HomePage.SALETAB))
     	{bs.refresh();}
@@ -58,7 +56,7 @@ public class AnjukePropView {
 
 //    	tryReport(bs);//受制于弹出框，目前不好用
 //    	priceNotice(bs);//受制于弹出框，目前不好用
-    }
+    }    
     
     private static void checkCommNameAndLink(Browser bs)
     {
@@ -106,13 +104,33 @@ public class AnjukePropView {
     	//取右侧头像处经纪人姓名，公司门店
     	brokerName = bs.getText(Ajk_PropView.BROKERNAME, "取经纪人姓名");
     	brokerCompany = bs.getText(Ajk_PropView.COMPANYNAME, "取经纪人公司门店");
+    	
+    	//经纪人公司有一种不可点击的“独立经济人”的情况
+    	if(brokerCompany.equals("  门店:   独立经纪人")){
+    		String ps = bs.printScreen();
+    		Report.writeHTMLLog("经纪人公司门店检查", "该经纪人公司为不可点击的独立经济人", Report.DONE, ps);
+    		return;
+    	}
+    	
+      	//先处理下字符串
+      	brokerCompany = brokerCompany.replace("公司 :   ", "");
+      	brokerCompany = brokerCompany.replace('\n', ' ');
+      	brokerCompany = brokerCompany.replace("门店 :   ", "");
     	System.out.println(brokerCompany);
     	//点头像下经纪人名字的链接
     	bs.click(Ajk_PropView.BROKERNAME, "点头像下经纪人名字的链接");
     	bs.switchWindo(3);
-    	//验证经纪人姓名是否一致
-    	bs.getElementCount(Ajk_ShopView.BROKERNAME);
-    	bs.assertEquals(brokerName,bs.getText(Ajk_ShopView.BROKERNAME, "获取经纪人店铺首页的经纪人名"), "验证经纪人姓名是否一致", "房源单页的经纪人姓名和店铺首页里的一致") ;
+    	
+    	//是否有经纪人姓名
+    	if(bs.check(Ajk_ShopView.BROKERNAME))
+    	{
+    		//有姓名的话，验证经纪人姓名是否一致
+    		bs.assertEquals(brokerName,bs.getText(Ajk_ShopView.BROKERNAME, "获取经纪人店铺首页的经纪人名"), "验证经纪人姓名是否一致", "房源单页的经纪人姓名和店铺首页里的一致") ;
+    	}
+    	else{
+    		String ps = bs.printScreen();
+    		Report.writeHTMLLog("进入经纪人  "+brokerName+" 店铺遇到问题", "可能碰到了一个休眠经纪人", Report.FAIL, ps);
+    	}
     	bs.close();
     	//回到房源单页
     	bs.switchWindo(2);
@@ -122,12 +140,7 @@ public class AnjukePropView {
     	//获得经纪人公司门店
     	bs.getElementCount(Ajk_AgencyStore.SIDESTORENAME);
     	String agencyName = bs.getText(Ajk_AgencyStore.SIDESTORENAME, "获取经纪人店铺首页的经纪人名");
-    	//先处理下字符串
-    	brokerCompany = brokerCompany.replace("公司 :   ", "");
-    	brokerCompany = brokerCompany.replace('\n', ' ');
-    	brokerCompany = brokerCompany.replace("门店 :   ", "");
     	agencyName = agencyName.replace("公司：", "");
-    	System.out.println(agencyName);
     	//验证经纪人公司门店名是否一致
     	bs.assertEquals(brokerCompany,agencyName, "验证经纪人公司门店是否一致", "房源单页的经纪人公司门店和公司门店里的一致") ;
     	bs.close();
@@ -151,17 +164,16 @@ public class AnjukePropView {
     	{
     		String ps = bs.printScreen();
     		Report.writeHTMLLog("按售价统计房源数", "小区内房源数为0", Report.FAIL, ps);
-    		System.out.println("111");
     	}
     	else if(countDiffP < 10 || countDiffP < 0.2*Integer.parseInt(priceCount))
     	{
     		Report.writeHTMLLog("按售价统计房源数,房源单页和小区的差值在可接受范围内", "**房源单页："+priceCount+" ||小区："+priceCountC+" ||差值为："+countDiffP+"**", Report.PASS, "");
-    		System.out.println("222"+"**房源单页："+priceCount+" ||小区："+priceCountC+" ||差值为："+countDiffP+"**");
+    		System.out.println("**房源单页："+priceCount+" ||小区："+priceCountC+" ||差值为："+countDiffP+"**");
     	}
     	else
     	{
     		Report.writeHTMLLog("按售价统计房源数,房源单页和小区的差值过大", "**房源单页："+priceCount+" ||小区："+priceCountC+" ||差值为："+countDiffP+"**", Report.WARNING, "");
-    		System.out.println("333"+"**房源单页："+priceCount+" ||小区："+priceCountC+" ||差值为："+countDiffP+"**");
+    		System.out.println("**房源单页："+priceCount+" ||小区："+priceCountC+" ||差值为："+countDiffP+"**");
     	}
 
     	bs.close();
