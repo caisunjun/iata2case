@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Default suite]">
+    <parameter name = "websiteName" value = "Anjuke"/>
+    <parameter name = "suiteName" value = "--敏感词测试--"/> 
+	<test name="Default" preserve-order="false">
+		<classes>
+			<class name="com.anjukeinc.iata.ui.init.Init"></class>
+			<class name="com.anjuke.ui.publicfunction.DalilyReport"></class>
+		</classes>
+	</test>
+</suite>
