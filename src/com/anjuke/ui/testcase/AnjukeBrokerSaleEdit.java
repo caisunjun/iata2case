@@ -96,7 +96,7 @@ public class AnjukeBrokerSaleEdit {
 
 		if(testing.equals(casestatus))
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
+			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "111111",false, 1));
 		}
 		else
 		{
@@ -110,6 +110,7 @@ public class AnjukeBrokerSaleEdit {
 			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
 		}else{
 			BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
+			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
 		}
 	}
 
