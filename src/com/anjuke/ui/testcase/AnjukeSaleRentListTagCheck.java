@@ -107,13 +107,14 @@ public class AnjukeSaleRentListTagCheck {
             		{
             			tagTitle = driver.getAttribute(Ajk_Sale.getTags(nn), "title");
             			tagPicSrc = driver.getAttribute(Ajk_Sale.getTags(nn), "src");
-            			if(!tagTitle.equals("急推")){
-            				System.out.println(tagTitle);
-            				Report.writeHTMLLog("列表页标签检查","第 2 页的第 "+nn+" 套房源的 "+tagType+"标签 ，图片title有问题", Report.FAIL, "");
+            			if(!tagTitle.equals("急推")&&listType.equals("sale")){
+            				Report.writeHTMLLog("列表页标签检查","第 "+nn+" 套房源的 "+tagType+"标签 ，图片title有问题", Report.FAIL, "");
+            			}
+            			if(!tagTitle.equals("急租")&&(listType.equals("rental")||listType.equals("rent"))){
+            				Report.writeHTMLLog("列表页标签检查","第 "+nn+" 套房源的 "+tagType+"标签 ，图片title有问题", Report.FAIL, "");
             			}
             			if(!tagPicSrc.contains("tag_hot_32x32.gif")){
-            				System.out.println(tagPicSrc);
-            				Report.writeHTMLLog("列表页标签检查","第 2 页的第 "+nn+" 套房源的 "+tagType+"标签 ，图片地址有问题", Report.FAIL, "");
+            				Report.writeHTMLLog("列表页标签检查","第 "+nn+" 套房源的 "+tagType+"标签 ，图片地址有问题", Report.FAIL, "");
             			}
             		}
         		}
