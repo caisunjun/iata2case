@@ -37,7 +37,6 @@ public class AnjukeBrokerRentEdit {
 	@AfterMethod
 	public void tearDown() {
 		// driver.closeAllwindow();
-		driver.close();
 		driver.quit();
 		driver = null;
 	}
@@ -73,7 +72,7 @@ public class AnjukeBrokerRentEdit {
 		casestatus = Init.G_config.get("casestatus");
 		if(testing.equals(casestatus))
 		{
-			PublicProcess.logIn(driver, "test1", "123456",false, 1);
+			PublicProcess.logIn(driver, "test1", "111111",false, 1);
 		}
 		else
 		{

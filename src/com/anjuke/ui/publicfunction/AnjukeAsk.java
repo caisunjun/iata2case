@@ -7,8 +7,8 @@ import com.anjuke.ui.page.Ajk_AskNormalUserInfo;
 import com.anjuke.ui.page.Ajk_AskQuestion;
 import com.anjuke.ui.page.Ajk_AskQuestionSuccess;
 import com.anjuke.ui.page.Ajk_AskView;
+import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.report.Report;
-import com.anjukeinc.iata.ui.browser.*;
 /**
  * 该类主要完成问答提问，回答，普通用户个人中，问答首页搜索等公共模块的功能及数据检测功能
  * @author agneszhang
@@ -80,15 +80,63 @@ public class AnjukeAsk {
 	 * @param content为输入回答的内容
 	 */
 	public static void submitAnswer(Browser driver,String content){
+		//获取当前列表页所有回答总条数
+		int m,n;
+		m=0;
+		n=0;
+		boolean relate = true;
+		if(driver.check(Ajk_AskView.RELATED) && driver.getText(Ajk_AskView.RELATED, "获取相关问题").equals("相关问题")){
+			m = driver.getElementCount(Ajk_AskView.ANSWERLISTS_Related);
+			relate = true;
+			System.out.println("回答前一共有"+m+"条回答内容"+relate);
+		}
+		else if(!driver.check(Ajk_AskView.RELATED)){
+			m = driver.getElementCount(Ajk_AskView.ANSWERLISTS_NoRelated);	
+			relate = false;
+			System.out.println("回答前一共有"+m+"条回答内容"+relate);
+		}
+
 		if(driver.getAttribute(Ajk_AskView.IANSWER, "class").equals("answer-btn down")){
 			driver.click(Ajk_AskView.IANSWER, "点击我来帮你回答按钮");
 		}
 		driver.type(Ajk_AskView.INPUTANSWER, content, "输入回答内容");
 		driver.click(Ajk_AskView.SUBMITANSWER, "点击提交回答的按钮");
-		//获取当前列表页所有回答总条数
-		int m = driver.getElementCount(Ajk_AskView.ANSWERLISTS);
-		//System.out.println("一共有"+m+"条回答内容");
-		driver.assertEquals(content, driver.getText(Ajk_AskView.getAnswerElement(m), "取第M条即最后一条回复的数据"), "判断回答是否成功", "");
+				
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if(driver.check(Ajk_AskView.RELATED) && driver.getText(Ajk_AskView.RELATED, "获取相关问题").equals("相关问题")){
+			n = driver.getElementCount(Ajk_AskView.ANSWERLISTS_Related);		
+			System.out.println("回答后一共有"+n+"条回答内容");
+		}
+		else if(!driver.check(Ajk_AskView.RELATED)){
+			n = driver.getElementCount(Ajk_AskView.ANSWERLISTS_NoRelated);		
+			System.out.println("回答后一共有"+n+"条回答内容");
+		}
+		
+	
+		if(n>m){
+		for(int i=1;i<=n;){
+			System.out.println("正在匹配第"+i+"条");
+			String actual = driver.getText(Ajk_AskView.getAnswerElement(i, relate),"取第i条即最后一条回复的数据");
+			if(actual.equals(content)){
+				Report.writeHTMLLog("问答单页判断回答是否成功", "问答单页回答列表中有一条数据与实际值是匹配的", Report.PASS, "");
+				System.out.println("找到成功匹配的在第"+i+"条");
+				break;
+				}
+			else i++;
+			if(i==n+1){
+				Report.writeHTMLLog("问答单页判断回答是否成功", "回答失败：问答单页回答列表中没有一条数据与实际值是匹配的:"+"^预期值"+content+"^实际值"+actual, Report.FAIL, "");
+				System.out.println("当前列表页没有找到成功匹配的，回答失败");
+				}
+			}
+		}
+
+		//driver.assertEquals(content, driver.getText(Ajk_AskView.getAnswerElement(m), "取第M条即最后一条回复的数据"), "判断回答是否成功", "");
 	}
 	
 
@@ -106,7 +154,6 @@ public class AnjukeAsk {
 		driver.assertNonEquals(null, getNormalUserAdoptionRate(driver), "个人中心提问列表的数据检测","检测采纳率是否为空");
 		driver.assertEquals(expertTitle, getNormalUserMyQuestionListFirst(driver), "个人中心提问列表的数据检测", "检测最新提问的问答标题是否正确--即最新的提问是否被记录");
 		/*driver.assertTrue(driver.getText(Ajk_AskNormalUserInfo.EXPERIENCE, ""), sTCase, sDetails)*/
-
 		
 		/*if(!getNormalUserExperience(driver).equals("")){
 			Report.writeHTMLLog("个人中心提问列表的数据检测", "普通用户经验值是否显示正常", Report.PASS, "");
@@ -273,4 +320,9 @@ public class AnjukeAsk {
 		return driver.getText(Ajk_Ask.NOT_FOUND, "正常搜索无结果页时，返回友情提示语");
 	}
 
+	/** 问答单页--采纳最佳答案*/
+	public static void AdoptBestAnswer(Browser driver){
+		driver.click(Ajk_AskView.AdoptBestAnswer, "点击第一条回答数据的”采纳最佳答案“按钮");
+		driver.assertEquals("最佳答案", driver.getText(Ajk_AskView.BestAnswer, "最佳答案模块上的文案"), "检测采纳最佳答案是否成功", "检测采纳最佳答案是否成功");
+	}
 }

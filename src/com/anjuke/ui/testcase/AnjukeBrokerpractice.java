@@ -46,6 +46,7 @@ public class AnjukeBrokerpractice {
         /*
          * 随机选择熟悉的板块，并返回选择的值
          */
+        bs.check(Broker_areas.AREA1);
         String area1 = bs.selectReturn(Broker_areas.AREA1);
         Thread.sleep(1000);
         String block1 = bs.selectReturn(Broker_areas.BLOCK1);

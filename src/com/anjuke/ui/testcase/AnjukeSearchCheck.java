@@ -269,7 +269,7 @@ public class AnjukeSearchCheck {
             }
 
         } else {
-            if (dataCount == 0) {
+            if (dataCount == 0 && driver.check("//div[@class='jiong']") == false) {
                 String tmpPicName = driver.printScreen();
                 Report.writeHTMLLog("异常搜索关键字", "异常搜索关键字【" + search + "】发现记录", "FAIL", tmpPicName);
             } else {

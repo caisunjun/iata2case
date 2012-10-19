@@ -4,6 +4,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
+
+import com.anjuke.ui.page.Ajk_Sale;
 import com.anjuke.ui.publicfunction.AjkSaleSearchAction;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -57,8 +59,8 @@ public class AnjukeSaleSearchResultCheck {
 	@Test
 	public void keywordSearch() {
 		driver.get("http://shanghai.anjuke.com/sale/");
-		driver.type("//*[@id='keyword_apf_id_9']", "北新泾2室", "输入查询条件：北新泾2室");
-		driver.click(".//*[@id='sbtn2_apf_id_9']", "点击找房子");
+		driver.type(Ajk_Sale.KwInput, "北新泾2室", "输入查询条件：北新泾2室");
+		driver.click(Ajk_Sale.KwSubmit, "点击找房子");
 
 		driver.assertTrue(ass.verifyKeyBlock("北新泾"), "列表页Keyword搜索结果",
 				"搜索结果中的房源板块是否正确");
