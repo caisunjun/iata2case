@@ -139,6 +139,18 @@ public class AnjukeAsk {
 		//driver.assertEquals(content, driver.getText(Ajk_AskView.getAnswerElement(m), "取第M条即最后一条回复的数据"), "判断回答是否成功", "");
 	}
 	
+	/**问答单页--补充问题
+	 * @param addContent:补充问题的内容
+	 * 
+	 * */
+	public static void submitSupplement(Browser driver,String addContent){
+		driver.click(Ajk_AskView.AddLi, "点击补充问题TAB");
+		driver.type(Ajk_AskView.Supplement, addContent, "输入补充问题内容");
+		driver.click(Ajk_AskView.SupplementSubmit, "点击补充框下面的确认提交按钮");
+		driver.assertEquals(addContent, getAskViewDescriptionAdd(driver), "检测补充问题是否成功", "检测补充问题内容是否与实际一致");
+	}
+	
+	
 
 	/** 个人中心提问列表的数据检测
 	 * @expertTitle 为用户提问成功后的问答标题

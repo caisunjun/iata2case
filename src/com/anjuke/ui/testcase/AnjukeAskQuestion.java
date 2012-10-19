@@ -49,7 +49,6 @@ public class AnjukeAskQuestion {
 	@Test
 	public void askQustion(){
 		// 普通用户登录并获取当前登录成功后的用户名
-		driver.deleteAllCookies();
 		String loginName = "agneszhang1"; 
 
 		PublicProcess.logIn(driver, loginName, "123456", false, 0);
@@ -64,11 +63,12 @@ public class AnjukeAskQuestion {
 		expert = AnjukeAsk.getExpertText(driver,i).substring(0, 2);
 		title = "关于房子"+expert+"的问题要注意些什么？"+nowDateTime;
 		askurl = AnjukeAsk.submitQuestion(driver,title,"关于房子"+expert+"的问题要注意些什么？",i);
+		driver.get(askurl);
+		AnjukeAsk.submitSupplement(driver, "问题补充");
 		
 	}
 	@Test(dependsOnMethods="askQustion") 
 	public void askSubmitAnswer(){
-		driver.deleteAllCookies();
 		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
 		
 		// 判断用户是否登录成功
@@ -79,7 +79,6 @@ public class AnjukeAskQuestion {
 	}
 	@Test(dependsOnMethods="askSubmitAnswer")
 	public void askCheckUserInfo(){
-		driver.deleteAllCookies();
 		PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0);
 		driver.assertEquals("agneszhang1", PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
 		driver.get(askurl);
