@@ -29,20 +29,13 @@ public class Ajk_AskView {
 	 * */
 	public static String getAnswerElement (int n,boolean relate){
 		String element = null;
-		try{
-		if(relate == true){
+		if(relate){
 			element = "//*[@id='content']/div[3]/div[3]/ul/li["+n+"]/div[2]";
-			}
-		else if(relate == false){
+		}
+		else{
 			element = "//*[@id='content']/div[3]/div[2]/ul/li["+n+"]/div[2]";
-			}
+		}
 			return element;
-		}
-		catch(NoSuchElementException e){
-			System.out.println(e.getMessage());
-			return null;
-		}
-
 	}
 
 	/** 问答单页 - 问题标题 */

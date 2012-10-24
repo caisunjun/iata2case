@@ -122,7 +122,7 @@ public class AnjukeAsk {
 		if(n>m){
 		for(int i=1;i<=n;){
 			System.out.println("正在匹配第"+i+"条");
-			String actual = driver.getText(Ajk_AskView.getAnswerElement(i, relate),"取第i条即最后一条回复的数据");
+			String actual = driver.getText(Ajk_AskView.getAnswerElement(i, relate),"取第i条回复的数据");
 			if(actual.equals(content)){
 				Report.writeHTMLLog("问答单页判断回答是否成功", "问答单页回答列表中有一条数据与实际值是匹配的", Report.PASS, "");
 				System.out.println("找到成功匹配的在第"+i+"条");
@@ -134,6 +134,10 @@ public class AnjukeAsk {
 				System.out.println("当前列表页没有找到成功匹配的，回答失败");
 				}
 			}
+		}
+		else{
+			Report.writeHTMLLog("问答单页判断回答是否成功", "回答失败：问答列表没有更新", Report.FAIL, "");
+			System.out.println("问答列表没有更新，回答失败");
 		}
 
 		//driver.assertEquals(content, driver.getText(Ajk_AskView.getAnswerElement(m), "取第M条即最后一条回复的数据"), "判断回答是否成功", "");

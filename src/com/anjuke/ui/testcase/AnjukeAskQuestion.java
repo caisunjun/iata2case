@@ -37,6 +37,7 @@ public class AnjukeAskQuestion {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = FactoryBrowser.factoryBrowser();
+
 	}
 
 	@AfterMethod
