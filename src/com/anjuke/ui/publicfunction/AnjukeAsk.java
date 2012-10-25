@@ -3,6 +3,7 @@ package com.anjuke.ui.publicfunction;
 import java.util.Random;
 
 import com.anjuke.ui.page.Ajk_Ask;
+import com.anjuke.ui.page.Ajk_AskExpertView;
 import com.anjuke.ui.page.Ajk_AskNormalUserInfo;
 import com.anjuke.ui.page.Ajk_AskQuestion;
 import com.anjuke.ui.page.Ajk_AskQuestionSuccess;
@@ -341,4 +342,32 @@ public class AnjukeAsk {
 		driver.click(Ajk_AskView.AdoptBestAnswer, "点击第一条回答数据的”采纳最佳答案“按钮");
 		driver.assertEquals("最佳答案", driver.getText(Ajk_AskView.BestAnswer, "最佳答案模块上的文案"), "检测采纳最佳答案是否成功", "检测采纳最佳答案是否成功");
 	}
+	
+	
+	/** 问答单页--编辑外部专家资料
+	 * @param trueName:专家真实姓名
+	 * @param mobile：专家手机号
+	 * @param firmName：所在单位名称
+	 * @param firmAdress：所在单位地址
+	 * @param firmPhone：所在单位电话
+	 * @param personalCV：个人简介
+	 * @param imgPath：公司LOGO图片地址
+	 * */
+	public static void EditExternalExpertInfo(Browser driver,String trueName,String mobile,String firmName,String firmAdress,String firmPhone,String personalCV,String imgPath){
+		driver.click(Ajk_AskExpertView.Edit, "点击编辑资料按钮");
+		driver.type(Ajk_AskExpertView.TrueName, trueName, "输入专家真实姓名");
+		driver.type(Ajk_AskExpertView.Mobile, mobile, "输入专家手机号");
+		driver.type(Ajk_AskExpertView.FirmName, firmName, "输入所在单位名称");
+		driver.type(Ajk_AskExpertView.FirmAdress, firmAdress, "输入所在单位地址");
+		driver.type(Ajk_AskExpertView.FirmPhone, firmPhone, "输入所在单位电话");
+		driver.uploadFile(Ajk_AskExpertView.Upload, imgPath, "点击上传公司LOGO的浏览按钮");
+		driver.type(Ajk_AskExpertView.Personalcv, personalCV, "输入个人简介");
+		driver.click(Ajk_AskExpertView.Submitbutton, "点击确认提交按钮");
+		String SubmitSuccessTitle = driver.getText(Ajk_AskExpertView.SubmitSuccess, "获取编辑资料成功后的提示语");
+		System.out.println(SubmitSuccessTitle);
+		driver.assertEquals("您的资料已更新成功，立刻去个人主页    去看", SubmitSuccessTitle, "判断外部专家的资料编辑是否修改成功", "");
+	}
+	
+	
+	
 }
