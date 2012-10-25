@@ -308,6 +308,14 @@ public class AnjukeAsk {
 	public static String getListsAnyoneTitle(Browser driver){
 		String title,description,descriptionAdd,content;
 		int m = driver.getElementCount(Ajk_Ask.NORMALSEARCHLIST);
+		System.out.println("正常搜索列表页第一页共显示"+m+"条数据");
+		//driver.assertIntEquals(12, m, "检测问答搜索列表页在有很多数据的情况下第一页最多展示条数是否为12条", "检测问答搜索列表页第一次最多展示条数是否为12条");
+		if(m==12){
+			Report.writeHTMLLog("检测问答搜索列表页在有很多数据的情况下第一页最多展示条数", "检测问答搜索列表页在有很多数据的情况下第一页最多展示条数是否为12条",Report.PASS, "p1");
+		}else{
+			Report.writeHTMLLog("检测问答搜索列表页在有很多数据的情况下第一页最多展示条数", "检测问答搜索列表页在有很多数据的情况下第一页最多展示条数是否为12条", Report.FAIL, "p2");
+		}
+		
 		Random rand = new Random();
 		int t = rand.nextInt(m);
 		driver.click(Ajk_Ask.getSearchListElement(t+1), "点击进入当前页任意一条数据的问答单页");
@@ -368,6 +376,28 @@ public class AnjukeAsk {
 		driver.assertEquals("您的资料已更新成功，立刻去个人主页    去看", SubmitSuccessTitle, "判断外部专家的资料编辑是否修改成功", "");
 	}
 	
+	/**问答首页--右侧专家动态数据检测
+	 * 
+	 * */
 	
+	public static void checkExpertMovingData(Browser driver){
+		int n = driver.getElementCount(Ajk_Ask.ExpertMoving);
+		System.out.println("专家动态模块一共展示"+n+"条数据");
+		//driver.assertIntEquals(3, n, "检测问答右侧专家模块数据是否展示3条", "检测问答右侧专家模块数据是否展示3条");
+		if(n==3){
+			Report.writeHTMLLog("检测问答右侧专家模块数据是否展示3条", "检测问答右侧专家模块数据是否展示3条", Report.PASS, "p3");
+		}else{
+			Report.writeHTMLLog("检测问答右侧专家模块数据是否展示3条", "检测问答右侧专家模块数据是否展示3条", Report.FAIL, "p4");
+		}
+		for(int i=1;i<=n;i++){
+			String ExpertMovingTest = driver.getText(Ajk_Ask.ExpertMoving+"["+i+"]", "获取每条数据的文本");
+			driver.assertNonEquals(null, ExpertMovingTest, "检测专家动态模块的数据是否为空", "检测专家动态模块的数据是否为空");
+		}
+	}
 	
+	/**访问指定城市问答首页
+	 * */
+	public static void getCityAskHome(Browser driver,String city){
+		driver.get("http://"+city+".anjuke.com/ask");
+	}
 }
