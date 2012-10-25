@@ -48,7 +48,8 @@ public class Ajk_Ask {
 		String element = "//*[@id='content']/div[2]/div[1]/div/ul/li["+n+"]/div[1]/a";
 		return element;
 	}
-	
+	/** 问答 - 问答首页 - 外部专家登录右侧，登录模块中的“个人中心”按钮 */
+	public static final String ExpertPersonal = "//*[@id='content']/div[3]/div[1]/div[1]/div[2]/div/a[2]";
 	
 	
 
