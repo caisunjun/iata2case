@@ -46,7 +46,7 @@ public class AnjukeAskQuestion {
 		driver = null;
 	}
 
-	@Test
+	@Test(groups = {"unstable"})
 	public void askQustion(){
 		// 普通用户登录并获取当前登录成功后的用户名
 		driver.deleteAllCookies();
@@ -66,7 +66,7 @@ public class AnjukeAskQuestion {
 		askurl = AnjukeAsk.submitQuestion(driver,title,"关于房子"+expert+"的问题要注意些什么？",i);
 		
 	}
-	@Test(dependsOnMethods="askQustion") 
+	@Test(groups = {"unstable"},dependsOnMethods="askQustion") 
 	public void askSubmitAnswer(){
 		driver.deleteAllCookies();
 		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
@@ -77,7 +77,7 @@ public class AnjukeAskQuestion {
 		driver.get(askurl);
 		AnjukeAsk.submitAnswer(driver,"关于房子"+expert+"的问题要注意"+nowDateTime);
 	}
-	@Test(dependsOnMethods="askSubmitAnswer")
+	@Test(groups = {"unstable"},dependsOnMethods="askSubmitAnswer")
 	public void askCheckUserInfo(){
 		driver.deleteAllCookies();
 		PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0);
