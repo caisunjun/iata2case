@@ -29,20 +29,13 @@ public class Ajk_AskView {
 	 * */
 	public static String getAnswerElement (int n,boolean relate){
 		String element = null;
-		try{
-		if(relate == true){
+		if(relate){
 			element = "//*[@id='content']/div[3]/div[3]/ul/li["+n+"]/div[2]";
-			}
-		else if(relate == false){
+		}
+		else{
 			element = "//*[@id='content']/div[3]/div[2]/ul/li["+n+"]/div[2]";
-			}
+		}
 			return element;
-		}
-		catch(NoSuchElementException e){
-			System.out.println(e.getMessage());
-			return null;
-		}
-
 	}
 
 	/** 问答单页 - 问题标题 */
@@ -55,7 +48,15 @@ public class Ajk_AskView {
 	public static final String AdoptBestAnswer = "//*[@id='content']/div[3]/div[2]/ul/li[1]/div[6]/div[2]/a[2]";
 	/** 问答单页 - 最佳答案模块上的”最佳答案“4个字 */
 	public static final String BestAnswer = "//*[@id='content']/div[3]/div[2]/h2";
-	
+	/** 问答单页 -  补充问题TAB */
+	public static final String AddLi = "//*[@id='choose-tab']/li[2]/a/span";
+	/** 问答单页 -  补充问题输入框 */
+	public static final String Supplement = "//*[@id='supplement']";
+	/** 问答单页 -  补充问题”确认提交“按钮 */
+	public static final String SupplementSubmit = "//*[@id='submit_supplement']";
+
+
+
 }
 
 
