@@ -14,6 +14,6 @@ public class Broker_Checked {
 	public static final String YIFABU = "//dl[5]/dd/a";
 	/** 奶牛首页 - 剩余发布：XX套 */
 	public static final String SHENGYUFABU = "//dl[6]/dd/a";
-	/** 奶牛首页 - 网络助手链接*/
+	/** 奶牛首页 - 网络助手链接*///  ppc账户进入方法为   //a[@class='link6']
 	public static final String REPORTICON = "id^my_app_report";
 }

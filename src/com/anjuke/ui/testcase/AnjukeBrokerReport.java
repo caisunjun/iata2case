@@ -74,8 +74,8 @@ public class AnjukeBrokerReport {
 		//如果config中casestatus的值不为testing或config未配置casestatus，用原先的账号登陆
 		else
 		{
-		    username = "ajk_sh";
-		    passwd = "anjukeqa";
+		    username = "test1";
+		    passwd = "111111";
 		}
 
     	PublicProcess.logIn(bs,username,passwd,false, 1);
