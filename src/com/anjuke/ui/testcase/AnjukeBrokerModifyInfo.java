@@ -89,6 +89,12 @@ public class AnjukeBrokerModifyInfo {
         bs.click(Broker_info.UPDATEAREALINK, "进入修改经纪人资料页面");
         //更新区域
         bs.select(Broker_info.AREA, getrandom());
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         //更新版块
         bs.select(Broker_info.BLOCK, getrandom());
         //更新公司
