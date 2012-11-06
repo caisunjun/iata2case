@@ -15,20 +15,20 @@ public class Broker_shopprofile {
     /**
      *出生地 ，省
      */
-    public static final String PROVINCE = "/html/body/div/div[2]/div/div[2]/div/div/div/div/ul/li[4]/a";
+    public static final String PROVINCE = "//*[@id='content']/div[1]/div[2]/div[1]/div/div/div/ul/li[3]/a[1]";
     /**
      * 出生地,市
      */
-    public static final String CITY = "//*[@id='content']/div[1]/div[2]/div[1]/div/div/div/ul/li[4]/a[2]";
+    public static final String CITY = "//*[@id='content']/div[1]/div[2]/div[1]/div/div/div/ul/li[3]/a[2]";
 
     /**
      * 生肖
      */
-    public static final String LUNAR = "//*[@id='content']/div[1]/div[2]/div[1]/div/div/div/ul/li[5]/a";
+    public static final String LUNAR = "//*[@id='content']/div[1]/div[2]/div[1]/div/div/div/ul/li[4]/a";
     /**
      * 星座
      */
-    public static final String  CONSTELLATION= "//*[@id='content']/div[1]/div[2]/div[1]/div/div/div/ul/li[6]/a";
+    public static final String  CONSTELLATION= "//*[@id='content']/div[1]/div[2]/div[1]/div/div/div/ul/li[5]/a";
     /**
      * 喜欢的书
      */

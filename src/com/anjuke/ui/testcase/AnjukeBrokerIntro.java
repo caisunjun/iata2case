@@ -20,8 +20,8 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 public class AnjukeBrokerIntro {
     Browser bs = null;
     String url = "http://my.anjuke.com/user/broker/introduction";
-    String username="ajk_sh";
-    String passwd = "anjukeqa";
+    String username="test1";
+    String passwd = "111111";
 
     @BeforeMethod
     public void setUp() {
@@ -43,7 +43,7 @@ public class AnjukeBrokerIntro {
         String selfintro = "性格活泼开朗的我，刚进大学那会就和房产结下了不解之缘。" +
                 "和大学期间接触房产不同的是，现在从二线跨越到了一线。大学兼职的那几年，" +
                 "一有空闲时间就协助房产售楼部到各处做宣传。那时认识到的房产很肤浅，" +
-                "看售楼小姐向客户做下介绍，带客户看下户型、样板房，很快就签定合同。" +
+                "看售楼大姐向客户做下介绍，带客户看下户型、样板房，很快就签定合同。" +
                 "测试 侧his"+GetRandom.getrandom(1000);
         bs.type(Broker_profile.SELFINTRO, selfintro, "填写自我介绍");
         bs.click(Broker_profile.OKENTER, "保存确认");

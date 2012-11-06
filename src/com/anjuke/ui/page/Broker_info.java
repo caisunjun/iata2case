@@ -11,9 +11,9 @@ package com.anjuke.ui.page;
 public class Broker_info {
 
     /**
-     * 更新个人信息 链接
+     * 导航里的个人设置tab
      */
-    public static final String updateinfo = "html/body/div[2]/div[3]/div[2]/dl/dd[5]/a";
+    public static final String brokerInfoTab = "//ul[@class='box']/li[5]";
 
     /**
      *修改电子邮箱
@@ -71,6 +71,10 @@ public class Broker_info {
      * 经纪人修改资料  公司文本
      */
     public static final String COMPANYTEXT = "id^company";
+    /**
+     * 经纪人修改资料  门店文本
+     */
+    public static final String STORETEXT = "id^store";
     /**
      * 经纪人修改资料 独立经纪人
      */

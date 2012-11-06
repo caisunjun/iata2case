@@ -86,7 +86,7 @@ public class AnjukeBrokerSaleEdit {
 	}
 	
 	//(timeOut = 200000)
-	@Test (groups = {"unstable"})
+	@Test
 	public void editSale() throws InterruptedException{
 //		driver.deleteAllCookies();
 		//Report.setTCNameLog("管理出售编辑-- AnjukeUpdateReleaseSale --Hendry_huang");
@@ -96,11 +96,11 @@ public class AnjukeBrokerSaleEdit {
 
 		if(testing.equals(casestatus))
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "123456",false, 1));
+			saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
 		}
 		else
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "111111",false, 1));
 		}
 		
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
@@ -110,6 +110,7 @@ public class AnjukeBrokerSaleEdit {
 			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
 		}else{
 			BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
+			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
 		}
 	}
 

@@ -4,26 +4,25 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.ConnectException;
-import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.CommonsHttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
-import org.apache.solr.common.params.ModifiableSolrParams;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.report.LogFile;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.report.solrReport;
 
 /**
  * @Todo : TODO
@@ -33,175 +32,123 @@ import com.anjukeinc.iata.ui.report.Report;
  */
 
 public class Anjukesolr {
-	String[] server = { "ajk-prop11/", "ajk-prop14/", "ajk-prop00/",
-			"ajk-prop04/" };
 
 	@BeforeMethod
 	public void setUp() {
-		// bs = FactoryBrowser.factoryBrowser();
-		// SolrServer solr = null;
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		 Report.seleniumReport("", "");
-		// bs.quit();
-		// bs = null;
 	}
 
-	@Test (groups = {"unstable"})
+	@Test(groups = { "unstable" })
 	public void testKeyword11() throws NumberFormatException, IOException {
 		/**
 		 * 安居客关键字检查
 		 */
-			int[] city = {11};
-			String solrServer = "http://10.10.6.51:8983/ajk-prop11/";
-			Report.writeHTMLLog("新开solr", "ajk-prop11", Report.DONE, "");
-			try {
-				solrmain(solrServer,city);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SolrServerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ConnectException e) {
-				e.printStackTrace();
-			}
+		int[] city = { 11 };
+		String solrServer = "http://10.10.6.51:8983/ajk-prop11/";
+		Report.writeHTMLLog("新开solr", "ajk-prop11", Report.DONE, "");
+		System.out.println("it is running 11");
+		try {
+			solrmain(solrServer, city);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	@Test (groups = {"unstable"})
+	@Test(groups = { "unstable" })
 	public void testKeyword14() throws NumberFormatException, IOException {
 		/**
 		 * 好租关键字检查
 		 */
-		int[] city = {14};
-			String solrServer = "http://10.10.6.51:8983/ajk-prop14/";
-			Report.writeHTMLLog("新开solr", "ajk-prop14", Report.DONE, "");
-			try {
-				solrmain(solrServer,city);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SolrServerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ConnectException e) {
-				e.printStackTrace();
-			}
+		int[] city = { 14 };
+		String solrServer = "http://10.10.6.51:8983/ajk-prop14/";
+		Report.writeHTMLLog("新开solr", "ajk-prop14", Report.DONE, "");
+		System.out.println("it is running 14");
+		try {
+			solrmain(solrServer, city);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 
-	@Test (groups = {"unstable"})
+	@Test(groups = { "unstable" })
 	public void testKeyword04() throws NumberFormatException, IOException {
 		/**
 		 * 好租关键字检查
 		 */
-		int[] city = {42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75};
-		for (int i = 0; i < city.length; i++) {
-			String solrServer = "http://10.10.6.51:8983/ajk-prop04/";
-			Report.writeHTMLLog("新开solr", "ajk-prop04/", Report.DONE, "");
-			try {
-				solrmain(solrServer,city);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SolrServerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ConnectException e) {
-				e.printStackTrace();
-			}
-		}
+		int[] city = { 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,
+				56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
+				72, 73, 74, 75 };
+		System.out.println("it is running 04");
+		String solrServer = "http://10.10.6.51:8983/ajk-prop04/";
+		Report.writeHTMLLog("新开solr", "ajk-prop04/", Report.DONE, "");
+		try {
+			solrmain(solrServer, city);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
-	
-	@Test (groups = {"unstable"})
+
+	@Test(groups = { "unstable" })
 	public void testKeyword00() throws NumberFormatException, IOException {
 		/**
 		 * 好租关键字检查
 		 */
-		int city[] = {12,13,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41};
-			String solrServer = "http://10.10.6.51:8983/ajk-prop00/";
-			Report.writeHTMLLog("新开solr", "ajk-prop00/", Report.DONE, "");
-			try {
-				solrmain(solrServer,city);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SolrServerException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ConnectException e) {
-				e.printStackTrace();
-			}
+		int city[] = { 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+				27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41 };
+		String solrServer = "http://10.10.6.51:8983/ajk-prop00/";
+		Report.writeHTMLLog("新开solr", "ajk-prop00/", Report.DONE, "");
+		try {
+			solrmain(solrServer, city);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
+
 	/**
 	 * @param args
 	 * @throws SolrServerException
 	 * @throws IOException
 	 * @throws NumberFormatException
 	 */
-	private void solrmain(String solrServer,int[] city) throws SolrServerException,
-			NumberFormatException, IOException {
+	private void solrmain(String solrServer, int[] city)
+			throws SolrServerException, NumberFormatException, IOException {
 
-		//Map<String, String> map = new HashMap<String, String>();
-		//map = readcityinfo();
-		
-		//Collection<String> c = map.keySet();
-		//Iterator<String> city = c.iterator();
-		System.out.println("city.length: " + city.length);
-		for (int i =0; i< city.length;i++) {
+		SolrServer solr = new CommonsHttpSolrServer(solrServer);
+		QueryResponse response = null;
+		SolrQuery query = new SolrQuery();
+
+		Map<String, String> keywordsMap = LogFile.getConfigInfo("keywords");
+		Iterator<Entry<String, String>> keywordsIter = keywordsMap
+				.entrySet().iterator();
+		for (int i = 0; i < city.length; i++) {
 			String citypinyin = readfile(city[i]);
-			System.out.println(city[i] + ":" + citypinyin);
-			Report.writeHTMLLog("城市", citypinyin, Report.DONE, "");
-			
-			Map<String, String> keywordsMap = LogFile.getConfigInfo("keywords");
-			Iterator<Entry<String, String>> keywordsIter = keywordsMap.entrySet()
-					.iterator();
-			
+
 			while (keywordsIter.hasNext()) {
 				Map.Entry<String, String> keywordsEntry = keywordsIter.next();
 				String keywordsVal = keywordsEntry.getValue();
-				System.out.println("------------" + keywordsVal);
-				SolrServer solr = new CommonsHttpSolrServer(solrServer);
+				query.set("q", "title:" + keywordsVal);
+				query.set("fq", "islist:1");
+				query.set("fq", "city_id:" + city[i]);
+				response = solr.query(query);
 
-				// CommonsHttpSolrServer("http://localhost:8983/solr/");
-				// http://localhost:8983/solr/spellCheckCompRH?q=epod&spellcheck=on&spellcheck.build=true
-				ModifiableSolrParams params = new ModifiableSolrParams();
-				params.set("q", keywordsVal);
-				params.set("spellcheck", "on");
-				params.set("spellcheck.build", "true");
-				params.set("fq", "islist:1");
-				params.set("fq", "city_id:"+city[i]);
-				QueryResponse response = solr.query(params);
-				
-				//System.out.println(response.getResults());
 
 				if (0 == response.getResults().getNumFound()) {
-					Report.writeHTMLLog("关键字检查", keywordsVal, Report.PASS, "");
 				} else {
-					// System.out.println("reponse = : " +
-					// response.getResults());
 					SolrDocumentList docs = response.getResults();
 					for (SolrDocument doc : docs) {
-						// String title = (String) doc.getFieldValue("name");
 						int id = (Integer) doc.getFieldValue("id");
-						// int cityid = (Integer) doc.getFieldValue("city_id");
-						//int cityid = Integer.parseInt(city.next().toString());
-						// int from = (Integer) doc.getFieldValue("from");
-						String url = haozuhouseurl(id, city[i],citypinyin);
-						// String url =
-						// "http://shanghai.anjuke.com/prop/view/131950393";
-						Report.writeHTMLLogKeyword("关键字检查", keywordsVal,
-								Report.FAIL, String.valueOf(id), url);
-						// System.out.println(id);
-						// System.out.println(cityid);
+						String url = haozuhouseurl(id, city[i], citypinyin);
+						solrReport.collectionKeywords( keywordsVal,String.valueOf(id), url);
 					}
 				}
 			}
 		}
 	}
 
-	private String haozuhouseurl(int id, int cityid,String citypinyin)
+	private String haozuhouseurl(int id, int cityid, String citypinyin)
 			throws NumberFormatException, IOException {
 		String url = "";
 		url = "http://" + citypinyin + ".anjuke.com/prop/view/" + id;
@@ -224,10 +171,6 @@ public class Anjukesolr {
 			if (number != -1) {
 				map.put(text.substring(0, number),
 						text.substring(number + 1, text.length()));
-				/*
-				 * if (Integer.parseInt(text.substring(0, number)) == cityid) {
-				 * text = text.substring(number + 1, text.length()); break; }
-				 */
 			}
 		}
 		return map;
@@ -256,7 +199,7 @@ public class Anjukesolr {
 				}
 			}
 		}
-		//text = text.trim();
+		// text = text.trim();
 		return text;
 	}
 }
