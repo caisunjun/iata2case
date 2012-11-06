@@ -13,7 +13,7 @@ import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
 
 /**
- * 该用例主要用来检查二手房小区详细页面一些标志是否显示正常
+ * 该用例主要用来检查二手房小区，小区概况页和价格行情页的主营小区标志是否显示正常
  * @UpdateAuthor Gabrielgao
  * @last updatetime 2012-05-04 17:55
  */
@@ -41,7 +41,7 @@ public class AnjukeCommunityPropertyMaster {
 	public void testStart() {
 		//Report.setTCNameLog("检查主营小区-- AnjukeCommunityPropertyMaster --gabrielgao");
 		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1550");
-		checkCommPropMaster("http://shanghai.anjuke.com/community/view/147");
+		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1670");
 		checkCommPropMaster("http://shanghai.anjuke.com/community/view/27");
 	}
 
@@ -49,7 +49,7 @@ public class AnjukeCommunityPropertyMaster {
 		Report.writeHTMLLog("*****小区单页-主营小区*****", "=================================================", "DONE", "");
 		String tmpCommunityNameObj = Ajk_CommunityView.COMMTITLE;
 		String tmpCommPropMasterObj = Ajk_CommunityView.CommMaster;
-		String tmpCommPropTabPriceObj = Ajk_CommunityView.TrendsTab;
+		String tmpCommPropTabPriceObj = Ajk_CommunityView.navtabTrends;
 		String tmpCommPriceMasterObj = Ajk_CommunityTrends.MasterStoreIMG;
 		String tmpCommPriceGoldStoreObj = Ajk_CommunityTrends.MasterStore;
 
