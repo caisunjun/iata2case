@@ -42,5 +42,40 @@ public class Ajk_ShopView {
 
     /**卖房宣言     */
     public static final String SLOGAN = "//div[@id='content']/div[1]/div[1]/div[1]/div[1]/div[2]/h4";
-}
 
+
+   /*
+    * 
+    *验证店铺管理中输入的基本资料和经济人店铺中显示的是否一致
+    *@Author chuzhaoqin
+    */
+   /**出生地--省-市*/
+   public static final String PROAndCity="//*[@id='s1']";
+   
+   /**--出生地--区---*/
+   public static final String  Region="//*[@id='s2']";
+   
+   /**--出生地--公开/不公开---*/
+   public static final String  Region1="//*[@id='birplcprivilege1']";
+   public static final String  Region2="//*[@id='birplcprivilege2']";
+   
+   /**--年龄--公开/不公开---*/
+   public static final String  Age1="//*[@id='ageprivilege1']";
+   public static final String  Age2="//*[@id='ageprivilege2']";
+   
+   /**--生肖---*/
+   public static final String  shenXiao="//*[@id='birthanimal']";
+   public static final String  shenXiao1="//*[@id='biraniprivilege1']";
+   public static final String  shenXiao2="//*[@id='biraniprivilege2']";
+   
+   /**--星座---*/
+   public static final String  xingzuo="//*[@id='constellation']";
+   public static final String  xingzuo1="//*[@id='constlprivilege1']";
+   public static final String  xingzuo2="//*[@id='constlprivilege2']";
+   
+   /**--确认保存--*/
+   public static  final String  submit="//*[@id='saveTag']";
+  
+
+   
+}
