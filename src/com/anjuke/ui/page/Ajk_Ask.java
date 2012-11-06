@@ -50,7 +50,7 @@ public class Ajk_Ask {
 	}
 	/** 问答 - 问答首页 - 外部专家登录右侧，登录模块中的“个人中心”按钮 */
 	public static final String ExpertPersonal = "//*[@id='content']/div[3]/div[1]/div[1]/div[2]/div/a[2]";
-	
-	
+	/** 问答 - 问答首页 - 右侧专家动态模块列表*/
+	public static final String ExpertMoving = "//*[@id='content']/div[3]/div[2]/ul/li";
 
 }

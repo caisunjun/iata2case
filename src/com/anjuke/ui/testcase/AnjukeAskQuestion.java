@@ -47,7 +47,7 @@ public class AnjukeAskQuestion {
 		driver = null;
 	}
 
-	@Test
+	@Test(groups = {"unstable"})
 	public void askQustion(){
 		// 普通用户登录并获取当前登录成功后的用户名
 		String loginName = "agneszhang1"; 
@@ -68,7 +68,7 @@ public class AnjukeAskQuestion {
 		AnjukeAsk.submitSupplement(driver, "问题补充");
 		
 	}
-	@Test(dependsOnMethods="askQustion") 
+	@Test(groups = {"unstable"},dependsOnMethods="askQustion") 
 	public void askSubmitAnswer(){
 		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
 		
@@ -78,7 +78,7 @@ public class AnjukeAskQuestion {
 		driver.get(askurl);
 		AnjukeAsk.submitAnswer(driver,"关于房子"+expert+"的问题要注意"+nowDateTime);
 	}
-	@Test(dependsOnMethods="askSubmitAnswer")
+	@Test(groups = {"unstable"},dependsOnMethods="askSubmitAnswer")
 	public void askCheckUserInfo(){
 		PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0);
 		driver.assertEquals("agneszhang1", PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0).substring(3), "用户名登录判断", "是否成功");

@@ -153,6 +153,7 @@ public class AnjukePropView {
     	//验证按售价统计数量证确性=============================================================================
     	String priceCount = "";
     	bs.click(Ajk_PropView.COMMINTROTAB, "移动下页面，触发ajax");
+    	bs.check(Ajk_PropView.PriceCount);
     	priceCount = bs.getText(Ajk_PropView.PriceCount, "按售价统计房源数量");
     	priceCount = priceCount.replace("套", "");
     	bs.click(Ajk_PropView.PriceCount, "点-按售价统计房源链接");

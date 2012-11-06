@@ -73,11 +73,11 @@ public class AnjukeBrokerRentRelease {
 
 		if(testing.equals(casestatus))
 		{
-			PublicProcess.logIn(driver, "test1", "111111",false, 1);
+			PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1);
 		}
 		else
 		{
-			PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1);
+			PublicProcess.logIn(driver, "test1", "111111",false, 1);
 		}
 
 		BrokerRentOperating.releaseRent(driver, rentInfo);

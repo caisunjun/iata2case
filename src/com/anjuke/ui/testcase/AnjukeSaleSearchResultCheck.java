@@ -9,6 +9,7 @@ import com.anjuke.ui.page.Ajk_Sale;
 import com.anjuke.ui.publicfunction.AjkSaleSearchAction;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 
 /**
  * 该测试用例主要完成: 1、筛选条件结果验证 2、区域、板块、户型的keyword搜索结果验证
@@ -41,6 +42,9 @@ public class AnjukeSaleSearchResultCheck {
 	@Test
 	public void filterSearch() {
 		driver.get("http://shanghai.anjuke.com/sale/");
+		
+		checkP2(driver);
+		
 		driver.click(ass.getLocater("浦东"), "点击浦东区域的筛选条件");
 		driver.click(ass.getLocater("碧云"), "点击碧云板块的筛选条件");
 		driver.click(ass.getLocater("200-250万"), "点击200-250万的筛选条件");
@@ -67,4 +71,42 @@ public class AnjukeSaleSearchResultCheck {
 		driver.assertTrue(ass.verifyKeyRoom("2室"), "列表页Keyword搜索结果",
 				"搜索结果中的房源户型是否正确");
 	}
+	
+	private void checkP2(Browser driver){
+		int listCount = 0;
+		String currentP2 = "";
+		//翻页检查
+		String currentP1 = driver.getText("//div[@class='current']", "获得第一页页码");
+		driver.click("//div[@class='pagelink nextpage']", "翻到第二页");
+		if(driver.check("//div[@class='current']")){
+			//获得页码
+			currentP2 = driver.getText("//div[@class='current']", "获得当前页码");
+			//确认第二页页码正确性
+			if(!currentP2.equals(currentP1.replace("1/", "2/"))){
+				Report.writeHTMLLog("二手房列表页翻页检查", "第二页页码不对", Report.FAIL, "");
+			}
+		}
+		else{
+			String ps = driver.printScreen();
+			Report.writeHTMLLog("二手房列表页翻页检查", "第二页页码找不到", Report.FAIL, ps);
+		}
+		
+		try {
+			//获得当前列表房源数
+			listCount = driver.getElementCount("//ol[@id='list_body']/li");
+			if(listCount == 0)
+			{
+				String ps = driver.printScreen();
+				System.out.println("**********二手房列表页第二页没有房源");
+				Report.writeHTMLLog("二手房列表页翻页检查", "第二页没房源", Report.FAIL, ps);
+			}
+			
+		} catch (NullPointerException e) {
+			String ps = driver.printScreen();
+			System.out.println("*******************二手房列表页第二页没有房源");
+			Report.writeHTMLLog("二手房列表页翻页检查", "第二页没房源", Report.FAIL, ps);
+		}
+	}
+
+	
 }
