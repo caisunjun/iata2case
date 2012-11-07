@@ -15,6 +15,8 @@ public class Ajk_HomePage {
 	public static final String H_BTN = "//input[@class='find-button']";
 	/** 首页 - 导航 - 二手房tab */
 	public static final String SALETAB = "//li[@class='sale']";
+	/** 首页 - 导航 - 经纪人tab */
+	public static final String BROKERTAB = "//li[@class='broker']";
 	/** 首页 - 房价行情 - 文字 */
 	public static final String MarketStat ="//div[@class='stat']";
 	/** 首页 - 房价行情 - 小区链接 */
@@ -22,4 +24,6 @@ public class Ajk_HomePage {
 	
 	/** 首页 - 热门城市列表 */
 	public static final String HotCityList ="//div[@class='list'][1]/a";
+	/** 首页 - 导航 - 小区tab */
+	public static final String CommTAB= "//li[@class='comm']";
 }
