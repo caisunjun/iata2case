@@ -24,8 +24,8 @@ import org.openqa.selenium.WebElement;
 public class AnjukeBrokerpractice {
     Browser bs = null;
     String url = "http://my.anjuke.com/user/broker/areas";
-    String username="ajk_sh";
-    String passwd = "anjukeqa";
+    String username="test1";
+    String passwd = "111111";
 
     @BeforeMethod
     public void setUp() {
@@ -46,6 +46,7 @@ public class AnjukeBrokerpractice {
         /*
          * 随机选择熟悉的板块，并返回选择的值
          */
+        bs.check(Broker_areas.AREA1);
         String area1 = bs.selectReturn(Broker_areas.AREA1);
         Thread.sleep(1000);
         String block1 = bs.selectReturn(Broker_areas.BLOCK1);

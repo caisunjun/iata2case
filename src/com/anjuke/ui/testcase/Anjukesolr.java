@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.ConnectException;
-import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -18,13 +16,13 @@ import org.apache.solr.client.solrj.impl.CommonsHttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
-import org.apache.solr.common.params.ModifiableSolrParams;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.report.LogFile;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.report.solrReport;
 
 /**
  * @Todo : TODO
@@ -37,15 +35,10 @@ public class Anjukesolr {
 
 	@BeforeMethod
 	public void setUp() {
-		// bs = FactoryBrowser.factoryBrowser();
-		// SolrServer solr = null;
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		Report.seleniumReport("", "");
-		// bs.quit();
-		// bs = null;
 	}
 
 	@Test(groups = { "unstable" })
@@ -123,11 +116,6 @@ public class Anjukesolr {
 	private void solrmain(String solrServer, int[] city)
 			throws SolrServerException, NumberFormatException, IOException {
 
-		// Map<String, String> map = new HashMap<String, String>();
-		// map = readcityinfo();
-
-		// Collection<String> c = map.keySet();
-		// Iterator<String> city = c.iterator();
 		SolrServer solr = new CommonsHttpSolrServer(solrServer);
 		QueryResponse response = null;
 		SolrQuery query = new SolrQuery();
@@ -137,48 +125,23 @@ public class Anjukesolr {
 				.entrySet().iterator();
 		for (int i = 0; i < city.length; i++) {
 			String citypinyin = readfile(city[i]);
-			//System.out.println(city[i] + ":" + citypinyin);
-			//Report.writeHTMLLog("城市", citypinyin, Report.DONE, "");
 
 			while (keywordsIter.hasNext()) {
 				Map.Entry<String, String> keywordsEntry = keywordsIter.next();
 				String keywordsVal = keywordsEntry.getValue();
-				//System.out.println("------------" + keywordsVal);
-				//SolrServer solr = new CommonsHttpSolrServer(solrServer);
-
-				// CommonsHttpSolrServer("http://localhost:8983/solr/");
-				// http://localhost:8983/solr/spellCheckCompRH?q=epod&spellcheck=on&spellcheck.build=true
-				//ModifiableSolrParams params = new ModifiableSolrParams();
-				//params.set("q", keywordsVal);
-				//params.set("spellcheck", "on");
-				//params.set("spellcheck.build", "true");
 				query.set("q", "title:" + keywordsVal);
 				query.set("fq", "islist:1");
 				query.set("fq", "city_id:" + city[i]);
 				response = solr.query(query);
 
-				// System.out.println(response.getResults());
 
 				if (0 == response.getResults().getNumFound()) {
-					//Report.writeHTMLLog("关键字检查", keywordsVal, Report.PASS, "");
 				} else {
-					// System.out.println("reponse = : " +
-					// response.getResults());
 					SolrDocumentList docs = response.getResults();
 					for (SolrDocument doc : docs) {
-						// String title = (String) doc.getFieldValue("name");
 						int id = (Integer) doc.getFieldValue("id");
-						// int cityid = (Integer) doc.getFieldValue("city_id");
-						// int cityid =
-						// Integer.parseInt(city.next().toString());
-						// int from = (Integer) doc.getFieldValue("from");
 						String url = haozuhouseurl(id, city[i], citypinyin);
-						// String url =
-						// "http://shanghai.anjuke.com/prop/view/131950393";
-						Report.writeHTMLLogKeyword("关键字检查", keywordsVal,
-								Report.FAIL, String.valueOf(id), url);
-						// System.out.println(id);
-						// System.out.println(cityid);
+						solrReport.collectionKeywords( keywordsVal,String.valueOf(id), url);
 					}
 				}
 			}
@@ -208,10 +171,6 @@ public class Anjukesolr {
 			if (number != -1) {
 				map.put(text.substring(0, number),
 						text.substring(number + 1, text.length()));
-				/*
-				 * if (Integer.parseInt(text.substring(0, number)) == cityid) {
-				 * text = text.substring(number + 1, text.length()); break; }
-				 */
 			}
 		}
 		return map;

@@ -6,7 +6,7 @@
 	<test name="Default" preserve-order="false">
 		<classes>
 			<class name="com.anjukeinc.iata.ui.init.Init"></class>
-			<class name="com.anjuke.ui.testcase.Anjukesolr"></class>
+			<class name="com.anjuke.ui.publicfunction.DalilyReport"></class>
 		</classes>
 	</test>
 </suite>

@@ -24,6 +24,9 @@ public class Ajk_ShopView {
 	
 	/**店铺首页 - 经纪人姓名*/
     public static final String BROKERNAME = "//div[@class='left_pad']/h4";
+    
+	/**店铺首页 - 经纪人姓名 ie6版*/
+    public static final String BROKERNAMEForIe6 = "//*[@id='content']/div[1]/div[1]/div[1]/div[1]/div[1]/h4";
 
     /**店铺首页 - 最熟悉的板块     */
     public static final String KNOWNAREA = "//*[@id='content']/div[1]/div[1]/div[1]/div[1]/div[2]/dl/dd[2]";

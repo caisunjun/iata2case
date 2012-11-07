@@ -120,6 +120,12 @@ public class AnjukeCollectHouseResource {
 				String returnMsg = driver.getText(Init.G_objMap.get("anjuke_sale_detal_collectsuc_msg"), "获取返回信息");
 				if(returnMsg.equals("成功添加到选房单啦！")){
 					Report.writeHTMLLog("添加选房单成功", "添加成功返回消息:"+returnMsg, Report.PASS, "");
+					try {
+						Thread.sleep(2);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}else{
 					String ps = driver.printScreen();
 					Report.writeHTMLLog("添加选房单失败", "已经添加过该选房单:"+returnMsg, Report.DONE, ps);					

@@ -3,12 +3,13 @@ package com.anjuke.ui.publicfunction;
 import java.util.Random;
 
 import com.anjuke.ui.page.Ajk_Ask;
+import com.anjuke.ui.page.Ajk_AskExpertView;
 import com.anjuke.ui.page.Ajk_AskNormalUserInfo;
 import com.anjuke.ui.page.Ajk_AskQuestion;
 import com.anjuke.ui.page.Ajk_AskQuestionSuccess;
 import com.anjuke.ui.page.Ajk_AskView;
+import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.report.Report;
-import com.anjukeinc.iata.ui.browser.*;
 /**
  * 该类主要完成问答提问，回答，普通用户个人中，问答首页搜索等公共模块的功能及数据检测功能
  * @author agneszhang
@@ -80,16 +81,80 @@ public class AnjukeAsk {
 	 * @param content为输入回答的内容
 	 */
 	public static void submitAnswer(Browser driver,String content){
+		//获取当前列表页所有回答总条数
+		int m,n;
+		m=0;
+		n=0;
+		boolean relate = true;
+		if(driver.check(Ajk_AskView.RELATED) && driver.getText(Ajk_AskView.RELATED, "获取相关问题").equals("相关问题")){
+			m = driver.getElementCount(Ajk_AskView.ANSWERLISTS_Related);
+			relate = true;
+			System.out.println("回答前一共有"+m+"条回答内容"+relate);
+		}
+		else if(!driver.check(Ajk_AskView.RELATED)){
+			m = driver.getElementCount(Ajk_AskView.ANSWERLISTS_NoRelated);	
+			relate = false;
+			System.out.println("回答前一共有"+m+"条回答内容"+relate);
+		}
+
 		if(driver.getAttribute(Ajk_AskView.IANSWER, "class").equals("answer-btn down")){
 			driver.click(Ajk_AskView.IANSWER, "点击我来帮你回答按钮");
 		}
 		driver.type(Ajk_AskView.INPUTANSWER, content, "输入回答内容");
 		driver.click(Ajk_AskView.SUBMITANSWER, "点击提交回答的按钮");
-		//获取当前列表页所有回答总条数
-		int m = driver.getElementCount(Ajk_AskView.ANSWERLISTS);
-		//System.out.println("一共有"+m+"条回答内容");
-		driver.assertEquals(content, driver.getText(Ajk_AskView.getAnswerElement(m), "取第M条即最后一条回复的数据"), "判断回答是否成功", "");
+				
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		if(driver.check(Ajk_AskView.RELATED) && driver.getText(Ajk_AskView.RELATED, "获取相关问题").equals("相关问题")){
+			n = driver.getElementCount(Ajk_AskView.ANSWERLISTS_Related);		
+			System.out.println("回答后一共有"+n+"条回答内容");
+		}
+		else if(!driver.check(Ajk_AskView.RELATED)){
+			n = driver.getElementCount(Ajk_AskView.ANSWERLISTS_NoRelated);		
+			System.out.println("回答后一共有"+n+"条回答内容");
+		}
+		
+	
+		if(n>m){
+		for(int i=1;i<=n;){
+			System.out.println("正在匹配第"+i+"条");
+			String actual = driver.getText(Ajk_AskView.getAnswerElement(i, relate),"取第i条回复的数据");
+			if(actual.equals(content)){
+				Report.writeHTMLLog("问答单页判断回答是否成功", "问答单页回答列表中有一条数据与实际值是匹配的", Report.PASS, "");
+				System.out.println("找到成功匹配的在第"+i+"条");
+				break;
+				}
+			else i++;
+			if(i==n+1){
+				Report.writeHTMLLog("问答单页判断回答是否成功", "回答失败：问答单页回答列表中没有一条数据与实际值是匹配的:"+"^预期值"+content+"^实际值"+actual, Report.FAIL, "");
+				System.out.println("当前列表页没有找到成功匹配的，回答失败");
+				}
+			}
+		}
+		else{
+			Report.writeHTMLLog("问答单页判断回答是否成功", "回答失败：问答列表没有更新", Report.FAIL, "");
+			System.out.println("问答列表没有更新，回答失败");
+		}
+
+		//driver.assertEquals(content, driver.getText(Ajk_AskView.getAnswerElement(m), "取第M条即最后一条回复的数据"), "判断回答是否成功", "");
 	}
+	
+	/**问答单页--补充问题
+	 * @param addContent:补充问题的内容
+	 * 
+	 * */
+	public static void submitSupplement(Browser driver,String addContent){
+		driver.click(Ajk_AskView.AddLi, "点击补充问题TAB");
+		driver.type(Ajk_AskView.Supplement, addContent, "输入补充问题内容");
+		driver.click(Ajk_AskView.SupplementSubmit, "点击补充框下面的确认提交按钮");
+		driver.assertEquals(addContent, getAskViewDescriptionAdd(driver), "检测补充问题是否成功", "检测补充问题内容是否与实际一致");
+	}
+	
 	
 
 	/** 个人中心提问列表的数据检测
@@ -106,7 +171,6 @@ public class AnjukeAsk {
 		driver.assertNonEquals(null, getNormalUserAdoptionRate(driver), "个人中心提问列表的数据检测","检测采纳率是否为空");
 		driver.assertEquals(expertTitle, getNormalUserMyQuestionListFirst(driver), "个人中心提问列表的数据检测", "检测最新提问的问答标题是否正确--即最新的提问是否被记录");
 		/*driver.assertTrue(driver.getText(Ajk_AskNormalUserInfo.EXPERIENCE, ""), sTCase, sDetails)*/
-
 		
 		/*if(!getNormalUserExperience(driver).equals("")){
 			Report.writeHTMLLog("个人中心提问列表的数据检测", "普通用户经验值是否显示正常", Report.PASS, "");
@@ -244,6 +308,14 @@ public class AnjukeAsk {
 	public static String getListsAnyoneTitle(Browser driver){
 		String title,description,descriptionAdd,content;
 		int m = driver.getElementCount(Ajk_Ask.NORMALSEARCHLIST);
+		System.out.println("正常搜索列表页第一页共显示"+m+"条数据");
+		//driver.assertIntEquals(12, m, "检测问答搜索列表页在有很多数据的情况下第一页最多展示条数是否为12条", "检测问答搜索列表页第一次最多展示条数是否为12条");
+		if(m==12){
+			Report.writeHTMLLog("检测问答搜索列表页在有很多数据的情况下第一页最多展示条数", "检测问答搜索列表页在有很多数据的情况下第一页最多展示条数是否为12条",Report.PASS, "p1");
+		}else{
+			Report.writeHTMLLog("检测问答搜索列表页在有很多数据的情况下第一页最多展示条数", "检测问答搜索列表页在有很多数据的情况下第一页最多展示条数是否为12条", Report.FAIL, "p2");
+		}
+		
 		Random rand = new Random();
 		int t = rand.nextInt(m);
 		driver.click(Ajk_Ask.getSearchListElement(t+1), "点击进入当前页任意一条数据的问答单页");
@@ -273,4 +345,59 @@ public class AnjukeAsk {
 		return driver.getText(Ajk_Ask.NOT_FOUND, "正常搜索无结果页时，返回友情提示语");
 	}
 
+	/** 问答单页--采纳最佳答案*/
+	public static void AdoptBestAnswer(Browser driver){
+		driver.click(Ajk_AskView.AdoptBestAnswer, "点击第一条回答数据的”采纳最佳答案“按钮");
+		driver.assertEquals("最佳答案", driver.getText(Ajk_AskView.BestAnswer, "最佳答案模块上的文案"), "检测采纳最佳答案是否成功", "检测采纳最佳答案是否成功");
+	}
+	
+	
+	/** 问答单页--编辑外部专家资料
+	 * @param trueName:专家真实姓名
+	 * @param mobile：专家手机号
+	 * @param firmName：所在单位名称
+	 * @param firmAdress：所在单位地址
+	 * @param firmPhone：所在单位电话
+	 * @param personalCV：个人简介
+	 * @param imgPath：公司LOGO图片地址
+	 * */
+	public static void EditExternalExpertInfo(Browser driver,String trueName,String mobile,String firmName,String firmAdress,String firmPhone,String personalCV,String imgPath){
+		driver.click(Ajk_AskExpertView.Edit, "点击编辑资料按钮");
+		driver.type(Ajk_AskExpertView.TrueName, trueName, "输入专家真实姓名");
+		driver.type(Ajk_AskExpertView.Mobile, mobile, "输入专家手机号");
+		driver.type(Ajk_AskExpertView.FirmName, firmName, "输入所在单位名称");
+		driver.type(Ajk_AskExpertView.FirmAdress, firmAdress, "输入所在单位地址");
+		driver.type(Ajk_AskExpertView.FirmPhone, firmPhone, "输入所在单位电话");
+		driver.uploadFile(Ajk_AskExpertView.Upload, imgPath, "点击上传公司LOGO的浏览按钮");
+		driver.type(Ajk_AskExpertView.Personalcv, personalCV, "输入个人简介");
+		driver.click(Ajk_AskExpertView.Submitbutton, "点击确认提交按钮");
+		String SubmitSuccessTitle = driver.getText(Ajk_AskExpertView.SubmitSuccess, "获取编辑资料成功后的提示语");
+		System.out.println(SubmitSuccessTitle);
+		driver.assertEquals("您的资料已更新成功，立刻去个人主页    去看", SubmitSuccessTitle, "判断外部专家的资料编辑是否修改成功", "");
+	}
+	
+	/**问答首页--右侧专家动态数据检测
+	 * 
+	 * */
+	
+	public static void checkExpertMovingData(Browser driver){
+		int n = driver.getElementCount(Ajk_Ask.ExpertMoving);
+		System.out.println("专家动态模块一共展示"+n+"条数据");
+		//driver.assertIntEquals(3, n, "检测问答右侧专家模块数据是否展示3条", "检测问答右侧专家模块数据是否展示3条");
+		if(n==3){
+			Report.writeHTMLLog("检测问答右侧专家模块数据是否展示3条", "检测问答右侧专家模块数据是否展示3条", Report.PASS, "p3");
+		}else{
+			Report.writeHTMLLog("检测问答右侧专家模块数据是否展示3条", "检测问答右侧专家模块数据是否展示3条", Report.FAIL, "p4");
+		}
+		for(int i=1;i<=n;i++){
+			String ExpertMovingTest = driver.getText(Ajk_Ask.ExpertMoving+"["+i+"]", "获取每条数据的文本");
+			driver.assertNonEquals(null, ExpertMovingTest, "检测专家动态模块的数据是否为空", "检测专家动态模块的数据是否为空");
+		}
+	}
+	
+	/**访问指定城市问答首页
+	 * */
+	public static void getCityAskHome(Browser driver,String city){
+		driver.get("http://"+city+".anjuke.com/ask");
+	}
 }

@@ -20,8 +20,8 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 public class AnjukeBrokerIntro {
     Browser bs = null;
     String url = "http://my.anjuke.com/user/broker/introduction";
-    String username="ajk_sh";
-    String passwd = "anjukeqa";
+    String username="test1";
+    String passwd = "111111";
 
     @BeforeMethod
     public void setUp() {
