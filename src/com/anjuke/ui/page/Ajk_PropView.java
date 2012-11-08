@@ -23,7 +23,7 @@ public class Ajk_PropView {
 	/** 二手房单页 - 房源标题 */
 	public static final String HOUSETITLE = "className^propInfoTitle";
 	/** 二手房单页 - 总价 */
-	public static final String RICE = "//ul/li[1]/em";
+	public static final String PRICE = "//ul/li[1]/em";
 	/** 二手房单页 - 房型:X室X厅X卫*/
 	public static final String HOUSETYPE = "//ul[@class='prop_basic']/li[2]";
 	/** 二手房单页 - 面积 */
