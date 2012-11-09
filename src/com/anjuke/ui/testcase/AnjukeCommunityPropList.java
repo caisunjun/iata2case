@@ -10,6 +10,15 @@ import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
 
+/**
+ * 该测试用例主要用来检查小区二手房列表页筛选后房源正确与否，逻辑如下
+ * 1、进入上海小区列表页
+ * 2、在第一页随机点一个小区
+ * 3、点击tab进入小区二手房页
+ * 4、进行单项筛选，验证结果是否符合筛选条件
+ * @author ccyang
+ */
+
 public class AnjukeCommunityPropList {
     Browser bs = null;
 

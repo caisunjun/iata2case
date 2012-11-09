@@ -19,6 +19,9 @@ public class Ajk_HomePage {
 	public static final String RENTALTAB = "//li[@class='rental']";
 	/** 首页 - 导航 - 小区tab */
 	public static final String COMMTAB = "//li[@class='comm']";
+	/** 首页 - 导航 - 经纪人tab */
+	public static final String BROKERTAB = "//li[@class='broker']";
+
 	/** 首页 - 房价行情 - 文字 */
 	public static final String MarketStat ="//div[@class='stat']";
 	/** 首页 - 房价行情 - 小区链接 */
