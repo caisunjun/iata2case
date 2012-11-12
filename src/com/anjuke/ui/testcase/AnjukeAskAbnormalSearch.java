@@ -31,7 +31,6 @@ public class AnjukeAskAbnormalSearch {
 	}
 	@Test
 	public void abnormalSearch(){
-
 		AnjukeAsk.checkAskSearch(driver, "");//异常搜索显示全部问答列表
 		AnjukeAsk.checkAskSearch(driver, "    ");//异常搜索显示全部问答列表
 
