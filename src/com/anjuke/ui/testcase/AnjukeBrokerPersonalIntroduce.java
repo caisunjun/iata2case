@@ -19,7 +19,7 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
  * @Author chuzhaoqin
  */
 
-public class AnjukePersonalIntroduce {
+public class AnjukeBrokerPersonalIntroduce {
 	 Browser bs = null;
 	 String username="ajk_sh";
 	 String password="ajk_sh";
