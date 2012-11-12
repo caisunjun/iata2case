@@ -47,6 +47,11 @@ public class Ajk_Sale {
 	/** 二手房列表 - 搜索 - 搜索结果数量 */
 	public static final String S_COUNT = "//div[@class='totalnum']/strong";
 	
+	/** 二手房列表 - 搜索 - 房源分页 */
+	public static final String PAGE_COUNT = "//div[@class='current']";
+	
+	//*[@id='content']/div[5]/div[1]/div[1]/div[1]/div[2]/strong
+	
 	/** 二手房列表 - 搜索 - 第一页房源数量 */
 	public static final String LIST_COUNT = "//ol[@id='list_body']/li";
 

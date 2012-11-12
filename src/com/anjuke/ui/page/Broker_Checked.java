@@ -14,6 +14,16 @@ public class Broker_Checked {
 	public static final String YIFABU = "//dl[5]/dd/a";
 	/** 奶牛首页 - 剩余发布：XX套 */
 	public static final String SHENGYUFABU = "//dl[6]/dd/a";
-	/** 奶牛首页 - 网络助手链接*///  ppc账户进入方法为   //a[@class='link6']
+	/** 奶牛首页 - 网络助手链接*/
 	public static final String REPORTICON = "id^my_app_report";
+	
+	/* ppc的奶牛首页图标 */
+	/** 奶牛首页 - PPC - 定价推广 */
+	public static final String Dingjia_ppc = "//div[@class='n1 guide_nav']/a[1]";
+	/** 奶牛首页 - PPC - 竞价推广 */
+	public static final String Jingjia_ppc = "//div[@class='n1 guide_nav']/a[2]";
+	/** 奶牛首页 - PPC - 房源库 */
+	public static final String Fangyuanku_ppc = "//div[@class='n1 guide_nav']/a[3]";
+	/** 奶牛首页 - PPC - 定价推广 */
+	public static final String REPORTICON_ppc = "//div[@class='n1 guide_nav']/a[5]";
 }
