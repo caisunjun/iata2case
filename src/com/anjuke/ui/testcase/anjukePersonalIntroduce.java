@@ -34,6 +34,7 @@ public class AnjukePersonalIntroduce {
 			}
 	 }
 
+
 	 
 	 @BeforeMethod
 	    public void setUp() {
