@@ -40,16 +40,12 @@ public class AnjukeBrokerPersonalIntroduce {
 	    public void setUp() {
 		    baseUrl = "http://my.anjuke.com/user/broker/profile";
 		    bs = FactoryBrowser.factoryBrowser();
-	       
-	    }
+	  }
 	  @AfterMethod
 	     public void tearDown(){
 		  bs.quit();
 		  bs = null;
-		  
-
-		  
-}
+	  }
 	  @Test
 	  private void dianpuInfo(){
 		    username = "shtest";
