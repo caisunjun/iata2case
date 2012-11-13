@@ -52,24 +52,6 @@ public class AnjukeBrokerIntro {
         bs.select(Ajk_ShopView.xingzuo, "射手座");
         bs.click(Ajk_ShopView.xingzuo1, "公开");
         
-        //生成书籍list
-        //waitForPageToLoad(500);
-	   	int n;
-        for(int i=0;i<5;i++){
-        	Random r = new Random();
-	 		n= r.nextInt(11)+1; 
-        	bs.click("//*[@id='hotTag_book']/tbody/tr[2]/td/a["+n+"]", "点击书籍");
-       int m;
-       for (int a=0;a<5;a++);
-            Random s = new Random();
-            m= s.nextInt(13)+1;
-        	bs.click("//*[@id='hotTag_food']/tbody/tr[2]/td/a["+m+"]", "选择美食");
-       int l;
-  	   for (int b=0;b<5;b++);
-  	        Random q = new Random();
-  	        l= q.nextInt(14)+1;
-  	        bs.click("//*[@id='hotTag_acti']/tbody/tr[2]/td/a["+l+"]", "选择娱乐活动");  
-        }	        ////bs.click(Ajk_ShopView.submit, "点击确认保存");
         bs.get(url);
         bs.findElement(Broker_profile.SELLHOUSE, "清空卖方宣言", 60).clear();
         String slogan = "安居客测试公告栏2011-1-20ss"+GetRandom.getrandom(1000);
