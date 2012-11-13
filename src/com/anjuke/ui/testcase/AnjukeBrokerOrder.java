@@ -19,7 +19,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 public class AnjukeBrokerOrder {
     Browser bs = null;
     String url = "http://my.anjuke.com/user/payment/order/selectcombo/";
-    String username = "ajk_sh";
+    String username = "ajk_bj";
     String passwd = "anjukeqa";
     String[] firstcolumn = null ;
     String[] secondcolumn = null ;
