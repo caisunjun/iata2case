@@ -34,7 +34,6 @@ public class AnjukeBrokerIntro {
     public void tearDown(){
         bs.quit();
         bs = null;
-        Report.seleniumReport("shanghai.anjuke.com", "房价评估页验证");
     }
     @Test
     public void testBrokerIntroduce(){
