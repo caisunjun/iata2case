@@ -283,7 +283,7 @@ public class AnjukeCommunityPropList {
         if(lastPageNow>1)
         {
         	bs.click(Ajk_CommunitySale.NextPageUP, "翻到下一页");
-        	bs.check("//div[@id='properties']");
+        	bs.findElement("//div[@id='properties']", "找到第二页的房源", 5);
         }
         bs.click(Ajk_CommunityView.navtabSale, "清空筛选条件");
     }
