@@ -1,5 +1,4 @@
 package com.anjuke.ui.testcase;
-import java.util.Random;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -7,17 +6,19 @@ import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**
-* @Todo http://my.anjuke.com/user/broker/introduction & 验证个人介绍部分可否点击
-* @author fjzhang & chuzhaoqin
+* @Todo 
+* 店铺管理-个人介绍-自我介绍
+* 更改卖房宣言和详细介绍（固定内容+随机生成的内容）
+* 进入个人店铺，验证卖房宣言和详细介绍是否和输入的值一致
+* @author fjzhang 
 * @since 2012-11-13
 * @file AnjukeBrokerIntro.java
-*
+* @url http://my.anjuke.com/user/broker/introduction 
 */
 public class AnjukeBrokerIntro {
     Browser bs = null;
@@ -38,20 +39,6 @@ public class AnjukeBrokerIntro {
     @Test
     public void testBrokerIntroduce(){
         PublicProcess.dologin(bs, username, passwd);
-        bs.get("http://my.anjuke.com/user/broker/profile");
-        //waitForPageToLoad(500);
-        bs.select(Ajk_ShopView.PROAndCity, "上海市");
-        bs.select(Ajk_ShopView.Region, "浦东新区");
-        bs.click(Ajk_ShopView.Region1, "公开");
-        //年龄不公开
-        bs.click(Ajk_ShopView.Age2, "不公开");
-        //生肖
-        bs.select(Ajk_ShopView.shenXiao, "羊");
-        bs.click(Ajk_ShopView.shenXiao2,"不公开");
-        //星座
-        bs.select(Ajk_ShopView.xingzuo, "射手座");
-        bs.click(Ajk_ShopView.xingzuo1, "公开");
-        
         bs.get(url);
         bs.findElement(Broker_profile.SELLHOUSE, "清空卖方宣言", 60).clear();
         String slogan = "安居客测试公告栏2011-1-20ss"+GetRandom.getrandom(1000);

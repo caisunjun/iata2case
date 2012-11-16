@@ -11,6 +11,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**
 * @Todo TODO
+* 选择端口套餐（非PPC城市经济人才可用）
 * @author fjzhang
 * @since 2012-8-8
 * @file AnjukeBrokerOrder.java

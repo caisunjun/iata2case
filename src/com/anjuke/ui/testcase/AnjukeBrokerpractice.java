@@ -15,10 +15,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
-* @Todo http://my.anjuke.com/user/broker/areas
+* @Todo 店铺管理-职业能力-擅长区域
+* 更改熟悉版块（随机）
+* 更改熟悉小区（随机）
+* 店铺页验证
 * @author fjzhang
 * @since 2012-8-15
 * @file AnjukeBrokerpractice.java
+* @url http://my.anjuke.com/user/broker/areas
 *
 */
 public class AnjukeBrokerpractice {
