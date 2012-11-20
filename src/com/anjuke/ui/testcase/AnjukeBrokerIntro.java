@@ -1,27 +1,31 @@
 package com.anjuke.ui.testcase;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**
-* @Todo http://my.anjuke.com/user/broker/introduction
-* @author fjzhang
-* @since 2012-8-15
+* @Todo 
+* 店铺管理-个人介绍-自我介绍
+* 更改卖房宣言和详细介绍（固定内容+随机生成的内容）
+* 进入个人店铺，验证卖房宣言和详细介绍是否和输入的值一致
+* @author fjzhang 
+* @since 2012-11-13
 * @file AnjukeBrokerIntro.java
-*
+* @url http://my.anjuke.com/user/broker/introduction 
 */
 public class AnjukeBrokerIntro {
     Browser bs = null;
     String url = "http://my.anjuke.com/user/broker/introduction";
     String username="test1";
     String passwd = "111111";
+
 
     @BeforeMethod
     public void setUp() {
@@ -55,5 +59,4 @@ public class AnjukeBrokerIntro {
         bs.assertContains(actualslogan, slogan);
         bs.assertContains(actualselfintro, selfintro);
     }
-}
-
+  }

@@ -15,11 +15,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 /**
- * @Todo http://my.anjuke.com/user/broker/gradeexchanges/
+ * @Todo 
+ * 获取兑换列表中第一个兑换
+ * 兑换成功后判断 积分余额和 成功文本
  * @author fjzhang
  * @since 2012-8-9
  * @file AnjukeBrokerIntegral.java
- *
+ * @url http://my.anjuke.com/user/broker/gradeexchanges/
  */
 public class AnjukeBrokerIntegral {
     Browser bs = null;

@@ -414,18 +414,19 @@ public class AnjukeAsk {
 				Ajk_Ask.LawQuestion,
 				Ajk_Ask.LoanQuestion,
 				Ajk_Ask.FsQuestion,
+				
 		};
 		String fiveTabElementList[] = {Ajk_Ask.NomalQuestionList,
 				Ajk_Ask.EstateQuestionList,
 				Ajk_Ask.LawQuestionList,
 				Ajk_Ask.LoanQuestionList,
 				Ajk_Ask.FsQuestionList
-		} ;
+			} ;
 		
 		//切换到指定TAB
 		driver.moveToElement(fiveTabElement[tab]);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

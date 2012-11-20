@@ -140,7 +140,7 @@ public class AnjukeRecommendHouse {
 		int i =0;
 		for(i=1;i<=pageCount;i++){
 			if(!bs.check("//tr[" + i + "][@id='apf_id_7']/td[2]/dl/dt/img")&&
-					bs.getAttribute("//tr[" + i + "][@id='apf_id_7']/td[1]/input", "disabled").equals("false")){
+					!bs.check("//p[@id='proinfo_"+ (i-1) +"']/a")){
 				Report.writeHTMLLog("推荐房源", "第"+i+"套房源可以被推荐", Report.PASS, "");
 				break;
 			}
