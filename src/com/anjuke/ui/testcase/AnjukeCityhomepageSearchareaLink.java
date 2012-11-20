@@ -2,6 +2,11 @@ package com.anjuke.ui.testcase;
 
 /**
  * 该用例主要用来检查anjuke网站各区的页面标题跟对于的区县关键字是否匹配
+ * 步骤：
+ * 取首页底部，"房地产热门城市"列表
+ * 循环城市
+ * 取首页热门区域的区域名、href
+ * 打开区域名对应的链接，验证页面title是否包含区域名
  * @UpdateAuthor Gabrielgao
  * @last updatetime  2012/05/10
  */

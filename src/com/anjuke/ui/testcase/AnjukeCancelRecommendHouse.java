@@ -133,7 +133,7 @@ public class AnjukeCancelRecommendHouse {
 		// 只有当选取的房源记录没有“违规”标志的时候才可选取
 		int i = 0;
 		for (i = 1; i <= pageCount; i++) {
-			if (bs.getAttribute("//tr[" + i + "][@id='apf_id_7']/td[1]/input", "disabled").equals("true")) {
+			if (bs.check("//p[@id='proinfo_"+ (i-1) +"']/a")) {
 				Report.writeHTMLLog("取消推荐房源", "当前列房源不可被选取", Report.DONE, "");
 			} else {
 				Report.writeHTMLLog("取消推荐房源", "当前列即第" + i + "房源可以可被选取", Report.DONE, "");

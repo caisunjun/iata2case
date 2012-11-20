@@ -38,6 +38,10 @@ public class BrokerRentOperating {
 			driver.type(Init.G_objMap.get("anjuke_wangluojingjiren_sale_xiaoqu_yinyu"), info.getCommunityName(), "小区名称");
 			driver.click(".//*[@id='targetid']/li[2]", "选择小区", 60); 
 		}
+		else{
+			String communityName = driver.getAttribute(Init.G_objMap.get("anjuke_wangluojingjiren_sale_xiaoqu_yinyu"), "value");
+			info.setCommunityName(communityName);
+		}
 		//房屋类型
 		if(info.getRentType().equals("合租")){
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_radlsDolmus0"), "出租方式：合租");

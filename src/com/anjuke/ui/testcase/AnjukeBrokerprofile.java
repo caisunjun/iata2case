@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Ajk_ShopView;
 import com.anjuke.ui.page.Broker_profile;
 import com.anjuke.ui.page.Broker_shopprofile;
 import com.anjuke.ui.publicfunction.BrokerInfo;
@@ -18,10 +19,14 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.util.GetRandom;
 
 /**
- * @Todo TODO
+ * @Todo 
+ * 验证公开按钮可点击
+ * 修改喜欢的书、美食、娱乐活动（清除现有+所有候选里随机取5个）
  * @author fjzhang
+ * @update chuzhaoqin
  * @since 2012-8-14
- * @file AnjukeBrokerprofile.java http://my.anjuke.com/user/broker/profile
+ * @file AnjukeBrokerprofile.java 
+ * @url http://my.anjuke.com/user/broker/profile
  */
 public class AnjukeBrokerprofile {
     Browser bs = null;
@@ -43,10 +48,23 @@ public class AnjukeBrokerprofile {
     @Test
     public void testBrokerprofile() {
         /**
-         * 验证安居客经纪人个人介绍
+         * 验证安居客经纪人基本资料
          */
         PublicProcess.dologin(bs, username, passwd);
         bs.get(url);
+        //coded by chuzhaoqin -start
+        bs.click(Ajk_ShopView.Region1, "公开");
+        //年龄不公开
+        bs.click(Ajk_ShopView.Age2, "不公开");
+        //生肖
+        bs.select(Ajk_ShopView.shenXiao, "羊");
+        bs.click(Ajk_ShopView.shenXiao2,"不公开");
+        //星座
+        bs.select(Ajk_ShopView.xingzuo, "射手座");
+        bs.click(Ajk_ShopView.xingzuo1, "公开");
+        //coded by chuzhaoqin -end
+        
+        bs.refresh();
         // 选择省
         String province = bs.selectReturn(Broker_profile.PROVINCE, GetRandom
                 .getrandom(10));
@@ -85,7 +103,7 @@ public class AnjukeBrokerprofile {
         bs.assertContains(actualText, "保存成功");
 
         /**
-         *  到我的店铺验证 ，个人介绍是否生效
+         *  到我的店铺验证 ，基本资料是否生效
          */
         bs.click(Broker_profile.MYSHOP, "进入我的店铺");
         bs.switchWindo(2);
