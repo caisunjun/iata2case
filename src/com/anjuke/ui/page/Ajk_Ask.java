@@ -53,4 +53,29 @@ public class Ajk_Ask {
 	/** 问答 - 问答首页 - 右侧专家动态模块列表*/
 	public static final String ExpertMoving = "//*[@id='content']/div[3]/div[2]/ul/li";
 
+	
+	/**问答 - 问答首页 - 未登录状态下常见问题TAB*/
+	public static final String NomalQuestion = "//*[@id='nomaltab0']";
+	/**问答 - 问答首页 - 未登录状态下常见问题列表*/
+	public static final String NomalQuestionList = "//*[@id='nomalUl0']/li";
+	/**问答 - 问答首页 - 未登录状态下常见问题列表解答专家姓名*/
+	public static final String NomalQuestionExpertName = "//*[@id='nomalUl0']/li[1]/div[1]/a";
+	/**问答 - 问答首页 - 未登录状态下房产问题TAB*/
+	public static final String EstateQuestion = "//*[@id='nomaltab1']";
+	/**问答 - 问答首页 - 未登录状态下房产问题列表*/
+	public static final String EstateQuestionList = "//*[@id='nomalUl1']/li";
+	/**问答 - 问答首页 - 未登录状态下法律问题TAB*/
+	public static final String LawQuestion = "//*[@id='nomaltab2']";
+	/**问答 - 问答首页 - 未登录状态下法律问题列表*/
+	public static final String LawQuestionList = "//*[@id='nomalUl2']/li";
+	/**问答 - 问答首页 - 未登录状态下贷款问题TAB*/
+	public static final String LoanQuestion = "//*[@id='nomaltab3']";
+	/**问答 - 问答首页 - 未登录状态下贷款问题列表*/
+	public static final String LoanQuestionList = "//*[@id='nomalUl3']/li";
+	/**问答 - 问答首页 - 未登录状态下装修风水TAB*/
+	public static final String	FsQuestion = "//*[@id='nomaltab4']";
+	/**问答 - 问答首页 - 未登录状态下装修风水列表*/
+	public static final String	FsQuestionList = "//*[@id='nomalUl4']/li";
+	
+	
 }

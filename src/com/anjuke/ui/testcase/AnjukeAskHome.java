@@ -13,7 +13,7 @@ import com.anjukeinc.iata.ui.report.Report;
  * @Author agneszhang
  * @time 2012-11-06
  * @UpdateAuthor agneszhang
- * @last updatetime 2012-11-06
+ * @last updatetime 2012-11-20
  */
 public class AnjukeAskHome {
 	private Browser driver = null;
@@ -30,9 +30,14 @@ public class AnjukeAskHome {
 		driver = null;
 	}
 	@Test
-	public void abnormalSearch(){
+	public void checkAskHomeData(){
 		AnjukeAsk.getCityAskHome(driver, "shanghai");
 		AnjukeAsk.checkExpertMovingData(driver);
+		AnjukeAsk.checkFiveTabData(driver,0);
+		AnjukeAsk.checkFiveTabData(driver,1);
+		AnjukeAsk.checkFiveTabData(driver,2);
+		AnjukeAsk.checkFiveTabData(driver,3);
+		AnjukeAsk.checkFiveTabData(driver,4);
 	}
 
 }
