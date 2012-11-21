@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="suite">
+    <parameter name = "websiteName" value = "Anjuke"/>
+    <parameter name = "suiteName" value = "--安居客经纪人部分脚本--"/> 
+	<test name="Default" preserve-order="true">
+		<classes>
+			<class name="com.anjukeinc.iata.ui.init.Init"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleRelease"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEdit"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRentRelease"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRentEdit"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerExpertise"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerIntro"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerModifyInfo"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerOrder"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerpractice"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerprofile"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerReport"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerCancelRecommendHouse"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecommendHouse"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps"></class>
+		</classes>
+	</test>
+</suite>
