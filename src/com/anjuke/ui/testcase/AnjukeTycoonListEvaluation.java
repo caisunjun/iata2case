@@ -19,7 +19,7 @@ import com.anjuke.ui.page.*;
  */
 
 
-public class AnjukeBrokerListEvaluation {
+public class AnjukeTycoonListEvaluation {
     Browser bs = null;
 
     @BeforeMethod

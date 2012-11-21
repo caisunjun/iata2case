@@ -24,7 +24,7 @@ import com.anjukeinc.iata.ui.report.Report;
  * @last updatetime 2012/05/08
  */
 
-public class AnjukeCancelRecommendHouse {
+public class AnjukeBrokerCancelRecommendHouse {
 	private Browser bs = null;
 	private Boolean flag = false;  	// 设定一个标志位，如果flag为true则表示取消推荐出租房源，否则为取消推荐购买房源
 
