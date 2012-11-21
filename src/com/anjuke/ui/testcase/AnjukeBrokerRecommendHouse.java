@@ -26,7 +26,7 @@ import com.anjukeinc.iata.ui.report.Report;
  */
 
 
-public class AnjukeRecommendHouse {
+public class AnjukeBrokerRecommendHouse {
 
 	private Browser bs = null;
     private Boolean flag = false;  		//设定一个标志位，如果flag为true则表示推荐出租房源，否则为推荐购买房源

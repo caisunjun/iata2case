@@ -425,13 +425,14 @@ public class AnjukeAsk {
 		
 		//切换到指定TAB
 		driver.moveToElement(fiveTabElement[tab]);
-		try {
+		
+/*		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
 		//获取指定TAB下各数据
 		int n1 = driver.getElementCount(fiveTabElementList[tab]);
 		System.out.println("第"+(tab+1)+"个TAB列表一共展示"+n1+"条数据");
