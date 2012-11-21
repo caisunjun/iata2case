@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="suite">
+    <parameter name = "websiteName" value = "Anjuke"/>
+    <parameter name = "suiteName" value = "--user部分脚本--"/> 
+	<test name="Default" preserve-order="true">
+		<classes>
+			<class name="com.anjukeinc.iata.ui.init.Init"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeAttentionCommunity"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeAskAbnormalSearch"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeAskNormalSearchFound"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeAskHome"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeAskEditExpertInfo"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeAskQuestion"></class>
+			<class name="com.anjuke.ui.testcase.AnjukePropView"></class>
+			<class name="com.anjuke.ui.testcase.AnjukePropRent"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeRentSearchResultCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaleRentListTagCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeCityhomepageSearchareaLink"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeCommunityListPrice"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSearchCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeUfsStarCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeTycoonListAsk"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeTycoonListEvaluation"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeTycoonListPhoto"></class>
+		</classes>
+	</test>
+</suite>
