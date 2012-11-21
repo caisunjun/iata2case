@@ -20,7 +20,7 @@ import com.anjuke.ui.page.*;
  */
 
 
-public class AnjukeBrokerListAsk {
+public class AnjukeTycoonListAsk {
     Browser bs = null;
 
     @BeforeMethod

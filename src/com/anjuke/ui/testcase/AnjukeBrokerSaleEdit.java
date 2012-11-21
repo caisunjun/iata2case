@@ -110,6 +110,7 @@ public class AnjukeBrokerSaleEdit {
 			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
 		}else{
 			BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
+			driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
 			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
 		}
 	}

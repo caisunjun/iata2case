@@ -18,7 +18,7 @@ import com.anjuke.ui.page.*;
  */
 
 
-public class AnjukeBrokerListPhoto {
+public class AnjukeTycoonListPhoto {
     Browser bs = null;
 
     @BeforeMethod

@@ -64,8 +64,6 @@ public class AnjukeUfsStarCheck {
         	bs.switchWindo(3);
         	String dmdPropViewRight = bs.getAttribute(Ajk_PropView.Star_BrokerInfo, "class");
         	bs.assertEquals(dmdPropViewRight, "dmd-one", "经纪人二手房-右侧服务等级", "服务等级处的class是diamond");
-        	String dmdPropViewPropinfo = bs.getAttribute(Ajk_PropView.Star_PropInfo, "class");
-        	bs.assertEquals(dmdPropViewPropinfo, "dmd-one", "经纪人二手房-房源信息处服务等级", "服务等级处的class是diamond");
         	String dmdPropViewDownufsinfo = bs.getAttribute(Ajk_PropView.Star_downufsinfo, "class");
         	bs.assertEquals(dmdPropViewDownufsinfo, "dmd-one", "经纪人二手房-下方UFS信息服务等级", "服务等级处的class是diamond");
         	bs.close();
@@ -86,8 +84,6 @@ public class AnjukeUfsStarCheck {
         	//租房单页 服务等级的locator和二手房单页一样
         	String dmdPropViewRight = bs.getAttribute(Ajk_PropView.Star_BrokerInfo, "class");
         	bs.assertEquals(dmdPropViewRight, "dmd-one", "经纪人租房-右侧服务等级", "服务等级处的class是diamond");
-        	String dmdPropViewPropinfo = bs.getAttribute(Ajk_PropView.Star_PropInfo, "class");
-        	bs.assertEquals(dmdPropViewPropinfo, "dmd-one", "经纪人租房-房源信息处服务等级", "服务等级处的class是diamond");
         	String dmdPropViewDownufsinfo = bs.getAttribute(Ajk_PropView.Star_downufsinfo, "class");
         	bs.assertEquals(dmdPropViewDownufsinfo, "dmd-one", "经纪人租房-下方UFS信息服务等级", "服务等级处的class是diamond");
         	bs.close();
@@ -168,9 +164,6 @@ public class AnjukeUfsStarCheck {
         	String badPropViewRight = bs.getText(Ajk_PropView.Star_BrokerInfo, "获得服务等级");
         	badPropViewRight = badPropViewRight.replace(" ", "");
         	bs.assertEquals(badPropViewRight, "暂无", "经纪人二手房-右侧服务等级", "服务等级为暂无");
-        	String badPropViewPropinfo = bs.getText(Ajk_PropView.Star_PropInfo, "获得服务等级");
-        	badPropViewPropinfo = badPropViewPropinfo.replaceAll(" ", "");
-        	bs.assertEquals(badPropViewPropinfo, "暂无", "经纪人二手房-房源信息处服务等级", "服务等级为暂无");
         	String badPropViewDownufsinfo = bs.getText(Ajk_PropView.Star_downufsinfo, "获得服务等级");
         	badPropViewDownufsinfo = badPropViewDownufsinfo.replaceAll(" ", "");
         	bs.assertEquals(badPropViewDownufsinfo, "暂无", "经纪人二手房-下方UFS信息服务等级", "服务等级为暂无");
@@ -193,9 +186,6 @@ public class AnjukeUfsStarCheck {
         	String badRentViewRight = bs.getText(Ajk_PropView.Star_BrokerInfo, "获得服务等级");
         	badRentViewRight = badRentViewRight.replaceAll(" ", "");
         	bs.assertEquals(badRentViewRight, "暂无", "经纪人二手房-右侧服务等级", "服务等级为暂无");
-        	String badRentViewPropinfo = bs.getText(Ajk_PropView.Star_PropInfo, "获得服务等级");
-        	badRentViewPropinfo = badRentViewPropinfo.replaceAll(" ", "");
-        	bs.assertEquals(badRentViewPropinfo, "暂无", "经纪人二手房-房源信息处服务等级", "服务等级为暂无");
         	String badRentViewDownufsinfo = bs.getText(Ajk_PropView.Star_downufsinfo, "获得服务等级");
         	badRentViewDownufsinfo = badRentViewDownufsinfo.replaceAll(" ", "");
         	bs.assertEquals(badRentViewDownufsinfo, "暂无", "经纪人二手房-下方UFS信息服务等级", "服务等级为暂无");
