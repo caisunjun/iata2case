@@ -116,7 +116,5 @@ public class AnjukeSaleHaopanCheck_otherCity {
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
 			bs.assertContains(tmp,"spread=commsearch");
 		}
-	}
-	
-
+	}	
 }
