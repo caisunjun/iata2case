@@ -38,6 +38,7 @@ public class AnjukeAskHome {
 		AnjukeAsk.checkFiveTabData(driver,2);
 		AnjukeAsk.checkFiveTabData(driver,3);
 		AnjukeAsk.checkFiveTabData(driver,4);
+		AnjukeAsk.checkAskHomeToBeResolveQuestion(driver);
 	}
 
 }
