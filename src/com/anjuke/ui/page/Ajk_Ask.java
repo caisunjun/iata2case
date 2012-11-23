@@ -76,6 +76,11 @@ public class Ajk_Ask {
 	public static final String	FsQuestion = "//*[@id='nomaltab4']";
 	/**问答 - 问答首页 - 未登录状态下装修风水列表*/
 	public static final String	FsQuestionList = "//*[@id='nomalUl4']/li";
+	/**问答 - 问答首页 - 未登录状态下新房问题TAB*/
+	public static final String	NewFangQuestion = "//*[@id='nomaltab5']";
+	/**问答 - 问答首页 - 未登录状态下新房问题列表*/
+	public static final String	NewfangQuestionList = "//*[@id='nomalUl5']/li";
+	
 	
 	/**问答 - 问答首页 - 待解决问题列表*/
 	public static final String	ToBeResolvedQuestionList = "//*[@id='content']/div[2]/div[4]/ul/li";

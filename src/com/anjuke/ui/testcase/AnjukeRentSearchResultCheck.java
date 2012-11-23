@@ -14,10 +14,10 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
 
 /**
- * 该测试用例主要完成: 1、租房列表筛选条件结果验证 
- * 
+ * 该测试用例主要完成: 
+ * 1、检查翻页后页码及页面房源数是否正确
+ * 2、租房列表筛选条件结果验证 
  * @author ccyang
- * @time 2012-09-04 17:30
  **/
 
 public class AnjukeRentSearchResultCheck {
@@ -59,13 +59,15 @@ public class AnjukeRentSearchResultCheck {
 	
 	private void checkP2(Browser driver){
 		int listCount = 0;
+		String currentP1 = "";
 		String currentP2 = "";
 		//翻页检查
-		String currentP1 = driver.getText("//div[@class='current']", "获得第一页页码");
 		driver.click("//div[@class='pagelink nextpage']", "翻到第二页");
 		if(driver.check("//div[@class='current']")){
 			//获得页码
-			currentP2 = driver.getText("//div[@class='current']", "获得当前页码");
+			currentP2 = driver.getText("//div[@class='current']", "获得第二页页码");
+			driver.click("//div[@class='pagelink prexpage']", "翻回第一页再确认下");
+			currentP1 = driver.getText("//div[@class='current']", "获得第一页页码");
 			//确认第二页页码正确性
 			if(!currentP2.equals(currentP1.replace("1/", "2/"))){
 				Report.writeHTMLLog("租房列表页翻页检查", "第二页页码不对", Report.FAIL, "");
@@ -75,7 +77,7 @@ public class AnjukeRentSearchResultCheck {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("租房列表页翻页检查", "第二页页码找不到", Report.FAIL, ps);
 		}
-		
+		driver.click("//div[@class='pagelink nextpage']", "再翻到第二页");
 		try {
 			//获得当前列表房源数
 			listCount = driver.getElementCount("//ol[@id='list_body']/li");

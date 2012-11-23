@@ -33,11 +33,13 @@ public class AnjukeAskHome {
 	public void checkAskHomeData(){
 		AnjukeAsk.getCityAskHome(driver, "shanghai");
 		AnjukeAsk.checkExpertMovingData(driver);
-		AnjukeAsk.checkFiveTabData(driver,0);
-		AnjukeAsk.checkFiveTabData(driver,1);
-		AnjukeAsk.checkFiveTabData(driver,2);
-		AnjukeAsk.checkFiveTabData(driver,3);
-		AnjukeAsk.checkFiveTabData(driver,4);
+		AnjukeAsk.checkFiveTabData(driver,0);//常见问题TAB下数据检测
+		AnjukeAsk.checkFiveTabData(driver,1);//房产问题TAB下数据检测
+		AnjukeAsk.checkFiveTabData(driver,2);//新房问题TAB下数据检测
+		AnjukeAsk.checkFiveTabData(driver,3);//法律问题TAB下数据检测
+		AnjukeAsk.checkFiveTabData(driver,4);//贷款问题TAB下数据检测
+		AnjukeAsk.checkFiveTabData(driver,5);//装修风水TAB下数据检测
+		AnjukeAsk.checkAskHomeToBeResolveQuestion(driver);//待解决问题列表数据检测
 	}
 
 }

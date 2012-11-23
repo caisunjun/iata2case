@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite verbose="0" name="suite">
     <parameter name = "websiteName" value = "Anjuke"/>
-    <parameter name = "suiteName" value = "--安居客经纪人部分脚本--"/> 
+    <parameter name = "suiteName" value = "--经纪人部分脚本--"/> 
 	<test name="Default" preserve-order="true">
 		<classes>
 			<class name="com.anjukeinc.iata.ui.init.Init"></class>
