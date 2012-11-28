@@ -9,6 +9,15 @@ import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
 
+/**
+ * 该测试用例主要用来检查外地城市二手房列表页搜索和筛选时显示的好盘房源正确与否，验证点如下：
+ * 1、外地城市，筛选列表页分页检测
+ * 2、外地城市，二手房筛选列表，第1、3、5展位好盘房源检测
+ * 3、外地城市，搜索列表页分页检测
+ * 4、外地城市，搜索列表页好盘房源检测
+ * @author jessili
+ */
+
 public class AnjukeSaleHaopanCheck_otherCity {	
 	public Browser bs = null;
 	public String baseUrl;
@@ -55,7 +64,7 @@ public class AnjukeSaleHaopanCheck_otherCity {
 		
 		int sum  = Integer.parseInt(bs.findElement(Ajk_Sale.S_COUNT, "获取搜索结果数",5).getText());
 		
-		//计算预期分页总数（向上取证）
+		//计算预期分页总数（向上取整）
 		int p = (int)Math.ceil((double)sum/25);
 		
 		//比较实际分页总数与预期分页总数是否一致
@@ -96,7 +105,7 @@ public class AnjukeSaleHaopanCheck_otherCity {
 		
 		int sum  = Integer.parseInt(bs.findElement(Ajk_Sale.S_COUNT, "获取搜索结果数",5).getText());	
 		
-		//计算预期分页总数（向上取证）
+		//计算预期分页总数（向上取整）
 		int p = (int)Math.ceil((double)sum/25);
 		
 		//比较实际分页总数与预期分页总数是否一致

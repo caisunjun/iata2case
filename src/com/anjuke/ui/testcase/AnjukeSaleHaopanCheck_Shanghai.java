@@ -10,6 +10,18 @@ import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
 
+/**
+ * 该测试用例主要用来检查上海二手房列表页搜索和筛选后显示的好盘房源正确与否，验证点如下：
+ * 1、上海-筛选列表页分页检测
+ * 2、上海-筛选列表页竞价房源
+ * 3、上海-搜索列表页分页检测
+ * 4、上海-搜索列表页-搜小区词，展示该小区所有竞价房源
+ * 5、上海-搜索列表页-同小区同价格段，展示竞价房源：3套
+ * 6、上海-搜索列表页-搜索结构词，展示竞价房源：15套
+ * 7、上海-搜索列表页-搜索普通文本，展示竞价房源：15套
+ * @author jessili
+ */
+
 @Test
 public class AnjukeSaleHaopanCheck_Shanghai {	
 	public Browser bs = null;
