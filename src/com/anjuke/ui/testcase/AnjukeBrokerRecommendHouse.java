@@ -26,7 +26,7 @@ import com.anjukeinc.iata.ui.report.Report;
  */
 
 
-public class AnjukeRecommendHouse {
+public class AnjukeBrokerRecommendHouse {
 
 	private Browser bs = null;
     private Boolean flag = false;  		//设定一个标志位，如果flag为true则表示推荐出租房源，否则为推荐购买房源
@@ -140,7 +140,7 @@ public class AnjukeRecommendHouse {
 		int i =0;
 		for(i=1;i<=pageCount;i++){
 			if(!bs.check("//tr[" + i + "][@id='apf_id_7']/td[2]/dl/dt/img")&&
-					bs.getAttribute("//tr[" + i + "][@id='apf_id_7']/td[1]/input", "disabled").equals("false")){
+					!bs.check("//p[@id='proinfo_"+ (i-1) +"']/a")){
 				Report.writeHTMLLog("推荐房源", "第"+i+"套房源可以被推荐", Report.PASS, "");
 				break;
 			}

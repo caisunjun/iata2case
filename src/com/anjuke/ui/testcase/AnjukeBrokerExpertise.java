@@ -17,11 +17,16 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
 
 /**
-* @Todo TODO
+* @Todo 
+* 店铺管理-职业能力-职业特长
+* 清除现有职业特长
+* 获得可选项总数
+* 从中随机点X个
+* 个人店铺中验证
 * @author fjzhang
 * @since 2012-8-15
 * @file AnjukeBrokerExpertise.java
-*	http://my.anjuke.com/user/broker/expertise
+* @url	http://my.anjuke.com/user/broker/expertise
 */
 public class AnjukeBrokerExpertise {
     Browser bs = null;

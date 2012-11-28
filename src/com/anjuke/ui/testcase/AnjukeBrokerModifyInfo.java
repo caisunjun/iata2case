@@ -12,7 +12,11 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 
 
 /**
-* @Todo 经纪人修改资料
+* @Todo 个人设置-资料修改（邮箱、密码、个人资料）
+* 个人资料修改：
+* 更改工作区域（随机）
+* 更改所属公司门店（独立经济人 - 测试公司-XFHONG）
+* 传图片
 * @author fjzhang
 * @since 2012-8-7
 * @file AnjukeBrokerdata.java

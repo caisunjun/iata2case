@@ -11,8 +11,8 @@
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRentRelease"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRentEdit"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeRecommendHouse"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeCancelRecommendHouse"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecommendHouse"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerCancelRecommendHouse"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerReport"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition"></class>

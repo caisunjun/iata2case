@@ -6,27 +6,28 @@ import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
+import com.anjuke.ui.page.Broker_Checked;
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.BrokerSaleOperating;
+import com.anjuke.ui.publicfunction.BrokerSaleOperatingPPC;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
 /**
  * 该用例完成安居客出售更新操作，逻辑如下
- * 1、编辑出售信息，添加图片附件
- * 2、更新成功后，验证出售基本信息
- * 3、在出售详细页，验证房屋出售详细信息
+ * 1、从奶牛首页进入房源库
+ * 2、编辑出售信息，上传图片
+ * 3、更新成功，返回房源库点击第一套房源
+ * 4、在房源单页验证房源详细信息
  * 
- * @Author gabrielgao
- * @time 2012-04-11 17:00
- * @UpdateAuthor ccyang
- * @last updatetime 2012-08-16 16:00
+ * @Author ccyang
  */
-public class AnjukeBrokerSaleEdit {
+public class AnjukeBrokerSaleEditPPC {
 	private Browser driver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
 	private AnjukeSaleInfo updateInfo = new AnjukeSaleInfo();
-	private boolean needPic = false;
+	private boolean needPic = true;
 	
 	@BeforeMethod
 	public void startUp(){
@@ -86,33 +87,24 @@ public class AnjukeBrokerSaleEdit {
 	}
 	
 	//(timeOut = 200000)
-	@Test
+	@Test(groups = { "unstable" })
 	public void editSale() throws InterruptedException{
-//		driver.deleteAllCookies();
-		//Report.setTCNameLog("管理出售编辑-- AnjukeUpdateReleaseSale --Hendry_huang");
+
 		String casestatus = "";
 		String testing = "testing";
 		casestatus = Init.G_config.get("casestatus");
 
 		if(testing.equals(casestatus))
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+			saleInfo.setUserName(PublicProcess.logIn(driver, "1349689747de9", "anjukeqa",false, 1));
 		}
 		else
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "111111",false, 1));
+			saleInfo.setUserName(PublicProcess.logIn(driver, "1349689747de9", "anjukeqa",false, 1));
 		}
 		
-		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
-		//driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firstEdit"));
-		
-		if(driver.check("id^edit_0")){
-			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
-		}else{
-			BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
-			driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
-			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
-		}
+		BrokerSaleOperatingPPC.editSale(driver, updateInfo, needPic);
+
 	}
 
 }

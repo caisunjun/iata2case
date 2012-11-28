@@ -11,6 +11,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**
 * @Todo TODO
+* 选择端口套餐（非PPC城市经济人才可用）
 * @author fjzhang
 * @since 2012-8-8
 * @file AnjukeBrokerOrder.java
@@ -19,7 +20,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 public class AnjukeBrokerOrder {
     Browser bs = null;
     String url = "http://my.anjuke.com/user/payment/order/selectcombo/";
-    String username = "ajk_bj";
+    String username = "cdtest";
     String passwd = "anjukeqa";
     String[] firstcolumn = null ;
     String[] secondcolumn = null ;
