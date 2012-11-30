@@ -31,11 +31,10 @@ public class BrokerSaleOperatingPPC {
 		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
 		//获得已发布房源数和剩余发布数
 		String propRest = driver.getText(Broker_PPC_PropmanageSale.PropRest, "还可发布房源数");
-		String propNow = driver.getText(Broker_PPC_PropmanageSale.PropNow, "已发布房源数");
 		
 		if (propRest.equals("0")) {
 			String ps = driver.printScreen();
-			Report.writeHTMLLog("房源库", "已有房源达上限，已发布了： "+propNow,Report.FAIL, ps);
+			Report.writeHTMLLog("房源库", "已有房源达上限，剩余发布数为："+propRest,Report.FAIL, ps);
 		} else {
 			driver.click(Broker_PPC_PropmanageSale.SendSale, "发布出售房源");
 			driver.switchWindo(2);
@@ -95,12 +94,12 @@ public class BrokerSaleOperatingPPC {
 			String releaseMess = driver.getText(Broker_PropertynewSaleStep.SUCCESSMESSAGE_PPC,"获取发布后提示信息");
 
 			if (releaseMess.equals("保存成功！") && Integer.parseInt(propRest)>= 10) {
-				Report.writeHTMLLog("发布成功", "出售房源发布成功"+"本期已发布的房源:"+propNow+"剩余发布房源数:"+propRest, Report.PASS, "");
+				Report.writeHTMLLog("发布成功", "出售房源发布成功，剩余发布房源数:"+propRest, Report.PASS, "");
 			} else if(releaseMess.equals("保存成功！") && Integer.parseInt(propRest) < 10){
-				Report.writeHTMLLog("发布成功", "出售房源发布成功"+"本期已发布的房源:"+propNow+"剩余发布房源数:"+propRest, Report.WARNING, "");
+				Report.writeHTMLLog("发布成功", "出售房源发布成功，剩余发布房源数:"+propRest, Report.WARNING, "");
 			}else{
 				String ps = driver.printScreen();
-				Report.writeHTMLLog("发布失败", "出售房源发布失败" + "本期已发布的房源:"+propNow+"剩余发布房源数:"+propRest, Report.FAIL, ps);
+				Report.writeHTMLLog("发布失败", "出售房源发布失败，剩余发布房源数:"+propRest, Report.FAIL, ps);
 			}
 			
 			// 跳转到房源单页
