@@ -330,11 +330,11 @@ public class AnjukeCommunityPropList {
 		if(matchTimeA == 0)
 		{
 			String ps = bs.printScreen();
-			Report.writeHTMLLog("小区二手房页多项筛选检查", "房源价格为：**"+areaExpect+"**时，没有合适的价格筛选项", Report.FAIL, ps);
+			Report.writeHTMLLog("小区二手房页多项筛选检查", "房源价格为：**"+areaExpect+"**时，没有合适的面积筛选项", Report.FAIL, ps);
 		}
 		else{
 			areaToClick = bs.getText(Ajk_CommunitySale.FliterAreaByVal(matchTimeA), "要点这个筛选项");
-			bs.click(Ajk_CommunitySale.FliterAreaByVal(matchTimeA), "点击合适的价格筛选");
+			bs.click(Ajk_CommunitySale.FliterAreaByVal(matchTimeA), "点击合适的面积筛选");
 			//验证这一个页面下的房源的总价/面积是否都符合筛选条件
 			verifyPropsFliter(areaToClick);
 		}
@@ -380,12 +380,12 @@ public class AnjukeCommunityPropList {
         		if((thisprice > Low) && (thisprice <= High))
         		{
         			//right
-        			Report.writeHTMLLog("小区二手房页单项筛选检查", "第 "+i+" 套房源的价格在 "+fliter+" 范围内", Report.DONE, "");
+        			Report.writeHTMLLog("小区二手房页筛选检查", "第 "+i+" 套房源的价格在 "+fliter+" 范围内", Report.DONE, "");
         		}
         		else
         		{
         			//wrong
-        			Report.writeHTMLLog("小区二手房页单项筛选检查", "第 "+i+" 套房源的价格： "+thisprice+"不在 "+fliter+" 范围内", Report.FAIL, "");
+        			Report.writeHTMLLog("小区二手房页筛选检查", "第 "+i+" 套房源的价格： "+thisprice+"不在 "+fliter+" 范围内", Report.FAIL, "");
         		}
         	}
 
@@ -417,15 +417,15 @@ public class AnjukeCommunityPropList {
         	for(int i = 1;i <= propCount;i++)
         	{
         		thisarea = Double.parseDouble(bs.getText(Ajk_CommunitySale.PropArea(i), "获得第"+i+"套房源的面积").replace("m2", ""));
-        		if((thisarea > Low) && (thisarea <= High))
+        		if((thisarea >= Low) && (thisarea <= High))
         		{
         			//right
-        			Report.writeHTMLLog("小区二手房页单项筛选检查", "第 "+i+" 套房源的面积在 "+fliter+" 范围内", Report.DONE, "");
+        			Report.writeHTMLLog("小区二手房页筛选检查", "第 "+i+" 套房源的面积在 "+fliter+" 范围内", Report.DONE, "");
         		}
         		else
         		{
         			//wrong
-        			Report.writeHTMLLog("小区二手房页单项筛选检查", "第 "+i+" 套房源的面积： "+thisarea+"不在 "+fliter+" 范围内", Report.FAIL, "");
+        			Report.writeHTMLLog("小区二手房页筛选检查", "第 "+i+" 套房源的面积： "+thisarea+"不在 "+fliter+" 范围内", Report.FAIL, "");
         		}
         	}
     	}

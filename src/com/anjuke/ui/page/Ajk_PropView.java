@@ -57,6 +57,8 @@ public class Ajk_PropView {
 	public static final String BROKERNAME = "//div[@class='prop_new_line']";
 	/** 二手房单页 - 经纪人 公司门店 */
 	public static final String COMPANYNAME = "//div[@class='mycompany shop2c']";
+	/** 二手房单页 - 经纪人 公司门店链接 */
+	public static final String COMPANYNAMELINK = "//div[@class='mycompany shop2c']/p[1]/a";
 	/** 二手房单页 - 经纪人服务等级(钻/冠) */
 	public static final String Star_BrokerInfo = "//span[@id='fux']";
 	

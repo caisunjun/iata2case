@@ -29,4 +29,6 @@ public class Broker_Report {
 	/** 网络助手 - 每日房源发布数量：左起第7条（1天前） */
 	public static final String NEWPROP7 = "//*[@id='hook_newprop']/div[2]/div[2]/div/div[2]/ul[7]/dl/dt/p";
 	
+	/** 网络助手 - 每日房源推荐数量 */
+	public static final String NEWREC = "//*[@id='hook_recprop']/div[2]/div[2]/div/div[2]/ul[m]/dl/dt/p";
 }

@@ -134,18 +134,35 @@ public class AnjukePropView {
     	bs.close();
     	//回到房源单页
     	bs.switchWindo(2);
-    	//点经纪人头像下公司门店的链接
-    	bs.click(Ajk_PropView.COMPANYNAME, "点经纪人头像下公司门店的链接");
-    	bs.switchWindo(3);
-    	//获得经纪人公司门店
-    	bs.getElementCount(Ajk_AgencyStore.SIDESTORENAME);
-    	String agencyName = bs.getText(Ajk_AgencyStore.SIDESTORENAME, "获取经纪人店铺首页的经纪人名");
-    	agencyName = agencyName.replace("公司：", "");
-    	//验证经纪人公司门店名是否一致
-    	bs.assertEquals(brokerCompany,agencyName, "验证经纪人公司门店是否一致", "房源单页的经纪人公司门店和公司门店里的一致") ;
-    	bs.close();
-    	//回到房源单页
-    	bs.switchWindo(2);
+    	//点经纪人头像下公司门店的链接  
+    	if(bs.check(Ajk_PropView.COMPANYNAMELINK)){
+        	bs.click(Ajk_PropView.COMPANYNAMELINK, "点经纪人头像下公司门店的链接");
+        	bs.switchWindo(3);
+        	//获得经纪人公司门店
+        	bs.getElementCount(Ajk_AgencyStore.SIDESTORENAME);
+        	String agencyName = bs.getText(Ajk_AgencyStore.SIDESTORENAME, "获取经纪人店铺首页的经纪人名");
+        	agencyName = agencyName.replace("公司：", "");
+        	//验证经纪人公司门店名是否一致
+        	String brokerCom = brokerCompany.substring(0, brokerCompany.indexOf(" "));
+        	String brokerSto = brokerCompany.substring(brokerCompany.indexOf(" ")+1);
+        	String agencyCom = agencyName.substring(0, agencyName.indexOf(" "));
+        	String agencySto = agencyName.substring(agencyName.indexOf(" ")+1);
+        	if(agencyCom.contains(brokerCom) && agencySto.contains(brokerSto)){
+        		Report.writeHTMLLog("验证经纪人公司门店是否一致", "房源单页的经纪人公司门店和公司门店里的一致", Report.PASS, "");
+        	}
+        	else{
+        		Report.writeHTMLLog("验证经纪人公司门店是否一致", "房源单页的经纪人公司门店和公司门店里的不一致，预期值："+brokerCom+brokerSto+"|||实际值："+agencyCom+agencySto, Report.FAIL, "");
+        	}
+        	bs.close();
+        	//回到房源单页
+        	bs.switchWindo(2);
+    	}
+    	//如果不可点 说明这个人的公司没有开通网上门店（可能）
+    	else{
+    		String ps = bs.printScreen();
+    		Report.writeHTMLLog("经纪人公司门店检查", "这个人的公司："+brokerCompany+"，没有对应的网上门店", Report.WARNING, ps);
+    	}
+
     }
     
     private static void priceCountDiff(Browser bs)
