@@ -98,7 +98,7 @@ public class Ajk_PropView {
 
 
 	/** 二手房单页 - 我要评价 */
-	public static final String SALE_WOYAOPINGJIA = "//*[@id='evaluate_trigger']";
+	public static final String SALE_WOYAOPINGJIA = "//*[@id='dianping']";
 	/** 二手房单页 - 输入评论内容 */
 	public static final String SALE_CONTENT = "//*[@id='review-body']";
 	/** 二手房单页 - 提交评价 */
