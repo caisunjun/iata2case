@@ -73,8 +73,8 @@ public class AnjukeBrokerReport {
 		//如果config中casestatus的值不为testing或config未配置casestatus，用原先的账号登陆
 		else
 		{
-		    username = "test1";
-		    passwd = "111111";
+		    username = "cdtest";
+		    passwd = "anjukeqa";
 		}
 
     	PublicProcess.logIn(bs,username,passwd,false, 1);
@@ -115,8 +115,8 @@ public class AnjukeBrokerReport {
 	    	for(int i = 0;i<7;i++)
 	    	{
 	    		c = String.valueOf(i+1);
-	    		tmp = Broker_Report.NEWPROP.replaceAll("m",c);
-	    		newProp1to7.add(bs.getText(tmp, "获得左起第"+(i+1)+"条（"+(7-i)+"天前）房源发布数量"));
+	    		tmp = Broker_Report.NEWREC.replaceAll("m",c);
+	    		newProp1to7.add(bs.getText(tmp, "获得左起第"+(i+1)+"条（"+(7-i)+"天前）房源推荐数量"));
 	    		//如果某一天的新增房源数为0，则计数+1
 	    		if(newProp1to7.get(i).equals("0套"))
 	    		{zerotao++;}
@@ -124,11 +124,11 @@ public class AnjukeBrokerReport {
 	    	//计数达到7时，高概率会有数据问题，请查看账号当前网络助手的情况
 	    	if(zerotao < 7)
 	    	{
-	    		Report.writeHTMLLog("新发房源数据7天不全为0，数据正常", "新发房源数据，7天内为0的次数: " + zerotao, Report.PASS, "");
+	    		Report.writeHTMLLog("房源推荐数量7天不全为0，数据正常", "房源推荐数量，7天内为0的次数: " + zerotao, Report.PASS, "");
 	    	}
 	    	else if(zerotao > 6)
 	    	{
-	    		Report.writeHTMLLog("···难道7天内这个账号都没有发过房源么···跪求看下这个账号的网络助手数据吧", "新发房源数据，7天内为0的次数: " + zerotao, Report.FAIL, "");
+	    		Report.writeHTMLLog("···难道7天内这个账号都没有推荐过房源么···跪求看下这个账号的网络助手数据吧", "房源推荐数量，7天内为0的次数: " + zerotao, Report.FAIL, "");
 	    	}
     	}
     }
