@@ -37,7 +37,6 @@
 	<classpathentry kind="lib" path="lib/xercesImpl-2.9.1.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis-1.3.04.jar"/>
 	<classpathentry kind="lib" path="lib/selenium-java-2.21.0.jar" sourcepath="lib/selenium-java-2.21.0-srcs.jar"/>
-	<classpathentry kind="lib" path="lib/iata1.1.jar" sourcepath="lib/iata1.1-srcs.jar"/>
 	<classpathentry kind="lib" path="lib/iata1.1-srcs.jar"/>
 	<classpathentry kind="lib" path="lib/apache-solr-analysis-extras-3.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/apache-solr-cell-3.4.0.jar"/>
@@ -48,5 +47,6 @@
 	<classpathentry kind="lib" path="lib/apache-solr-solrj-3.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/apache-solr-test-framework-3.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/apache-solr-uima-3.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/iata1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
