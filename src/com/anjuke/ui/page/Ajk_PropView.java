@@ -42,7 +42,7 @@ public class Ajk_PropView {
 	public static final String COMMNAME = "//a[@id='text_for_school_1']";
 	
 	/** 二手房单页 - 手机号 */
-	public static final String BROKERTEL = "//div[@class='number']/b";
+	public static final String BROKERTEL = "//*[@id='broker_phone_number']";
 	/** 二手房单页 - 手机号下方服务等级(钻/冠) */
 	public static final String Star_PropInfo = "//p[@id='fwdj_propinfo']/span[2]";
 	
@@ -98,13 +98,16 @@ public class Ajk_PropView {
 	/** 二手房单页 - 门店 */
 	public static final String SALE_BROKERSTORE = "//*[@id='navigation-propview']/div/div/div[3]/p[2]/a";
 
-
+	/** 二手房单页 - 用户评价 */
+	public static final String SALE_USEREVALUATION = "//*[@id='extra-propview']/ul/li[5]/a";
 	/** 二手房单页 - 我要评价 */
 	public static final String SALE_WOYAOPINGJIA = "//*[@id='dianping']";
 	/** 二手房单页 - 输入评论内容 */
 	public static final String SALE_CONTENT = "//*[@id='review-body']";
 	/** 二手房单页 - 提交评价 */
 	public static final String SALE_SUBMITCONTENT = "//*[@id='next']";
+	/** 二手房单页 - 未登录用户身份登录判断标识 */
+	public static final String SALE_ANONYMOUSUSER = "//*[@id='ajax_nologin_apf_id_7']/li[6]/a";	
 	/** 二手房单页 - 经纪人身份登录判断标识 */
 	public static final String SALE_BROKERLOGINFLAG = "//*[@id='top_broker_panel']/li[4]/a";
 	/** 二手房单页 - 经纪人提交评价的提示信息 */
