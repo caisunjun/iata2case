@@ -148,7 +148,6 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 				}
 			}
 		}			
-		System.out.println(m);
 		
 		//获取小区单页竞价房源总数
 		bs.get("http://shanghai.anjuke.com/community/props/sale/1550");
@@ -186,7 +185,11 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 				m = m+1;
 			}
 		}
-		bs.assertIntEquals(3, m, "同小区同价格段，展示竞价房源", "3套");
+		if(m<=3){
+			Report.writeHTMLLog("同小区同价格段，展示竞价房源",Integer.toString(m), Report.PASS, "");
+		}else{
+			Report.writeHTMLLog("同小区同价格段，展示竞价房源", Integer.toString(m), Report.FAIL, "");
+		}
 	}
 
 	//检查上海-搜索列表页-搜索结构词，展示竞价房源：15套
