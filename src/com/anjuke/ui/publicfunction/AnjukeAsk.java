@@ -461,8 +461,7 @@ public class AnjukeAsk {
 		driver.get("http://" + city + ".anjuke.com/ask");
 	}
 
-	/**
-	 * 问答首页--未登录状态下6个TAB数据检测
+	/**问答首页--未登录状态下6个TAB数据检测
 	 * 
 	 * @param tab:
 	 *            0表示常见问题TAB下列表， 
@@ -516,7 +515,6 @@ public class AnjukeAsk {
 			driver.assertNonEquals(null, QuestionData, "检测第" + (tab+1) + "个TAB"+tabName+"下每条数据是否为空", "检测第" + (tab+1) + "个TAB下每条数据是否为空");
 			driver.assertNonEquals(null, QuestionExpertName, "检测第" + (tab+1) + "个TAB"+tabName+"下专家姓名是否为空", "检测第" + (tab+1) + "个TAB下专家姓名是否为空");
 		}
-
 	}
 
 	/**
