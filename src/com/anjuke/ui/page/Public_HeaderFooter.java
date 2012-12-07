@@ -12,6 +12,8 @@ public class Public_HeaderFooter {
 	/** 公用头部信息 **/
 	
 	/** 头部 - 普通用户登录后 - 用户名 */
+	public static final String Login = "//ul[@id='ajax_nologin_apf_id_7']/li[6]/a";
+	/** 头部 - 普通用户登录后 - 用户名 */
 	public static final String HEADER_UserName = "//li[@class='username_boxer']/a[@class='username']";
 	/** 头部 - 普通用户登录后 - 退出 */
 	public static final String HEADER_UserLogOut = "//ul[@id='toplogin_cont_userlogin']/li[5]/a";
@@ -22,9 +24,9 @@ public class Public_HeaderFooter {
 	public static final String HEADER_BROKERLINK = "//li[@class='broker_boxer']/a";
 	
 	/** 头部 - 搜索 - 搜索输入框*/
-	public static final String S_BOX = "//input[@id='keyword_apf_id_9']" ;//"id^keyword_apf_id_9";
+	public static final String S_BOX = "//input[@id='keyword_apf_id_10']" ;//"id^keyword_apf_id_9";
 	/** 头部 - 搜索 - 搜索按钮*/
-	public static final String S_BTN = "id^sbtn2_apf_id_9";
+	public static final String S_BTN = "id^sbtn2_apf_id_10";
 	
 
 }

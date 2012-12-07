@@ -9,6 +9,6 @@ package com.anjuke.ui.page;
 public class Ajk_AskSearch {
 	
 	/** 问答搜索结果页 - 搜索输入框 */
-	public static final String QuestionInput = "//*[@id='keyword_apf_id_9']";
+	public static final String QuestionInput = "//*[@id='keyword_apf_id_10']";
 	
 }
