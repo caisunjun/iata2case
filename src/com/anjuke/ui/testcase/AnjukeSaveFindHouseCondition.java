@@ -62,21 +62,21 @@ public class AnjukeSaveFindHouseCondition{
 		//访问二手房列表
 		driver.click(Init.G_objMap.get("public_link_sale"), "访问二手房列表");
 		//选择区域
-		driver.check(Init.G_objMap.get("anjuke_sale_condition_range"),30);
-		driver.click(Init.G_objMap.get("anjuke_sale_condition_range"), "选择区域");
+		driver.check("//div[@id='apf_id_14_areacontainer']/a[@title='浦东']",30);
+		driver.click("//div[@id='apf_id_14_areacontainer']/a[@title='浦东']", "选择区域");
 		condition.put("range", "浦东");
 		//等待加载完毕
 		driver.check("//form[@id='propcondform']/div/span[2]");
 		//选择售价
-		driver.click(Init.G_objMap.get("anjuke_sale_condition_price"), "选择价格");
+		driver.click("//div[@class='containerprice']/div/a[4]", "选择价格");
 		condition.put("price", "100-120万元");
 		driver.check("//form[@id='propcondform']/div/span[3]");
 		//选择面积
-		driver.click(Init.G_objMap.get("anjuke_sale_condition_area"), "选择面积");
+		driver.click("//a[@title='90-110平米']", "选择面积");
 		condition.put("area", "90-110平米");
 		driver.check("//form[@id='propcondform']/div/span[4]");
 		//选择房型
-		driver.click(Init.G_objMap.get("anjuke_sale_condition_room"), "选择房型");
+		driver.click("//*[@id='panel_apf_id_14']/div[5]/div[2]/a[3]", "选择房型");
 		condition.put("room", "三室");
 		driver.check("//form[@id='propcondform']/div/span[5]");
 		//选择房屋类型
@@ -97,24 +97,24 @@ public class AnjukeSaveFindHouseCondition{
 		//点击保存找房条件按钮
 		driver.click(Init.G_objMap.get("ajk_salelist_search_button_saveCon"), "保存找房条件");
 		//判断是否保存成功
-		if(driver.check(Init.G_objMap.get("ajk_salelist_search_popUp_conform"))){
+		if(driver.check("//div[@id='search_condition_box_apf_id_11']")){
 			//获取返回的提示信息
 			String returnmess = getMessage();
 			//找房条件未收藏过
 			if(returnmess.equals("成功保存了找房条件！")){
 				verifyCondition();
 			}else if(returnmess.equals("您已经保存过这个条件啦！")){
-				driver.click(Init.G_objMap.get("ajk_salelist_search_link_goLink"), "去订阅条件列表");
+				driver.click("//a[@id='search_condition_tip_apf_id_11']", "去订阅条件列表");
 				driver.switchWindo(2);
 				deleteAllCondition();
 				driver.close();
 				driver.switchWindo(1);
-				driver.click(Init.G_objMap.get("ajk_salelist_search_button_continue"), "继续找房");
+				driver.click("//dd[@id='search_condition_close_apf_id_11']/a", "继续找房");
 				//再次保存找房条件
 				driver.click(Init.G_objMap.get("ajk_salelist_search_button_saveCon"), "保存找房条件");
 				
 				
-				if(driver.check(Init.G_objMap.get("ajk_salelist_search_popUp_conform"))){
+				if(driver.check("//div[@id='search_condition_box_apf_id_11']")){
 					if(!getMessage().equals("成功保存了找房条件！")){
 						for(int i = 0; i < 5; i ++){
 							try {
@@ -183,7 +183,7 @@ public class AnjukeSaveFindHouseCondition{
 		//用于判断是否存在相同的多条数据
 		int equalCount=0;
 		//订阅管理->找房条件
-		driver.click(Init.G_objMap.get("ajk_salelist_search_link_goLink"), "订阅管理->找房条件");
+		driver.click("//a[@id='search_condition_tip_apf_id_11']", "订阅管理->找房条件");
 		//跳转到新窗口
 		driver.switchWindo(2);
 		//判断订阅管理数据是否为空
@@ -233,14 +233,14 @@ public class AnjukeSaveFindHouseCondition{
 	}
 	//获取提示信息
 	private String getMessage(){
-		String message = driver.getText(Init.G_objMap.get("ajk_salelist_search_text_returnMsg"), "获取提示信息");
+		String message = driver.getText("//strong[@id='search_condition_msg_apf_id_11']", "获取提示信息");
 		while(message.equals("Waiting ...")){
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			message = driver.getText(Init.G_objMap.get("ajk_salelist_search_text_returnMsg"), "获取提示信息");
+			message = driver.getText("//strong[@id='search_condition_msg_apf_id_11']", "获取提示信息");
 		}
 		return message;
 	}

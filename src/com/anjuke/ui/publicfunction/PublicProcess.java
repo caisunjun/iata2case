@@ -1,7 +1,12 @@
 package com.anjuke.ui.publicfunction;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.anjuke.ui.page.Broker_PropertynewRentStep;
@@ -168,16 +173,16 @@ public class PublicProcess {
 	public static void dologin(Browser driver, String name, String pass) {
 		driver.get(homeUrl);
 		//打开页面后，这里经常找不到登陆的元素--------------------------2012.7.30
-		if(driver.check(Init.G_objMap.get("anjuke_click_login")))
+		if(driver.check(Public_HeaderFooter.Login))
 		{
-			driver.click(Init.G_objMap.get("anjuke_click_login"), "点击登录按钮");
+			driver.click(Public_HeaderFooter.Login, "点击登录按钮");
 		}
 		else
 		{
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("从首页登陆", "又没有找到登陆按钮，尝试刷新页面", Report.DONE,ps);
 			driver.refresh();
-			driver.click(Init.G_objMap.get("anjuke_click_login"), "点击登录按钮");
+			driver.click(Public_HeaderFooter.Login, "点击登录按钮");
 		}
 		
 		driver.type(Init.G_objMap.get("anjuke_login_userName"), name, "用户名");
@@ -335,5 +340,70 @@ public class PublicProcess {
 		}
 
 	}
+	
+	/**
+     * 根据提供的文件路径、文件名保存对应的文件内容
+     * @param filePath 保存文件路径
+     * @param content 需要保存的文件内容
+     * @param fileName 需要保存的文件名称
+     */
+    final public static void saveFile(String filePath, String fileName, String content) {
+        FileOutputStream outFile = null;
+        OutputStreamWriter osw = null;
+
+        filePathExists(filePath);
+
+        try {
+            outFile = new FileOutputStream(filePath + fileName);
+            osw = new OutputStreamWriter(outFile, "UTF-8");
+            osw.write(content);
+            osw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                osw.close();
+                outFile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    final public static void filePathExists(String path) {
+        File f = null;
+
+        f = new File(path);
+        if (f.exists() == false) {
+            f.mkdirs();// 没有存在就在建立一个
+        }
+    }
+	/**
+	 * 把cookie内容保存到文件中
+	 * 生成的文件地址见config中的cookiePath
+	 */
+    final public static void saveCookieToFile(Browser driver){
+    	driver.refresh();
+    	String cookieContent = driver.getCookies("","");
+    	saveFile(Init.G_config.get("cookiePath"), "cookie"+getTraceInfo()+".txt", cookieContent);
+    }
+    
+    
+    public static ArrayList<String> getTraceInfo(){
+        StackTraceElement[] stacks = new Throwable().getStackTrace();   
+        int stacksLen = stacks.length;   
+       
+        ArrayList<String> caseNameList = new ArrayList<String>();
+        for(int i=1;i<stacksLen;i++){
+        	if(stacks[i].getMethodName().toString().equals("invoke0")){
+        		int index = stacks[i-1].getClassName().toString().lastIndexOf(".");
+        		String className = stacks[i-1].getClassName().toString().substring(index+1);             
+        		caseNameList.add(className);
+        		caseNameList.add(stacks[i-1].getMethodName().toString());
+        	}
+        }
+        return caseNameList;
+	}
+
 
 }
