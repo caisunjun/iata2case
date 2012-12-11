@@ -24,9 +24,9 @@ public class Public_HeaderFooter {
 	public static final String HEADER_BROKERLINK = "//li[@class='broker_boxer']/a";
 	
 	/** 头部 - 搜索 - 搜索输入框*/
-	public static final String S_BOX = "//input[@id='keyword_apf_id_10']" ;//"id^keyword_apf_id_9";
+	public static final String S_BOX = "//input[@id='keyword_apf_id_9']" ;//"id^keyword_apf_id_9";
 	/** 头部 - 搜索 - 搜索按钮*/
-	public static final String S_BTN = "id^sbtn2_apf_id_10";
+	public static final String S_BTN = "id^sbtn2_apf_id_9";
 	
 
 }

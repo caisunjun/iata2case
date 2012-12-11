@@ -108,23 +108,28 @@ public class AnjukeBrokerSalePricingPPC {
 		driver.type("name^password", "anjukeqa", "输入密码");
 		driver.click("name^submit", "登录");
 		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
-//		login();
-		driver.click("//i[@class='icon_01']", "从经纪人后台首页进入定价推广页面");
-//		initPlanList();
-		CreatePlan();
-		driver.click("//h3[@class='ppch ppch03']/a", "进入房源库");
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException exception) {
-			exception.getStackTrace();
-		}
-		releaseSale();
-		SelProp();
-		String tempEle = driver.getAttribute("//label[contains(.,'"+ PlanName +"')]", "for");
-		driver.click("//input[@id='"+  tempEle + "']", "选择一个定价计划");
-		driver.click("//button[@class='btn-sure']", "点击提交定价计划");
-		driver.close();
 		
+		
+		
+		
+		
+//		login();
+//		driver.click("//i[@class='icon_01']", "从经纪人后台首页进入定价推广页面");
+//		initPlanList();
+//		CreatePlan();
+//		driver.click("//h3[@class='ppch ppch03']/a", "进入房源库");
+//		try {
+//			Thread.sleep(3000);
+//		} catch (InterruptedException exception) {
+//			exception.getStackTrace();
+//		}
+//		releaseSale();
+//		SelProp();
+//		String tempEle = driver.getAttribute("//label[contains(.,'"+ PlanName +"')]", "for");
+//		driver.click("//input[@id='"+  tempEle + "']", "选择一个定价计划");
+//		driver.click("//button[@class='btn-sure']", "点击提交定价计划");
+//		driver.close();
+//		
 	}
 	
 	//@Test
