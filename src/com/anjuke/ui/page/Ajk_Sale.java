@@ -10,9 +10,9 @@ public class Ajk_Sale {
 	
 	/*顶部搜索栏*/
 	/** 二手房列表 - 顶部搜索框 */
-	public static final String KwInput = "//input[@id='keyword_apf_id_10']";
+	public static final String KwInput = "//input[@id='keyword_apf_id_9']";
 	/** 二手房列表 - 顶部搜索框 */
-	public static final String KwSubmit = "//input[@id='sbtn2_apf_id_10']";
+	public static final String KwSubmit = "//input[@id='sbtn2_apf_id_9']";
 	
 	/*筛选区域*/
 	/** 二手房列表 - 筛选条件 - 区域
