@@ -6,6 +6,8 @@ import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
+import com.anjuke.ui.page.Broker_Checked;
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.BrokerSaleOperating;
 import com.anjuke.ui.publicfunction.BrokerSaleOperatingPPC;
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -84,6 +86,8 @@ public class AnjukeBrokerSaleReleasePPC {
 		{
 			saleInfo.setUserName(PublicProcess.logIn(driver, "1349689747de9", "anjukeqa",false, 1));
 		}
+		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
+		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
 		BrokerSaleOperatingPPC.releaseSale(driver, saleInfo, needPic);
 		
 		driver.close();

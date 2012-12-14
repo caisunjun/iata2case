@@ -27,11 +27,9 @@ public class BrokerSaleOperatingPPC {
 	//出售房源发布的方法==============================================================================================
 	public static void releaseSale(Browser driver,AnjukeSaleInfo saleInfo,boolean needPic)
 	{
-		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
-		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
 		//获得已发布房源数和剩余发布数
-		String propRest = driver.getText(Broker_PPC_PropmanageSale.PropRest, "还可发布房源数");
 		
+		String propRest = driver.getText(Broker_PPC_PropmanageSale.PropRest, "还可发布房源数");
 		if (propRest.equals("0")) {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("房源库", "已有房源达上限，剩余发布数为："+propRest,Report.FAIL, ps);
@@ -188,8 +186,6 @@ public class BrokerSaleOperatingPPC {
 	//出售房源编辑的方法==============================================================================================
 	public static void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic) throws InterruptedException
 	{
-		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
-		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
 		if(!driver.check("id^Proname0")){
 			releaseSale(driver,updateInfo,needPic);
 		}

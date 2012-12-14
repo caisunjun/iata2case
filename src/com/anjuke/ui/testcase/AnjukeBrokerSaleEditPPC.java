@@ -102,7 +102,8 @@ public class AnjukeBrokerSaleEditPPC {
 		{
 			saleInfo.setUserName(PublicProcess.logIn(driver, "1349689747de9", "anjukeqa",false, 1));
 		}
-		
+		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
+		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
 		BrokerSaleOperatingPPC.editSale(driver, updateInfo, needPic);
 
 	}

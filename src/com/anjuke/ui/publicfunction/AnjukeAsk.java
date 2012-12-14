@@ -461,48 +461,60 @@ public class AnjukeAsk {
 		driver.get("http://" + city + ".anjuke.com/ask");
 	}
 
-	/**
-	 * 问答首页--未登录状态下5个TAB数据检测
+	/**问答首页--未登录状态下6个TAB数据检测
 	 * 
 	 * @param tab:
-	 *            0表示常见问题TAB下列表， 1表示房产问题TAB下列表， 2表示法律问题TAB下列表， 3表示贷款问题TAB下列表，
-	 *            4表示装修风水TAB下列表。
+	 *            0表示常见问题TAB下列表， 
+	 *            1表示房产问题TAB下列表， 
+	 *            2表示法律问题TAB下列表， 
+	 *            3表示新房问题TAB下列表，
+	 *            4表示贷款问题TAB下列表，
+	 *            5表示装修风水TAB下列表，。
 	 */
 	public static void checkFiveTabData(Browser driver, int tab) {
 		String fiveTabElement[] = { Ajk_Ask.NomalQuestion,
-				Ajk_Ask.EstateQuestion, Ajk_Ask.LawQuestion,
-				Ajk_Ask.LoanQuestion, Ajk_Ask.FsQuestion,
+				Ajk_Ask.EstateQuestion, 
+				Ajk_Ask.NewFangQuestion,
+				Ajk_Ask.LawQuestion,
+				Ajk_Ask.LoanQuestion, 
+				Ajk_Ask.FsQuestion
+				
 
 		};
 		String fiveTabElementList[] = { Ajk_Ask.NomalQuestionList,
-				Ajk_Ask.EstateQuestionList, Ajk_Ask.LawQuestionList,
-				Ajk_Ask.LoanQuestionList, Ajk_Ask.FsQuestionList };
+				Ajk_Ask.EstateQuestionList,
+				Ajk_Ask.NewfangQuestionList,
+				Ajk_Ask.LawQuestionList,
+				Ajk_Ask.LoanQuestionList, 
+				Ajk_Ask.FsQuestionList 
+				
+		};
 
 		// 切换到指定TAB
 		driver.moveToElement(fiveTabElement[tab]);
+		String tabName = driver.getText(fiveTabElement[tab], "获取当前tab的名称");
 
 		/*
-		 * try { Thread.sleep(1000); } catch (InterruptedException e) { // TODO
-		 * Auto-generated catch block e.printStackTrace(); }
+		 * try { 
+		 * Thread.sleep(1000); 
+		 * } 
+		 * catch (InterruptedException e) { 
+		 * // TODO Auto-generated catch block 
+		 * e.printStackTrace(); 
+		 * }
 		 */
 		// 获取指定TAB下各数据
 		int n1 = driver.getElementCount(fiveTabElementList[tab]);
-		System.out.println("第" + (tab + 1) + "个TAB列表一共展示" + n1 + "条数据");
+		System.out.println("第" + (tab + 1) + "个TAB"+tabName+"列表一共展示" + n1 + "条数据");
 
 		for (int i = 1; i <= n1; i++) {
-			String QuestionData = driver.getText(fiveTabElementList[tab] + "["
-					+ i + "]", "获取第" + tab + "个TAB下每条数据的文本");
-			String QuestionExpertName = driver.getText(fiveTabElementList[tab]
-					+ "[" + i + "]/div[1]/a", "获取第" + tab
-					+ "个TAB下每条数据对应专家姓名的文本");
+			String QuestionData = driver.getText(fiveTabElementList[tab] + "[" + i + "]", "获取第" + (tab+1) + "个TAB下每条数据的文本");
+			String QuestionExpertName = driver.getText(fiveTabElementList[tab]+ "[" + i + "]/div[1]/a", "获取第" + (tab+1) + "个TAB下每条数据对应专家姓名的文本");
 			System.out.println("每条数据的文本内容如下：" + QuestionData);
 			System.out.println("每条数据下对应专家的姓名：" + QuestionExpertName + "\n");
-			driver.assertNonEquals(null, QuestionData, "检测第" + tab
-					+ "个TAB下每条数据是否为空", "检测第" + tab + "个TAB下每条数据是否为空");
-			driver.assertNonEquals(null, QuestionExpertName, "检测第" + tab
-					+ "个TAB下专家姓名是否为空", "检测第" + tab + "个TAB下专家姓名是否为空");
+			driver.assertNonEquals(null, QuestionData, "检测第" + (tab+1) + "个TAB"+tabName+"下每条数据是否为空", "检测第" + (tab+1) + "个TAB下每条数据是否为空");
+			driver.assertNonEquals(null, QuestionExpertName, "检测第" + (tab+1) + "个TAB"+tabName+"下专家姓名是否为空", "检测第" + (tab+1) + "个TAB下专家姓名是否为空");
 		}
-
 	}
 
 	/**

@@ -20,6 +20,7 @@ import com.anjuke.ui.page.*;
  */
 
 
+@Test
 public class AnjukeTycoonListAsk {
     Browser bs = null;
 
@@ -32,7 +33,6 @@ public class AnjukeTycoonListAsk {
         bs.quit();
         bs = null;
     }
-    @Test
     public void testBrokerListAsk(){
     	String qnum="";
     	String sqnum="";
@@ -46,16 +46,15 @@ public class AnjukeTycoonListAsk {
     	bs.click(Ajk_Tycoon.ask, "点击筛选是否有回答问题复选框");
     	//筛选是否有回答问题
     	
-    
-    	for(i=3;i>=0;i--)
+    	for(i=3;qnum=="";i--)
     	{
     		qnumavailable=bs.check(Ajk_Tycoon.getQuestionNum(i));
     		if(qnumavailable)
-        	{
+    		{
     			qnum=bs.getText(Ajk_Tycoon.getQuestionNum(i), "获取经纪人列表筛选出的经纪人问题回答数");
-           		qnum=qnum.replace("( ", "");
-            	qnum=qnum.replace(" )", "");        		
-        	}
+    			qnum=qnum.replace("( ", "");
+    			qnum=qnum.replace(" )", "");        		
+    		}
     	}
     	//获取经纪人列表问题回答数，如果无二手房或租房标签，则往前类推取值
     		

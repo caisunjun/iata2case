@@ -85,7 +85,11 @@ public class AnjukeCommunityPropListHaopanCheck_Shanghai {
 				m = m+1;
 			}
 		}
-		bs.assertIntEquals(3, m, "同小区同价格段，展示竞价房源", "3套");
+		if(m<=3){
+			Report.writeHTMLLog("同小区同价格段，展示竞价房源",Integer.toString(m), Report.PASS, "");
+		}else{
+			Report.writeHTMLLog("同小区同价格段，展示竞价房源", Integer.toString(m), Report.FAIL, "");
+		}
 	}
 
 	//上海-小区二手房-筛选其他项，展示所有符合条件的竞价房源	
@@ -95,9 +99,7 @@ public class AnjukeCommunityPropListHaopanCheck_Shanghai {
 		for(int i=1;i<=20;i++){
 			String tmp1 = bs.getAttribute("//*[@id='prop_name_qt_"+i+"']","href");
 			String tmp2 = bs.getText(Ajk_CommunitySale.PropHouse(i), "获取房源的房型"); 
-			System.out.println(tmp2);
 			if(tmp1.endsWith("spread=commprop")&tmp2.startsWith("2")){
-				System.out.println(tmp1.endsWith("spread=commprop")&tmp2.startsWith("2"));
 				m = m+1;
 			}
 		}
