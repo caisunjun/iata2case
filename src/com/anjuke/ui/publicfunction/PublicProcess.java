@@ -382,10 +382,10 @@ public class PublicProcess {
 	 * 把cookie内容保存到文件中
 	 * 生成的文件地址见config中的cookiePath
 	 */
-    final public static void saveCookieToFile(Browser driver){
+    /*final public static void saveCookieToFile(Browser driver){
     	driver.refresh();
     	String cookieContent = driver.getCookies("","");
-    	saveFile(Init.G_config.get("cookiePath"), "cookie"+getTraceInfo()+".txt", cookieContent);
+    	saveFile(Init.G_config.get("cookiePath"), "cookie"+".txt", cookieContent);
     }
     
     
@@ -403,7 +403,7 @@ public class PublicProcess {
         	}
         }
         return caseNameList;
-	}
+	}*/
 
 
 }
