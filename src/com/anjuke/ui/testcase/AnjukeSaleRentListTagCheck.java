@@ -42,17 +42,17 @@ public class AnjukeSaleRentListTagCheck {
 		checkTag(driver,"新推","sale");
 		checkTag(driver,"多图","sale");
     }
-    @Test
-    public void testRentalFliterTagCheck(){
-		driver.get("http://shanghai.anjuke.com/rental/");
-		driver.click(ass.getLocater("徐汇"), "点击浦东区域的筛选条件");
-		driver.click(ass.getLocater("徐家汇"), "点击碧云板块的筛选条件");
-		driver.click(ass.getLocater("三室"), "点击3室的筛选条件");
-		
-		checkTag(driver,"急售","rent");
-		checkTag(driver,"新推","rent");
-		checkTag(driver,"多图","rent");
-    }
+//    @Test
+//    public void testRentalFliterTagCheck(){
+//		driver.get("http://shanghai.anjuke.com/rental/");
+//		driver.click(ass.getLocater("徐汇"), "点击浦东区域的筛选条件");
+//		driver.click(ass.getLocater("徐家汇"), "点击碧云板块的筛选条件");
+//		driver.click(ass.getLocater("三室"), "点击3室的筛选条件");
+//		
+//		checkTag(driver,"急售","rent");
+//		checkTag(driver,"新推","rent");
+//		checkTag(driver,"多图","rent");
+//    }
     
     @Test
     public void testSaleKeywordTagCheck(){

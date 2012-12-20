@@ -20,6 +20,10 @@
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerCancelRecommendHouse"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecommendHouse"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerIntegral"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerUniversity"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleReleasePPC"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEditPPC"></class>
 		</classes>
 	</test>
 </suite>
