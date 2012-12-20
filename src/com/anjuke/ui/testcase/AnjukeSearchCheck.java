@@ -52,7 +52,7 @@ public class AnjukeSearchCheck {
         // 二手房搜索检查
         check("sale");
         // 租房搜索检查
-        check("rental");
+//        check("rental");
         // 小区搜索检查
         check("community");
         // 经纪人搜索检查
