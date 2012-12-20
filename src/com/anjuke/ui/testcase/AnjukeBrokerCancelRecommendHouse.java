@@ -216,13 +216,26 @@ public class AnjukeBrokerCancelRecommendHouse {
 		bs.switchWindo(2);
 		bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_comm_name"), 3);
 
-		if (communityName.equals(bs.getText("html/body/div[3]/div[2]/div[1]/div/div[2]/ul/li[9]/a[1]", "获取打开房源页面的小区名"))
-				&& title.equals(bs.getText("//h1[@class='title f16 txt_c']", "获取打开房源页面的标题"))) {
-			Report.writeHTMLLog("取消推荐房源", "正确匹配房源小区名和房源标题", Report.PASS, "");
-		} else {
-			String ps = bs.printScreen();
-			Report.writeHTMLLog("取消推荐房源", "未能匹配房源小区名和房源标题", Report.FAIL, ps);
+		
+		if (!bool) {
+			if (communityName.equals(bs.getText(Init.G_objMap.get("anjuke_broke_manage_sale_comm_name"), "获取打开房源页面的小区名"))
+					&& title.equals(bs.getText(Init.G_objMap.get("anjuke_broke_manage_sale_house_info_title"), "获取打开房源页面的标题"))) {
+				Report.writeHTMLLog("取消推荐房源", "正确匹配房源小区名和房源标题", Report.PASS, "");
+			} else {
+				String ps = bs.printScreen();
+				Report.writeHTMLLog("取消推荐房源", "未能匹配房源小区名和房源标题", Report.FAIL, ps);
+			}
 		}
+		else{
+			if (communityName.equals(bs.getText("html/body/div[3]/div[2]/div[1]/div/div[2]/ul/li[9]/a[1]", "获取打开房源页面的小区名"))
+					&& title.equals(bs.getText("//h1[@class='title f16 txt_c']", "获取打开房源页面的标题"))) {
+				Report.writeHTMLLog("取消推荐房源", "正确匹配房源小区名和房源标题", Report.PASS, "");
+			} else {
+				String ps = bs.printScreen();
+				Report.writeHTMLLog("取消推荐房源", "未能匹配房源小区名和房源标题", Report.FAIL, ps);
+			}
+		}
+		
 		bs.close();
 		bs.switchWindo(1);
 	}
