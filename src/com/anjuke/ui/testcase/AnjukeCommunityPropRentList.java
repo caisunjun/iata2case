@@ -30,7 +30,7 @@ public class AnjukeCommunityPropRentList {
         bs.quit();
         bs = null;
     }
-    @Test
+    @Test(groups = {"unstable"})
     public void testCommunityRentListCheck(){
     	bs.get("http://shanghai.anjuke.com/");
     	if(!bs.check(Ajk_HomePage.COMMTAB))

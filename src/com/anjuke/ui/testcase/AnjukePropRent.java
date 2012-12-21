@@ -36,7 +36,7 @@ public class AnjukePropRent {
 		System.out.println("***AnjukePropRent is done***");
 	}
     
-    @Test
+    @Test(groups = {"unstable"})
     public void testPropView(){
     	String brokerName = "";
     	String brokerCompany = "";

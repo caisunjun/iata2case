@@ -41,7 +41,7 @@ public class AnjukeRentSearchResultCheck {
 		System.out.println("***AnjukeRentSearchResultCheck is done***");
 	}
 
-	@Test
+	@Test(groups = {"unstable"})
 	public void filterSearch() {
 		driver.get("http://shanghai.anjuke.com/rental/");
 		
