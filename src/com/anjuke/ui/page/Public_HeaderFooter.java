@@ -11,10 +11,10 @@ public class Public_HeaderFooter {
 	
 	/** 公用头部信息 **/
 	
+	/** 头部 - 未登陆时 - 登陆链接 */
+	public static final String Login = "//div[@class='login_nav']/ul/li[6]/a";
 	/** 头部 - 普通用户登录后 - 用户名 */
-	public static final String Login = "//ul[@id='ajax_nologin_apf_id_7']/li[6]/a";
-	/** 头部 - 普通用户登录后 - 用户名 */
-	public static final String HEADER_UserName = "//li[@class='username_boxer']/a[@class='username']";
+	public static final String HEADER_UserName = "//a[@class='username']";
 	/** 头部 - 普通用户登录后 - 退出 */
 	public static final String HEADER_UserLogOut = "//ul[@id='toplogin_cont_userlogin']/li[5]/a";
 	/** 头部 - 经纪人登录后 - 用户名 */

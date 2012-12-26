@@ -30,7 +30,7 @@ public class Broker_gradeexchanges {
      */
     public static final String CHANGELIST = "id^taglist";
 
-    public static final String POPUP = "//li[@id='confirm1']/div/p[3]/em/a";
+    public static final String POPUP = "//li[@id='confirm3']/div/p[3]/em/a";
 
 
 
