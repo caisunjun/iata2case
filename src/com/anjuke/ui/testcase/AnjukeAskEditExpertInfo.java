@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.anjuke.ui.page.Ajk_Ask;
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.AnjukeAsk;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
@@ -38,9 +39,9 @@ public class AnjukeAskEditExpertInfo {
 	@Test
 	public void EditExpertInfo(){
 		//外部专家登录
-		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);		
+		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
 		// 判断用户是否登录成功
-		driver.assertEquals("rmfans2000", PublicProcess.logIn(driver, "rmfans2000", "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
+		driver.assertEquals("rmfans2000", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		driver.get("http://shanghai.anjuke.com/ask");
 		driver.click(Ajk_Ask.ExpertPersonal, "从问答首页进入专家个人主页");
 		driver.switchWindo(2);
@@ -48,6 +49,4 @@ public class AnjukeAskEditExpertInfo {
 		AnjukeAsk.EditExternalExpertInfo(driver, "刘先生", "13918909652", "专家机械化制造工厂磊", "中华人民共和国江苏省太仓市大在", "13918909652", "我是专业的贷款律师", imgPath);
 		
 	}
-	
-	
 }

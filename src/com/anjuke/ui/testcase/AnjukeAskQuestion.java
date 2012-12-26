@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.AnjukeAsk;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
@@ -55,7 +56,7 @@ public class AnjukeAskQuestion {
 		PublicProcess.logIn(driver, loginName, "123456", false, 0);
 				
 		// 判断用户是否登录成功
-		driver.assertEquals(loginName, PublicProcess.logIn(driver, loginName, "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
+		driver.assertEquals(loginName, driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		
 		//提交问题，随机指定某类专家并提出相关类型的问题
 		driver.get("http://shanghai.anjuke.com/ask/new/");
