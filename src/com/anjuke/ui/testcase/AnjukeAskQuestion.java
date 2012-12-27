@@ -74,7 +74,7 @@ public class AnjukeAskQuestion {
 		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
 		
 		// 判断用户是否登录成功
-		driver.assertEquals("rmfans2000", PublicProcess.logIn(driver, "rmfans2000", "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
+		driver.assertEquals("rmfans2000", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		
 		driver.get(askurl);
 		AnjukeAsk.submitAnswer(driver,"关于房子"+expert+"的问题要注意"+nowDateTime);
@@ -82,7 +82,7 @@ public class AnjukeAskQuestion {
 	@Test(groups = {"unstable"},dependsOnMethods="askSubmitAnswer")
 	public void askCheckUserInfo(){
 		PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0);
-		driver.assertEquals("agneszhang1", PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
+		driver.assertEquals("agneszhang1", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		driver.get(askurl);
 		AnjukeAsk.AdoptBestAnswer(driver);
 		AnjukeAsk.checkNormalUserAskInfo(driver, title);
