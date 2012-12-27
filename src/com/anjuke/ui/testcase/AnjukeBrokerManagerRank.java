@@ -63,7 +63,7 @@ public class AnjukeBrokerManagerRank {
 		}else{
 		Report.writeHTMLLog("排名不正确","",Report.FAIL,driver.printScreen());
 		 }
-	   }
+	  }
    }						
 }					
 			
