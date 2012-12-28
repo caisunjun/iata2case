@@ -14,10 +14,8 @@ import com.anjukeinc.iata.ui.report.Report;
  * @time 2012-12-27
  */
 
-public class AnjukeManagerRank {
+public class AnjukeTycoonListRank {
 	private Browser driver=null;
-	private String  username;
-	private String  password;
 	private String  str1;
 	private String  str2;
 	
@@ -35,12 +33,7 @@ public class AnjukeManagerRank {
 //		Report.seleniumReport("shanghai.anjuke.com", "最受欢迎的经纪人");
 	}
 	    @Test
-    public void DingJia(){
-	    username="13370290211";//经纪人登录
-		password="anjukeqa";
-		PublicProcess.dologin(driver, username, password);	
-			
-			
+    public void TycoonListRank(){
 	    driver.get("http://shanghai.anjuke.com/tycoon/");//进入经纪人列表		        		
 		int[] i = new int[10];
 		str1=driver.getText("//*[@id='content']/div[3]/div[1]/div/div[2]/dl/dd[1]", "第一名", 30);
