@@ -99,7 +99,7 @@ public class AnjukeSearchCheck {
             // 组合搜索不到结果
             // 异常关键字搜索
             unusualSearch("  ", checkType);
-            unusualSearch("****", checkType);
+            unusualSearch("***&", checkType);
             unusualSearch("丂丂", checkType);
             unusualSearch("安全局", checkType);
         } else {

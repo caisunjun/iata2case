@@ -53,7 +53,13 @@ public class AnjukePropViewRound {
     	String itemOn = null;
     	bs.click(Ajk_PropView.MAPTAB, "移动下页面，触发ajax");
     	textCommName = bs.getText(Ajk_PropView.COMMNAME, "房源信息处的小区名");
-    	//点击查看周边信息链接
+    	//点击查看周边信息链接```````````````````````````````````````````````````````````````````````````````````````
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	bs.click(Ajk_PropView.MAPRound, "点击查看周边信息",5);
     	bs.click(Ajk_PropView.MAPPOPUPClose, "关掉弹出层");
     	//点击商业
