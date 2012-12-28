@@ -63,6 +63,8 @@ public class Ajk_PropView {
 	public static final String Star_BrokerInfo = "//span[@id='fux']";
 	
 	
+	/** 二手房单页 - 地图tab */
+	public static final String MAPTAB = "//*[@id='extra-propview']/ul/li[3]/a";
 	/** 二手房单页 - 小区简介tab */
 	public static final String COMMINTROTAB = "//*[@id='extra-propview']/ul/li[4]/a";
 	/** 二手房单页 - 房源编号 */
@@ -80,6 +82,21 @@ public class Ajk_PropView {
 	/* 地图 */
 	/** 二手房单页 - 小区地图 - 小区名链接 */
 	public static final String MAPCOMMNAME = "//*[@id='bottom_map_container']/dl/dt/a";
+	/** 二手房单页 - 小区地图 - 周边信息：商业 */
+	public static final String MAPRoundBusi = "//a[@id='propview_map_tab_business']";
+	/** 二手房单页 - 小区地图 - 查看周边信息按钮 */
+	public static final String MAPRound = "//a[@id='propview_map_button']";
+	
+	/* 地图弹出层 */
+	/** 二手房单页 - 地图弹出层 - 关闭弹出层 */
+	public static final String MAPPOPUPClose = "//*[@id='mappop-content']/a";
+	/** 二手房单页 - 地图弹出层 - 周边信息tab - 左起第四个“商业” */
+	public static final String MAPPOPUPTABBUSI = "//dl[@id='round-tab']/dd/a[4]";
+	/** 二手房单页 - 地图弹出层 - 气泡中的小区名 */
+	public static final String MAPPOPUPCOMMNAME = "//div[@id='platform']/div[2]/div[5]/div[1]/div/div[2]";
+	/** 二手房单页 - 地图弹出层 - 地图找周边房源按钮 */
+	public static final String MAPPOPUPRound = "//a[@class='view-btn']";
+
 	/* 小区简介 */
 	/** 二手房单页 - 按售价统计房源数量 */
 	public static final String PriceCount = "//div[@class='commtrends']/dl/dd[1]/a";
