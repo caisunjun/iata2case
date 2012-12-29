@@ -113,8 +113,14 @@ public class AnjukeBrokerprofile {
         String lunaractual = bs.getText(Broker_shopprofile.LUNAR, "获取生肖");
         String constellation1 = bs.getText(Broker_shopprofile.CONSTELLATION, "获取星座");
         String actualText1 = provinceactual+cityactual+lunaractual+constellation1;
-        bs.assertContains(actualText1.trim(), expectedText.trim());
-
+        if(!expectedText.trim().contains(actualText1.trim()))
+        {
+        	String tmpUrl = bs.getCurrentUrl()+"?cc=cc";
+        	System.out.println(tmpUrl);
+        	bs.get(tmpUrl);
+        	bs.refresh();
+        	bs.assertContains(actualText1.trim(), expectedText.trim());}
+        
         //我的店铺页获取喜欢的书，与个人介绍页对比
         WebElement shoplikebook = bs.findElement(Broker_shopprofile.LIKEBOOK, "获取喜欢的书", 60);
         List<WebElement> likebooks = shoplikebook.findElements(By.tagName("a"));
