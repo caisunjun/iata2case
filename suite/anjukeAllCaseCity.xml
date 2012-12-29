@@ -17,7 +17,7 @@
 
 			<class name="com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck"></class>
 
-			<class name="com.anjuke.ui.testcase.AnjukeSaleRentListTagCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaleTagCheck"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCityhomepageSearchareaLink"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo"></class>
@@ -26,7 +26,7 @@
 			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropList"></class>
-
+			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropRentList"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSearchCheck"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeUfsStarCheck"></class>

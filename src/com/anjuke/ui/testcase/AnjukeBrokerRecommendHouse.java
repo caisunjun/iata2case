@@ -252,7 +252,7 @@ public class AnjukeBrokerRecommendHouse {
 		}
 		else{
 			if (communityName.equals(bs.getText("html/body/div[3]/div[2]/div[1]/div/div[2]/ul/li[9]/a[1]", "获取打开房源页面的小区名"))
-					&& title.equals(bs.getText("//h1[@class='title f16 txt_c']", "获取打开房源页面的标题"))) {
+					&& title.equals(bs.getText("//h1[@class='title f16 txt_c']", "获取打开房源页面的标题").trim())) {
 				Report.writeHTMLLog("取消推荐房源", "正确匹配房源小区名和房源标题", Report.PASS, "");
 			} else {
 				String ps = bs.printScreen();

@@ -23,7 +23,7 @@ public class Ajk_CommunityView {
 	/** 小区单页 - 顶部切换tab - 二手房*/
 	public static final String navtabSale = "//a[contains(.,'二手房(')]";
 	/** 小区单页 - 顶部切换tab - 租房*/
-	public static final String navtabRent = "//a[contains(.,'租 房(')]";
+	public static final String navtabRent = "//ul[@class='comm-navlist']/*[contains(.,'租 房')]";
 	/** 小区单页 - 顶部切换tab - 小区问答*/
 	public static final String navtabQa = "//a[.='小区问答']";
 	

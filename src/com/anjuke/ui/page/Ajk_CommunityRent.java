@@ -2,7 +2,7 @@ package com.anjuke.ui.page;
 
 /**
  * 安居客 - 小区租房页http://shanghai.anjuke.com/community/props/rent/1234**
- * 
+ * 租房合并后，同时存放好租小区页面控件  http://shanghai.haozu.com/compound/broker/W0QQcZ2971
  * @author jchen
  * */
 
@@ -55,4 +55,7 @@ public class Ajk_CommunityRent {
 	{
 		return "//div[@id='prop_price_qt_"+val+"']/strong";
 	}
+	
+	/** 好租小区租房页 - 小区名（非点击用途）*/
+	public static final String COMMTITLE = "id^commtitle";
 }
