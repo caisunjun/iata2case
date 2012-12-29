@@ -35,7 +35,7 @@ public class AnjukePropViewRound {
 		System.out.println("***AnjukePropView is done***");
 	}
     
-    @Test
+    @Test(groups = {"unstable"})
     public void testPropViewRound(){
     	
     	//点导航里的二手房tab
