@@ -118,7 +118,7 @@ public class AnjukeTycoonListAsk {
     	    	//比较数据的日期和now，相差几天
     	    	day = getTwoDay(answerDate);
     	    	//如果经纪人当天回答过问题，则经纪人列表页的回答问题数可能还未及时更新
-    	    	if(day==0)
+    	    	if(day==0||day==1||day==2)
     	    	{
     	    		System.out.println("这个经纪人有回答问题数");
     	    		Report.writeHTMLLog("经纪人列表有回答问题的经纪人筛选结果有问题", "筛选出的经纪人问题回答数： "+qnum+";"+"经纪人问答页回答数： "+sqnum, Report.WARNING, bs.printScreen());
