@@ -62,8 +62,8 @@ public class AnjukeSaveFindHouseCondition{
 		//访问二手房列表
 		driver.click(Init.G_objMap.get("public_link_sale"), "访问二手房列表");
 		//选择区域
-		driver.check(Init.G_objMap.get("anjuke_sale_condition_range"),30);
-		driver.click(Init.G_objMap.get("anjuke_sale_condition_range"), "选择区域");
+		driver.check("//a[@title='浦东']",30);
+		driver.click("//a[@title='浦东']", "选择区域");
 		condition.put("range", "浦东");
 		//等待加载完毕
 		driver.check("//form[@id='propcondform']/div/span[2]");
@@ -89,7 +89,7 @@ public class AnjukeSaveFindHouseCondition{
 		driver.check("//form[@id='propcondform']/div/span[6]");
 		//访问二手房列表
 		driver.click(Init.G_objMap.get("public_link_sale"), "访问二手房列表");
-		driver.check(Init.G_objMap.get("anjuke_sale_condition_range"));
+		driver.check("//a[@title='浦东']");
 		//获取上次找房条件
 		String searchCondition = driver.getText(Init.G_objMap.get("ajk_salelist_search_link_lastcon"), "获取上次访问条件");
 		//比较找房条件

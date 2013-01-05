@@ -188,10 +188,11 @@ public class AnjukeSearchCheck {
         //获取当前url，以应对关键字输入框位置会变的问题
         String currentURL = driver.getCurrentUrl();
 
-        driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
-        driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
+        
         // 根据不同页面搜索结果，取回每页显示数量，以及搜索结果搜索数量
         if (site.equals("sale") || site.equals("rental")) {
+        	driver.type(Ajk_Sale.KwInput, search, "关键字搜索");
+            driver.click(Ajk_Sale.KwSubmit, "点击搜索");
             searchResult = driver.getText(Ajk_Sale.S_COUNT, "获取房源搜索结果");
             // 获取搜索所有数量
             toutleCount = Integer.parseInt(searchResult);
@@ -199,6 +200,8 @@ public class AnjukeSearchCheck {
             count = driver.getElementCount(Ajk_Sale.LIST_COUNT);
             Report.writeHTMLLog("二手房/租房搜索结果", "二手房/租房搜索结果总量为：" + toutleCount + "套-----单页数量为：" + count + "套", Report.DONE, "");
         } else if (site.equals("community")) {
+        	driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
+            driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
             searchResult = driver.getText(Ajk_Community.C_COUNT, "获取房源搜索结果");
             // 获取搜索所有数量
             toutleCount = Integer.parseInt(searchResult);
@@ -206,6 +209,8 @@ public class AnjukeSearchCheck {
             count = driver.getElementCount(Ajk_Community.LIST_COUNT);
             Report.writeHTMLLog("小区搜索结果", "小区搜索结果总量为：" + toutleCount + "套-----单页数量为：" + count + "套", Report.DONE, "");
         } else {
+        	driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
+            driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
             // 获取单页显示数量
             count = driver.getElementCount(Ajk_Tycoon.LIST_COUNT);
             Report.writeHTMLLog("经纪人搜索结果", "经纪人搜索结果单页数量：" + count, Report.DONE, "");
