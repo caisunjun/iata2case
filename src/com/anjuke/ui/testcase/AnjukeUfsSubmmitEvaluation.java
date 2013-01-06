@@ -214,11 +214,11 @@ public class AnjukeUfsSubmmitEvaluation {
 	//用户中心UFS数据检查
 	private void UserCenterUFSinfoCheck(){
 		//获取用户中心经纪人信息	
-		BrokerName = bs.getText(Ajk_UserCenter.USERCENTER_BROKERNAME, "获取经纪人姓名");
-		BrokerHeadImgUrl = bs.getAttribute(Ajk_UserCenter.USERCENTER_BROKERHEADIMG,"src");	
-		BrokerTel = bs.getText(Ajk_UserCenter.USERCENTER_BROKERTEL, "获取经纪人手机号");
+		BrokerName = bs.getText(Ajk_MemberFeedback.USERCENTER_BROKERNAME, "获取经纪人姓名");
+		BrokerHeadImgUrl = bs.getAttribute(Ajk_MemberFeedback.USERCENTER_BROKERHEADIMG,"src");	
+		BrokerTel = bs.getText(Ajk_MemberFeedback.USERCENTER_BROKERTEL, "获取经纪人手机号");
 		//从字符串中分离公司和门店
-		String str = bs.getText(Ajk_UserCenter.USERCENTER_BROKERCOMPANYSTORE, "获取经纪人公司和门店");
+		String str = bs.getText(Ajk_MemberFeedback.USERCENTER_BROKERCOMPANYSTORE, "获取经纪人公司和门店");
 		String a[] = str.split("\\s");
 		BrokerCompany = a[0];
 		BrokerStore = a[1];
@@ -227,7 +227,7 @@ public class AnjukeUfsSubmmitEvaluation {
 //		HouseQuality = ChangeStrToInt(bs.getText(Ajk_UserCenter.USERCENTER_HOUSEQUALITY,"获取房源质量"));
 //		ServiceAttitude= ChangeStrToInt(bs.getText(Ajk_UserCenter.USERCENTER_SERVICEATTITUDE,"获取服务态度"));
 //		Professional= ChangeStrToInt(bs.getText(Ajk_UserCenter.USERCENTER_PROFESSIONAL,"获取专业知识"));
-		UserContent = bs.getText(Ajk_UserCenter.USERCENTER_CONTENT,"获取评论内容");
+		UserContent = bs.getText(Ajk_MemberFeedback.USERCENTER_CONTENT,"获取评论内容");
 		
 		//经纪人姓名检测
 		bs.assertEquals(s_BrokerName, BrokerName, "比较经纪人姓名", "经纪人姓名："+BrokerName+">>"+s_BrokerName);
