@@ -11,8 +11,23 @@ public class Ajk_Sale {
 	/*顶部搜索栏*/
 	/** 二手房列表 - 顶部搜索框 */
 	public static final String KwInput = "//input[@class='input_text']";
-	/** 二手房列表 - 顶部搜索框 */
+	/** 二手房列表 - 顶部搜索按钮 */
 	public static final String KwSubmit = "//input[@class='input_button se_house']";
+	
+	/*找房条件栏*/
+	/** 二手房列表 - 找房条件栏 - 上次找房条件*/
+	public static final String LastCond = "//a[@class='specialchars']";
+	/** 二手房列表 - 找房条件栏 - 订阅找房条件*/
+	public static final String SaveCond = "//span[@class='savepropcond-ion']";
+	
+	/** 二手房列表 - 保存找房条件弹出框*/
+	public static final String SaveCondPopUp = "//div[@class='layer_box']";
+	/** 二手房列表 - 保存找房条件弹出框 - 提示信息*/
+	public static final String SaveCondPopUpMessage = "//div[@class='layer_cont']/dl/dt/strong";
+	/** 二手房列表 - 保存找房条件弹出框 - 查看保存的找房条件*/
+	public static final String CheckSaveCond = "//a[contains(.,'去看看保存的找房条件>>')]";
+	/** 二手房列表 - 保存找房条件弹出框 - 继续找房按钮*/
+	public static final String CloseSaveCondPopUp = "//a[contains(.,'继续找房')]";
 	
 	/*筛选区域*/
 	/** 二手房列表 - 筛选条件 - 区域

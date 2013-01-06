@@ -25,8 +25,8 @@ import com.anjukeinc.iata.ui.report.Report;
  *
  * @author Gabrielgao
  * @time 2012-04-13 13:30
- * @updateAuthor gray_hu
- * @last updatetime 2012-08-13
+ * @updateAuthor ccyang
+ * @last updatetime 2012-01-06
  */
 public class AnjukeSearchCheck {
     private Browser driver = null;
@@ -252,17 +252,18 @@ public class AnjukeSearchCheck {
         //获取当前url，以应对关键字输入框位置会变的问题
         String currentURL = driver.getCurrentUrl();
 
-        driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
-        driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
         if (site.equals("sale"))
         {
+        	driver.type(Ajk_Sale.KwInput, search, "关键字搜索");
+            driver.click(Ajk_Sale.KwSubmit, "点击搜索");
             dataCount = driver.getElementCount(Ajk_Sale.NO_FOUND, 5);
-        } else if(site.equals("rental"))
-        {
-            dataCount = driver.getElementCount(Ajk_Rental.NO_FOUND, 5);
         } else if (site.equals("community")) {
+        	driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
+            driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
             dataCount = driver.getElementCount(Ajk_Community.NO_FOUND, 5);
         } else {
+        	driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
+            driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
             dataCount = driver.getElementCount(Ajk_Tycoon.NO_FOUND, 5);
         }
         if (search == null || search.equals("  ")) {
@@ -288,10 +289,17 @@ public class AnjukeSearchCheck {
     // 检查搜索框引导语内容是否为空
     public void checkGuideLan(String site) {
         if (!site.equals("ask")) {
+        	String guideLan = null;
+        	if(site.equals("sale"))
+        	{
+        		guideLan = driver.getAttribute(Ajk_Sale.KwInput, "value");
+        	}
+        	else
+        	{
+        		guideLan = driver.getAttribute(Public_HeaderFooter.S_BOX, "value");
+        	}
             // 默认引导语显示
             // Report.setTCNameLog("检查安居客关键字搜索引导语（默认显示） -- checkGuideLan");
-            String guideLan = null;
-            guideLan = driver.getAttribute(Public_HeaderFooter.S_BOX, "value");
             if (guideLan == null || guideLan.equals("")) {
                 String ps = driver.printScreen();
                 Report.writeHTMLLog("default search guide language", "search guide content is null", Report.FAIL, ps);
