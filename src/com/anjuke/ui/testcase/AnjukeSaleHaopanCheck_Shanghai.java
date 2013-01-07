@@ -187,7 +187,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		int m = 0;
 		for(int i=1;i<=25;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
-			if(tmp.endsWith("from=comm_one&amp;spread=commsearch")){
+			if(tmp.endsWith("from=comm_one&spread=commsearch")){
 				m = m+1;
 			}
 		}
@@ -221,7 +221,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		int n = 0;
 		for(int i=1;i<=25;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
-			if(tmp.endsWith("from=kw&amp;spread=commsearch")){
+			if(tmp.endsWith("from=kw&spread=commsearch")){
 				n = n+1;
 			}
 		}
