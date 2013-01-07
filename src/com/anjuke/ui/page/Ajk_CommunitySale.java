@@ -28,7 +28,7 @@ public class Ajk_CommunitySale {
 	/** 小区二手房页 - 页码：1/33*/
 	public static final String PageNum = "//div[@class='current']";
 	/** 小区二手房页 - 下一页（上方页码旁）*/
-	public static final String NextPageUP = "//div[@class='pagelink nextpage']";
+	public static final String NextPageUP = "//*[@id='page_silder']/div/div[3]/a";
 	/** 小区二手房页 - 排序*/
 	public static final String SortByPrice = "//*[@id='filter_order']//a[2]/span"; 
 
