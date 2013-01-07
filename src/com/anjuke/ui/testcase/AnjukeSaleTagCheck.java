@@ -31,12 +31,12 @@ public class AnjukeSaleTagCheck {
     }
     @Test
     public void testSaleFliterTagCheck(){
-		driver.get("http://shanghai.anjuke.com/sale/");
-		driver.click(ass.getLocater("普陀"), "点击浦东区域的筛选条件");
-		driver.click(ass.getLocater("万里"), "点击碧云板块的筛选条件");
-		driver.click(ass.getLocater("200-250万"), "点击200-250万的筛选条件");
-		driver.click(ass.getLocater("90-110平米"), "点击90-110平米的筛选条件");
-		driver.click(ass.getLocater("二室"), "点击2室的筛选条件");
+		driver.get("http://shenzhen.anjuke.com/sale/");
+		driver.click(ass.getLocater("宝安"), "点击保安区域的筛选条件");
+		driver.click(ass.getLocater("龙华"), "点击龙华板块的筛选条件");
+		driver.click(ass.getLocater("120-150万"), "点击100-150万的筛选条件");
+		driver.click(ass.getLocater("70-90平米"), "点击70-90平米的筛选条件");
+//		driver.click(ass.getLocater("二室"), "点击2室的筛选条件");
 		
 		checkTag(driver,"急售","sale");
 		checkTag(driver,"新推","sale");
@@ -56,8 +56,8 @@ public class AnjukeSaleTagCheck {
     
     @Test
     public void testSaleKeywordTagCheck(){
-		driver.get("http://shanghai.anjuke.com/sale/");
-		driver.type(Ajk_Sale.KwInput, "康桥半岛四室别墅", "输入关键词");
+		driver.get("http://shenzhen.anjuke.com/sale/");
+		driver.type(Ajk_Sale.KwInput, "公园大地四室", "输入关键词");
 		driver.click(Ajk_Sale.KwSubmit, "点击搜索按钮");
 		
 		checkTag(driver,"急售","sale");
