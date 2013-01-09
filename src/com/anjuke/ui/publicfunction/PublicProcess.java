@@ -258,7 +258,7 @@ public class PublicProcess {
 		String email = null; // 注册邮箱
 		String email_suffix = null; // 注册邮箱后缀
 
-		email_suffix = "@hotmail.com";
+		email_suffix = "@mail.com";
 		userName = generateUserName();
 		email = userName.concat(email_suffix);
 		return email;

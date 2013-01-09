@@ -87,15 +87,15 @@ public class AnjukeCollectHouseResource {
 				String anjuke_salefirstdata_img = Init.G_objMap.get("anjuke_salefirstdata_img") + i + "_a";
 				url = driver.getAttribute(anjuke_salefirstdata_title, "href");
 				if(!url.contains("aifang")){
-					//获取第一条二手房记录
-					firstdataTitle = driver.getText(anjuke_salefirstdata_title, "获取第一条合格的记录标题");
-					price = driver.getText(anjuke_salefirstdata_price, "获取第一条合格的记录价格");
+					//获取第一套非爱房房源标题
+					firstdataTitle = driver.getText(anjuke_salefirstdata_title, "获取第一套合格的房源标题");
+					price = driver.getText(anjuke_salefirstdata_price, "获取第一套合格的房源价格");
 					//经纪人姓名的控件里可能出现其他内容
-					releaseName = driver.getText(anjuke_salefirstdata_releaseName, "获取第一条合格的记录经纪人姓名").trim();
+					releaseName = driver.getText(anjuke_salefirstdata_releaseName, "获取第一套合格的房源经纪人姓名").trim();
 					String s = new String(releaseName);   
 			        String a[] = s.split(" ");  
 			        releaseName = a[0];
-					driver.click(anjuke_salefirstdata_img, "访问第一条记录的图片");
+					driver.click(anjuke_salefirstdata_img, "访问第一套房源的图片");
 					break;
 				}
 			}
