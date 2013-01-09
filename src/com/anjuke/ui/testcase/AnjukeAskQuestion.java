@@ -48,6 +48,8 @@ public class AnjukeAskQuestion {
 		driver = null;
 	}
 
+	//提问
+	
 	@Test(groups = {"unstable"})
 	public void askQustion(){
 		// 普通用户登录并获取当前登录成功后的用户名
@@ -69,6 +71,8 @@ public class AnjukeAskQuestion {
 		AnjukeAsk.submitSupplement(driver, "问题补充");
 		
 	}
+	
+	//回答
 	@Test(groups = {"unstable"},dependsOnMethods="askQustion") 
 	public void askSubmitAnswer(){
 		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
@@ -79,6 +83,8 @@ public class AnjukeAskQuestion {
 		driver.get(askurl);
 		AnjukeAsk.submitAnswer(driver,"关于房子"+expert+"的问题要注意"+nowDateTime);
 	}
+	
+	//提问者采纳最佳答案并检测个人中心数据
 	@Test(groups = {"unstable"},dependsOnMethods="askSubmitAnswer")
 	public void askCheckUserInfo(){
 		PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0);
