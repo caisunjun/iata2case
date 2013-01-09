@@ -183,7 +183,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		bs.get(baseUrl);
 		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("中远两湾城");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
-		bs.click("//*[@id='Search-fragment']//dl[2]/dd/a[4]", "选择价格段：250-300万");
+		bs.click(Ajk_Sale.S_SELECT("250-300万"), "选择价格段：250-300万");
 		int m = 0;
 		for(int i=1;i<=25;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
