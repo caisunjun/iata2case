@@ -84,7 +84,7 @@ public class AnjukeBrokerSaleReleasePPC {
 		//如果config中casestatus的值不为testing或config未配置casestatus，用原先的账号登陆
 		else
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "1349689747de9", "anjukeqa",false, 1));
+			saleInfo.setUserName(PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa",false, 1));
 		}
 		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
 		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
