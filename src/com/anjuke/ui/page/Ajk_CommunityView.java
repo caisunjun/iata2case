@@ -23,12 +23,14 @@ public class Ajk_CommunityView {
 	/** 小区单页 - 顶部切换tab - 二手房*/
 	public static final String navtabSale = "//a[contains(.,'二手房(')]";
 	/** 小区单页 - 顶部切换tab - 租房*/
-	public static final String navtabRent = "//a[contains(.,'租 房(')]";
+	public static final String navtabRent = "//ul[@class='comm-navlist']/*[contains(.,'租 房')]";
 	/** 小区单页 - 顶部切换tab - 小区问答*/
 	public static final String navtabQa = "//a[.='小区问答']";
 	
 	/** 小区单页 - 主营小区房源模块*/
 	public static final String CommMaster = "//div[@id='comm-property-master']";
+	/** 小区单页 - 主营小区房源模块 - 房源数量*/
+	public static final String CommMasterProp = "//div[@id='comm-property-master']/ul/li";
 	/** 小区单页 - 小区问答 - 问题搜索输入框*/
 	public static final String QuestionInput = "//*[@id='question_title']";
 	

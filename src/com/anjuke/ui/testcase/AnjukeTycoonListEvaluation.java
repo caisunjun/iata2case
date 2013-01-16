@@ -34,14 +34,18 @@ public class AnjukeTycoonListEvaluation {
     @Test
     public void testBrokerListEvaluation(){
     	bs.get("http://shanghai.anjuke.com");
-    	if(!bs.check("Ajk_HomePage.BROKERTAB"))
+    	if(!bs.check("Ajk_HomePage.H_BTN"))
     	{bs.refresh();}
-    	bs.click(Ajk_HomePage.BROKERTAB, "点击TAB里的经纪人链接");
+    	bs.click(Ajk_HomePage.H_BTN, "点击TAB里的二手房链接");
+    	//进入二手房列表页
+    	bs.click("//div[@class='divBrokerList']/a", "点击页面最下方经纪人列表页入口链接");
+    	bs.switchWindo(2);
+    	//点击二手房列表页最下方"现在去找"经纪人列表页入口链接
     	bs.click(Ajk_Tycoon.evaluation, "点击筛选是否有用户评价复选框");
     	//筛选是否有用户评价
     	
     	bs.click(Ajk_Tycoon.assess, "点击评价标签");
-    	bs.switchWindo(2);
+    	bs.switchWindo(3);
     	//切换到经纪人店铺
     	
     	bs.click(Ajk_ShopView.UfsTab, "点击经纪人店铺评价tab");

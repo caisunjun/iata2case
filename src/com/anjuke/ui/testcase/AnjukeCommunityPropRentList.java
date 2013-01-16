@@ -11,6 +11,11 @@ import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
 
 /**该测试用例用来检查小区租房列表
+ * 现逻辑：
+ * 小区详情页点击租房tab
+ * 验证好租的小区名是否包含安居客的
+ * 
+ * 原逻辑：
  * 检查筛选房型、租金、装修条件下对应房源是否正确
  * 检查分页是否正确
  * 检查分页数大于1时，第二页是否有房源显示
@@ -30,7 +35,7 @@ public class AnjukeCommunityPropRentList {
         bs.quit();
         bs = null;
     }
-    @Test
+    @Test(groups = {"unstable"})
     public void testCommunityRentListCheck(){
     	bs.get("http://shanghai.anjuke.com/");
     	if(!bs.check(Ajk_HomePage.COMMTAB))
@@ -38,12 +43,16 @@ public class AnjukeCommunityPropRentList {
     	bs.click(Ajk_HomePage.COMMTAB, "点击小区tab");
     	bs.click(Ajk_Community.RandomComm, "在当前列表内随机点个小区");
     	bs.switchWindo(2);
+    	String ajkCommName = bs.getText(Ajk_CommunityView.COMMTITLE, "获得安居客小区名");
     	bs.click(Ajk_CommunityView.navtabRent, "打开小区租房页面");
+    	String hzCommName = bs.getText(Ajk_CommunityRent.COMMTITLE, "获得好租小区名");
+    	bs.assertContains(hzCommName, ajkCommName);
+    	
     	
     	//检查单项筛选
-    	checkOneRandomFliter("房型");
-    	checkOneRandomFliter("租金");
-    	checkOneRandomFliter("装修");
+//    	checkOneRandomFliter("房型");
+//    	checkOneRandomFliter("租金");
+//    	checkOneRandomFliter("装修");
     }
     
     

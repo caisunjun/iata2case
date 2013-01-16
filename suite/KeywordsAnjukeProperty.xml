@@ -6,7 +6,9 @@
 	<test name="Default" preserve-order="false">
 		<classes>
 			<class name="com.anjukeinc.iata.ui.init.Init"></class>
-			<class name="com.anjuke.ui.testcase.Anjukesolr"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRentEdit"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerRentRelease"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEdit"></class>
 		</classes>
 	</test>
 </suite>

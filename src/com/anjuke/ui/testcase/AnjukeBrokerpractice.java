@@ -83,9 +83,15 @@ public class AnjukeBrokerpractice {
         bs.switchWindo(2);
         String knowncomm = bs.getText(Ajk_ShopView.KNOWNCOMM, "获取最熟悉的小区 ");
         String knownarea = bs.getText(Ajk_ShopView.KNOWNAREA, "获取最熟悉的区域");
-        String tmpUrl = bs.getCurrentUrl()+"?cc=cc";
+        String tmpUrl = bs.getCurrentUrl();
         bs.get(tmpUrl);
-        bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3);
+        if(!bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3))
+        {
+        	tmpUrl = bs.getCurrentUrl()+"?cc=cc";
+        	bs.get(tmpUrl);
+        	bs.refresh();
+        	bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3);
+        }
         bs.assertOneContainsMany(knownarea, "验证我的店铺中区域板块显示是否完整", area1,area2);
     }
     private String liSelect(String frame, Browser bs, String locator,String Info){

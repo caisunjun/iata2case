@@ -41,7 +41,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		bs = null;
 	}
 	
-	@Test
+	@Test(groups = {"unstable"})
 	public void haopanCheck(){		
 		//上海-筛选列表页分页检测
 		saleScreenListPaging_Shanghai();
@@ -69,9 +69,9 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//上海-筛选列表页分页检测
 	private void saleScreenListPaging_Shanghai(){
 		bs.get(baseUrl);
-		bs.click("//*[@id='apf_id_13_areacontainer']/a[1]", "选择区域：浦东");
-		bs.click("//*[@id='apf_id_13_blockcontainer']/a[8]", "选择板块：陆家嘴");
-		bs.click("//*[@id='panel_apf_id_13']/div[5]/div[2]/a[4]", "选择房型：四室");
+		bs.click(Ajk_Sale.S_SELECT("浦东"), "选择区域：浦东");
+		bs.click(Ajk_Sale.S_SELECT("陆家嘴"), "选择板块：陆家嘴");
+		bs.click(Ajk_Sale.S_SELECT("四室"), "选择房型：四室");
 		//获取分页总数
 		String temp = bs.findElement(Ajk_Sale.PAGE_COUNT, "获取分页总数", 5).getText();
 		String s[] = temp.split("/");
@@ -93,8 +93,8 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-筛选列表页，展示竞价房源:5套
 	private void saleScreenListHaopanCheck_Shanghai(){
 		bs.get(baseUrl);
-		bs.click("//*[@id='apf_id_13_areacontainer']/a[1]", "选择区域：浦东");
-		bs.click("//*[@id='apf_id_13_blockcontainer']/a[8]", "选择板块：陆家嘴");
+		bs.click(Ajk_Sale.S_SELECT("浦东"), "选择区域：浦东");
+		bs.click(Ajk_Sale.S_SELECT("陆家嘴"), "选择板块：陆家嘴");
 		for(int i=1;i<=5;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
 			bs.assertContains(tmp,"spread=filtersearch");
@@ -132,9 +132,10 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		
 		//获取该小区竞价房源总数
 		int m = 0;
+		String tmp;
 		for(int i=1;i<=25;i++){
-			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
-			if(tmp.contains("spread=commsearch&from=comm_one")){
+			tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
+			if(tmp.endsWith("from=comm_one&spread=commsearch")){
 				m = m+1;
 			}
 		}
@@ -142,8 +143,8 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		if(m==25){
 			bs.findElement(Ajk_Sale.NextPage, "下一页", 10);
 			for(int i=1;i<=25;i++){
-				String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
-				if(tmp.contains("spread=commsearch&from=comm_one")){
+				tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
+				if(tmp.endsWith("from=comm_one&spread=commsearch")){
 					m = m+1;
 				}
 			}
@@ -153,8 +154,11 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		bs.get("http://shanghai.anjuke.com/community/props/sale/1550");
 		int n = 0;
 		for(int i=1;i<=20;i++){
-			String tmp = bs.getAttribute("//*[@id='prop_name_qt_"+i+"']","href");
-			if(tmp.endsWith("spread=commprop&invalid=1")){
+			tmp = bs.getAttribute("//*[@id='prop_name_qt_"+i+"']","href");
+			tmp = tmp.replace("&invalid=1", "");
+			System.out.println(tmp);
+			if(tmp.endsWith("spread=commprop")){
+				System.out.println("xxx");
 				n = n+1;
 			}
 		}
@@ -162,13 +166,15 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		if(n==20){
 			bs.findElement(Ajk_CommunitySale.NextPageUP, "下一页", 10);
 			for(int i=1;i<=20;i++){
-				String tmp = bs.getAttribute("//*[@id='prop_name_qt_"+i+"']","href");
-				if(tmp.endsWith("spread=commprop&invalid=1")){
+				tmp = bs.getAttribute("//*[@id='prop_name_qt_"+i+"']","href");
+				if(tmp.endsWith("spread=commprop")){
 					n = n+1;
 				}
 			}
 		}
 		//比较二手房列表和小区单页-二手房列表竞价房源总数
+		System.out.println(n);
+		System.out.println(m);
 		bs.assertIntEquals(n, m, "小区竞价房源展示", "二手房列表与小区单页，竞价房源数一致");
 	}
 	
@@ -177,11 +183,11 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		bs.get(baseUrl);
 		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("中远两湾城");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
-		bs.click("//*[@id='Search-fragment']//dl[2]/dd/a[4]", "选择价格段：250-300万");
+		bs.click(Ajk_Sale.S_SELECT("250-300万"), "选择价格段：250-300万");
 		int m = 0;
 		for(int i=1;i<=25;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
-			if(tmp.contains("spread=commsearch&from=comm_one")){
+			if(tmp.endsWith("from=comm_one&spread=commsearch")){
 				m = m+1;
 			}
 		}
@@ -200,7 +206,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		int n = 0;
 		for(int i=1;i<=25;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
-			if(tmp.contains("spread=commsearch&from=structured_dict")){
+			if(tmp.endsWith("from=structured_dict&spread=commsearch")){
 				n = n+1;
 			}
 		}
@@ -215,7 +221,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		int n = 0;
 		for(int i=1;i<=25;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
-			if(tmp.contains("spread=commsearch&from=kw")){
+			if(tmp.endsWith("from=kw&spread=commsearch")){
 				n = n+1;
 			}
 		}

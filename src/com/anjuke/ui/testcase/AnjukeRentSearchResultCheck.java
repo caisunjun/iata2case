@@ -14,7 +14,7 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
 
 /**
- * 该测试用例主要完成: 
+ * 该测试用例主要完成: （废弃中）
  * 1、检查翻页后页码及页面房源数是否正确
  * 2、租房列表筛选条件结果验证 
  * @author ccyang
@@ -41,7 +41,7 @@ public class AnjukeRentSearchResultCheck {
 		System.out.println("***AnjukeRentSearchResultCheck is done***");
 	}
 
-	@Test
+	@Test(groups = {"unstable"})
 	public void filterSearch() {
 		driver.get("http://shanghai.anjuke.com/rental/");
 		

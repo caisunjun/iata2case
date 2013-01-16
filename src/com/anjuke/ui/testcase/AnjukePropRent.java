@@ -12,7 +12,7 @@ import com.anjukeinc.iata.ui.report.Report;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
-/**该用例用来检查租房房源单页
+/**该用例用来检查租房房源单页（废弃中）
  * 包括小区名，经济人，中介公司，各种链接
  * @author ccyang
  */
@@ -36,7 +36,7 @@ public class AnjukePropRent {
 		System.out.println("***AnjukePropRent is done***");
 	}
     
-    @Test
+    @Test(groups = {"unstable"})
     public void testPropView(){
     	String brokerName = "";
     	String brokerCompany = "";

@@ -40,7 +40,7 @@ public class AnjukeCommunityPropertyMaster {
 	@Test
 	public void testStart() {
 		//Report.setTCNameLog("检查主营小区-- AnjukeCommunityPropertyMaster --gabrielgao");
-		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1550");
+//		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1550");
 		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1670");
 		checkCommPropMaster("http://shanghai.anjuke.com/community/view/27");
 	}
@@ -48,7 +48,7 @@ public class AnjukeCommunityPropertyMaster {
 	private void checkCommPropMaster(String url) {
 		Report.writeHTMLLog("*****小区单页-主营小区*****", "=================================================", "DONE", "");
 		String tmpCommunityNameObj = Ajk_CommunityView.COMMTITLE;
-		String tmpCommPropMasterObj = Ajk_CommunityView.CommMaster;
+		String tmpCommPropMasterObj = Ajk_CommunityView.CommMasterProp;
 		String tmpCommPropTabPriceObj = Ajk_CommunityView.navtabTrends;
 		String tmpCommPriceMasterObj = Ajk_CommunityTrends.MasterStoreIMG;
 		String tmpCommPriceGoldStoreObj = Ajk_CommunityTrends.MasterStore;
@@ -61,8 +61,7 @@ public class AnjukeCommunityPropertyMaster {
 		// 获取小区名称
 		String CommunityName = bs.getText(tmpCommunityNameObj, "获取小区名称");
 		
-
-		// 检查主营小区精选房源是否存在 
+		// 获得主营小区精选房源数量 
 		int propCount = bs.getElementCount(tmpCommPropMasterObj);
 		
 		// 点击“价格行情”
@@ -74,7 +73,7 @@ public class AnjukeCommunityPropertyMaster {
 
 		if (propCount!=0) {
 			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区模块检查成功", "PASS", "");
-		} else if(propNum.contains("0套"))
+		} else if(propNum.equals("0套"))
 		{
 			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区当前有 "+propNum+" 房源, 所以该小区首页没有主营小区模块", "PASS", "");}
 		else
@@ -82,7 +81,7 @@ public class AnjukeCommunityPropertyMaster {
 			String tmpPicName = bs.printScreen();
 			Report.writeHTMLLog("小区单页-精选房源-主营小区", "【" + CommunityName + "】小区单页-主营小区模块检查失败", "FAIL", tmpPicName);
 		}
-		if(brokerNum.contains("0人")&& !propNum.contains("0套"))
+		if(brokerNum.equals("0人")&& !propNum.equals("0套"))
 		{
 			String ps = bs.printScreen();
 			Report.writeHTMLLog("价格行情页-主营小区经纪人与房源数", "小区单页-主营小区模块数据出现异常 ：门店经纪人为“"+brokerNum+"”,门店房源数为“"+propNum+"”", "FAIL", ps);

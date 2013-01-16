@@ -90,7 +90,7 @@ public class AnjukeCityhomepageSearchareaLink {
 		String areaName;
 		String areaLink;
 		String actualTitle;
-		String areaList = "//div[@class='filter-box hot-area']/a";		
+		String areaList = "//div[@id='panel-second-body']/div[@class='filter-search']/div[@class='filter-box hot-area']/a";		
 		HashMap<String,String> areaLinkList = new HashMap<String,String>();
 		if(bs.check(areaList,10)){
 			int linkCount = bs.getElementCount(areaList);

@@ -537,7 +537,7 @@ public class AnjukeAsk {
 			driver.assertNonEquals(null, QuestionTitle, "检测待解决列表中每条问答标题是否为空",
 					"检测待解决列表中每条问答标题是否为空");
 			driver.assertNonEquals(null, AnswerNum, "检测待解决列表中每条问答数据的回答数是否为空",
-					"检测待解决列表中每条问答标题是否为空");
+					"检测待解决列表中每条问答数据的回答数是否为空");
 		}
 		
 		

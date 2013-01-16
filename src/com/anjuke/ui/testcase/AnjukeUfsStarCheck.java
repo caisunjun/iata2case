@@ -69,26 +69,26 @@ public class AnjukeUfsStarCheck {
         	bs.close();
         	bs.switchWindo(2);
     	}
-    	
-    	//点租房tab
-    	bs.click(Ajk_ShopView.RentListTab, "点租房tab");
-    	//看看经纪人有没有二手房房源
-    	if(bs.check(Ajk_ShopSaleRentList.NoProp,5))
-    	{
-    		String ps = bs.printScreen();
-    		Report.writeHTMLLog("经纪人服务等级", "这个经纪人没有发布租房", Report.DONE, ps);
-    	}
-    	else{
-        	bs.click(Ajk_ShopSaleRentList.FirstPropName, "点第一套租房的链接");
-        	bs.switchWindo(3);
-        	//租房单页 服务等级的locator和二手房单页一样
-        	String dmdPropViewRight = bs.getAttribute(Ajk_PropView.Star_BrokerInfo, "class");
-        	bs.assertEquals(dmdPropViewRight, "dmd-one", "经纪人租房-右侧服务等级", "服务等级处的class是diamond");
-        	String dmdPropViewDownufsinfo = bs.getAttribute(Ajk_PropView.Star_downufsinfo, "class");
-        	bs.assertEquals(dmdPropViewDownufsinfo, "dmd-one", "经纪人租房-下方UFS信息服务等级", "服务等级处的class是diamond");
-        	bs.close();
-        	bs.switchWindo(2);
-    	}
+//    	店铺没有租房了
+//    	//点租房tab
+//    	bs.click(Ajk_ShopView.RentListTab, "点租房tab");
+//    	//看看经纪人有没有二手房房源
+//    	if(bs.check(Ajk_ShopSaleRentList.NoProp,5))
+//    	{
+//    		String ps = bs.printScreen();
+//    		Report.writeHTMLLog("经纪人服务等级", "这个经纪人没有发布租房", Report.DONE, ps);
+//    	}
+//    	else{
+//        	bs.click(Ajk_ShopSaleRentList.FirstPropName, "点第一套租房的链接");
+//        	bs.switchWindo(3);
+//        	//租房单页 服务等级的locator和二手房单页一样
+//        	String dmdPropViewRight = bs.getAttribute(Ajk_PropView.Star_BrokerInfo, "class");
+//        	bs.assertEquals(dmdPropViewRight, "dmd-one", "经纪人租房-右侧服务等级", "服务等级处的class是diamond");
+//        	String dmdPropViewDownufsinfo = bs.getAttribute(Ajk_PropView.Star_downufsinfo, "class");
+//        	bs.assertEquals(dmdPropViewDownufsinfo, "dmd-one", "经纪人租房-下方UFS信息服务等级", "服务等级处的class是diamond");
+//        	bs.close();
+//        	bs.switchWindo(2);
+//    	}
     	//点评价tab
     	bs.click(Ajk_ShopView.UfsTab, "点评价tab");
     	//经纪人店铺右侧通栏 服务等级locator通用
@@ -170,28 +170,28 @@ public class AnjukeUfsStarCheck {
         	bs.close();
         	bs.switchWindo(2);
     	}
-
-    	//点租房tab
-    	bs.click(Ajk_ShopView.RentListTab, "点租房tab");
-    	//看看经纪人有没有二手房房源
-    	if(bs.check(Ajk_ShopSaleRentList.NoProp,5))
-    	{
-    		String ps = bs.printScreen();
-    		Report.writeHTMLLog("经纪人服务等级", "这个经纪人没有发布租房", Report.DONE, ps);
-    	}
-    	else{
-        	bs.click(Ajk_ShopSaleRentList.FirstPropName, "点第一套租房的链接");
-        	bs.switchWindo(3);
-        	//租房单页 服务等级的locator和二手房单页一样
-        	String badRentViewRight = bs.getText(Ajk_PropView.Star_BrokerInfo, "获得服务等级");
-        	badRentViewRight = badRentViewRight.replaceAll(" ", "");
-        	bs.assertEquals(badRentViewRight, "暂无", "经纪人二手房-右侧服务等级", "服务等级为暂无");
-        	String badRentViewDownufsinfo = bs.getText(Ajk_PropView.Star_downufsinfo, "获得服务等级");
-        	badRentViewDownufsinfo = badRentViewDownufsinfo.replaceAll(" ", "");
-        	bs.assertEquals(badRentViewDownufsinfo, "暂无", "经纪人二手房-下方UFS信息服务等级", "服务等级为暂无");
-        	bs.close();
-        	bs.switchWindo(2);
-    	}
+// 		租房合并了
+//    	//点租房tab
+//    	bs.click(Ajk_ShopView.RentListTab, "点租房tab");
+//    	//看看经纪人有没有二手房房源
+//    	if(bs.check(Ajk_ShopSaleRentList.NoProp,5))
+//    	{
+//    		String ps = bs.printScreen();
+//    		Report.writeHTMLLog("经纪人服务等级", "这个经纪人没有发布租房", Report.DONE, ps);
+//    	}
+//    	else{
+//        	bs.click(Ajk_ShopSaleRentList.FirstPropName, "点第一套租房的链接");
+//        	bs.switchWindo(3);
+//        	//租房单页 服务等级的locator和二手房单页一样
+//        	String badRentViewRight = bs.getText(Ajk_PropView.Star_BrokerInfo, "获得服务等级");
+//        	badRentViewRight = badRentViewRight.replaceAll(" ", "");
+//        	bs.assertEquals(badRentViewRight, "暂无", "经纪人二手房-右侧服务等级", "服务等级为暂无");
+//        	String badRentViewDownufsinfo = bs.getText(Ajk_PropView.Star_downufsinfo, "获得服务等级");
+//        	badRentViewDownufsinfo = badRentViewDownufsinfo.replaceAll(" ", "");
+//        	bs.assertEquals(badRentViewDownufsinfo, "暂无", "经纪人二手房-下方UFS信息服务等级", "服务等级为暂无");
+//        	bs.close();
+//        	bs.switchWindo(2);
+//    	}
     	//点评价tab
     	bs.click(Ajk_ShopView.UfsTab, "点评价tab");
     	//经纪人店铺右侧通栏 服务等级locator通用

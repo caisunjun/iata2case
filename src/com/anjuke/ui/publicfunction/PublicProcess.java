@@ -173,16 +173,16 @@ public class PublicProcess {
 	public static void dologin(Browser driver, String name, String pass) {
 		driver.get(homeUrl);
 		//打开页面后，这里经常找不到登陆的元素--------------------------2012.7.30
-		if(driver.check(Init.G_objMap.get("anjuke_click_login")))
+		if(driver.check(Public_HeaderFooter.Login))
 		{
-			driver.click(Init.G_objMap.get("anjuke_click_login"), "点击登录按钮");
+			driver.click(Public_HeaderFooter.Login, "点击登录按钮");
 		}
 		else
 		{
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("从首页登陆", "又没有找到登陆按钮，尝试刷新页面", Report.DONE,ps);
 			driver.refresh();
-			driver.click(Init.G_objMap.get("anjuke_click_login"), "点击登录按钮");
+			driver.click(Public_HeaderFooter.Login, "点击登录按钮");
 		}
 		
 		driver.type(Init.G_objMap.get("anjuke_login_userName"), name, "用户名");
@@ -258,7 +258,7 @@ public class PublicProcess {
 		String email = null; // 注册邮箱
 		String email_suffix = null; // 注册邮箱后缀
 
-		email_suffix = "@hotmail.com";
+		email_suffix = "@mail.com";
 		userName = generateUserName();
 		email = userName.concat(email_suffix);
 		return email;

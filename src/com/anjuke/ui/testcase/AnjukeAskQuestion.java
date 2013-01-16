@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.AnjukeAsk;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
@@ -47,6 +48,8 @@ public class AnjukeAskQuestion {
 		driver = null;
 	}
 
+	//提问
+	
 	@Test(groups = {"unstable"})
 	public void askQustion(){
 		// 普通用户登录并获取当前登录成功后的用户名
@@ -55,7 +58,7 @@ public class AnjukeAskQuestion {
 		PublicProcess.logIn(driver, loginName, "123456", false, 0);
 				
 		// 判断用户是否登录成功
-		driver.assertEquals(loginName, PublicProcess.logIn(driver, loginName, "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
+		driver.assertEquals(loginName, driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		
 		//提交问题，随机指定某类专家并提出相关类型的问题
 		driver.get("http://shanghai.anjuke.com/ask/new/");
@@ -68,20 +71,24 @@ public class AnjukeAskQuestion {
 		AnjukeAsk.submitSupplement(driver, "问题补充");
 		
 	}
+	
+	//回答
 	@Test(groups = {"unstable"},dependsOnMethods="askQustion") 
 	public void askSubmitAnswer(){
 		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
 		
 		// 判断用户是否登录成功
-		driver.assertEquals("rmfans2000", PublicProcess.logIn(driver, "rmfans2000", "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
+		driver.assertEquals("rmfans2000", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		
 		driver.get(askurl);
 		AnjukeAsk.submitAnswer(driver,"关于房子"+expert+"的问题要注意"+nowDateTime);
 	}
+	
+	//提问者采纳最佳答案并检测个人中心数据
 	@Test(groups = {"unstable"},dependsOnMethods="askSubmitAnswer")
 	public void askCheckUserInfo(){
 		PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0);
-		driver.assertEquals("agneszhang1", PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0).substring(3), "用户名登录判断", "是否成功");
+		driver.assertEquals("agneszhang1", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		driver.get(askurl);
 		AnjukeAsk.AdoptBestAnswer(driver);
 		AnjukeAsk.checkNormalUserAskInfo(driver, title);

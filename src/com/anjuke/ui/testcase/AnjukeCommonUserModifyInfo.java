@@ -56,7 +56,7 @@ public class AnjukeCommonUserModifyInfo {
 
 		//Report.setTCNameLog("修改普通用户个人签名-- AnjukeCommonUserModifySignature --Hendry_huang");	
 
-		//*修改普通用户头像
+		//*修改普通用户签名
 
 		modifyCommonUserSignature();   
 
@@ -329,7 +329,7 @@ public class AnjukeCommonUserModifyInfo {
 		
 		//确认输入新密码
 		bs.type(Init.G_objMap.get("anjuke_commonuser_info_modification_pass_confirm"), newPassword, "输入新登录密码");	
-	
+		
 		
 		//点击确定保存按钮
 		bs.click(Init.G_objMap.get("anjuke_commonuser_info_modification_pass_save_btn"),"点击提交按钮");

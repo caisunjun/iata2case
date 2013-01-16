@@ -7,7 +7,7 @@ package com.anjuke.ui.page;
  * @author jessili
  * */
 
-public class Ajk_UserCenter {
+public class Ajk_MemberFeedback {
 	/** 用户中心 - 我的评价 - 获取经纪人姓名 */
 	public static final String USERCENTER_BROKERNAME = "//*[@id='MyAnjuke']/div[2]/div/div/ul/li[1]/div/div[1]/span/a";
 	/** 用户中心 - 我的评价 - 获取经纪人头像 */

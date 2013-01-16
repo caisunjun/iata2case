@@ -6,7 +6,7 @@ package com.anjuke.ui.page;
  * @author grayhu
  * */
 
-public class User_MemberAsk {
+public class Ajk_MemberAsk {
 	
 	/** 我的问答 - 经验值 */
 	public static final String EXP = "//ul[@class='user_details']/li[1]/p[2]";
