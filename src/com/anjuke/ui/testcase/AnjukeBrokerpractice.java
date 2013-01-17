@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -85,11 +86,13 @@ public class AnjukeBrokerpractice {
         String knownarea = bs.getText(Ajk_ShopView.KNOWNAREA, "获取最熟悉的区域");
         String tmpUrl = bs.getCurrentUrl();
         bs.get(tmpUrl);
-        if(!bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3))
+        if(!checkOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3))
         {
         	tmpUrl = bs.getCurrentUrl()+"?cc=cc";
         	bs.get(tmpUrl);
         	bs.refresh();
+        	knowncomm = bs.getText(Ajk_ShopView.KNOWNCOMM, "获取最熟悉的小区 ");
+        	knownarea = bs.getText(Ajk_ShopView.KNOWNAREA, "获取最熟悉的区域");
         	bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,comm2,comm3);
         }
         bs.assertOneContainsMany(knownarea, "验证我的店铺中区域板块显示是否完整", area1,area2);
@@ -103,10 +106,25 @@ public class AnjukeBrokerpractice {
         if( text.contains("（") ){
             text = text.substring(0, text.lastIndexOf("（"));
         }
+        bs.check("//*[@id='showCommNameBox']",2);
         li.findElements(By.tagName("span")).get(0).click();
         bs.exitFrame();
         return text;
     }
+    
+    private boolean checkOneContainsMany(String actual, String scase, String... expected) {
+		boolean tag = true;
+		for (String text : expected) {
+			if (!actual.contains(text)) {
+				tag = false;
+				break;
+			}
+		}
+		if (tag) {
+			Report.writeHTMLLog(scase, actual + "中包含所有期望的值", Report.PASS, "");
+		}
+		return tag;
+	}
 
 }
 

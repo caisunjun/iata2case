@@ -119,7 +119,9 @@ public class AnjukeBrokerprofile {
         	System.out.println(tmpUrl);
         	bs.get(tmpUrl);
         	bs.refresh();
-        	bs.assertContains(actualText1.trim(), expectedText.trim());}
+        	actualText1 = provinceactual+cityactual+lunaractual+constellation1;
+        	bs.assertContains(actualText1.trim(), expectedText.trim());
+        }
         
         //我的店铺页获取喜欢的书，与个人介绍页对比
         WebElement shoplikebook = bs.findElement(Broker_shopprofile.LIKEBOOK, "获取喜欢的书", 60);
