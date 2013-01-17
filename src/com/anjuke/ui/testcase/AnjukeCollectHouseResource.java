@@ -166,20 +166,40 @@ public class AnjukeCollectHouseResource {
                     if(datacount!=1){
                     	boolean status = true;
                     	String href = driver.getAttribute(Init.G_objMap.get("anjuke_sale_member_houselist_firstdatatitle"), "href");
+                    	int tmp = 12;
+                    	String hrefResult = null;
+                    	int collectProp = 0; 
                     	for(int i=1;i<datacount;i++){
-                    		int first = 12;
-                    		String hrefResult = driver.getAttribute("//*[@id='prop_name_qt_apf_id_"+(first+4)+"']", "href");
+                    		tmp = tmp+2;
+                    		if(driver.check("//*[@id='prop_name_qt_apf_id_"+tmp+"']",1))
+                    		{
+                    			hrefResult = driver.getAttribute("//*[@id='prop_name_qt_apf_id_"+tmp+"']", "href");
+                    		}
+                    		else{
+                    			tmp = tmp+2;
+                    			hrefResult = driver.getAttribute("//*[@id='prop_name_qt_apf_id_"+tmp+"']", "href");
+                    		}
                     		if(href.equals(hrefResult)){
                     			String ps = driver.printScreen();
                     			Report.writeHTMLLog("存在相同的房源", "房源收藏列表存在相同的房源", Report.FAIL, ps);
                     			status = false;
                     			break;
                     		}
-                    	} 
+                    		if(url.contains(hrefResult))
+                    		{
+                    			collectProp = tmp;
+                    		}
+                    	}
                     	if(status){
                 			Report.writeHTMLLog("不存在相同的房源", "房源收藏列表不存在相同的房源", Report.PASS,"");
                     	}
-                    }if(num>=10){
+                    	if(collectProp > 0)
+                    	{
+                    		driver.click("//*[@id='apf_id_"+collectProp+"']/div[2]/div[2]/a", "删除收藏的房源");
+                			driver.click("//*[@id='msgbox-del']/div[2]/div[2]/input[1]", "确认删除");
+                    	}
+                    }if(num>=6){
+                    	driver.refresh();
                     	driver.click(Init.G_objMap.get("anjuke_sale_member_houselist_allsel"), "选择当前页数据");
                     	driver.click(Init.G_objMap.get("anjuke_sale_member_houselist_btnDelAll"), "删除所有数据");
                     	driver.check(Init.G_objMap.get("anjuke_sale_member_commlist_sucnotice"),5);
