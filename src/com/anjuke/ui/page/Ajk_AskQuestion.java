@@ -26,4 +26,10 @@ public class Ajk_AskQuestion {
 	/** 问答提问页 - 房产专家 */
 	public static final String EXPERT_FC = "//dl[@id='expertList']/dd[5]";
 	
+	/** 问答提问页 - 专家类型（val为为左起第几个项）*/
+	public static final String ExpertTypeByVal(int val)
+	{
+		 return "//dl[@id='expertList']/dd["+val+"]";
+	}
+	
 }
