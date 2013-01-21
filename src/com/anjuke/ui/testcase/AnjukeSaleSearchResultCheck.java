@@ -27,7 +27,7 @@ public class AnjukeSaleSearchResultCheck {
 
 	@BeforeMethod
 	public void setUp() {
-		Report.G_CASECONTENT = "二手房列表页筛选、搜索功能检测";
+		Report.G_CASECONTENT = "二手房列表页筛选 搜索功能检测";
 		driver = FactoryBrowser.factoryBrowser();
 		ass = new AjkSaleSearchAction(driver);
 	}

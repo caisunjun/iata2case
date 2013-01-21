@@ -37,7 +37,7 @@ public class AnjukeBrokerprofile {
 
     @BeforeMethod
     public void setUp() {
-    	Report.G_CASECONTENT = "经纪人更改熟悉小区和熟悉版块";
+    	Report.G_CASECONTENT = "经纪人更改基本资料";
         bs = FactoryBrowser.factoryBrowser();
     }
 

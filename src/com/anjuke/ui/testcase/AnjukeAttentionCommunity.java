@@ -29,7 +29,7 @@ public class AnjukeAttentionCommunity {
 
 	@BeforeMethod
 	public void startUp() {
-		Report.G_CASECONTENT = "";
+		Report.G_CASECONTENT = "关注小区";
 		driver = FactoryBrowser.factoryBrowser();
 	}
 
