@@ -9,6 +9,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
+import com.anjukeinc.iata.ui.report.Report;
 import com.anjuke.ui.publicfunction.BrokerRentOperating;
 
 /**
@@ -28,6 +29,7 @@ public class AnjukeBrokerRentRelease {
 	
 	@BeforeMethod
 	public void startUp() {
+		Report.G_CASECONTENT = "经纪人发布端口租房";
 		driver = FactoryBrowser.factoryBrowser();
 //		driver.deleteAllCookies();
 	}

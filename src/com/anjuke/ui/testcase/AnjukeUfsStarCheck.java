@@ -16,6 +16,7 @@ public class AnjukeUfsStarCheck {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "各页面经纪人ufs等级一致性检查";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

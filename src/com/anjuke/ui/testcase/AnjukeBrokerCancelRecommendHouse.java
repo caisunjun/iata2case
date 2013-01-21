@@ -31,6 +31,7 @@ public class AnjukeBrokerCancelRecommendHouse {
 
 	@BeforeMethod
 	public void startUp() {
+		Report.G_CASECONTENT = "经纪人取消推荐房源";
 		bs = FactoryBrowser.factoryBrowser();
 	}
 

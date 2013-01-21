@@ -20,6 +20,7 @@ public class AnjukeAskNormalSearchNoFound {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "问答列表正常内容搜索无结果";
 		driver = FactoryBrowser.factoryBrowser();
 	}
 

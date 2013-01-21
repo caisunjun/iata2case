@@ -34,6 +34,7 @@ public class AnjukeBrokerpractice {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人购买端口";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

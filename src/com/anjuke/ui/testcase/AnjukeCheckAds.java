@@ -20,6 +20,7 @@ public class AnjukeCheckAds {
 
 	@BeforeMethod
 	public void setUp() {
+		Report.G_CASECONTENT = "";
 		bs = FactoryBrowser.factoryBrowser();
 	}
 

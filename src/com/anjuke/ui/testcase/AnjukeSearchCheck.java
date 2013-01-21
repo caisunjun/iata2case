@@ -33,6 +33,7 @@ public class AnjukeSearchCheck {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "通用搜索框搜索";
         driver = FactoryBrowser.factoryBrowser();
     }
 

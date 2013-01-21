@@ -26,8 +26,8 @@ public class AnjukeAskEditExpertInfo {
 	//AnjukeAsk ask = new AnjukeAsk(driver);
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "问答专家资料修改";
 		driver = FactoryBrowser.factoryBrowser();
-
 	}
 
 	@AfterMethod

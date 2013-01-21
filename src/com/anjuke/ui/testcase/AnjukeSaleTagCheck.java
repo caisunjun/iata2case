@@ -21,6 +21,7 @@ public class AnjukeSaleTagCheck {
     
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "二手房列表页标签检测";
     	driver = FactoryBrowser.factoryBrowser();
     	ass = new AjkSaleSearchAction(driver);
     }

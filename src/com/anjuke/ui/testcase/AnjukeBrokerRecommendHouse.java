@@ -33,6 +33,7 @@ public class AnjukeBrokerRecommendHouse {
 	
 	@BeforeMethod
 	public void startUp(){
+		Report.G_CASECONTENT = "经纪人推荐房源";
 		bs  = FactoryBrowser.factoryBrowser();	
 	}
 

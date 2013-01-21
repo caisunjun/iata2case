@@ -33,6 +33,7 @@ public class AnjukeBrokerReport {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人网络助手数据检查";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

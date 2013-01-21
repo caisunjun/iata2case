@@ -24,6 +24,7 @@ public class AnjukeTycoonListEvaluation {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人列表有用户评价筛选检查";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

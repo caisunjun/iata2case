@@ -34,6 +34,7 @@ public class AnjukeTycoonListAsk {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人列表有回答问题筛选检查";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
@@ -29,6 +30,7 @@ public class AnjukeBrokerIntro {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人修改自我介绍";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

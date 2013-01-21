@@ -30,6 +30,7 @@ public class AnjukeBrokerRecycleOps {
 	
 	@BeforeMethod
 	public void startUp(){
+		Report.G_CASECONTENT = "经纪人删除房源";
 		bs  = FactoryBrowser.factoryBrowser();	
 	}
 

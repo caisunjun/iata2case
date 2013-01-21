@@ -11,6 +11,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
+import com.anjukeinc.iata.ui.report.Report;
 
 /**
  * 该用例完成安居客出售发布操作，逻辑如下 1、填写出售信息，添加图片附件 2、发布成功后，验证出售基本信息 3、在出售详细页，验证房屋出售详细信息
@@ -27,6 +28,7 @@ public class AnjukeBrokerSaleRelease {
 
 	@BeforeMethod
 	public void startUp() {
+		Report.G_CASECONTENT = "经纪人发布端口二手房";
 		driver = FactoryBrowser.factoryBrowser();
 //		driver.deleteAllCookies();
 		saleInfo = saleInfo_init();

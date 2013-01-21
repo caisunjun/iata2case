@@ -29,6 +29,7 @@ public class AnjukeAttentionCommunity {
 
 	@BeforeMethod
 	public void startUp() {
+		Report.G_CASECONTENT = "";
 		driver = FactoryBrowser.factoryBrowser();
 	}
 

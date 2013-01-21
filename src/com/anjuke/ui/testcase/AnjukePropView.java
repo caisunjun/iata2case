@@ -22,6 +22,7 @@ public class AnjukePropView {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "房源单页功能检测";
         bs = FactoryBrowser.factoryBrowser();
     	bs.get("http://shanghai.anjuke.com/");
     }

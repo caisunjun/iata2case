@@ -20,6 +20,7 @@ public class AnjukeAskHome {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "问答首页数据检测";
 		driver = FactoryBrowser.factoryBrowser();
 	}
 

@@ -30,6 +30,7 @@ public class AnjukeCommunityPropList {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "小区二手房列表页筛选功能检测";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

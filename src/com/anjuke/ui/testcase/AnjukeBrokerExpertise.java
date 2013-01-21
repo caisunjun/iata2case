@@ -36,6 +36,7 @@ public class AnjukeBrokerExpertise {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人修改职业特长";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

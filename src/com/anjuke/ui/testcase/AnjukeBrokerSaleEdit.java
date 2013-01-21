@@ -11,6 +11,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.init.Init;
+import com.anjukeinc.iata.ui.report.Report;
 /**
  * 该用例完成安居客出售更新操作，逻辑如下
  * 1、编辑出售信息，添加图片附件
@@ -30,9 +31,10 @@ public class AnjukeBrokerSaleEdit {
 	
 	@BeforeMethod
 	public void startUp(){
-	driver = FactoryBrowser.factoryBrowser();
-	saleInfo = saleInfo_init();
-	updateInfo = updateInfo_init();
+		Report.G_CASECONTENT = "经纪人编辑端口二手房";
+		driver = FactoryBrowser.factoryBrowser();
+		saleInfo = saleInfo_init();
+		updateInfo = updateInfo_init();
 	}
 	
 	@AfterMethod

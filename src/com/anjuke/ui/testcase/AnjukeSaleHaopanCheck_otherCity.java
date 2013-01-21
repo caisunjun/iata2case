@@ -25,6 +25,7 @@ public class AnjukeSaleHaopanCheck_otherCity {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "小区二手房列表页好盘房源检测-其他城市";
 //		bs.deleteAllCookies();
 		bs = FactoryBrowser.factoryBrowser();
 		baseUrl = "http://chengdu.anjuke.com/sale/";

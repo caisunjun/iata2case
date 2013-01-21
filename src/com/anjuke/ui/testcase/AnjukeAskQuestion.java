@@ -37,8 +37,8 @@ public class AnjukeAskQuestion {
 	static String nowDateTime = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());// 当前时间
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "";
 		driver = FactoryBrowser.factoryBrowser();
-
 	}
 
 	@AfterMethod

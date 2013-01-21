@@ -16,6 +16,7 @@ import com.anjuke.ui.publicfunction.BrokerInfo;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 
 /**
@@ -36,6 +37,7 @@ public class AnjukeBrokerprofile {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人更改熟悉小区和熟悉版块";
         bs = FactoryBrowser.factoryBrowser();
     }
 

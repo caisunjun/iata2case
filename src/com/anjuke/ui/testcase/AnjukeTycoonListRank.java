@@ -22,6 +22,7 @@ public class AnjukeTycoonListRank {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "经纪人列表页最受欢迎经纪人排序检查";
 		driver = FactoryBrowser.factoryBrowser();
 		
 	}

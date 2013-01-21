@@ -28,6 +28,7 @@ public class AnjukeCommunityAsk {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "小区问答数据检测";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

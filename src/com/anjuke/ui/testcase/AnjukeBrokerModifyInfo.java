@@ -9,6 +9,7 @@ import com.anjuke.ui.page.Broker_info;
 import com.anjuke.ui.page.Login_Anget;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 
 
 /**
@@ -31,6 +32,7 @@ public class AnjukeBrokerModifyInfo {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人修改个人资料";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod

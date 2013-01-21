@@ -28,6 +28,7 @@ public class AnjukeCommonUserModifyInfo {
 
 	@BeforeMethod
 	public void stratUp(){
+		Report.G_CASECONTENT = "普通用户修改个人信息";
 		bs = FactoryBrowser.factoryBrowser();
 
 	}
