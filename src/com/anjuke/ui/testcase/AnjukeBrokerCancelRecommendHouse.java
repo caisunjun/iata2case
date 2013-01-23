@@ -188,6 +188,7 @@ public class AnjukeBrokerCancelRecommendHouse {
 
 		// 点击非推荐房源链接
 		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_Nrec_tab"), "点击非推荐链接");
+		bs.refresh();
 		if (bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_total"))) {
 			notRecommendCountAfter = Integer.parseInt(bs.getText(Init.G_objMap.get("anjuke_broke_manage_sale_total"), "获取非推荐房源总数"));
 		} else {
