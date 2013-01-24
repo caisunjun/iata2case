@@ -76,8 +76,10 @@ public class AnjukePropViewRound {
     	bs.switchWindo(3);
     	//获得左侧列表展示的当前选中的小区名
     	String mapCommName = bs.getText(Ajk_MapSale.ListCommNameSelected, "地图页面当前选中的小区名");
+    	System.out.println(mapCommName);
     	//防止内容为空
-    	if(mapCommName.equals(null)){
+    	int timess=0;
+    	if(mapCommName.equals(null) && timess<10){
     		try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -85,6 +87,7 @@ public class AnjukePropViewRound {
 				e.printStackTrace();
 			}
     		mapCommName = bs.getText(Ajk_MapSale.ListCommNameSelected, "地图页面当前选中的小区名");
+    		timess=timess+1;
     	}
     	bs.assertEquals(textCommName,mapCommName, "验证小区名是否一致", "地图找房里选中的小区名和房源信息里的一致");
     	bs.click(Ajk_MapSale.ListClearComm, "清除标记");
