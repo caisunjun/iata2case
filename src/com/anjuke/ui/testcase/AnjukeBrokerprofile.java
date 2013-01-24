@@ -118,7 +118,6 @@ public class AnjukeBrokerprofile {
         if(!expectedText.trim().contains(actualText1.trim()))
         {
         	String tmpUrl = bs.getCurrentUrl()+"?cc=cc";
-        	System.out.println(tmpUrl);
         	bs.get(tmpUrl);
         	bs.refresh();
         	actualText1 = provinceactual+cityactual+lunaractual+constellation1;
