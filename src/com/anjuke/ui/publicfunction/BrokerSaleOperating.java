@@ -76,9 +76,9 @@ public class BrokerSaleOperating {
 				// 点去上传照片  进入发房第二步
 				driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_nextBtn"),"去上传照片");
 				// 上传房型图
-				PublicProcess.uploadPic(driver, "sale");
+				PublicProcess.uploadPicMulti(driver, "sale");
 				
-				driver.click("//div[@id='popup-layer']/div/div[2]/a","防重复图片提示");
+//				driver.click("//div[@id='popup-layer']/div/div[2]/a","防重复图片提示");
 				
 				// 点击发布房源
 				driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_step2_submitup"),"发房第二步-发布房源");
@@ -264,7 +264,7 @@ public class BrokerSaleOperating {
 			// 点去上传照片  进入发房第二步
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_nextBtn"),"去上传照片");
 			// 上传房型图
-			PublicProcess.uploadPic(driver, "sale");
+			PublicProcess.uploadPicMulti(driver, "sale");
 			// 点击发布房源
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_step2_submitup"),"编辑完毕-发布房源");
 		}

@@ -52,7 +52,7 @@ public class AnjukeBrokerSaleEdit {
 	private AnjukeSaleInfo saleInfo_init() {
 		saleInfo.setCommunityName("潍坊八村");//小区
 		saleInfo.setPriceTaxe("200");//售价
-		saleInfo.setHouseArea("120.00");//面积	
+		saleInfo.setHouseArea("100.01");//面积	
 		saleInfo.setHouseType_S("3");//室
 		saleInfo.setHouseType_T("2");//厅
 		saleInfo.setHouseType_W("1");//卫
@@ -72,13 +72,13 @@ public class AnjukeBrokerSaleEdit {
 		//updateInfo.setCommunityName("潍坊八村");//小区
 		updateInfo.setPriceTaxe("123");//售价
 		updateInfo.setHouseArea("99.00");//面积	
-		updateInfo.setHouseType_S("1");//室
+		updateInfo.setHouseType_S("3");//室
 		updateInfo.setHouseType_T("1");//厅
 		updateInfo.setHouseType_W("1");//卫
 		updateInfo.setFloorCur("1");//第几层
 		updateInfo.setFloorTotal("12");//共几层
 		updateInfo.setHouseType("公寓");//房屋类型
-		updateInfo.setFitmentInfo("普通装修");//装修类型
+		updateInfo.setFitmentInfo("精装修");//装修类型
 		updateInfo.setOrientations("南北");//朝向
 		updateInfo.setBuildYear("1999");//建造年代
 		String time = PublicProcess.getNowDateTime("HH:mm:ss");
