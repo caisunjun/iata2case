@@ -142,7 +142,6 @@ public class AnjukeSaleTagCheck {
     		
     		if(tagNum == listCount){
 			//everything is right
-    			System.out.println("xxx");
     		}
     		else if((listCount - tagNum) < 5){
     			Report.writeHTMLLog("列表页标签检查","当前筛选条件下，有房源缺少 "+ tagType + " 标签，但数量小于5个", Report.WARNING, "");
@@ -193,7 +192,6 @@ public class AnjukeSaleTagCheck {
         		
         		if(tagNumn == listCountn){
     			//everything is right
-        			System.out.println("xxx");
         		}
         		else if(tagNumn > (listCountn - 5)){
         			Report.writeHTMLLog("列表页标签检查","当前筛选条件下，有房源缺少 "+ tagType + " 标签，但数量小于5个", Report.WARNING, "");
