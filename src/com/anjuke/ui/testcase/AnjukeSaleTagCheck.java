@@ -97,7 +97,7 @@ public class AnjukeSaleTagCheck {
         		Report.writeHTMLLog("列表页标签检查","当前筛选条件下，选择 "+ tagType + " 标签，没有房源", Report.WARNING, "");
         	}
         	else{
-        		//有房源的话再检查tag图标的title、src
+        		//有房源的话再检查多图tag的src
         		String tagPicSrc = null;
         		int listCount = driver.getElementCount("//ol[@id='list_body']/li");
         		for(int n = 1; n<= listCount; n++)
@@ -193,11 +193,11 @@ public class AnjukeSaleTagCheck {
         		if(tagNumn == listCountn){
     			//everything is right
         		}
-        		else if(tagNumn > (listCountn - 5)){
+        		else if((listCount - tagNum) < 5){
         			Report.writeHTMLLog("列表页标签检查","当前筛选条件下，有房源缺少 "+ tagType + " 标签，但数量小于5个", Report.WARNING, "");
         		}
-        		else if(tagNumn < (listCountn - 5)){
-        			Report.writeHTMLLog("列表页标签检查","当前筛选条件下，有房源缺少 "+ tagType + " 标签，且数量大于5个", Report.FAIL, "");
+        		else if((listCount - tagNum) > 4){
+        			Report.writeHTMLLog("列表页标签检查","当前筛选条件下，有房源缺少 "+ tagType + " 标签，且数量大于等于5个", Report.FAIL, "");
         		}
         		for(int nn = 1; nn<= listCountn; nn++)
         		{
