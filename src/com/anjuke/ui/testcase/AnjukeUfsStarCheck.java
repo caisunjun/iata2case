@@ -24,7 +24,8 @@ public class AnjukeUfsStarCheck {
         bs.quit();
         bs = null;
     }
-    @Test
+  //页面有变化 脚本逻辑待更新
+    @Test(groups = {"unstable"})
     public void ufsStarCheck(){
     	checkStar();
     	checkBadEva();

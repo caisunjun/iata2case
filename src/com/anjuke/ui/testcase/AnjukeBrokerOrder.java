@@ -12,7 +12,7 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**
 * @Todo TODO
-* 选择端口套餐（非PPC城市经济人才可用）
+* 选择端口套餐（非PPC城市经济人才可用）端口套餐已被销售助理删除，前台无法录合同
 * @author fjzhang
 * @since 2012-8-8
 * @file AnjukeBrokerOrder.java
@@ -36,7 +36,7 @@ public class AnjukeBrokerOrder {
         bs.quit();
         bs = null;
     }
-    @Test
+    @Test(groups = {"unstable"})
     public void testBrokerOrder(){
         /**
          * 检查套餐列表

@@ -94,8 +94,8 @@ public class AnjukeSearchCheck {
                 // 正常关键字搜索
                 normalSearch("玉兰香苑", checkType);
                 normalSearch("益江路", checkType);
-                normalSearch("陈群", checkType);
-                normalSearch("13918009288", checkType);
+                normalSearch("王二伟", checkType);
+                normalSearch("13651717089", checkType);
             }
             // 组合搜索不到结果
             // 异常关键字搜索
