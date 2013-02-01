@@ -28,7 +28,7 @@ public class AnjukeCommunityAskSubmit {
 
     @BeforeMethod
     public void setUp() {
-    	Report.G_CASECONTENT = "小区问答数据检测";
+    	Report.G_CASECONTENT = "小区问答提问检测";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod
@@ -36,7 +36,7 @@ public class AnjukeCommunityAskSubmit {
         bs.quit();
         bs = null;
     }
-    @Test
+    @Test(groups = {"unstable"})
     public void testBrokerCommunityAsk(){
     	String[] Question={"小区环境怎么样？","小区房价会跌吗？","小区物业费高吗？","小区周边有学校吗？","小区的绿化率高吗？"};
     	String Title="";
