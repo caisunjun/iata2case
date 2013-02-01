@@ -203,7 +203,7 @@ public class AnjukeSearchCheck {
         } else if (site.equals("community")) {
         	driver.type(Public_HeaderFooter.S_BOX, search, "关键字搜索");
             driver.click(Public_HeaderFooter.S_BTN, "点击搜索");
-            searchResult = driver.getText(Ajk_Community.C_COUNT, "获取房源搜索结果");
+            searchResult = driver.getText(Ajk_Community.C_COUNT, "获取小区搜索结果");
             // 获取搜索所有数量
             toutleCount = Integer.parseInt(searchResult);
             // 获取单页显示数量
@@ -229,17 +229,14 @@ public class AnjukeSearchCheck {
             Report.writeHTMLLog("normal search result", "normal search result is: " + searchResult + "套房源", Report.PASS, "");
         }
         // 判断每页结果显示数量是否正确
-        if ((site.equals("sale") || site.equals("rental")) && count != 25 && toutleCount > 25) {
+        if ((site.equals("sale") || site.equals("rental")) && count != 25 && toutleCount >= 25) {
             String ps = driver.printScreen();
             Report.writeHTMLLog("normal search result", site + " normal search result page count is：" + count + "套房源", Report.FAIL, ps);
-        } else if ((site.equals("sale") || site.equals("rental")) && count == 25 && toutleCount > 25) {
+        } else if ((site.equals("sale") || site.equals("rental")) && count == 25 && toutleCount >= 25) {
             Report.writeHTMLLog("normal search result", site + " normal search result page count is：" + count + "套房源", Report.PASS, "");
-        } else if (count > 10 && (site.equals("tycoon") || site.equals("community"))) {
+        } else if (site.equals("community") && toutleCount >= 10 && count != 10) {
             String ps = driver.printScreen();
-            Report.writeHTMLLog("normal tycoonsearch result", site + " normal tycoon search result page count is：" + count, Report.PASS, ps);
-        } else if (site.equals("community") && toutleCount > 10 && count != 10) {
-            String ps = driver.printScreen();
-            Report.writeHTMLLog("normal search result", site + " normal search result page count is：" + count, Report.PASS, ps);
+            Report.writeHTMLLog("normal search result", site + " normal search result page count is：" + count, Report.FAIL, ps);
         } else {
             Report.writeHTMLLog("normal tycoonsearch result", site + " normal tycoon search result page count is：" + count, Report.PASS, "");
         }
