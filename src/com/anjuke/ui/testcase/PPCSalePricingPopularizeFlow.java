@@ -44,7 +44,7 @@ public class PPCSalePricingPopularizeFlow {
 		driver = null;
 	}
 
-	//@Test
+	@Test
 	public void NewPricingPlan() {
 		saleInfo = saleInfo_init();
 		driver = FactoryBrowser.factoryBrowser();
@@ -58,7 +58,7 @@ public class PPCSalePricingPopularizeFlow {
 		driver.quit();
 	}
 
-	@Test//(dependsOnMethods = "NewPricingPlan")
+//	@Test(dependsOnMethods = "NewPricingPlan")
 	public void ClickFee() {
 		FirefoxBrowser();
 		switchVer();
@@ -76,7 +76,7 @@ public class PPCSalePricingPopularizeFlow {
 		webDriver.quit();
 	}
 
-	//@Test(dependsOnMethods = "ClickFee")
+//	@Test(dependsOnMethods = "ClickFee")
 	public void CheckCost() {
 		driver = FactoryBrowser.factoryBrowser();
 		login();
