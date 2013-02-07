@@ -44,7 +44,7 @@ public class PPCSalePricingPopularizeFlow {
 		driver = null;
 	}
 
-	@Test
+	//@Test
 	public void NewPricingPlan() {
 		saleInfo = saleInfo_init();
 		driver = FactoryBrowser.factoryBrowser();
@@ -58,7 +58,7 @@ public class PPCSalePricingPopularizeFlow {
 		driver.quit();
 	}
 
-	@Test(dependsOnMethods = "NewPricingPlan")
+	@Test//(dependsOnMethods = "NewPricingPlan")
 	public void ClickFee() {
 		FirefoxBrowser();
 		switchVer();
@@ -76,7 +76,7 @@ public class PPCSalePricingPopularizeFlow {
 		webDriver.quit();
 	}
 
-	@Test(dependsOnMethods = "ClickFee")
+	//@Test(dependsOnMethods = "ClickFee")
 	public void CheckCost() {
 		driver = FactoryBrowser.factoryBrowser();
 		login();
@@ -104,10 +104,10 @@ public class PPCSalePricingPopularizeFlow {
 			fail(e.getMessage());
 		}
 		ffPro.setPreference("network.proxy.type", 1);
-		ffPro.setPreference("network.proxy.http", "202.171.253.108");
-		ffPro.setPreference("network.proxy.http_port", 80);
-		ffPro.setPreference("network.proxy.ssl", "202.171.253.108");
-		ffPro.setPreference("network.proxy.ssl_port", 80);
+		ffPro.setPreference("network.proxy.http", Init.G_config.get("ip"));
+		ffPro.setPreference("network.proxy.http_port", Init.G_config.get("port"));
+		ffPro.setPreference("network.proxy.ssl", Init.G_config.get("ip"));
+		ffPro.setPreference("network.proxy.ssl_port", Init.G_config.get("port"));
 		System.setProperty("webdriver.firefox.bin", Init.G_config.get("proxy"));
 		webDriver = new FirefoxDriver(ffPro);
 		driver = new Browser(webDriver);
