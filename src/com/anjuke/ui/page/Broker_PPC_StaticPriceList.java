@@ -60,7 +60,7 @@ public class Broker_PPC_StaticPriceList {
 	 *            计划名称
 	 */
 	public static final String getCost(int val) {
-		return "//input[@defaultval='" + val + "']/../../../div[3]/em";
+		return "//input[@value='" + val + "']/../div[3]/em";
 	}
 
 	/** 定价 - 定价推广列表 - 验证房源在推广计划中
