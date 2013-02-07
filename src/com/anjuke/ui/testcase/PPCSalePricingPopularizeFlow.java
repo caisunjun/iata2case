@@ -54,8 +54,8 @@ public class PPCSalePricingPopularizeFlow {
 		driver.click("//h3[@class='ppch ppch01']/a", "从房源库进入定价推广页面");
 		initPlanList();
 		createPlan();
-		driver.close();
-		driver.quit();
+//		driver.close();
+//		driver.quit();
 	}
 
 //	@Test(dependsOnMethods = "NewPricingPlan")
