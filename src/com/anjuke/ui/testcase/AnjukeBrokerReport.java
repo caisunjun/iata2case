@@ -19,7 +19,7 @@ import com.anjuke.ui.page.*;
 /**该测试用例用来检查经纪人网络助手里，数据是否异常
  * 包括：
  * 数据的时间是否是昨天（9点前的数据为前天）
- * 连续7日新发房源数是否为0（其他数据很难判断是否异常）
+ * 连续7日推荐房源数是否为0（其他数据很难判断是否异常）
  * @author ccyang
  */
 
@@ -111,14 +111,14 @@ public class AnjukeBrokerReport {
 	    	{Report.writeHTMLLog("网络助手数据日期正确", "网络助手数据日期为: " + reportDate, Report.PASS, "");}
 	    	else
 	    	{Report.writeHTMLLog("网络助手数据日期有问题", "网络助手数据日期为: " + reportDate+" | | "+"今天是："+currentTime, Report.WARNING, "");}
-	    	//建个数组拿7天的新增房源数
+	    	//建个数组拿7天的房源推荐数
 	    	ArrayList<String> newProp1to7 = new ArrayList<String>();
 	    	for(int i = 0;i<7;i++)
 	    	{
 	    		c = String.valueOf(i+1);
 	    		tmp = Broker_Report.NEWREC.replaceAll("m",c);
 	    		newProp1to7.add(bs.getText(tmp, "获得左起第"+(i+1)+"条（"+(7-i)+"天前）房源推荐数量"));
-	    		//如果某一天的新增房源数为0，则计数+1
+	    		//如果某一天的房源推荐数为0，则计数+1
 	    		if(newProp1to7.get(i).equals("0套"))
 	    		{zerotao++;}
 	    	}

@@ -97,6 +97,8 @@ public class AnjukeBrokerprofile {
                 Broker_profile.SELECTRECRETIONAL, "获取喜欢的娱乐活动", "获取娱乐活动列表");
         bs.click(Broker_profile.SAVE, "保存个人介绍修改");
 
+        Report.writeHTMLLog("", "截图以作不时之需", Report.DONE, bs.printScreen());
+        
         likebook = BrokerInfo.ulSelect1(bs,Broker_profile.LIKEBOOK,"获取选择好的书的列表");
         likefood = BrokerInfo.ulSelect1(bs,Broker_profile.LIKEFOOD,"获取选择好的食物的列表");
         recretional = BrokerInfo.ulSelect1(bs,Broker_profile.RECRETIONAL,"获取选择好的娱乐活动");
