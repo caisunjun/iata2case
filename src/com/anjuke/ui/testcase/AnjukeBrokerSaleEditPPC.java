@@ -26,7 +26,7 @@ public class AnjukeBrokerSaleEditPPC {
 	private Browser driver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
 	private AnjukeSaleInfo updateInfo = new AnjukeSaleInfo();
-	private boolean needPic = false;
+	private boolean needPic = true;
 
 	@BeforeMethod
 	public void startUp() {

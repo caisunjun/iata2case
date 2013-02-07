@@ -24,7 +24,7 @@ public class DalilyReport {
 	@Test
 	public void sendReport() {
 		writeReportLog();
-		Report.sendReportEmail("脚本日执行情况一览-", today, Report_Html);
+        Report.sendReportEmail("脚本日执行情况一览-", today, Report_Html);
 	}
 
 	private void writeReportLog() {

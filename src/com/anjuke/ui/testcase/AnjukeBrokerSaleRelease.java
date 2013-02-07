@@ -24,7 +24,7 @@ import com.anjukeinc.iata.ui.report.Report;
 public class AnjukeBrokerSaleRelease {
 	private Browser driver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
-	private boolean needPic = true;
+	private boolean needPic = false;
 
 	@BeforeMethod
 	public void startUp() {

@@ -313,6 +313,7 @@ public class PublicProcess {
 			driver.click(Broker_PropertynewSaleStep.SHINEIMulti, "点击室内图多图上传");
 			picMess = "上传室内图";
 			try {
+				Thread.sleep(2000);
 				Runtime.getRuntime().exec(".\\tools\\uploadShinei.exe").waitFor();
 				Thread.sleep(3000);
 				} catch (Exception e) {
@@ -330,6 +331,7 @@ public class PublicProcess {
 			driver.click(Broker_PropertynewSaleStep.FANGXINGMulti, "点击房型图多图上传");
 			picMess = "上传房型图";
 			try {
+				Thread.sleep(2000);
 				Runtime.getRuntime().exec(".\\tools\\uploadHuxing.exe").waitFor();
 				Thread.sleep(3000);
 				} catch (Exception e) {
@@ -347,6 +349,7 @@ public class PublicProcess {
 			driver.click(Broker_PropertynewSaleStep.XIAOQUMulti, "点击小区图多图上传");
 			picMess = "上传小区图";
 			try {
+				Thread.sleep(2000);
 				Runtime.getRuntime().exec(".\\tools\\uploadXiaoqu.exe").waitFor();
 				Thread.sleep(3000);
 				} catch (Exception e) {
