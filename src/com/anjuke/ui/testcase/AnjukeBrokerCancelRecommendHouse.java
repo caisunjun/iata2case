@@ -179,6 +179,14 @@ public class AnjukeBrokerCancelRecommendHouse {
 			Report.writeHTMLLog("取消推荐房源", "取消推荐房源成功提示未显示", Report.FAIL, ps);
 		}
 
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		bs.refresh();
+		
 		// 获取取消推荐房源后推荐房源总数
 		if (bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_total"))) {
 			recommendCountAfter = Integer.parseInt(bs.getText(Init.G_objMap.get("anjuke_broke_manage_sale_total"), "获取推荐房源总数"));
