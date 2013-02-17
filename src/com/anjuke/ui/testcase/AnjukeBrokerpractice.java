@@ -63,15 +63,15 @@ public class AnjukeBrokerpractice {
          * 随机选择熟悉的小区
          */
         bs.type(Broker_areas.COMM1, "s ", "选择熟悉的小区1");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         String comm1 = liSelect(Broker_areas.IFRAME1, bs,Broker_areas.COMMDIV,"选择熟悉的小区并返回该小区");
 
         bs.type(Broker_areas.COMM2, "s ", "选择熟悉的小区2");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         String comm2 = liSelect(Broker_areas.IFRAME2,bs,Broker_areas.COMMDIV,"选择熟悉的小区并返回该小区");
 
         bs.type(Broker_areas.COMM3, "s ", "选择熟悉的小区3");
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         String comm3 = liSelect(Broker_areas.IFRAME3,bs,Broker_areas.COMMDIV,"选择熟悉的小区并返回该小区");
         bs.click(Broker_areas.OKENTER, "确认保存");
         String savetext = bs.getText(Broker_areas.SAVEOK, "取得保存后提示文案");
@@ -104,10 +104,10 @@ public class AnjukeBrokerpractice {
         List<WebElement> lilist = list.findElements(By.tagName("li"));
         WebElement li = lilist.get(GetRandom.getrandom(20));
         String text = li.findElements(By.tagName("span")).get(0).getText();
-        if( text.contains("（") ){
-            text = text.substring(0, text.lastIndexOf("（"));
-        }
-        bs.check("//*[@id='showCommNameBox']",2);
+//        if( text.contains("（") ){
+//            text = text.substring(0, text.lastIndexOf("（"));
+//        }
+        bs.check("//*[@id='showCommNameBox']",5);
         li.findElements(By.tagName("span")).get(0).click();
         bs.exitFrame();
         return text;

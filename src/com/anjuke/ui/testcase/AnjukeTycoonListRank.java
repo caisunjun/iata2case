@@ -33,7 +33,7 @@ public class AnjukeTycoonListRank {
 		driver = null;
 //		Report.seleniumReport("shanghai.anjuke.com", "最受欢迎的经纪人");
 	}
-	    @Test
+	    @Test(groups = { "unstable" })
     public void TycoonListRank(){
 	    driver.get("http://shanghai.anjuke.com/tycoon/");//进入经纪人列表		        		
 		int[] i = new int[10];

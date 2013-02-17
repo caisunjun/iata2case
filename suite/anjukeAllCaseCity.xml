@@ -29,9 +29,9 @@
 			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropRentList"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSearchCheck"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeUfsStarCheck"></class>
+
 			<class name="com.anjuke.ui.testcase.AnjukeTycoonListAsk"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeTycoonListEvaluation"></class>
+
 			<class name="com.anjuke.ui.testcase.AnjukeTycoonListPhoto"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_Shanghai"></class>

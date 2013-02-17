@@ -1,100 +1,130 @@
 package com.anjuke.ui.testcase;
 
 import static org.testng.Assert.fail;
-
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
-
 import net.jsourcerer.webdriver.jserrorcollector.JavaScriptError;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Platform;
+import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import com.anjuke.ui.bean.AnjukeSaleInfo;
-import com.anjuke.ui.page.Ajk_Sale;
 import com.anjuke.ui.publicfunction.BrokerSaleOperatingPPC;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.init.Init;
 
 /**
  * 该用例完成二手房定价操作，逻辑如下
  * 
+ * 发房源 --> 初始化定价计划  --> 新建定价计划 --> 推广房源 --> 房源列表页搜索房源 --> 点击 --> 验证扣费结果。
+ * 
  * @Author grayhu
- * @time 2012-12-04 9:00
+ * @time 2013-02-05 9:00
  */
-public class AnjukeBrokerSalePricingPPC {
+public class PPCSalePricingPopularizeFlow {
 	private Browser driver = null;
+	private WebDriver webDriver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
 	String PropId = "";
 	String PlanName = "";
 	String PlanId = "";
 	
-	WebDriver driver1;
-	WebDriver webDriver1;
-	
-//	@BeforeMethod
-	public void startUp() throws MalformedURLException {
-//		driver = FactoryBrowser.factoryBrowser();
-//		saleInfo = saleInfo_init();
-	
-		
-	  //远程访问
-//      URL url = new URL("http://192.168.201.190:5555/wd/hub");
-//      DesiredCapabilities capabilities = new DesiredCapabilities();
-//      capabilities.setBrowserName("firefox");
-//      capabilities.setPlatform(Platform.LINUX);
-//      driver1 = new RemoteWebDriver(url,capabilities); 
-        
-        
-		DesiredCapabilities capabilities = null;
-    	FirefoxProfile ffPro = new FirefoxProfile(new File("C:\\Documents and Settings\\grayhu\\Application Data\\Mozilla\\Firefox\\Profiles\\czma0y37.default"));
-		try {
-			JavaScriptError.addExtension(ffPro);
-		} catch (IOException e) {
-			fail(e.getMessage());
-		}
-		capabilities = DesiredCapabilities.firefox();
-		capabilities.setCapability(FirefoxDriver.PROFILE, ffPro);
-		capabilities.setCapability("webdriver.remote.quietExceptions", true);
-    	capabilities.setPlatform(Platform.XP);
-    	
-    	ffPro.setPreference("network.proxy.type", 1); 
-    	ffPro.setPreference("network.proxy.http", "202.171.253.108"); 
-    	ffPro.setPreference("network.proxy.http_port", 80); 
-    	ffPro.setPreference("network.proxy.ssl", "202.171.253.108"); 
-    	ffPro.setPreference("network.proxy.ssl_port", 80); 
-    	System.setProperty("webdriver.firefox.bin", "D:\\Mozilla firefox\\firefox.exe");
-    	
-    	
-		webDriver1 = new FirefoxDriver(ffPro);
-	}
-	
-//	@Test
-	public void test1(){
-		webDriver1.get("http://www.baidu.com");
-	        sleep(5000);
-	}
 
-//	@AfterMethod
+	@BeforeClass
+	public void startUp() throws MalformedURLException {}
+
+	@AfterClass
 	public void tearDown() {
 		driver.close();
 		driver.quit();
 		driver = null;
 	}
 
+	@Test
+	public void NewPricingPlan() {
+		saleInfo = saleInfo_init();
+		driver = FactoryBrowser.factoryBrowser();
+		login();
+		driver.get("http://my.anjuke.com/user/ppc/brokerpropmanage2/W0QQactZsaleQQggZ1");
+		releaseSale();
+		driver.click("//h3[@class='ppch ppch01']/a", "从房源库进入定价推广页面");
+		initPlanList();
+		createPlan();
+//		driver.close();
+//		driver.quit();
+	}
+
+//	@Test(dependsOnMethods = "NewPricingPlan")
+	public void ClickFee() {
+		FirefoxBrowser();
+		switchVer();
+		driver.get("http://shanghai.anjuke.com/sale/");
+		sleep(20000);
+		driver.type("//input[@class='input_text']", PropId, "输入刚推广的定价房源ID："+ PropId+ "进行搜索");
+		driver.click("//input[@class='input_button se_house']", "点击搜索一下按钮");
+		String href = driver.getAttribute("//a[@id='prop_name_qt_prop_1']", "href", 3);
+		driver.assertContains("没有找到刚推广的房子 "+ href + "", PropId);
+		if (href.contains(PropId)) {
+			driver.click("//a[@id='prop_name_qt_prop_1']", "点击搜索结果中刚推广的房源",10);
+		} 
+		sleep(15000);
+		webDriver.close();
+		webDriver.quit();
+	}
+
+//	@Test(dependsOnMethods = "ClickFee")
+	public void CheckCost() {
+		driver = FactoryBrowser.factoryBrowser();
+		login();
+		sleep(3000);
+		driver.get("http://my.anjuke.com/user/ppcnew/staticpricelist/W0QQactZsale");
+		sleep(5000);
+		double planCost = getPlanCost();
+		int propCol = getPropCol();
+		double propPrice = getPropPrice();
+		
+		if (propCol > 0) {
+			driver.assertEquals(Double.toString(planCost), Double.toString(propCol*propPrice), "扣费", "扣费正确 - 计划的花费等于定价底价乘以扣费次数");
+		}else {
+			driver.assertEquals(Double.toString(planCost), Double.toString(propPrice), "未扣费", "未扣费 - 需要验证为何没有扣费成功");
+		}
+		sleep(3000);
+	}
+
+	// 使用代理服务器
+	private void FirefoxBrowser() {
+		FirefoxProfile ffPro = new FirefoxProfile();
+		try {
+			JavaScriptError.addExtension(ffPro);
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
+		ffPro.setPreference("network.proxy.type", 1);
+		ffPro.setPreference("network.proxy.http", Init.G_config.get("ip"));
+		ffPro.setPreference("network.proxy.http_port", Init.G_config.get("port"));
+		ffPro.setPreference("network.proxy.ssl", Init.G_config.get("ip"));
+		ffPro.setPreference("network.proxy.ssl_port", Init.G_config.get("port"));
+		System.setProperty("webdriver.firefox.bin", Init.G_config.get("proxy"));
+		webDriver = new FirefoxDriver(ffPro);
+		driver = new Browser(webDriver);
+	}
+
+	// 切换版本
+	private void switchVer() {
+		String version = "";
+		version = Init.G_config.get("version").toLowerCase();
+		driver.get("http://www.anjuke.com/version/switch/?f1=" + version);
+		webDriver.navigate().refresh();
+		sleep(3000);
+	}
+
 	// 登录经纪人后台
-	private void login() {
 		// PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa", false, 1);
+	private void login() {
 		// driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
 		driver.get("http://my.anjuke.com/my/login");
 		driver.type("id^username", "1349689430yzN", "输入用户名");
@@ -105,10 +135,10 @@ public class AnjukeBrokerSalePricingPPC {
 	// 发房源 - 二手房信息初始化
 	private AnjukeSaleInfo saleInfo_init() {
 		saleInfo.setCommunityName("好盘测试小区");// 小区
-		saleInfo.setPriceTaxe("200");// 售价
-		saleInfo.setHouseArea("120.00");// 面积
-		saleInfo.setHouseType_S("3");// 室
-		saleInfo.setHouseType_T("2");// 厅
+		saleInfo.setPriceTaxe("49");// 售价
+		saleInfo.setHouseArea("35.00");// 面积
+		saleInfo.setHouseType_S("1");// 室
+		saleInfo.setHouseType_T("1");// 厅
 		saleInfo.setHouseType_W("1");// 卫
 		saleInfo.setFloorCur("3");// 第几层
 		saleInfo.setFloorTotal("6");// 共几层
@@ -132,10 +162,8 @@ public class AnjukeBrokerSalePricingPPC {
 	private void initPlanList() {
 		int pc = driver.getElementCount("//div[@class='intro-box']");
 		for (; pc > 0; pc--) {
-			driver.moveToElementClick("//div[@class='tab-cont']/div[" + pc
-					+ "]/div[1]");
-			driver.click("//div[@class='tab-cont']/div[" + pc
-					+ "]//i[@class='delete']", "删除定价计划");
+			driver.moveToElementClick("//div[@class='tab-cont']/div[" + pc + "]/div[1]");
+			driver.click("//div[@class='tab-cont']/div[" + pc + "]//i[@class='delete']", "删除定价计划");
 			driver.doAlert("确定");
 			sleep(5000);
 		}
@@ -167,32 +195,37 @@ public class AnjukeBrokerSalePricingPPC {
 	}
 
 	// 定价推广页 - 根据计划ID,来获取定价计划今日已花费
-	private int getPlanCost() {
+	private Double getPlanCost() {
 		String planCost = driver
 				.getText("//div[@class='cost']/em", "定价计划今日已花费");
-		System.out.println("--------------" + planCost);
-		return getInt(planCost);
+//		System.out.println("--------------" + planCost);
+		return getDouble(planCost);
 	}
 
 	// 定价推广页 - 根据房源ID,来获取房源今日点击数
 	private int getPropCol() {
 		String planCol = driver.getText("//td[@id='col-point" + PropId + "']",
 				"定价计划今日今日点击数");
-		System.out.println("--------------" + planCol);
+//		System.out.println("--------------" + planCol);
 		return getInt(planCol);
 	}
 
 	// 定价推广页 - 根据房源ID,来获取房源定价价格
-	private int getPropPrice() {
+	private Double getPropPrice() {
 		String propPrice = driver.getText("//td[@id='col-price" + PropId
 				+ "']/em", "房源定价价格");
-		System.out.println("--------------" + propPrice);
-		return getInt(propPrice);
+//		System.out.println("--------------" + propPrice);
+		return getDouble(propPrice);
 	}
 
 	private int getInt(String val) {
 		return Integer.parseInt(val);
 	}
+	
+	private Double getDouble(String val) {
+		return Double.parseDouble(val);
+	}
+	
 
 	private void sleep(int time) {
 		try {
@@ -201,70 +234,5 @@ public class AnjukeBrokerSalePricingPPC {
 			exception.getStackTrace();
 		}
 	}
-
-	@SuppressWarnings("unused")
-//	@Test
-	private void BrokerLogIn() {
-		login();
-		driver
-				.get("http://my.anjuke.com/user/ppc/brokerpropmanage2/W0QQactZsaleQQggZ1");
-
-		releaseSale();
-		driver.click("//h3[@class='ppch ppch01']/a", "从房源库进入定价推广页面");
-		initPlanList();
-		createPlan();
-	}
-	
-	@SuppressWarnings("unused")
-//	@Test
-	private void CheckCost() {
-		login();
-		sleep(5000);
-		driver
-				.get("http://my.anjuke.com/user/ppcnew/staticpricelist/W0QQactZsale");
-		sleep(5000);
-		double planCost = getPlanCost();
-		int propCol = getPropCol();
-		double propPrice = getPropPrice();
-		if (propCol > 0) {
-			System.out.println("+++++++++++++++++++++++扣费成功;" + "点击量："
-					+ propCol);
-			if (planCost == propPrice) {
-				System.out.println("+++++++++++++++++++++++扣费正确" + planCost
-						+ "==" + propPrice);
-
-			} else {
-				System.out.println("+++++++++++++++++++++++无效点击");
-			}
-		}
-
-	}
-	
-	@SuppressWarnings("unused")
-//	@Test
-	private void ClickFee() {
-		driver.get("http://shanghai.anjuke.com/sale/");
-		driver.deleteAllCookies();
-		sleep(10000);
-		driver.type(Ajk_Sale.KwInput, PropId , "输入查询条件：房源ID");
-		driver.click(Ajk_Sale.KwSubmit, "点击找房子");
-		driver.click("//a[@id='prop_name_qt_prop_1']", "点击定价房源");
-		sleep(5000);
-	}
-	
-//	@Test(dependsOnMethods= "")
-	private void ClickFeeF() {
-		webDriver1.manage().deleteAllCookies();
-		sleep(10000);
-		webDriver1.get("http://shanghai.anjuke.com/sale/");
-		webDriver1.manage().deleteAllCookies();
-		webDriver1.findElement(By.xpath("//input[@class='input_text']")).sendKeys("152975003");
-		sleep(5000);
-		webDriver1.findElement(By.xpath("//input[@class='input_button se_house']")).click();
-		sleep(10000);
-		webDriver1.findElement(By.xpath("//a[@id='prop_name_qt_prop_1']")).click();
-		sleep(5000);
-	}
-
 
 }

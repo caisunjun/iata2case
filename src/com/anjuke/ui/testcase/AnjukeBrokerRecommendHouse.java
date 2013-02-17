@@ -205,6 +205,12 @@ public class AnjukeBrokerRecommendHouse {
 
 		//点击推荐房源链接
 		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_rec_tab"), "点击推荐房源链接");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		bs.refresh();
 		//推荐成功后推荐房源总数
 		if(bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_total"))){

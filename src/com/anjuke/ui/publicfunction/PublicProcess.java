@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
 import com.anjuke.ui.page.Broker_PropertynewRentStep;
 import com.anjuke.ui.page.Broker_PropertynewSaleStep;
 import com.anjuke.ui.page.Public_HeaderFooter;
@@ -265,46 +268,115 @@ public class PublicProcess {
 
 	}
 
-	// 房源发布、编辑上传图片操作
+	// 房源发布、编辑单张上传图片操作
 	public static void uploadPic(Browser driver, String type) {
 		String picMess = null;
+		int picCount = 0;
 		if (type.equals("sale")) {
 			picMess = "上传室内图";
-			driver.uploadFile(Broker_PropertynewSaleStep.SHINEISINGLE_PPC, TcTools.imgPath("600x600.jpg"), picMess);
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			driver.uploadFile(Broker_PropertynewSaleStep.SHINEISINGLE, TcTools.imgPath("600x600.jpg"), picMess ,30);
 		} else {
 			picMess = "上传室内图";
 			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, TcTools.imgPath("600x600.jpg"), picMess);
 		}
-		exception(driver, picMess);
+		exception(driver, picMess ,picCount);
 		// 上传房型图片
 		if (type.equals("sale")) {
 			picMess = "上传房型图";
-			driver.uploadFile(Broker_PropertynewSaleStep.FANGXINGSINGLE_PPC, TcTools.imgPath("600x600x0.jpg"), picMess);
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			driver.uploadFile(Broker_PropertynewSaleStep.FANGXINGSINGLE, TcTools.imgPath("600x600x0.jpg"), picMess);
 		} else {
 			picMess = "上传房型图";
 			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, TcTools.imgPath("800x800.jpg"), picMess);
 		}
-		exception(driver, picMess);
+		exception(driver, picMess ,picCount);
 		// 上传小区图片
 		if (type.equals("sale")) {
 			picMess = "上传小区图";
-			driver.uploadFile(Broker_PropertynewSaleStep.XIAOQUSINGLE_PPC, TcTools.imgPath("800x800.jpg"), picMess);
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			driver.uploadFile(Broker_PropertynewSaleStep.XIAOQUSINGLE, TcTools.imgPath("800x800.jpg"), picMess);
 		} else {
 			picMess = "上传小区图";
 			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, TcTools.imgPath("600x600x0.jpg"), picMess);
 		}
-		exception(driver, picMess);
+		exception(driver, picMess ,picCount);
+
+	}
+	
+	// 房源发布、编辑多张上传图片操作
+	public static void uploadPicMulti(Browser driver, String type) {
+		String picMess = null;
+		int picCount = 0;
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.SHINEIMulti, "点击室内图多图上传");
+			picMess = "上传室内图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadShinei.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+			
+		} else {
+//			picMess = "上传室内图";
+//			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, TcTools.imgPath("600x600.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
+		// 上传房型图片
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.FANGXINGMulti, "点击房型图多图上传");
+			picMess = "上传房型图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadHuxing.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+
+		} else {
+//			picMess = "上传房型图";
+//			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, TcTools.imgPath("800x800.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
+		// 上传小区图片
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.XIAOQUMulti, "点击小区图多图上传");
+			picMess = "上传小区图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadXiaoqu.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+		} else {
+//			picMess = "上传小区图";
+//			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, TcTools.imgPath("600x600x0.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
 
 	}
 
 	// 处理图片上传异常
-	private static void exception(Browser driver, String picMess) {
+	private static void exception(Browser driver, String picMess ,int picCount) {
 		String getText = driver.doAlert("取值");
+		int picCountNow = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+		System.out.println(picCountNow);
+		System.out.println(picCount);
 		if (getText != null) {
 			driver.doAlert("取消");
 			Report.writeHTMLLog("上传图片", picMess + "失败", Report.FAIL, driver.printScreen());
-		} else {
+		} else if(picCountNow == picCount+1){
 			Report.writeHTMLLog("上传图片", picMess + "成功", Report.PASS, "");
+		}
+		else{
+			Report.writeHTMLLog("上传图片", picMess + "失败，房源数量不匹配，上传前："+picCount+"&上传后："+picCountNow, Report.FAIL, driver.printScreen());
 		}
 	}
 
