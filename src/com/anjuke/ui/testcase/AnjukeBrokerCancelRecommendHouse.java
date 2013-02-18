@@ -185,7 +185,7 @@ public class AnjukeBrokerCancelRecommendHouse {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		bs.refresh();
+//		bs.refresh();
 		
 		// 获取取消推荐房源后推荐房源总数
 		if (bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_total"))) {
