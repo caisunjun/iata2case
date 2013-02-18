@@ -50,18 +50,18 @@ public class AnjukeSaleSearchResultCheck {
 		checkP2(driver);
 		
 		driver.click(ass.getLocater("浦东"), "点击浦东区域的筛选条件");
-		driver.click(ass.getLocater("碧云"), "点击碧云板块的筛选条件");
-		driver.click(ass.getLocater("500-1000万"), "点击500-1000万的筛选条件");
-		driver.click(ass.getLocater("150-200平米"), "点击150-200平米的筛选条件");
-		driver.click(ass.getLocater("三室"), "点击3室的筛选条件");
+		driver.click(ass.getLocater("洋泾"), "点击洋泾板块的筛选条件");
+		driver.click(ass.getLocater("300-500万"), "点击500-1000万的筛选条件");
+		driver.click(ass.getLocater("90-110平米"), "点击150-200平米的筛选条件");
+		driver.click(ass.getLocater("二室"), "点击3室的筛选条件");
 
-		driver.assertTrue(ass.verifyRegionBlock("浦东碧云"), "筛选条件搜索",
+		driver.assertTrue(ass.verifyRegionBlock("浦东洋泾"), "筛选条件搜索",
 				"搜索结果中的房源区域板块是否正确");
-		driver.assertTrue(ass.verifyPrice("500-1000万"), "筛选条件搜索",
+		driver.assertTrue(ass.verifyPrice("300-500万"), "筛选条件搜索",
 				"搜索结果中的房源总价是否正确");
-		driver.assertTrue(ass.verifyArea("150-200平米"), "筛选条件搜索",
+		driver.assertTrue(ass.verifyArea("90-110平米"), "筛选条件搜索",
 				"搜索结果中的房源面积是否正确");
-		driver.assertTrue(ass.verifyRoom("3室"), "筛选条件搜索", "搜索结果中的房源户型是否正确");
+		driver.assertTrue(ass.verifyRoom("2室"), "筛选条件搜索", "搜索结果中的房源户型是否正确");
 	}
 
 	@Test
