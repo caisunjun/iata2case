@@ -147,14 +147,14 @@ public class AnjukeCollectHouseResource {
 					String collectDatatitle = driver.getAttribute(
 							Init.G_objMap.get("anjuke_sale_member_houselist_firstdatatitle"),
 							"title");
-					if (collectDatatitle.equals(firstdataTitle)) {
+					if (collectDatatitle.trim().equals(firstdataTitle.trim())) {
 						Report.writeHTMLLog("collect data title", "collect data title is correct!"
-								+ "<br>" + collectDatatitle + "<br>VS " + firstdataTitle,
+								+ "<br>" + collectDatatitle.trim() + "<br>VS " + firstdataTitle.trim(),
 								Report.PASS, "");
 					} else {
 						String ps = driver.printScreen();
 						Report.writeHTMLLog("collect data title", "collect data title is fault"
-								+ "<br>" + collectDatatitle + "<br>VS " + firstdataTitle,
+								+ "<br>" + collectDatatitle.trim() + "<br>VS " + firstdataTitle.trim(),
 								Report.FAIL, ps);
 					}
 					// 判断选房单价格
