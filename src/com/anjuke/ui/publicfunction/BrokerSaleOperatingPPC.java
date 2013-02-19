@@ -73,7 +73,7 @@ public class BrokerSaleOperatingPPC {
 
 			// 房源描述
 			driver.switchToIframe(Broker_PropertynewSaleStep.HOUSEDES,"获取房源描述frame");
-			driver.activeElementSendkeys("发布出售，此房源为测试房源，房源信息没有经过验证，请勿联系，感谢您对的支持。谢谢！");
+			driver.activeElementSendkeys("定价测试，此房源为测试房源，房源信息没有经过验证，请勿联系，感谢您对的支持。谢谢！");
 			driver.exitFrame();
 
 			// 计算单价
