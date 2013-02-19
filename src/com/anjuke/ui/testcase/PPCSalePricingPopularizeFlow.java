@@ -6,9 +6,11 @@ import java.net.MalformedURLException;
 import net.jsourcerer.webdriver.jserrorcollector.JavaScriptError;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import com.anjuke.ui.bean.AnjukeSaleInfo;
 import com.anjuke.ui.publicfunction.BrokerSaleOperatingPPC;
@@ -37,10 +39,8 @@ public class PPCSalePricingPopularizeFlow {
 	@BeforeClass
 	public void startUp() throws MalformedURLException {}
 
-	@AfterClass
+	@AfterTest
 	public void tearDown() {
-		driver.close();
-		driver.quit();
 		driver = null;
 	}
 
@@ -48,20 +48,19 @@ public class PPCSalePricingPopularizeFlow {
 	public void NewPricingPlan() {
 		saleInfo = saleInfo_init();
 		driver = FactoryBrowser.factoryBrowser();
-		login();
+		PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa", false, 1);
 		driver.get("http://my.anjuke.com/user/ppc/brokerpropmanage2/W0QQactZsaleQQggZ1");
 		releaseSale();
 		driver.click("//h3[@class='ppch ppch01']/a", "从房源库进入定价推广页面");
 		initPlanList();
 		createPlan();
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
 	}
 
-//	@Test(dependsOnMethods = "NewPricingPlan")
+	@Test(dependsOnMethods = "NewPricingPlan")
 	public void ClickFee() {
-		FirefoxBrowser();
-		switchVer();
+		driver = FactoryBrowser.factoryProxyBrowser();
 		driver.get("http://shanghai.anjuke.com/sale/");
 		sleep(20000);
 		driver.type("//input[@class='input_text']", PropId, "输入刚推广的定价房源ID："+ PropId+ "进行搜索");
@@ -72,15 +71,14 @@ public class PPCSalePricingPopularizeFlow {
 			driver.click("//a[@id='prop_name_qt_prop_1']", "点击搜索结果中刚推广的房源",10);
 		} 
 		sleep(15000);
-		webDriver.close();
-		webDriver.quit();
+		driver.close();
+		driver.quit();
 	}
 
-//	@Test(dependsOnMethods = "ClickFee")
+	@Test(dependsOnMethods = "ClickFee")
 	public void CheckCost() {
 		driver = FactoryBrowser.factoryBrowser();
-		login();
-		sleep(3000);
+		PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa", false, 1);
 		driver.get("http://my.anjuke.com/user/ppcnew/staticpricelist/W0QQactZsale");
 		sleep(5000);
 		double planCost = getPlanCost();
@@ -93,39 +91,12 @@ public class PPCSalePricingPopularizeFlow {
 			driver.assertEquals(Double.toString(planCost), Double.toString(propPrice), "未扣费", "未扣费 - 需要验证为何没有扣费成功");
 		}
 		sleep(3000);
-	}
-
-	// 使用代理服务器
-	private void FirefoxBrowser() {
-		FirefoxProfile ffPro = new FirefoxProfile();
-		try {
-			JavaScriptError.addExtension(ffPro);
-		} catch (IOException e) {
-			fail(e.getMessage());
-		}
-		ffPro.setPreference("network.proxy.type", 1);
-		ffPro.setPreference("network.proxy.http", Init.G_config.get("ip"));
-		ffPro.setPreference("network.proxy.http_port", Init.G_config.get("port"));
-		ffPro.setPreference("network.proxy.ssl", Init.G_config.get("ip"));
-		ffPro.setPreference("network.proxy.ssl_port", Init.G_config.get("port"));
-		System.setProperty("webdriver.firefox.bin", Init.G_config.get("proxy"));
-		webDriver = new FirefoxDriver(ffPro);
-		driver = new Browser(webDriver);
-	}
-
-	// 切换版本
-	private void switchVer() {
-		String version = "";
-		version = Init.G_config.get("version").toLowerCase();
-		driver.get("http://www.anjuke.com/version/switch/?f1=" + version);
-		webDriver.navigate().refresh();
-		sleep(3000);
+		driver.close();
+		driver.quit();
 	}
 
 	// 登录经纪人后台
-		// PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa", false, 1);
 	private void login() {
-		// driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
 		driver.get("http://my.anjuke.com/my/login");
 		driver.type("id^username", "1349689430yzN", "输入用户名");
 		driver.type("name^password", "anjukeqa", "输入密码");
@@ -191,14 +162,13 @@ public class PPCSalePricingPopularizeFlow {
 				"是否推广成功", "添加房源到新建定价计划成功提示");
 		driver.click("//div[@id='content']/div[1]/dl/dd/a",
 				"第四步 - 点击跳转到定价推广管理页");
-
+		driver.assertContains(driver.getText("//div[@class='tit']/strong", "获取新建定价计划的状态"), "推广中");
 	}
 
 	// 定价推广页 - 根据计划ID,来获取定价计划今日已花费
 	private Double getPlanCost() {
 		String planCost = driver
 				.getText("//div[@class='cost']/em", "定价计划今日已花费");
-//		System.out.println("--------------" + planCost);
 		return getDouble(planCost);
 	}
 
@@ -206,7 +176,6 @@ public class PPCSalePricingPopularizeFlow {
 	private int getPropCol() {
 		String planCol = driver.getText("//td[@id='col-point" + PropId + "']",
 				"定价计划今日今日点击数");
-//		System.out.println("--------------" + planCol);
 		return getInt(planCol);
 	}
 
@@ -214,8 +183,25 @@ public class PPCSalePricingPopularizeFlow {
 	private Double getPropPrice() {
 		String propPrice = driver.getText("//td[@id='col-price" + PropId
 				+ "']/em", "房源定价价格");
-//		System.out.println("--------------" + propPrice);
 		return getDouble(propPrice);
+	}
+	
+	// 使用代理服务器
+	private void FirefoxBrowser() {
+		FirefoxProfile ffPro = new FirefoxProfile();
+		try {
+			JavaScriptError.addExtension(ffPro);
+		} catch (IOException e) {
+			fail(e.getMessage());
+		}
+		ffPro.setPreference("network.proxy.type", 1);
+		ffPro.setPreference("network.proxy.http", Init.G_config.get("FFproxyIp"));
+		ffPro.setPreference("network.proxy.http_port", Init.G_config.get("FFproxyPort"));
+		ffPro.setPreference("network.proxy.ssl", Init.G_config.get("FFproxyIp"));
+		ffPro.setPreference("network.proxy.ssl_port", Init.G_config.get("FFproxyPort"));
+		System.setProperty("webdriver.firefox.bin", Init.G_config.get("FFpath"));
+		webDriver = new FirefoxDriver(ffPro);
+		driver = new Browser(webDriver);
 	}
 
 	private int getInt(String val) {
