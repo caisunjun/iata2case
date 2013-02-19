@@ -107,7 +107,7 @@ public class PPCSalePricingPopularizeFlow {
 	private AnjukeSaleInfo saleInfo_init() {
 		saleInfo.setCommunityName("好盘测试小区");// 小区
 		saleInfo.setPriceTaxe("49");// 售价
-		saleInfo.setHouseArea("35.00");// 面积
+		saleInfo.setHouseArea("35.0");// 面积
 		saleInfo.setHouseType_S("1");// 室
 		saleInfo.setHouseType_T("1");// 厅
 		saleInfo.setHouseType_W("1");// 卫

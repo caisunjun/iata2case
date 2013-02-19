@@ -22,6 +22,7 @@
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleReleasePPC"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEditPPC"></class>
+			<class name="com.anjuke.ui.testcase.PPCSalePricingPopularizeFlow"></class>
 		</classes>
 	</test>
 </suite>
