@@ -14,7 +14,7 @@ public class Ajk_Tycoon {
 	/** 经纪人列表 - 搜索 - 搜索无结果 */
 	public static final String NO_FOUND = "//div[@class='tycoon_nolist']";
 	
-	/** 经纪人列表 - 筛选 - 是否有评价*/
+	/** 经纪人列表 - 筛选 - 是否无虚假反馈*/
 	public static final String evaluation = "//*[@id='hasevaluation']";
 	
 	/** 经纪人列表 - 第一个经纪人 - 评价标签*/

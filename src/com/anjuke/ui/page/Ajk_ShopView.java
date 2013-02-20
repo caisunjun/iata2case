@@ -19,7 +19,7 @@ public class Ajk_ShopView {
     public static final String ProfileTab = "//li[@class='tab4']/a";
 	/**店铺通用 - 导航  - 问答tab*/
     public static final String QuestionTab = "//li[@class='tab7']/a";
-	/**店铺通用 - 导航  - 评价tab*/
+	/**店铺通用 - 导航  - 服务档案tab*/
     public static final String UfsTab = "//li[@class='tab8']/a";
 	
 	/**店铺首页 - 经纪人姓名*/
