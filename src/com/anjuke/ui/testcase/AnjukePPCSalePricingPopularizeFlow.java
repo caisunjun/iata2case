@@ -25,7 +25,7 @@ import com.anjukeinc.iata.ui.init.Init;
  * @Author grayhu
  * @time 2013-02-05 9:00
  */
-public class PPCSalePricingPopularizeFlow {
+public class AnjukePPCSalePricingPopularizeFlow {
 	private Browser driver = null;
 	private WebDriver webDriver = null;
 	private AnjukeSaleInfo saleInfo = new AnjukeSaleInfo();
