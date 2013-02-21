@@ -17,11 +17,11 @@ public class Ajk_AskView {
 	/** 问答单页 - 回答框收起按钮 */
 	public static final String CANCELANSWER = "id^cancel_answer";
 	/** 问答单页 - 相关问题模块"相关问题"4个字 */
-	public static final String RELATED = "//*[@id='content']/div[3]/div[2]/div[1]/h3";
+	public static final String RELATED = "//*[@id='content']/div[3]/div[3]/div[1]/h3";
 	/** 问答单页 - 当有相关问题模块时，回答列表各条元素集 */
-	public static final String ANSWERLISTS_Related = "//*[@id='content']/div[3]/div[3]/ul/li";
+	public static final String ANSWERLISTS_Related = "//*[@id='content']/div[3]/div[4]/ul/li";
 	/** 问答单页 - 当没有相关问题模块时，回答列表各条元素集 */
-	public static final String ANSWERLISTS_NoRelated = "//*[@id='content']/div[3]/div[2]/ul/li";
+	public static final String ANSWERLISTS_NoRelated = "//*[@id='content']/div[3]/div[3]/ul/li";
 
 	/** 问答单页 - 获取回答列表中的某一条数据的元素，
 	 * @param n表示第几条
