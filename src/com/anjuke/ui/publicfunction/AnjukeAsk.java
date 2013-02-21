@@ -526,14 +526,14 @@ public class AnjukeAsk {
 		int ids[] = new int[n];
 		for (int i = 1; i <= n; i++) {
 			String QuestionTitle = driver.getText(
-					Ajk_Ask.ToBeResolvedQuestionList + "["+i+"]/div[2]/a[2]", "获取每条问答的标题");
+					Ajk_Ask.ToBeResolvedQuestionList + "["+i+"]/div/a[2]", "获取每条问答的标题");
 			String QuestionHref = driver.getAttribute(
-					Ajk_Ask.ToBeResolvedQuestionList + "["+i+"]/div[2]/a[2]", "href");
+					Ajk_Ask.ToBeResolvedQuestionList + "["+i+"]/div/a[2]", "href");
 			String[] HrefAndId = QuestionHref.split("\\D+"); // 按非数字分割链接字符串
 			ids[(i - 1)] = Integer.valueOf(HrefAndId[1]); // 取分割后第二个元素即问答ID并转换为整型,并存放在数组里
 			System.out.println("每条问答对应的ID号为：" + ids[(i - 1)]);
 			String AnswerNum = driver.getText(Ajk_Ask.ToBeResolvedQuestionList
-					+ "[" + i + "]/div[1]/a", "获取每条问答数据后面的回复数");
+					+ "[" + i + "]/span/a", "获取每条问答数据后面的回复数");
 			driver.assertNonEquals(null, QuestionTitle, "检测待解决列表中每条问答标题是否为空",
 					"检测待解决列表中每条问答标题是否为空");
 			driver.assertNonEquals(null, AnswerNum, "检测待解决列表中每条问答数据的回答数是否为空",
