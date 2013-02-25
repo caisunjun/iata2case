@@ -30,10 +30,10 @@ public class Ajk_AskView {
 	public static String getAnswerElement (int n,boolean relate){
 		String element = null;
 		if(relate){
-			element = "//*[@id='content']/div[3]/div[3]/ul/li["+n+"]/div[2]";
+			element = "//*[@id='content']/div[3]/div[4]/ul/li["+n+"]/div[2]";
 		}
 		else{
-			element = "//*[@id='content']/div[3]/div[2]/ul/li["+n+"]/div[2]";
+			element = "//*[@id='content']/div[3]/div[3]/ul/li["+n+"]/div[2]";
 		}
 			return element;
 	}
