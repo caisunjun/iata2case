@@ -2,6 +2,7 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.*;
 
+import com.anjuke.ui.page.Ajk_MemberConcerned;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -164,12 +165,12 @@ public class AnjukeAttentionCommunity {
 		driver.switchWindo(3);
 
 		// 等待第三个窗口加载成功
-		driver.check(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink_IE8"), 10);
+		driver.check(Ajk_MemberConcerned.FirstCommName, 10);
 
 		// 判断关注小区列表数据是否为空
-		if (!driver.check(Init.G_objMap.get("anjuke_sale_member_commlist_noresult"))) {
+		if (!driver.check(Ajk_MemberConcerned.NoComm)) {
 			// 获取第一条记录的URL,且判断是否为关注小区的URL
-			String nowUrl = driver.getAttribute(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink_IE8"), "href");
+			String nowUrl = driver.getAttribute(Ajk_MemberConcerned.FirstCommName, "href");
 			if (formerUrl.equals(nowUrl)) {
 				Report.writeHTMLLog("关注小区成功", "关注小区成功，前后URL一致：" + formerUrl, Report.PASS, "");
 			} else {
@@ -177,7 +178,7 @@ public class AnjukeAttentionCommunity {
 				Report.writeHTMLLog("关注小区失败", "关注小区失败：URL不一致<br>" + formerUrl + "<br>" + nowUrl, Report.FAIL, ps);
 			}
 			// 获取第一条记录的小区名称,且判断是否为关注小区的名称
-			String resultTitle = driver.getText(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink_IE8"), "获取第一条数据小区名称");
+			String resultTitle = driver.getText(Ajk_MemberConcerned.FirstCommName, "获取第一条数据小区名称");
 			if(resultTitle.lastIndexOf("（") != -1)
 			{resultTitle = resultTitle.substring(0 ,resultTitle.lastIndexOf("（")).trim();}
 			if (commTitle.equals(resultTitle)) {
@@ -187,7 +188,7 @@ public class AnjukeAttentionCommunity {
 				Report.writeHTMLLog("关注小区失败", "关注小区失败：小区名称不一致<br>" + commTitle + "<br>" + resultTitle, Report.FAIL, ps);
 			}
 			// 获取第一条记录的小区价格,且判断是否为关注小区的价格
-			String resultPrice = driver.getText(Init.G_objMap.get("anjuke_sale_member_commlist_firstdataprice"), "获取第一条数据小区价格");
+			String resultPrice = driver.getText(Ajk_MemberConcerned.FirstCommPrice, "获取第一条数据小区价格");
 			if (commPrice.equals(resultPrice)) {
 				Report.writeHTMLLog("关注小区成功", "关注小区成功，前后小区价格一致：" + commPrice + "万", Report.PASS, "");
 			} else {
@@ -195,7 +196,7 @@ public class AnjukeAttentionCommunity {
 				Report.writeHTMLLog("关注小区失败", "关注小区失败：小区价格不一致,数据未同步,问题目前解决中<br>" + commPrice + "万" + "<br>" + resultPrice + "万", Report.PASS, ps);
 			}
 			// 获取第一条记录的小区邮件订阅状态,且判断是否符合关注小区的邮件状态
-			String mailMsg = driver.getText(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatamail"), "获取第一条数据邮件订阅状态");
+			String mailMsg = driver.getText(Ajk_MemberConcerned.FirstCommMessage, "获取第一条数据邮件订阅状态");
 //			if (checkMail && mailMsg.equals("已订阅新房源")) {
 //				Report.writeHTMLLog("关注小区成功", "关注小区成功，邮件订阅状态正确：" + mailMsg, Report.PASS, "");
 //			} 
@@ -225,17 +226,17 @@ public class AnjukeAttentionCommunity {
 	// 删除所有小区
 	public void deleteAllcomm() {
 
-		driver.check(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink"), 30);
+		driver.check(Ajk_MemberConcerned.CommCount, 30);
 
-		int datacount = driver.getElementCount(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink"));
+		int datacount = driver.getElementCount(Ajk_MemberConcerned.CommCount);
 		for (int i = 1; i <= datacount; i++) {
-			if (driver.check(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink"), 30)) {
-				driver.moveToElement(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink"), 20);
-				driver.click(Init.G_objMap.get("anjuke_sale_member_commlist_btnDel"), "删除记录", 30);
-				driver.click(Init.G_objMap.get("anjuke_sale_member_commlist_btnDelCon"), "确定删除", 30);
+			if (driver.check(Ajk_MemberConcerned.CommCount, 30)) {
+				driver.moveToElement(Ajk_MemberConcerned.CommCount, 20);
+				driver.click(Ajk_MemberConcerned.DeleteComm, "删除记录", 30);
+				driver.click(Ajk_MemberConcerned.DeleteCommCon, "确定删除", 30);
 			}
 		}
-		if (driver.check(Init.G_objMap.get("anjuke_sale_member_commlist_noresult"), 20)) {
+		if (driver.check(Ajk_MemberConcerned.NoComm, 20)) {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("关注小区列表", "关注小区列表删除完毕", Report.PASS, ps);
 		}
@@ -243,11 +244,11 @@ public class AnjukeAttentionCommunity {
 
 	// 判断关注小区列表是否存在相同记录
 	public void equalData() {
-		int datacount = driver.getElementCount(Init.G_objMap.get("anjuke_sale_member_commlist_firstdatalink"));
+		int datacount = driver.getElementCount(Ajk_MemberConcerned.CommCount);
 		int equalCount = 0;
 		Report.writeHTMLLog("关注小区列表", "关注小区列表数据数量:" + datacount, Report.DONE, "");
 		for (int i = 1; i <= datacount; i++) {
-			String nowUrl = driver.getAttribute("//div[@class='p2974']/div[@class='box'][" + i + "]/div[3]/p/a", "href");
+			String nowUrl = driver.getAttribute(Ajk_MemberConcerned.getNCommName(i), "href");
 			System.out.println(nowUrl);
 			if (formerUrl.equals(nowUrl)) {
 				equalCount = equalCount + 1;
