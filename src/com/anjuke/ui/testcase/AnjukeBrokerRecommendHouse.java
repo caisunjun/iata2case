@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -87,9 +88,9 @@ public class AnjukeBrokerRecommendHouse {
 //		PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
 
 		//点击主页右上角我的经纪人目录链接
-		bs.check(Init.G_objMap.get("cityhomepage_login_broker_username_link"), 5);
+		bs.check(Public_HeaderFooter.HEADER_BROKERLINK, 5);
 
-		bs.click(Init.G_objMap.get("cityhomepage_login_broker_username_link"), "选中我的经纪人目录");   
+		bs.click(Public_HeaderFooter.HEADER_BROKERLINK, "选中我的经纪人目录");   
 
 		//根据bool的取值决定点击管理出售链接还是管理出租链接
 		if(!bool){

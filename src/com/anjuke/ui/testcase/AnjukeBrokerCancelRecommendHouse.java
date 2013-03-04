@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -82,9 +83,9 @@ public class AnjukeBrokerCancelRecommendHouse {
 
 
 		// 点击主页右上角的我的经纪人链接
-		bs.check(Init.G_objMap.get("cityhomepage_login_broker_username_link"), 5);
+		bs.check(Public_HeaderFooter.HEADER_BROKERLINK, 5);
 
-		bs.click(Init.G_objMap.get("cityhomepage_login_broker_username_link"), "选中我的经纪人目录");
+		bs.click(Public_HeaderFooter.HEADER_BROKERLINK, "选中我的经纪人目录");
 
 		// 根据传进来的标志位来判断点击管理出售链接还是管理出租链接
 		if (!bool) {
