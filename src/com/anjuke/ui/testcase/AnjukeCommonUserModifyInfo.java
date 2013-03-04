@@ -336,6 +336,11 @@ public class AnjukeCommonUserModifyInfo {
 //		//登出账户
 		PublicProcess.logOut(bs);
 		
+//		//点击登录链接
+		if(bs.check("//a[contains(text(),'请登录')]")){
+		bs.click("//a[contains(text(),'请登录')]", "点击登录链接");
+		}		
+		
 		//检查是否可以用新的密码登录网站
 		PublicProcess.dologin(bs, userName, newPassword);		
 	}

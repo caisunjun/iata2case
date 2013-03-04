@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Ajk_MemberModifyMarked;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -142,10 +143,10 @@ public class AnjukeCollectHouseResource {
 				// 判断选房单列表是否为空
 				if (!driver.check(Init.G_objMap.get("anjuke_sale_member_houselist_noresult"))) {
 					// 判断选房单标题
-					driver.check(Init.G_objMap.get("anjuke_sale_member_houselist_firstdatatitle"),
+					driver.check(Ajk_MemberModifyMarked.FirstPropTitle,
 							10);
 					String collectDatatitle = driver.getAttribute(
-							Init.G_objMap.get("anjuke_sale_member_houselist_firstdatatitle"),
+							Ajk_MemberModifyMarked.FirstPropTitle,
 							"title");
 					if (collectDatatitle.trim().equals(firstdataTitle.trim())) {
 						Report.writeHTMLLog("collect data title", "collect data title is correct!"
@@ -159,7 +160,7 @@ public class AnjukeCollectHouseResource {
 					}
 					// 判断选房单价格
 					String collectPrice = driver.getText(
-							Init.G_objMap.get("anjuke_sale_member_houselist_firstdataprice"),
+							Ajk_MemberModifyMarked.FirstPropPrice,
 							"获取房源价格");
 					if (collectPrice.equals(price)) {
 						Report.writeHTMLLog("collect data price", "collect data price is correct!"
@@ -171,7 +172,7 @@ public class AnjukeCollectHouseResource {
 					}
 					// 判断选房单发布人姓名
 					String collectReleName = driver.getText(
-							Init.G_objMap.get("anjuke_sale_member_houselist_firstdataname"),
+							Ajk_MemberModifyMarked.FirstPropBroker,
 							"获取发布房源经纪人姓名").trim();
 					if (collectReleName.equals(releaseName)) {
 						Report.writeHTMLLog("collect data releaseName",
@@ -191,9 +192,9 @@ public class AnjukeCollectHouseResource {
 					if (datacount != 1) {
 						boolean status = true;
 						String href = driver.getAttribute(
-								Init.G_objMap.get("anjuke_sale_member_houselist_firstdatatitle"),
+								Ajk_MemberModifyMarked.FirstPropTitle,
 								"href");
-						int tmp = 12;
+						int tmp = 13;
 						String hrefResult = null;
 						int collectProp = 0;
 						for (int i = 1; i < datacount; i++) {
