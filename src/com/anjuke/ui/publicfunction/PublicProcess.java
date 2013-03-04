@@ -154,21 +154,11 @@ public class PublicProcess {
 
 	// 执行退出（包括普通用于以及经纪人用户）
 	public static void logOut(Browser driver) {
-		// 经纪人用户退出
+		// 退出已通用
 		driver.get(homeUrl);
 
-		// 判断当前的登录用户类型
-		boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName);
-		boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName);
-
-		if (tycoonStatus) { // 经纪人退出
-			if (driver.check(Init.G_objMap.get("anjuke_use_logout_button"))) {
-				driver.click(Init.G_objMap.get("anjuke_use_logout_button"), "经纪人退出登录");
-			}
-		} else if (commStatus) { // 普通用户退出
-			if (driver.check(Public_HeaderFooter.HEADER_UserLogOut)) {
-				driver.click(Public_HeaderFooter.HEADER_UserLogOut, "普通用户退出登录");
-			}
+		if (driver.check(Public_HeaderFooter.HEADER_LogOut)) {
+			driver.click(Public_HeaderFooter.HEADER_LogOut, "普通用户退出登录");
 		}
 	}
 
@@ -217,7 +207,7 @@ public class PublicProcess {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("从首页注册", "又没有找到注册按钮，尝试刷新页面", Report.DONE,ps);
 			driver.refresh();
-			driver.click(Init.G_objMap.get("public_link_reg"), "点击主页右上角的注册按钮");
+			driver.click(Public_HeaderFooter.Register, "点击主页右上角的注册按钮");
 		}
 
 		driver.type(Init.G_objMap.get("anjuke_register_username"), userName, "输入用户名");
