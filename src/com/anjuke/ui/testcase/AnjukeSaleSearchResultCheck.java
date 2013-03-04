@@ -53,7 +53,7 @@ public class AnjukeSaleSearchResultCheck {
 		driver.click(ass.getLocater("洋泾"), "点击洋泾板块的筛选条件");
 		driver.click(ass.getLocater("300-500万"), "点击500-1000万的筛选条件");
 		driver.click(ass.getLocater("90-110平米"), "点击150-200平米的筛选条件");
-		driver.click(ass.getLocater("二室"), "点击3室的筛选条件");
+		driver.click(ass.getLocater("二室"), "点击2室的筛选条件");
 
 		driver.assertTrue(ass.verifyRegionBlock("浦东洋泾"), "筛选条件搜索",
 				"搜索结果中的房源区域板块是否正确");

@@ -47,6 +47,8 @@ public class Ajk_PropView {
 	public static final String Star_PropInfo = "//p[@id='fwdj_propinfo']/span[2]";
 	
 	/*手机号下方按钮*/
+	/** 二手房单页 - 收藏房源链接 */
+	public static final String CollectHouse = "//span[@id='favor']";
 	/** 二手房单页 - 房贷计算器链接 */
 	public static final String CALCULATOR = "id^caculator";
 	

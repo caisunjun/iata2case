@@ -47,8 +47,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 		saleInfo = saleInfo_init();
 		driver = FactoryBrowser.factoryBrowser();
 		PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa", false, 1);
-		driver
-				.get("http://my.anjuke.com/user/ppc/brokerpropmanage2/W0QQactZsaleQQggZ1");
+		driver.get("http://my.anjuke.com/user/ppc/brokerpropmanage2/W0QQactZsaleQQggZ1");
 		releaseSale();
 		driver.click("//h3[@class='ppch ppch01']/a", "从房源库进入定价推广页面");
 		initPlanList();
@@ -61,7 +60,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 	public void ClickFee() {
 		driver = FactoryBrowser.factoryProxyBrowser();
 		driver.get("http://shanghai.anjuke.com/sale/");
-		sleep(20000);
+		sleep(30000);
 		driver.type("//input[@class='input_text']", PropId, "输入刚推广的定价房源ID："
 				+ PropId + "进行搜索");
 		driver.click("//input[@class='input_button se_house']", "点击搜索一下按钮");
@@ -80,8 +79,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 	public void CheckCost() {
 		driver = FactoryBrowser.factoryBrowser();
 		PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa", false, 1);
-		driver
-				.get("http://my.anjuke.com/user/ppcnew/staticpricelist/W0QQactZsale");
+		driver.get("http://my.anjuke.com/user/ppcnew/staticpricelist/W0QQactZsale");
 		sleep(5000);
 		double planCost = getPlanCost();
 		int propCol = getPropCol();
