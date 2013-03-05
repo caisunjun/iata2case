@@ -33,7 +33,7 @@ public class AnjukeTycoonListEvaluation {
         bs = null;
     }
     
-    @Test(groups = {"unstable"})
+    @Test
     public void testBrokerListEvaluation(){
     	bs.get("http://shanghai.anjuke.com");
     	if(!bs.check("Ajk_HomePage.H_BTN"))

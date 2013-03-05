@@ -31,7 +31,7 @@
 			<class name="com.anjuke.ui.testcase.AnjukeSearchCheck"></class>
 
 			<class name="com.anjuke.ui.testcase.AnjukeTycoonListAsk"></class>
-
+			<class name="com.anjuke.ui.testcase.AnjukeTycoonListEvaluation"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeTycoonListPhoto"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_Shanghai"></class>
