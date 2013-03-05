@@ -230,8 +230,8 @@ public class AnjukeCollectHouseResource {
 						driver.refresh();
 						driver.click(Init.G_objMap.get("anjuke_sale_member_houselist_allsel"),
 								"选择当前页数据");
-						driver.click(Init.G_objMap.get("anjuke_sale_member_houselist_btnDelAll"),
-								"删除所有数据");
+						driver.click("//a[@id='btnDelAll']",
+								"删除当前页所有数据");
 						driver.check(Init.G_objMap.get("anjuke_sale_member_commlist_sucnotice"), 5);
 						driver.click(Init.G_objMap.get("anjuke_sale_member_houselist_btnCon"),
 								"确认删除");
