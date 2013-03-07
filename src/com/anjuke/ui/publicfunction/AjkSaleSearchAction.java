@@ -201,7 +201,7 @@ public class AjkSaleSearchAction {
 				locater = Ajk_Sale.getKeyDistrict(j);
 			}
 			listEm[i] = driver.getText(locater, "获取第" + j + "条房源高亮");
-			if (listEm[i].equals(searchKeyword)) {
+			if (listEm[i].trim().equals(searchKeyword.trim())) {
 				result = true;
 			} else {
 				result = false;
