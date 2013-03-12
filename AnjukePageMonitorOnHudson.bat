@@ -1,3 +1,3 @@
-set iata=D:\iatamonitor\config.ini
+set iata=D:\anjukemonitor\config.ini
 
 ant -f suite/AnjukePageMonitorOnHudsonBuild.xml
