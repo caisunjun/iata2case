@@ -29,11 +29,9 @@ public class AjkGujia {
 
 		//小区名
 		if( type.equals("Release")){
-			driver.click(Init.G_objMap.get("anjuke_gujia_commname"), "选中小区名输入框");
+		//s	driver.click(Init.G_objMap.get("anjuke_gujia_commname"), "选中小区名输入框");
 			driver.type(Init.G_objMap.get("anjuke_gujia_commname"), gujiaInfo.getCommunityName(), "小区名称");
-			driver.findElement(Init.G_objMap.get("anjuke_gujia_commname"), "", 30).sendKeys(" ");
-			driver.click(Init.G_objMap.get("anjuke_gujia_commname_keywords"),"下拉框");
-			driver.click("//p[@id='li_table_p0']","选择小区");
+			driver.moveToElementClick("//p[@id='li_table_p0']");
 		}
 		
 		// 设置房屋类型
@@ -78,14 +76,22 @@ public class AjkGujia {
 		//小区配套
 		driver.click(Init.G_objMap.get("anjuke_gujia_giveSupportingCell"), "小区配套");
 		
+		String js="$('evaluationSubmit').stopObserving('click');"
+			+"Event.observe($('evaluationSubmit'), 'click', function()"
+			+"{if(1){"
+ 		 +"$('keyword_gujia').value = $('CommName').value;"
+			+"$('community_id_gujia').value = $('hidCommunityID').value;"
+			+"$('evaluationForm').submit();}});";
+		 driver.runScript(js);
+
 		//立刻估价
 		driver.click(Init.G_objMap.get("anjuke_gujia_submit"), "立刻估价");
 
 	    //切换窗口
-		driver.switchWindo(2);
+//		driver.switchWindo(2);
 	     
 		//保存估价报告到个人用户中心
-		driver.click(Init.G_objMap.get("anjuke_gujia_savaValue"), "保存估价报告");
+		driver.click(Init.G_objMap.get("anjuke_gujia_savaValue"),"保存估价报告");
 		driver.click(Init.G_objMap.get("anjuke_gujia_see"), "查看");
 		
 		//检查房型
@@ -117,11 +123,12 @@ public class AjkGujia {
 		
 		//小区配套
 		String peitao = driver.getText(Init.G_objMap.get("anjuke_gujia_administrationSupportingCell"), "小区配套");
+
 		
 		//查看估价报告
 		driver.click(Init.G_objMap.get("anjuke_gujia_chaKanGuide"), "查看估价报告");
 		
-		driver.switchWindo(3);
+		driver.switchWindo(2);
 		
 		//输出并打印评估总价
 		String evaTotal=driver.getText(Init.G_objMap.get("anjuke_gujia_mainpanel"),"评估总价");
