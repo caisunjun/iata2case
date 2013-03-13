@@ -15,6 +15,7 @@ import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
+import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**二手房列表页随机找一套房源
  * 点进房源单页查看经纪人信息，小区信息是否存在
@@ -38,7 +39,7 @@ public class AnjukeRegressPropViewInfo {
     @Test
     public void testSaleSearchComm(){
     	//根据config里配置的anjukeCityInfo，随机返回一个城市域名
-    	String city = getRandomCityFromConfig();
+    	String city = PublicProcess.getRandomCityFromConfig();
     	String saleUrl = "http://"+city+".anjuke.com/sale/";
     	bs.get(saleUrl);
     	
@@ -66,34 +67,6 @@ public class AnjukeRegressPropViewInfo {
     		Report.writeHTMLLog("房源单页", "小区在售二手房无数据,出问题的房源为："+propUrl, Report.FAIL, bs.printScreen());
     	}
     }
-    //按config里的顺序取出城市列表
-    private LinkedHashMap<String, String> getConfigInfo(String configKey) {
-        String dataInfo = "";
-        String[] data;
-        String[] singleData;
-        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
-        dataInfo = Init.G_config.get(configKey);
-        data = dataInfo.split(",");
-        for (String dataStr : data) {
-            singleData = dataStr.split("-");
-            map.put(singleData[0], singleData[1]);
-        }
-        return map;
-    }
-    
-    private String getRandomCityFromConfig(){
-    	int randomNum = GetRandom.getrandom(30);
-    	int now = 0;
-		// 随机城市
-    	LinkedHashMap<String, String> cityMap = getConfigInfo("anjukeCityInfo");
-		Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet().iterator();
-		String cityVal = null;
-		while (cityInfoIter.hasNext() && now < randomNum) {
-			Map.Entry<String, String> cityEntry = cityInfoIter.next();
-			cityVal = cityEntry.getValue();
-			now = now + 1;
-		}
-		return cityVal;
-    }
+
     
 }

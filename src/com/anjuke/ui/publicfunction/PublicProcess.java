@@ -8,6 +8,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -18,6 +22,7 @@ import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {
@@ -466,6 +471,38 @@ public class PublicProcess {
         }
         return caseNameList;
 	}
-
+    
+/**随机一个代表城市的city域名
+ * getRandomCityFromConfig会调用getConfigInfo
+ * @return 随机返回config里城市列表里一个城市的city域名
+ */
+    public static String getRandomCityFromConfig(){
+    	int randomNum = GetRandom.getrandom(30);
+    	int now = 0;
+		// 随机城市
+    	LinkedHashMap<String, String> cityMap = getConfigInfo("anjukeCityInfo");
+		Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet().iterator();
+		String cityVal = null;
+		while (cityInfoIter.hasNext() && now < randomNum) {
+			Map.Entry<String, String> cityEntry = cityInfoIter.next();
+			cityVal = cityEntry.getValue();
+			now = now + 1;
+		}
+		return cityVal;
+    }
+    //按config里的顺序取出城市列表
+    private static LinkedHashMap<String, String> getConfigInfo(String configKey) {
+        String dataInfo = "";
+        String[] data;
+        String[] singleData;
+        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+        dataInfo = Init.G_config.get(configKey);
+        data = dataInfo.split(",");
+        for (String dataStr : data) {
+            singleData = dataStr.split("-");
+            map.put(singleData[0], singleData[1]);
+        }
+        return map;
+    }
 
 }
