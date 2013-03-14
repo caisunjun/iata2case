@@ -31,6 +31,7 @@ public class AnjukeMonitorHomepageArea {
 	private Browser bs = null;
 	@BeforeMethod
 	public void setUp() {
+		Report.G_CASECONTENT = "监控城市首页热门区域模块";
 		bs = FactoryBrowser.factoryBrowser();
 	}	
 	@AfterMethod

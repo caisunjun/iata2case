@@ -201,7 +201,12 @@ public class AjkSaleSearchAction {
 				locater = Ajk_Sale.getKeyDistrict(j);
 			}
 			listEm[i] = driver.getText(locater, "获取第" + j + "条房源高亮");
-			if (listEm[i].trim().equals(searchKeyword.trim())) {
+			//去掉搜索词和实际结果里的两种左右括号
+			listEm[i] = listEm[i].replaceAll("[()]", "").trim();
+			listEm[i] = listEm[i].replaceAll("[（）]", "").trim();
+			searchKeyword = searchKeyword.replaceAll("[()]", "").trim();
+			searchKeyword = searchKeyword.replaceAll("[（）]", "").trim();
+			if (listEm[i].equals(searchKeyword)) {
 				result = true;
 			} else {
 				result = false;
