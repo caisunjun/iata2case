@@ -29,7 +29,8 @@ import com.anjukeinc.iata.ui.report.Report;
 public class AnjukeSaveFindHouseCondition {
 	private Browser driver = null;
 	private Map<String, String> condition = null;
-
+	boolean lastCon = true;
+	
 	@BeforeMethod
 	public void startUp() {
 		Report.G_CASECONTENT = "保存找房条件";
@@ -48,10 +49,23 @@ public class AnjukeSaveFindHouseCondition {
 	public void doBeforeTests() {
 		System.out.println("***AnjukeSaveFindHouseCondition is done***");
 	}
-
-	// (timeOut = 250000)
+	
+	//保存上次找房条件
 	@Test
-	public void testSaveCon() {
+	public void testSaveLastCon() {
+		saveCon(lastCon);
+		lastCon = false;
+		System.out.println("222");
+	}
+	//保存这次找房条件
+	@Test
+	public void testSaveThisCon() {
+		saveCon(lastCon);
+		lastCon = true;
+		System.out.println("111");
+	}
+
+	public void saveCon(boolean lastCon) {
 		// Report.setTCNameLog("保存搜索条件-- AnjukeSaveFindHouseCondition --williamhu");
 		// 普通用户登录
 		// driver.deleteAllCookies();
@@ -101,8 +115,16 @@ public class AnjukeSaveFindHouseCondition {
 		String searchCondition = driver.getText(Ajk_Sale.LastCond, "获取上次访问条件");
 		// 比较找房条件
 		equalCondition(searchCondition, "[");
-		// 点击保存找房条件按钮
-		driver.click(Ajk_Sale.SaveCond, "保存找房条件");
+		
+		if(lastCon == true){
+			// 点击保存上次找房条件按钮
+			driver.click(Ajk_Sale.SaveLastCond, "保存上次找房条件");
+		}else if(lastCon == false){
+			// 点击保存这次找房条件按钮
+			driver.click(Ajk_Sale.LastCond, "点击上次访问条件");
+			driver.click(Ajk_Sale.SaveThisCond, "保存这次找房条件");
+		}
+		
 		// 判断是否保存成功
 		if (driver.check(Ajk_Sale.SaveCondPopUp)) {
 			// 获取返回的提示信息
@@ -118,7 +140,14 @@ public class AnjukeSaveFindHouseCondition {
 				driver.switchWindo(1);
 				driver.click(Ajk_Sale.CloseSaveCondPopUp, "继续找房");
 				// 再次保存找房条件
-				driver.click(Ajk_Sale.SaveCond, "保存找房条件");
+				if(lastCon == true){
+					// 点击保存上次找房条件按钮
+					driver.click(Ajk_Sale.SaveLastCond, "保存上次找房条件");
+				}else if(lastCon == false){
+					// 点击保存这次找房条件按钮
+					driver.click(Ajk_Sale.LastCond, "点击上次访问条件");
+					driver.click(Ajk_Sale.SaveThisCond, "保存这次找房条件");
+				}
 
 				if (driver.check(Ajk_Sale.SaveCondPopUp)) {
 					if (!getMessage().equals("成功保存了找房条件！")) {

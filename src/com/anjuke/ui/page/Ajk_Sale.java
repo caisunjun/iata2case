@@ -17,8 +17,10 @@ public class Ajk_Sale {
 	/*找房条件栏*/
 	/** 二手房列表 - 找房条件栏 - 上次找房条件*/
 	public static final String LastCond = "//a[@class='specialchars']";
-	/** 二手房列表 - 找房条件栏 - 订阅找房条件*/
-	public static final String SaveCond = "//span[@class='savepropcond-ion']";
+	/** 二手房列表 - 找房条件栏 - 订阅上次找房条件*/
+	public static final String SaveLastCond = "//span[@class='savepropcond-ion']";
+	/** 二手房列表 - 找房条件栏 - 订阅这次找房条件*/
+	public static final String SaveThisCond = "//a[@id='subscribe']";
 	
 	/** 二手房列表 - 保存找房条件弹出框*/
 	public static final String SaveCondPopUp = "//div[@class='layer_box']";
