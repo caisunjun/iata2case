@@ -19,6 +19,8 @@
 			<class name="com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck"></class>
 
 			<class name="com.anjuke.ui.testcase.AnjukeSaleTagCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaleUfsIcon"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCityhomepageSearchareaLink"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo"></class>
