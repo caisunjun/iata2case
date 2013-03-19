@@ -45,9 +45,9 @@ public class Ajk_AskView {
 	/** 问答单页 - 问题补充 */
 	public static final String DESCRIPTIONADD = "//*[@id='content']/div[3]/div[1]/div[1]/div[2]/div[2]";
 	/** 问答单页 - 回答列表第一条数据的采纳最佳答案 */
-	public static final String AdoptBestAnswer = "//*[@id='content']/div[3]/div[2]/ul/li[1]/div[6]/div[2]/a[2]";
+	public static final String AdoptBestAnswer = "//a[@class='best-icon']";
 	/** 问答单页 - 最佳答案模块上的”最佳答案“4个字 */
-	public static final String BestAnswer = "//*[@id='content']/div[3]/div[3]/h2";
+	public static final String BestAnswer = "//*[@id='content']/div[3]/div[2]/h2";
 	/** 问答单页 -  补充问题TAB */
 	public static final String AddLi = "//*[@id='choose-tab']/li[2]/a/span";
 	/** 问答单页 -  补充问题输入框 */
