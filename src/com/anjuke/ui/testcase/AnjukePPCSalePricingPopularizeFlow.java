@@ -46,7 +46,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 	public void NewPricingPlan() {
 		saleInfo = saleInfo_init();
 		driver = FactoryBrowser.factoryBrowser();
-		PublicProcess.logIn(driver, "1349689430yzN", "anjukeqa", false, 1);
+		PublicProcess.logIn(driver, "1349689430yzN", "abc123", false, 1);
 		driver.get("http://my.anjuke.com/user/ppc/brokerpropmanage2/W0QQactZsaleQQggZ1");
 		releaseSale();
 		driver.click("//h3[@class='ppch ppch01']/a", "从房源库进入定价推广页面");
