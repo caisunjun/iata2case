@@ -5,7 +5,7 @@ package com.anjuke.ui.testcase;
  * 步骤：
  * 随机一个城市
  * 取首页热门区域的区域名、href
- * 打开区域名对应的链接，验证页面title是否包含区域名
+ * 打开区域名对应的链接，验证页面高亮的文字是否包含区域名
  * @UpdateAuthor ccyang
  * @last updatetime  2013/03/13
  */
