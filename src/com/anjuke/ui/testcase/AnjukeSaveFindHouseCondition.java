@@ -81,6 +81,8 @@ public class AnjukeSaveFindHouseCondition {
 		}
 		// 访问二手房列表
 		driver.click(Ajk_HomePage.SALETAB, "访问二手房列表");
+		// 破移动广告
+		driver.click(Ajk_Sale.CloseMobAdv, "关掉移动广告",5);
 		// 选择区域
 		driver.check(Ajk_Sale.S_SELECT("浦东"), 30);
 		driver.click(Ajk_Sale.S_SELECT("浦东"), "选择区域");

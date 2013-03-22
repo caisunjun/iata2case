@@ -14,6 +14,10 @@ public class Ajk_Sale {
 	/** 二手房列表 - 顶部搜索按钮 */
 	public static final String KwSubmit = "//input[@class='input_button se_house']";
 	
+	/*移动广告横幅*/
+	/** 二手房列表 - 移动广告横幅 - 关闭广告*/
+	public static final String CloseMobAdv = "//i[@id='closeMobileGuide']";
+	
 	/*找房条件栏*/
 	/** 二手房列表 - 找房条件栏 - 上次找房条件*/
 	public static final String LastCond = "//a[@class='specialchars']";
