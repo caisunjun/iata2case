@@ -47,13 +47,13 @@ public class AnjukeBrokerCancelRecommendHouse {
 		System.out.println("***AnjukeCancelRecommendHouse is done***");
 	}
 	//(timeOut = 250000)
-	@Test
+	@Test(groups = {"unstable"})
 	public void testCancelRecommendBuyHouse() throws InterruptedException {		
 		//Report.setTCNameLog("*****取消推荐购买房源-- AnjukeCancelRecommendBuyHouse --williamhu");
 		cancelRecommendHouse(flag);
 	}
 	
-	@Test
+	@Test(groups = {"unstable"})
 	public void testCancelRecommendRentHouse() throws InterruptedException{		
 		//Report.setTCNameLog("*****取消推荐出租房源-- AnjukeCancelRecommendRentHouse --williamhu");
 		flag = true;

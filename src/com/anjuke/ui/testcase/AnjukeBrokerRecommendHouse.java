@@ -50,13 +50,13 @@ public class AnjukeBrokerRecommendHouse {
 	}
 
 	//(timeOut = 250000)
-	@Test
+	@Test(groups = {"unstable"})
 	public void testRecommendBuyHouse() throws InterruptedException{
 		//Report.setTCNameLog("推荐购买房源-- AnjukeRecommendBuyHouse --williamhu");		
 		recommendHouse(flag);
 	}
 
-	@Test
+	@Test(groups = {"unstable"})
 	public void testRecommendRentHouse() throws InterruptedException {
 		//Report.setTCNameLog("推荐出租房源-- AnjukeRecommendRentHouse --williamhu");
 		flag = true;	  	
