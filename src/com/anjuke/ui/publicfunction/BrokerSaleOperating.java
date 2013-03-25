@@ -263,7 +263,7 @@ public class BrokerSaleOperating {
 			// 点去上传照片  进入发房第二步
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_nextBtn"),"去上传照片");
 			// 上传房型图
-			PublicProcess.uploadPicMulti(driver, "sale");
+			PublicProcess.uploadPicMix(driver, "sale");
 			// 点击发布房源
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_step2_submitup"),"编辑完毕-发布房源");
 		}
