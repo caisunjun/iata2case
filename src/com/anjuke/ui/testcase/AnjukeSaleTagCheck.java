@@ -60,18 +60,19 @@ public class AnjukeSaleTagCheck {
     
     public void checkTag(Browser driver,String tagType,String listType)
     {
-    	if(tagType.equals("急售")||tagType.equals("急推"))
-    	{
-        	//切换tag
-        	driver.click(Ajk_Sale.TagHot, "点击急售tag");       		
-        	checkHotNewOwnerTagImage(tagType,listType);
-    	}
-    	else if(tagType.equals("新推")){
-        	//切换tag
-        	driver.click(Ajk_Sale.TagNew, "点击新推tag");
-        	checkHotNewOwnerTagImage(tagType,listType);
-    	}
-    	else if(tagType.equals("个人")){
+//    	if(tagType.equals("急售")||tagType.equals("急推"))
+//    	{
+//        	//切换tag
+//        	driver.click(Ajk_Sale.TagHot, "点击急售tag");       		
+//        	checkHotNewOwnerTagImage(tagType,listType);
+//    	}
+//    	else if(tagType.equals("新推")){
+//        	//切换tag
+//        	driver.click(Ajk_Sale.TagNew, "点击新推tag");
+//        	checkHotNewOwnerTagImage(tagType,listType);
+//    	}
+//    	else 
+    	if(tagType.equals("个人")){
         	//切换tag
         	driver.click(Ajk_Sale.TagOwner, "点击个人tag");
         	checkHotNewOwnerTagImage(tagType,listType);
