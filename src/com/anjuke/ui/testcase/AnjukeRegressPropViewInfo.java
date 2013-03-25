@@ -53,7 +53,7 @@ public class AnjukeRegressPropViewInfo {
     	bs.switchWindo(2);
     	
     	String propUrl = bs.getCurrentUrl();
-    	String brokerNameProp = bs.getText(Ajk_PropView.BROKERNAME, "获得列表页经纪人姓名");
+    	String brokerNameProp = bs.getText(Ajk_PropView.BROKERNAME, "获得房源单页经纪人姓名");
     	bs.assertEquals(brokerName, brokerNameProp, "列表和单页的经纪人姓名是否一致，房源url："+propUrl, "");
     	
     	bs.click(Ajk_PropView.COMMINTROTAB, "移动下页面，触发ajax");

@@ -33,7 +33,7 @@ public class AnjukeMonitorHomepageArea {
 	public void setUp() {
 		Report.G_CASECONTENT = "监控城市首页热门区域模块";
 		bs = FactoryBrowser.factoryBrowser();
-	}	
+	}
 	@AfterMethod
 	public void tearDown() {
 		bs.quit();
