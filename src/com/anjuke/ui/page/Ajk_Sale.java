@@ -48,17 +48,17 @@ public class Ajk_Sale {
 	/** 二手房列表 - tag切换 - 全部房源 */
 	public static final String TagAll = "//div[@class='quicktabs']/ul/li[1]";
 	
-	/** 二手房列表 - tag切换 - 急售房源 */
-	public static final String TagHot = "//div[@class='quicktabs']/ul/li[2]";
-	
-	/** 二手房列表 - tag切换 - 新推房源 */
-	public static final String TagNew = "//div[@class='quicktabs']/ul/li[3]";
+//	/** 二手房列表 - tag切换 - 急售房源 */
+//	public static final String TagHot = "//div[@class='quicktabs']/ul/li[2]";
+//	
+//	/** 二手房列表 - tag切换 - 新推房源 */
+//	public static final String TagNew = "//div[@class='quicktabs']/ul/li[3]";
 	
 	/** 二手房列表 - tag切换 - 多图房源 */
-	public static final String TagMore = "//div[@class='quicktabs']/ul/li[4]";
+	public static final String TagMore = "//div[@class='quicktabs']/ul/li[2]";
 	
 	/** 二手房列表 - tag切换 - 个人房源 */
-	public static final String TagOwner = "//div[@class='quicktabs']/ul/li[5]";
+	public static final String TagOwner = "//div[@class='quicktabs']/ul/li[3]";
 	
 	/** 二手房列表 - 下一页按钮 */
 	public static final String NextPage = "//div[@class='pagelink nextpage']";

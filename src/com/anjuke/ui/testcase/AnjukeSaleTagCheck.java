@@ -39,33 +39,22 @@ public class AnjukeSaleTagCheck {
 		driver.click(ass.getLocater("70-90平米"), "点击70-90平米的筛选条件");
 //		driver.click(ass.getLocater("二室"), "点击2室的筛选条件");
 		
-		checkTag(driver,"急售","sale");
-		checkTag(driver,"新推","sale");
+//		checkTag(driver,"急售","sale");
+//		checkTag(driver,"新推","sale");
 		checkTag(driver,"多图","sale");
 		
 		driver.get("http://shenzhen.anjuke.com/sale/");
 		checkTag(driver,"个人","sale");
     }
-//    @Test
-//    public void testRentalFliterTagCheck(){
-//		driver.get("http://shanghai.anjuke.com/rental/");
-//		driver.click(ass.getLocater("徐汇"), "点击浦东区域的筛选条件");
-//		driver.click(ass.getLocater("徐家汇"), "点击碧云板块的筛选条件");
-//		driver.click(ass.getLocater("三室"), "点击3室的筛选条件");
-//		
-//		checkTag(driver,"急售","rent");
-//		checkTag(driver,"新推","rent");
-//		checkTag(driver,"多图","rent");
-//    }
-    
+
     @Test
     public void testSaleKeywordTagCheck(){
 		driver.get("http://shenzhen.anjuke.com/sale/");
 		driver.type(Ajk_Sale.KwInput, "公园大地四室", "输入关键词");
 		driver.click(Ajk_Sale.KwSubmit, "点击搜索按钮");
 		
-		checkTag(driver,"急售","sale");
-		checkTag(driver,"新推","sale");
+//		checkTag(driver,"急售","sale");
+//		checkTag(driver,"新推","sale");
 		checkTag(driver,"多图","sale");
     }
     
