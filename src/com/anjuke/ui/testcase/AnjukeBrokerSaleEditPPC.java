@@ -89,7 +89,7 @@ public class AnjukeBrokerSaleEditPPC {
 	}
 
 	// (timeOut = 200000)
-	@Test
+	@Test(groups = {"unstable"})
 	public void editSale() throws InterruptedException {
 
 		String casestatus = "";
