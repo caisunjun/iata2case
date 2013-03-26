@@ -1,5 +1,7 @@
 package com.anjuke.ui.testcase;
 
+import java.util.Date;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -8,9 +10,11 @@ import org.testng.annotations.Test;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjuke.ui.page.*;
+import com.anjuke.ui.publicfunction.PublicProcess;
 
-/**该测试用例用来检查小区单页里，小区问答的搜索功能以及多个链接跳转是否正确
+/**该测试用例用来检查小区单页里，小区概况页面上的搜索功能以及多个链接跳转是否正确
  * 包括：
  * 搜索答案功能是否正常
  * 问题单页中的标题与小区问答中的问题标题是否一致
@@ -24,6 +28,7 @@ public class AnjukeCommunityAsk {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "小区问答数据检测";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod
@@ -48,7 +53,7 @@ public class AnjukeCommunityAsk {
     	bs.switchWindo(2);
     	//切换到小区单页
     	
-    	bs.click(Ajk_CommunityView.QuestionInput, "...");
+    	bs.click(Ajk_CommunityView.QuestionInput, "点击搜索答案的问题输入框");
     	bs.type(Ajk_CommunityView.QuestionInput, Qtitle, "输入问题标题");    	    	
     	bs.click(Ajk_CommunityView.SearchQuestion, "点击搜索答案按钮");    		
     	//输入问题，点击搜索答案按钮
@@ -95,7 +100,7 @@ public class AnjukeCommunityAsk {
     	}
     	else
     	{
-    		System.out.print(Ajk_AskView.TITLE);
+    		System.out.println(Ajk_AskView.TITLE);
     		Report.writeHTMLLog("问题单页中的标题与小区问答中的问题标题不一致", "标题不一致", Report.FAIL, bs.printScreen());
     	}
     	//检查标题是否与小区问答中问题标题一致

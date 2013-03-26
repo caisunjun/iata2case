@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -31,6 +32,7 @@ public class AnjukeBrokerCancelRecommendHouse {
 
 	@BeforeMethod
 	public void startUp() {
+		Report.G_CASECONTENT = "经纪人取消推荐房源";
 		bs = FactoryBrowser.factoryBrowser();
 	}
 
@@ -45,13 +47,13 @@ public class AnjukeBrokerCancelRecommendHouse {
 		System.out.println("***AnjukeCancelRecommendHouse is done***");
 	}
 	//(timeOut = 250000)
-	@Test
+	@Test(groups = {"unstable"})
 	public void testCancelRecommendBuyHouse() throws InterruptedException {		
 		//Report.setTCNameLog("*****取消推荐购买房源-- AnjukeCancelRecommendBuyHouse --williamhu");
 		cancelRecommendHouse(flag);
 	}
 	
-	@Test
+	@Test(groups = {"unstable"})
 	public void testCancelRecommendRentHouse() throws InterruptedException{		
 		//Report.setTCNameLog("*****取消推荐出租房源-- AnjukeCancelRecommendRentHouse --williamhu");
 		flag = true;
@@ -81,9 +83,9 @@ public class AnjukeBrokerCancelRecommendHouse {
 
 
 		// 点击主页右上角的我的经纪人链接
-		bs.check(Init.G_objMap.get("cityhomepage_login_broker_username_link"), 5);
+		bs.check(Public_HeaderFooter.HEADER_BROKERLINK, 5);
 
-		bs.click(Init.G_objMap.get("cityhomepage_login_broker_username_link"), "选中我的经纪人目录");
+		bs.click(Public_HeaderFooter.HEADER_BROKERLINK, "选中我的经纪人目录");
 
 		// 根据传进来的标志位来判断点击管理出售链接还是管理出租链接
 		if (!bool) {
@@ -178,6 +180,14 @@ public class AnjukeBrokerCancelRecommendHouse {
 			Report.writeHTMLLog("取消推荐房源", "取消推荐房源成功提示未显示", Report.FAIL, ps);
 		}
 
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		bs.refresh();
+		
 		// 获取取消推荐房源后推荐房源总数
 		if (bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_total"))) {
 			recommendCountAfter = Integer.parseInt(bs.getText(Init.G_objMap.get("anjuke_broke_manage_sale_total"), "获取推荐房源总数"));
@@ -187,6 +197,7 @@ public class AnjukeBrokerCancelRecommendHouse {
 
 		// 点击非推荐房源链接
 		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_Nrec_tab"), "点击非推荐链接");
+		bs.refresh();
 		if (bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_total"))) {
 			notRecommendCountAfter = Integer.parseInt(bs.getText(Init.G_objMap.get("anjuke_broke_manage_sale_total"), "获取非推荐房源总数"));
 		} else {

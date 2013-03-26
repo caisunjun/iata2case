@@ -10,10 +10,9 @@ import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
 import com.anjuke.ui.page.*;
 
-/**该测试用例用来检查经纪人列表里，有用户评价的经纪人筛选结果是否正确
+/**该测试用例用来检查经纪人列表里，无虚假反馈的经纪人筛选结果是否正确
  * 包括：
- * 评价标签是否存在
- * 经纪人店铺评价页是否存在评价内容
+ * 经纪人店铺服务档案页90天内收到的虚假反馈数是否为0
  * 
  * @author jchen
  */
@@ -21,9 +20,11 @@ import com.anjuke.ui.page.*;
 
 public class AnjukeTycoonListEvaluation {
     Browser bs = null;
+    int EvaluationCount;
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人列表无虚假反馈筛选检查";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod
@@ -31,6 +32,7 @@ public class AnjukeTycoonListEvaluation {
         bs.quit();
         bs = null;
     }
+    
     @Test
     public void testBrokerListEvaluation(){
     	bs.get("http://shanghai.anjuke.com");
@@ -41,27 +43,31 @@ public class AnjukeTycoonListEvaluation {
     	bs.click("//div[@class='divBrokerList']/a", "点击页面最下方经纪人列表页入口链接");
     	bs.switchWindo(2);
     	//点击二手房列表页最下方"现在去找"经纪人列表页入口链接
-    	bs.click(Ajk_Tycoon.evaluation, "点击筛选是否有用户评价复选框");
-    	//筛选是否有用户评价
+    	bs.click(Ajk_Tycoon.evaluation, "点击筛选是否无虚假反馈复选框");
+    	//筛选是否有无虚假反馈
     	
-    	bs.click(Ajk_Tycoon.assess, "点击评价标签");
+    	bs.click(Ajk_Tycoon.headimg, "点击第一个经纪人头像");
     	bs.switchWindo(3);
     	//切换到经纪人店铺
     	
-    	bs.click(Ajk_ShopView.UfsTab, "点击经纪人店铺评价tab");
-    	//点击经纪人店铺评价tab
+    	bs.click(Ajk_ShopView.UfsTab, "点击经纪人店铺服务档案tab");
+    	//点击经纪人店铺服务评价tab
     	
-    	if(bs.getElementCount("//*[@class='lack']/span") != 0)
+    	
+    	EvaluationCount=Integer.parseInt(bs.getText(Ajk_ShopUFS.NO_EVALUATION, "获取虚假反馈数"));
+    	//获取该经纪人90天收到的虚假反馈数，并转换成int型
+    	
+    	if(EvaluationCount==0)
     	{
-    		System.out.println("这个经纪人无评价数据");
-    		Report.writeHTMLLog("有用户评价的经纪人筛选结果不正确", "筛选出的经纪人无评价数据", Report.FAIL, bs.printScreen());
-
+    		System.out.println("这个经纪人无虚假反馈");
+    		Report.writeHTMLLog("无虚假反馈的经纪人筛选结果正确", "筛选出的经纪人90天内收到的虚假反馈数为0", Report.PASS, "");	
     	}
     	else
     	{
-    		System.out.println("这个经纪人有评价数据");
-    		Report.writeHTMLLog("有用户评价的经纪人筛选结果正确", "筛选出的经纪人有评价数据", Report.PASS, "");
+    		System.out.println("这个经纪人有虚假反馈");
+    		Report.writeHTMLLog("无虚假反馈的经纪人筛选结果不正确", "筛选出的经纪人90天内收到的虚假反馈数不为0", Report.FAIL, bs.printScreen());  		
     	}
+    	
     	//bs.closeAllwindow();
     	bs.close();
     }

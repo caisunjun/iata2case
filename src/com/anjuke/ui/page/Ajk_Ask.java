@@ -85,7 +85,7 @@ public class Ajk_Ask {
 	/**问答 - 问答首页 - 待解决问题列表*/
 	public static final String	ToBeResolvedQuestionList = "//*[@id='content']/div[2]/div[4]/ul/li";
 	/**问答 - 问答首页 - 待解决问题列表第一条数据*/
-	public static final String	ToBeResolvedQuestionFirstTitle = "//*[@id='content']/div[2]/div[4]/ul/li[1]/div[2]/a[2]";
+	public static final String	ToBeResolvedQuestionFirstTitle = "//*[@id='content']/div[2]/div[4]/ul/li[1]/div/a[2]";
 	/**问答 - 问答首页 - 待解决问题列表第一条数据的回复数*/
-	public static final String	ToBeResolvedQuestionFirstAnswerNum = "//*[@id='content']/div[2]/div[4]/ul/li[1]/div[1]/a";
+	public static final String	ToBeResolvedQuestionFirstAnswerNum = "//*[@id='content']/div[2]/div[4]/ul/li[1]/span/a";
 }

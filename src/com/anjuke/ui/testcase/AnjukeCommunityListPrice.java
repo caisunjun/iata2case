@@ -29,6 +29,7 @@ public class AnjukeCommunityListPrice {
 
 	@BeforeMethod
 	public void setUp() {
+		Report.G_CASECONTENT = "首页、小区列表页均价检测";
 		bs = FactoryBrowser.factoryBrowser();
 	}
 

@@ -73,7 +73,7 @@ public class BrokerSaleOperatingPPC {
 
 			// 房源描述
 			driver.switchToIframe(Broker_PropertynewSaleStep.HOUSEDES,"获取房源描述frame");
-			driver.activeElementSendkeys("发布出售，此房源为测试房源，房源信息没有经过验证，请勿联系，感谢您对的支持。谢谢！");
+			driver.activeElementSendkeys(saleInfo.getHouseDescribe());
 			driver.exitFrame();
 
 			// 计算单价
@@ -86,7 +86,18 @@ public class BrokerSaleOperatingPPC {
 			saleInfo.setPrice("单价：" + price1 + "元");
 			
 			//--PPC分上传图片，定价推广，存至房源库
-			driver.click(Broker_PropertynewSaleStep.FIRSTSUBMIT,"存至房源库");
+			if (needPic == true)
+			{
+				// 点去上传照片  进入发房第二步
+				driver.click(Broker_PropertynewSaleStep.NEXTSTEP,"去上传照片");
+				// 上传房型图
+				PublicProcess.uploadPicMulti(driver, "sale");
+				// 点击发布房源
+				driver.click(Broker_PropertynewSaleStep.SECONDSUBMIT,"编辑完毕-保存至房源库");
+			}
+			else{
+				driver.click(Broker_PropertynewSaleStep.FIRSTSUBMIT,"存至房源库");
+			}
 			
 			// 判断是否发布成功
 			String releaseMess = driver.getText(Broker_PropertynewSaleStep.SUCCESSMESSAGE_PPC,"获取发布后提示信息");
@@ -235,7 +246,7 @@ public class BrokerSaleOperatingPPC {
 			// 点去上传照片  进入发房第二步
 			driver.click(Broker_PropertynewSaleStep.NEXTSTEP,"去上传照片");
 			// 上传房型图
-			PublicProcess.uploadPic(driver, "sale");
+			PublicProcess.uploadPicMulti(driver, "sale");
 			// 点击发布房源
 			driver.click(Broker_PropertynewSaleStep.SECONDSUBMIT,"编辑完毕-保存至房源库");
 		}

@@ -52,19 +52,29 @@ public class Broker_PropertynewSaleStep {
 	
 	/** 发房第二步*/
 	
-	/** 发布出售 - 上传室内图-单张上传 */
-	public static final String SHINEISINGLE = "//input[@id='single_upload_apf_id_6']";
-	/** 发布出售 - 上传房型图-单张上传 */
-	public static final String FANGXINGSINGLE = "//input[@id='single_upload_apf_id_7']";
-	/** 发布出售 - 上传小区图-单张上传 */
-	public static final String XIAOQUSINGLE = "//input[@id='single_upload_apf_id_8']";
+	/** 发布出售 - 上传室内图-多张上传 */
+	public static final String SHINEIMulti = "//div[@class='box1px block-pinner']/div/div[@class='upcontrol']/object";
+	/** 发布出售 - 上传房型图-多张上传 */
+	public static final String FANGXINGMulti = "//div[@class='box1px block-ptype']/div/div[@class='upcontrol']/object";
+	/** 发布出售 - 上传小区图-多张上传 */
+	public static final String XIAOQUMulti = "//div[@class='box1px block-ptype block-community']/div/div[@class='upcontrol']/object";
 	
-	/** 发布出售 - 上传室内图-单张上传 - PPC*/
-	public static final String SHINEISINGLE_PPC = "//input[@id='single_upload_apf_id_5']";
-	/** 发布出售 - 上传房型图-单张上传 - PPC*/
-	public static final String FANGXINGSINGLE_PPC = "//input[@id='single_upload_apf_id_6']";
-	/** 发布出售 - 上传小区图-单张上传 - PPC*/
-	public static final String XIAOQUSINGLE_PPC = "//input[@id='single_upload_apf_id_7']";
+	/** 发布出售 - 上传室内图-单张上传 */
+	public static final String SHINEISINGLE = "//div[@class='box1px block-pinner']/div/div[@class='upcontrol']/div/input";
+	/** 发布出售 - 上传房型图-单张上传 */
+	public static final String FANGXINGSINGLE = "//div[@class='box1px block-ptype']/div/div[@class='upcontrol']/div/input";
+	/** 发布出售 - 上传小区图-单张上传 */
+	public static final String XIAOQUSINGLE = "//div[@class='box1px block-ptype block-community']/div/div[@class='upcontrol']/div/input";
+	
+	/** 发布出售 - 所有已上传的图片数 */
+	public static final String PicCount = "//div[@class='photoseries']/div/div";
+	
+//	/** 发布出售 - 上传室内图-单张上传 - PPC*/
+//	public static final String SHINEISINGLE_PPC = "//div[@class='box1px block-pinner']/div/div[@class='upcontrol']/div/input";
+//	/** 发布出售 - 上传房型图-单张上传 - PPC*/
+//	public static final String FANGXINGSINGLE_PPC = "//div[@class='box1px block-ptype']/div/div[@class='upcontrol']/div/input";
+//	/** 发布出售 - 上传小区图-单张上传 - PPC*/
+//	public static final String XIAOQUSINGLE_PPC = "//div[@class='box1px block-ptype block-community']/div/div[@class='upcontrol']/div/input";
 	
 	/** 发布出售 - 发布房源按钮 */
 	public static final String SECONDSUBMIT = "//input[@id='submitup']";

@@ -13,7 +13,7 @@
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerExpertise"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerIntro"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerModifyInfo"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeBrokerOrder"></class>
+
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerpractice"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerprofile"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerReport"></class>
@@ -22,6 +22,7 @@
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleReleasePPC"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEditPPC"></class>
+			<class name="com.anjuke.ui.testcase.AnjukePPCSalePricingPopularizeFlow"></class>
 		</classes>
 	</test>
 </suite>

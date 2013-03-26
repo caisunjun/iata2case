@@ -16,6 +16,7 @@ public class AnjukeUfsStarCheck {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "各页面经纪人ufs等级一致性检查";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod
@@ -23,7 +24,8 @@ public class AnjukeUfsStarCheck {
         bs.quit();
         bs = null;
     }
-    @Test
+  //页面有变化 脚本逻辑待更新
+    @Test(groups = {"unstable"})
     public void ufsStarCheck(){
     	checkStar();
     	checkBadEva();

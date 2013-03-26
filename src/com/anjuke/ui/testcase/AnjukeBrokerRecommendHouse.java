@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Configuration;
 import org.testng.annotations.Test;
 
+import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
@@ -33,6 +34,7 @@ public class AnjukeBrokerRecommendHouse {
 	
 	@BeforeMethod
 	public void startUp(){
+		Report.G_CASECONTENT = "经纪人推荐房源";
 		bs  = FactoryBrowser.factoryBrowser();	
 	}
 
@@ -48,13 +50,13 @@ public class AnjukeBrokerRecommendHouse {
 	}
 
 	//(timeOut = 250000)
-	@Test
+	@Test(groups = {"unstable"})
 	public void testRecommendBuyHouse() throws InterruptedException{
 		//Report.setTCNameLog("推荐购买房源-- AnjukeRecommendBuyHouse --williamhu");		
 		recommendHouse(flag);
 	}
 
-	@Test
+	@Test(groups = {"unstable"})
 	public void testRecommendRentHouse() throws InterruptedException {
 		//Report.setTCNameLog("推荐出租房源-- AnjukeRecommendRentHouse --williamhu");
 		flag = true;	  	
@@ -86,9 +88,9 @@ public class AnjukeBrokerRecommendHouse {
 //		PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
 
 		//点击主页右上角我的经纪人目录链接
-		bs.check(Init.G_objMap.get("cityhomepage_login_broker_username_link"), 5);
+		bs.check(Public_HeaderFooter.HEADER_BROKERLINK, 5);
 
-		bs.click(Init.G_objMap.get("cityhomepage_login_broker_username_link"), "选中我的经纪人目录");   
+		bs.click(Public_HeaderFooter.HEADER_BROKERLINK, "选中我的经纪人目录");   
 
 		//根据bool的取值决定点击管理出售链接还是管理出租链接
 		if(!bool){
@@ -204,6 +206,13 @@ public class AnjukeBrokerRecommendHouse {
 
 		//点击推荐房源链接
 		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_rec_tab"), "点击推荐房源链接");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		bs.refresh();
 		//推荐成功后推荐房源总数
 		if(bs.check(Init.G_objMap.get("anjuke_broke_manage_sale_total"))){
 			recommendCountAfter = Integer.parseInt(bs.getText(

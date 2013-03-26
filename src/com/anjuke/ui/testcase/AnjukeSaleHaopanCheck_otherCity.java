@@ -25,6 +25,7 @@ public class AnjukeSaleHaopanCheck_otherCity {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "小区二手房列表页好盘房源检测-其他城市";
 //		bs.deleteAllCookies();
 		bs = FactoryBrowser.factoryBrowser();
 		baseUrl = "http://chengdu.anjuke.com/sale/";
@@ -41,9 +42,6 @@ public class AnjukeSaleHaopanCheck_otherCity {
 	public void haopanCheck(){		
 		//外地城市，筛选列表页分页检测
 		saleScreenListPaging_otherCity();
-		
-		//外地城市，二手房筛选列表，第1、3、5展位好盘房源检测
-		saleScreenListHaopan135Check_otherCity();
 		
 		//外地城市，搜索列表页分页检测
 		saleSearchListPaging_otherCity();
@@ -73,24 +71,6 @@ public class AnjukeSaleHaopanCheck_otherCity {
 		}else{
 			Report.writeHTMLLog("筛选列表分页检测", "比较实际分页总数与预期分页总数是否一致", Report.FAIL, "");
 		}		
-	}
-	
-	//检查外地老好盘上线城市，二手房筛选列表，第1、3、5展位显示好盘房源
-	public void saleScreenListHaopan135Check_otherCity(){
-		bs.get(baseUrl);
-		String str1,str2,str3;
-		bs.click(Ajk_Sale.S_SELECT("成华"), "点击区域:成华");
-		bs.click(Ajk_Sale.S_SELECT("电子科大"), "点击板块：电子科大");
-		str1 = bs.getAttribute("//*[@id='prop_name_qt_prop_1']", "href");
-		str2 = bs.getAttribute("//*[@id='prop_name_qt_prop_3']", "href");
-		str3 = bs.getAttribute("//*[@id='prop_name_qt_prop_5']", "href");
-	
-		bs.assertContains(str1, "from=filtertop");
-		bs.assertContains(str2, "from=filtermid");
-		bs.assertContains(str3, "from=filterbot");
-		Report.writeHTMLLog("外地城市好盘展示", "检查二手房筛选列表好盘房源在第1、3、5展位的展示", Report.DONE, "");
-		
-		System.out.println(str1);
 	}
 	
 	//检查外地城市，搜索列表页分页是否正确

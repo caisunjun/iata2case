@@ -13,6 +13,12 @@ public class Ajk_HomePage {
 	public static final String H_BOX = "//input[@id='home_kw']";
 	/** 首页 - 搜索 - 找二手房按钮 */
 	public static final String H_BTN = "//input[@class='find-button']";
+	/** 新版首页 - 有爱房 - 热门区域模块 */
+	public static final String HotAreaHasXin = "//div[@class='filter-sec']/dl[@class='area-filter']/dd/a";
+	/** 新版首页 - 无爱房 - 热门区域模块 */
+	public static final String HotAreaNoXin = "//div[@class='filter-box hot-area']/a";
+	/** 旧版首页 - 从区域开始模块 */
+	public static final String AreaInfo = "//dd[@class='areainfo']/a";
 	/** 首页 - 导航 - 二手房tab */
 	public static final String SALETAB = "//li[@class='sale']";
 	/** 首页 - 导航 - 租房tab */

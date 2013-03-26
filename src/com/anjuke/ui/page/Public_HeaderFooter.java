@@ -12,16 +12,18 @@ public class Public_HeaderFooter {
 	/** 公用头部信息 **/
 	
 	/** 头部 - 未登陆时 - 登陆链接 */
-	public static final String Login = "//div[@class='login_nav']/ul/li[6]/a";
+	public static final String Login = "//li[@class='welcome']/a";
+	/** 头部 - 未登陆时 - 注册链接 */
+	public static final String Register = "//li[@class='register']/a";
 	/** 头部 - 普通用户登录后 - 用户名 */
 	public static final String HEADER_UserName = "//a[@class='username']";
 	/** 头部 - 普通用户登录后 - 退出 */
-	public static final String HEADER_UserLogOut = "//ul[@id='toplogin_cont_userlogin']/li[5]/a";
+	public static final String HEADER_LogOut = "//a[@class='exit']";
 	/** 头部 - 经纪人登录后 - 用户名 */
-	public static final String HEADER_BrokerName = "//ul[@id='top_broker_panel']/li[4]/a";
+	public static final String HEADER_BrokerName = "//a[@class='username']";
 	
 	/** 头部 - 经纪人登录 - 我的网络经济人链接 */
-	public static final String HEADER_BROKERLINK = "//li[@class='broker_boxer']/a";
+	public static final String HEADER_BROKERLINK = "//a[@class='owner']";
 	
 	/** 头部 - 搜索 - 搜索输入框*/
 	public static final String S_BOX = "//*[@id='keyword_apf_id_9']" ;//"id^keyword_apf_id_9";

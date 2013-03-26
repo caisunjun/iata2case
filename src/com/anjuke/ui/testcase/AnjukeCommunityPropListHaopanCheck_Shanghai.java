@@ -26,6 +26,7 @@ public class AnjukeCommunityPropListHaopanCheck_Shanghai {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "小区二手房列表页好盘房源检测-上海";
 //		bs.deleteAllCookies();
 		bs = FactoryBrowser.factoryBrowser();
 		baseUrl = "http://shanghai.anjuke.com/community/props/sale/1550";

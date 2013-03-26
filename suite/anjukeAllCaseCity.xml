@@ -14,10 +14,13 @@
 			<class name="com.anjuke.ui.testcase.AnjukeAskEditExpertInfo"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeAskQuestion"></class>
 			<class name="com.anjuke.ui.testcase.AnjukePropView"></class>
+			<class name="com.anjuke.ui.testcase.AnjukePropViewRound"></class>
 
 			<class name="com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck"></class>
 
 			<class name="com.anjuke.ui.testcase.AnjukeSaleTagCheck"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeSaleUfsIcon"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCityhomepageSearchareaLink"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo"></class>
@@ -29,13 +32,15 @@
 			<class name="com.anjuke.ui.testcase.AnjukeCommunityPropRentList"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSearchCheck"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeUfsStarCheck"></class>
+
 			<class name="com.anjuke.ui.testcase.AnjukeTycoonListAsk"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeTycoonListEvaluation"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeTycoonListPhoto"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_Shanghai"></class>
-			
+			<class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeRegressPropViewInfo"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageArea"></class>
 		</classes>
 	</test>
 </suite>

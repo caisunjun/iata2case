@@ -14,11 +14,17 @@ public class Ajk_Sale {
 	/** 二手房列表 - 顶部搜索按钮 */
 	public static final String KwSubmit = "//input[@class='input_button se_house']";
 	
+	/*移动广告横幅*/
+	/** 二手房列表 - 移动广告横幅 - 关闭广告*/
+	public static final String CloseMobAdv = "//i[@id='closeMobileGuide']";
+	
 	/*找房条件栏*/
 	/** 二手房列表 - 找房条件栏 - 上次找房条件*/
 	public static final String LastCond = "//a[@class='specialchars']";
-	/** 二手房列表 - 找房条件栏 - 订阅找房条件*/
-	public static final String SaveCond = "//span[@class='savepropcond-ion']";
+	/** 二手房列表 - 找房条件栏 - 订阅上次找房条件*/
+	public static final String SaveLastCond = "//span[@class='savepropcond-ion']";
+	/** 二手房列表 - 找房条件栏 - 订阅这次找房条件*/
+	public static final String SaveThisCond = "//a[@id='subscribe']";
 	
 	/** 二手房列表 - 保存找房条件弹出框*/
 	public static final String SaveCondPopUp = "//div[@class='layer_box']";
@@ -42,17 +48,17 @@ public class Ajk_Sale {
 	/** 二手房列表 - tag切换 - 全部房源 */
 	public static final String TagAll = "//div[@class='quicktabs']/ul/li[1]";
 	
-	/** 二手房列表 - tag切换 - 急售房源 */
-	public static final String TagHot = "//div[@class='quicktabs']/ul/li[2]";
-	
-	/** 二手房列表 - tag切换 - 新推房源 */
-	public static final String TagNew = "//div[@class='quicktabs']/ul/li[3]";
+//	/** 二手房列表 - tag切换 - 急售房源 */
+//	public static final String TagHot = "//div[@class='quicktabs']/ul/li[2]";
+//	
+//	/** 二手房列表 - tag切换 - 新推房源 */
+//	public static final String TagNew = "//div[@class='quicktabs']/ul/li[3]";
 	
 	/** 二手房列表 - tag切换 - 多图房源 */
-	public static final String TagMore = "//div[@class='quicktabs']/ul/li[4]";
+	public static final String TagMore = "//div[@class='quicktabs']/ul/li[2]";
 	
 	/** 二手房列表 - tag切换 - 个人房源 */
-	public static final String TagOwner = "//div[@class='quicktabs']/ul/li[5]";
+	public static final String TagOwner = "//div[@class='quicktabs']/ul/li[3]";
 	
 	/** 二手房列表 - 下一页按钮 */
 	public static final String NextPage = "//div[@class='pagelink nextpage']";

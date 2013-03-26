@@ -30,6 +30,7 @@ public class AnjukeCommunityPriceMonitor {
 
 	@BeforeMethod
 	public void setUp() {
+		Report.G_CASECONTENT = "主营小区标志检测";
 		driver = FactoryBrowser.factoryBrowser();
 
 	}

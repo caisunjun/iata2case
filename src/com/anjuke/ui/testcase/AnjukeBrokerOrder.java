@@ -6,12 +6,13 @@ import org.testng.annotations.Test;
 
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**
 * @Todo TODO
-* 选择端口套餐（非PPC城市经济人才可用）
+* 选择端口套餐（非PPC城市经济人才可用）端口套餐已被销售助理删除，前台无法录合同
 * @author fjzhang
 * @since 2012-8-8
 * @file AnjukeBrokerOrder.java
@@ -27,6 +28,7 @@ public class AnjukeBrokerOrder {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人购买端口";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod
@@ -34,7 +36,7 @@ public class AnjukeBrokerOrder {
         bs.quit();
         bs = null;
     }
-    @Test
+    @Test(groups = {"unstable"})
     public void testBrokerOrder(){
         /**
          * 检查套餐列表

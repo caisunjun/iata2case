@@ -6,7 +6,7 @@ package com.anjuke.ui.page;
  * */
 public class Ajk_AskQuestion {
 	/** 问答提问页 - 页头注册按钮 */
-	public static final String REG = "//*[@id='ajax_nologin_apf_id_6']/li[5]/a";
+	public static final String REG = "//li[@class='register']/a";
 	/** 问答提问页 - 标题输入框 */
 	public static final String TITLE = "id^question_title";
 	/** 问答提问页 - 描述输入框 */
@@ -25,5 +25,11 @@ public class Ajk_AskQuestion {
 	public static final String EXPERT_FS = "//dl[@id='expertList']/dd[4]";
 	/** 问答提问页 - 房产专家 */
 	public static final String EXPERT_FC = "//dl[@id='expertList']/dd[5]";
+	
+	/** 问答提问页 - 专家类型（val为为左起第几个项）*/
+	public static final String ExpertTypeByVal(int val)
+	{
+		 return "//dl[@id='expertList']/dd["+val+"]";
+	}
 	
 }

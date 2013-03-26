@@ -20,6 +20,7 @@ public class AnjukeAskAbnormalSearch {
 	
 	@BeforeMethod
 	public void setUp() throws Exception {
+		Report.G_CASECONTENT = "问答列表异常内容搜索";
 		driver = FactoryBrowser.factoryBrowser();
 	}
 

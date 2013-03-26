@@ -16,6 +16,7 @@ import com.anjuke.ui.publicfunction.BrokerInfo;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
 
 /**
@@ -36,6 +37,7 @@ public class AnjukeBrokerprofile {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人更改基本资料";
         bs = FactoryBrowser.factoryBrowser();
     }
 
@@ -95,6 +97,8 @@ public class AnjukeBrokerprofile {
                 Broker_profile.SELECTRECRETIONAL, "获取喜欢的娱乐活动", "获取娱乐活动列表");
         bs.click(Broker_profile.SAVE, "保存个人介绍修改");
 
+        Report.writeHTMLLog("", "截图以作不时之需", Report.DONE, bs.printScreen());
+        
         likebook = BrokerInfo.ulSelect1(bs,Broker_profile.LIKEBOOK,"获取选择好的书的列表");
         likefood = BrokerInfo.ulSelect1(bs,Broker_profile.LIKEFOOD,"获取选择好的食物的列表");
         recretional = BrokerInfo.ulSelect1(bs,Broker_profile.RECRETIONAL,"获取选择好的娱乐活动");
@@ -116,10 +120,11 @@ public class AnjukeBrokerprofile {
         if(!expectedText.trim().contains(actualText1.trim()))
         {
         	String tmpUrl = bs.getCurrentUrl()+"?cc=cc";
-        	System.out.println(tmpUrl);
         	bs.get(tmpUrl);
         	bs.refresh();
-        	bs.assertContains(actualText1.trim(), expectedText.trim());}
+        	actualText1 = provinceactual+cityactual+lunaractual+constellation1;
+        	bs.assertContains(actualText1.trim(), expectedText.trim());
+        }
         
         //我的店铺页获取喜欢的书，与个人介绍页对比
         WebElement shoplikebook = bs.findElement(Broker_shopprofile.LIKEBOOK, "获取喜欢的书", 60);

@@ -9,6 +9,7 @@ import com.anjuke.ui.page.Broker_info;
 import com.anjuke.ui.page.Login_Anget;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
+import com.anjukeinc.iata.ui.report.Report;
 
 
 /**
@@ -31,6 +32,7 @@ public class AnjukeBrokerModifyInfo {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "经纪人修改个人资料";
         bs = FactoryBrowser.factoryBrowser();
     }
     @AfterMethod
@@ -105,10 +107,28 @@ public class AnjukeBrokerModifyInfo {
         if (bs.findElement(Broker_info.INDIVIDUAL, "检查公司是否被选中", 60).isSelected()){
             bs.click(Broker_info.COMPANY, "选择公司", 60);
             bs.type(Broker_info.COMPANYTEXT, "测试公司-XFHONG", "修改公司名称");
-            bs.click("//div[@id='company_auto_complete']/ul[1]", "点公司");
+            try {
+    			Thread.sleep(2000);
+    		} catch (InterruptedException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            bs.click("//div[@id='company_auto_complete']/ul[1]", "点公司",5);
+            try {
+    			Thread.sleep(1000);
+    		} catch (InterruptedException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
             bs.click(Broker_info.STORETEXT, "选择门店", 60);
             bs.type(Broker_info.STORETEXT, "测试", "修改门店名称");
-            bs.click("//div[@id='store_auto_complete']/ul/li[2]", "点门店");
+            try {
+    			Thread.sleep(2000);
+    		} catch (InterruptedException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+            bs.click("//div[@id='store_auto_complete']/ul/li[2]", "点门店",5);
         }else{
             bs.click(Broker_info.INDIVIDUAL, "更改独立经济人");
         }

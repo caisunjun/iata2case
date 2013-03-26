@@ -22,6 +22,7 @@ public class AnjukePropView {
 
     @BeforeMethod
     public void setUp() {
+    	Report.G_CASECONTENT = "房源单页功能检测";
         bs = FactoryBrowser.factoryBrowser();
     	bs.get("http://shanghai.anjuke.com/");
     }
@@ -140,7 +141,7 @@ public class AnjukePropView {
         	bs.switchWindo(3);
         	//获得经纪人公司门店
         	bs.getElementCount(Ajk_AgencyStore.SIDESTORENAME);
-        	String agencyName = bs.getText(Ajk_AgencyStore.SIDESTORENAME, "获取经纪人店铺首页的经纪人名");
+        	String agencyName = bs.getText(Ajk_AgencyStore.SIDESTORENAME, "获取公司网上门店里的公司名");
         	agencyName = agencyName.replace("公司：", "");
         	//验证经纪人公司门店名是否一致
         	String brokerCom = brokerCompany.substring(0, brokerCompany.indexOf(" "));
@@ -167,7 +168,7 @@ public class AnjukePropView {
     
     private static void priceCountDiff(Browser bs)
     {
-    	//验证按售价统计数量证确性=============================================================================
+    	//验证按售价统计数量正确性=============================================================================
     	String priceCount = "";
     	bs.click(Ajk_PropView.COMMINTROTAB, "移动下页面，触发ajax");
     	bs.check(Ajk_PropView.PriceCount);

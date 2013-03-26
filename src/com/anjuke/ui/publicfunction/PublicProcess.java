@@ -8,6 +8,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import com.anjuke.ui.page.Broker_PropertynewRentStep;
 import com.anjuke.ui.page.Broker_PropertynewSaleStep;
@@ -15,6 +22,7 @@ import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {
@@ -151,21 +159,11 @@ public class PublicProcess {
 
 	// 执行退出（包括普通用于以及经纪人用户）
 	public static void logOut(Browser driver) {
-		// 经纪人用户退出
+		// 退出已通用
 		driver.get(homeUrl);
 
-		// 判断当前的登录用户类型
-		boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName);
-		boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName);
-
-		if (tycoonStatus) { // 经纪人退出
-			if (driver.check(Init.G_objMap.get("anjuke_use_logout_button"))) {
-				driver.click(Init.G_objMap.get("anjuke_use_logout_button"), "经纪人退出登录");
-			}
-		} else if (commStatus) { // 普通用户退出
-			if (driver.check(Public_HeaderFooter.HEADER_UserLogOut)) {
-				driver.click(Public_HeaderFooter.HEADER_UserLogOut, "普通用户退出登录");
-			}
+		if (driver.check(Public_HeaderFooter.HEADER_LogOut)) {
+			driver.click(Public_HeaderFooter.HEADER_LogOut, "普通用户退出登录");
 		}
 	}
 
@@ -214,7 +212,7 @@ public class PublicProcess {
 			String ps = driver.printScreen();
 			Report.writeHTMLLog("从首页注册", "又没有找到注册按钮，尝试刷新页面", Report.DONE,ps);
 			driver.refresh();
-			driver.click(Init.G_objMap.get("public_link_reg"), "点击主页右上角的注册按钮");
+			driver.click(Public_HeaderFooter.Register, "点击主页右上角的注册按钮");
 		}
 
 		driver.type(Init.G_objMap.get("anjuke_register_username"), userName, "输入用户名");
@@ -258,53 +256,174 @@ public class PublicProcess {
 		String email = null; // 注册邮箱
 		String email_suffix = null; // 注册邮箱后缀
 
-		email_suffix = "@hotmail.com";
+		email_suffix = "@mail.com";
 		userName = generateUserName();
 		email = userName.concat(email_suffix);
 		return email;
 
 	}
 
-	// 房源发布、编辑上传图片操作
+	// 房源发布、编辑单张上传图片操作
 	public static void uploadPic(Browser driver, String type) {
 		String picMess = null;
+		int picCount = 0;
 		if (type.equals("sale")) {
 			picMess = "上传室内图";
-			driver.uploadFile(Broker_PropertynewSaleStep.SHINEISINGLE_PPC, TcTools.imgPath("600x600.jpg"), picMess);
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			driver.uploadFile(Broker_PropertynewSaleStep.SHINEISINGLE, TcTools.imgPath("600x600.jpg"), picMess ,30);
 		} else {
 			picMess = "上传室内图";
 			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, TcTools.imgPath("600x600.jpg"), picMess);
 		}
-		exception(driver, picMess);
+		exception(driver, picMess ,picCount);
 		// 上传房型图片
 		if (type.equals("sale")) {
 			picMess = "上传房型图";
-			driver.uploadFile(Broker_PropertynewSaleStep.FANGXINGSINGLE_PPC, TcTools.imgPath("600x600x0.jpg"), picMess);
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			driver.uploadFile(Broker_PropertynewSaleStep.FANGXINGSINGLE, TcTools.imgPath("600x600x0.jpg"), picMess);
 		} else {
 			picMess = "上传房型图";
 			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, TcTools.imgPath("800x800.jpg"), picMess);
 		}
-		exception(driver, picMess);
+		exception(driver, picMess ,picCount);
 		// 上传小区图片
 		if (type.equals("sale")) {
 			picMess = "上传小区图";
-			driver.uploadFile(Broker_PropertynewSaleStep.XIAOQUSINGLE_PPC, TcTools.imgPath("800x800.jpg"), picMess);
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			driver.uploadFile(Broker_PropertynewSaleStep.XIAOQUSINGLE, TcTools.imgPath("800x800.jpg"), picMess);
 		} else {
 			picMess = "上传小区图";
 			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, TcTools.imgPath("600x600x0.jpg"), picMess);
 		}
-		exception(driver, picMess);
+		exception(driver, picMess ,picCount);
+
+	}
+	
+	// 房源发布、编辑多张上传图片操作
+	public static void uploadPicMulti(Browser driver, String type) {
+		String picMess = null;
+		int picCount = 0;
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.SHINEIMulti, "点击室内图多图上传");
+			picMess = "上传室内图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadShinei.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+			
+		} else {
+//			picMess = "上传室内图";
+//			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, TcTools.imgPath("600x600.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
+		// 上传房型图片
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.FANGXINGMulti, "点击房型图多图上传");
+			picMess = "上传房型图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadHuxing.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+
+		} else {
+//			picMess = "上传房型图";
+//			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, TcTools.imgPath("800x800.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
+		// 上传小区图片
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.XIAOQUMulti, "点击小区图多图上传");
+			picMess = "上传小区图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadXiaoqu.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+		} else {
+//			picMess = "上传小区图";
+//			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, TcTools.imgPath("600x600x0.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
 
 	}
 
+	// 房源发布、编辑单张、多张混合上传图片操作
+	public static void uploadPicMix(Browser driver, String type) {
+		String picMess = null;
+		int picCount = 0;
+		if (type.equals("sale")) {
+			picMess = "上传室内图";
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			driver.uploadFile(Broker_PropertynewSaleStep.SHINEISINGLE, TcTools.imgPath("600x600.jpg"), picMess ,30);
+		} else {
+			picMess = "上传室内图";
+			driver.uploadFile(Broker_PropertynewRentStep.SHINEITU, TcTools.imgPath("600x600.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
+		// 上传房型图片
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.FANGXINGMulti, "点击房型图多图上传");
+			picMess = "上传房型图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadHuxing.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+
+		} else {
+//			picMess = "上传房型图";
+//			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, TcTools.imgPath("800x800.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
+		// 上传小区图片
+		if (type.equals("sale")) {
+			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+			driver.click(Broker_PropertynewSaleStep.XIAOQUMulti, "点击小区图多图上传");
+			picMess = "上传小区图";
+			try {
+				Thread.sleep(2000);
+				Runtime.getRuntime().exec(".\\tools\\uploadXiaoqu.exe").waitFor();
+				Thread.sleep(3000);
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+		} else {
+//			picMess = "上传小区图";
+//			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, TcTools.imgPath("600x600x0.jpg"), picMess);
+		}
+		exception(driver, picMess ,picCount);
+
+	}
+
+	
 	// 处理图片上传异常
-	private static void exception(Browser driver, String picMess) {
+	private static void exception(Browser driver, String picMess ,int picCount) {
 		String getText = driver.doAlert("取值");
+		int picCountNow = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
+		System.out.println(picCountNow);
+		System.out.println(picCount);
 		if (getText != null) {
 			driver.doAlert("取消");
 			Report.writeHTMLLog("上传图片", picMess + "失败", Report.FAIL, driver.printScreen());
-		} else {
+		} else if(picCountNow == picCount+1){
 			Report.writeHTMLLog("上传图片", picMess + "成功", Report.PASS, "");
+		}
+		else{
+			Report.writeHTMLLog("上传图片", picMess + "失败，房源数量不匹配，上传前："+picCount+"&上传后："+picCountNow, Report.FAIL, driver.printScreen());
 		}
 	}
 
@@ -382,10 +501,10 @@ public class PublicProcess {
 	 * 把cookie内容保存到文件中
 	 * 生成的文件地址见config中的cookiePath
 	 */
-    /*final public static void saveCookieToFile(Browser driver){
+    final public static void saveCookieToFile(Browser driver){
     	driver.refresh();
     	String cookieContent = driver.getCookies("","");
-    	saveFile(Init.G_config.get("cookiePath"), "cookie"+".txt", cookieContent);
+    	saveFile(Init.G_config.get("cookiePath"), "cookie"+getTraceInfo()+".txt", cookieContent);
     }
     
     
@@ -403,7 +522,39 @@ public class PublicProcess {
         	}
         }
         return caseNameList;
-	}*/
-
+	}
+    
+/**随机一个代表城市的city域名
+ * getRandomCityFromConfig会调用getConfigInfo
+ * @return 随机返回config里城市列表里一个城市的city域名
+ */
+    public static String getRandomCityFromConfig(){
+    	int randomNum = GetRandom.getrandom(30);
+    	int now = 0;
+		// 随机城市
+    	LinkedHashMap<String, String> cityMap = getConfigInfo("anjukeCityInfo");
+		Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet().iterator();
+		String cityVal = null;
+		while (cityInfoIter.hasNext() && now < randomNum) {
+			Map.Entry<String, String> cityEntry = cityInfoIter.next();
+			cityVal = cityEntry.getValue();
+			now = now + 1;
+		}
+		return cityVal;
+    }
+    //按config里的顺序取出城市列表
+    private static LinkedHashMap<String, String> getConfigInfo(String configKey) {
+        String dataInfo = "";
+        String[] data;
+        String[] singleData;
+        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+        dataInfo = Init.G_config.get(configKey);
+        data = dataInfo.split(",");
+        for (String dataStr : data) {
+            singleData = dataStr.split("-");
+            map.put(singleData[0], singleData[1]);
+        }
+        return map;
+    }
 
 }
