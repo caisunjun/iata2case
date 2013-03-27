@@ -11,9 +11,9 @@ package com.anjuke.ui.page;
 public class Broker_info {
 
     /**
-     * 导航里的个人设置tab
+     * 导航里的个人设置tab（非PPC经纪人）
      */
-    public static final String brokerInfoTab = "//ul[@class='box']/li[5]";
+    public static final String brokerInfoTab = "//ul[@class='box']/li[4]";
 
     /**
      *修改电子邮箱

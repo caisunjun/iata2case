@@ -34,6 +34,13 @@ public class Ajk_Tycoon {
 	
 	/** 经纪人列表 - 筛选 - 是否有生活照*/
 	public static final String photo = "//*[@id='hasphotos']";
+	
+	/** 经纪人列表 - 服务等级(icon)*/
+	public static final String ServiceGradeIcon = "//div/em[1]";
+	
+	/** 经纪人列表 - 服务等级(暂无)*/
+	public static final String NoServiceGradeIcon = "//*[@class='assess-box']/span[2]";
+	
 			
 		
 }

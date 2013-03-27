@@ -164,11 +164,12 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		}
 		//小区竞价房源>20套
 		if(n==20){
-			bs.findElement(Ajk_CommunitySale.NextPageUP, "下一页", 10);
+			bs.findElement(Ajk_CommunitySale.NextPageUP, "下一页", 10).click();
 			for(int i=1;i<=20;i++){
 				tmp = bs.getAttribute("//*[@id='prop_name_qt_"+i+"']","href");
 				if(tmp.endsWith("spread=commprop")){
 					n = n+1;
+					System.out.println("yyy");
 				}
 			}
 		}

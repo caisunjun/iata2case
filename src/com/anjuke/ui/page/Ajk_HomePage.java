@@ -35,4 +35,12 @@ public class Ajk_HomePage {
 	
 	/** 首页 - 热门城市列表 */
 	public static final String HotCityList ="//div[@class='list'][1]/a";
+	
+	/** 首页 - 服务之星-服务等级 */
+	public static final String SERVICEGRADE(int val){
+		String Locator = "//*[@id='content']/div[2]/div[11]/ul/li["+val+"]/div/div/a[2]";
+		return  Locator;
+	} 
+	/** 首页 - 服务之星-寻找优秀经纪人> */
+	public static final String SearchExcellentBroker ="//*[@id='content']/div[2]/div[11]/a";
 }
