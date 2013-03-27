@@ -53,7 +53,7 @@ public class AnjukeBrokerReport {
 		Date repdate = myFormatter.parse(reportDate);
 		return(currentTime.getTime() - repdate.getTime())/ (24 * 60 * 60 * 1000);
     }
-    @Test
+    @Test(groups = {"unstable"})
     public void testBrokerReport() throws ParseException{
     	long day = 0;
     	String hour;
