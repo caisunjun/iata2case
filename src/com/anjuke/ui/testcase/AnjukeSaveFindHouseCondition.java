@@ -55,14 +55,12 @@ public class AnjukeSaveFindHouseCondition {
 	public void testSaveLastCon() {
 		saveCon(lastCon);
 		lastCon = false;
-		System.out.println("222");
 	}
 	//保存这次找房条件
 	@Test
 	public void testSaveThisCon() {
 		saveCon(lastCon);
 		lastCon = true;
-		System.out.println("111");
 	}
 
 	public void saveCon(boolean lastCon) {
@@ -125,6 +123,13 @@ public class AnjukeSaveFindHouseCondition {
 			// 点击保存这次找房条件按钮
 			driver.click(Ajk_Sale.LastCond, "点击上次访问条件");
 			driver.click(Ajk_Sale.SaveThisCond, "保存这次找房条件");
+		}
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		
 		// 判断是否保存成功
