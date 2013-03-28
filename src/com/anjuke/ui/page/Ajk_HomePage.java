@@ -38,9 +38,9 @@ public class Ajk_HomePage {
 	
 	/** 首页 - 服务之星-服务等级 */
 	public static final String SERVICEGRADE(int val){
-		String Locator = "//*[@id='content']/div[2]/div[11]/ul/li["+val+"]/div/div/a[2]";
+		String Locator = "//div[@class='mod broker-area']/ul/li["+val+"]/div/div/a[2]";
 		return  Locator;
 	} 
 	/** 首页 - 服务之星-寻找优秀经纪人> */
-	public static final String SearchExcellentBroker ="//*[@id='content']/div[2]/div[11]/a";
+	public static final String SearchExcellentBroker ="//div[@class='mod broker-area']/a";
 }

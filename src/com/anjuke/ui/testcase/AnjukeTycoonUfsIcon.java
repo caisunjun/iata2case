@@ -11,9 +11,12 @@ import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
 
-
+/**脚本检查点如下：
+ * 1、安居客首页-服务之星-服务等级icon
+ * 2、经纪人列表页-服务等级icon
+ * @author jessili
+ */
 public class AnjukeTycoonUfsIcon { 
-	private int n;
 	Set<String> list = null;
 	public Browser bs = null;
 	private String baseUrl;
@@ -39,16 +42,12 @@ public class AnjukeTycoonUfsIcon {
 		bs.click(Ajk_HomePage.SearchExcellentBroker, "点击：寻找优秀经纪人");
 		
 		//切换窗口
-		switchWindow();	
-		
-		//等待时间
-		waitForPageToLoad(50);
+		bs.switchWindo(2);
 		
 		//检查经纪人列表-服务等级
 		ServiceGradeIconOfTycoon();		
-		
 	}
-		
+	
 	public void ServiceGradeIconOfServiceStar(){
 		//打开安居客首页
 		bs.get(baseUrl);
@@ -72,22 +71,4 @@ public class AnjukeTycoonUfsIcon {
 			Report.writeHTMLLog("经纪人列表-服务等级icon检查", "服务等级展示异常", Report.FAIL, "");
 		}		
 	}
-	
-	//定义等待时间
-	public void waitForPageToLoad(long longtime) {
-		try {
-			Thread.sleep(longtime);
-		} catch (InterruptedException exception) {
-			exception.getStackTrace();
-		}
-	}		
-	
-	//切换窗口
-	public void switchWindow(){
-		n = bs.getWindowHandles();		 
-		bs.switchWindo(n);
-		waitForPageToLoad(500);
-	}
-	
-								
 }
