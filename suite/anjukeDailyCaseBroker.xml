@@ -16,13 +16,7 @@
 
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerpractice"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerprofile"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeBrokerReport"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeBrokerCancelRecommendHouse"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecommendHouse"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleReleasePPC"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEditPPC"></class>
-			<class name="com.anjuke.ui.testcase.AnjukePPCSalePricingPopularizeFlow"></class>
 		</classes>
 	</test>
 </suite>
