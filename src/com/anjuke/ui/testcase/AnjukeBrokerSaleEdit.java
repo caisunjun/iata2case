@@ -32,7 +32,7 @@ public class AnjukeBrokerSaleEdit {
 	@BeforeMethod
 	public void startUp(){
 		Report.G_CASECONTENT = "经纪人编辑端口二手房";
-		driver = FactoryBrowser.factoryBrowser();
+		driver = FactoryBrowser.factoryBrowser("firefox");
 		saleInfo = saleInfo_init();
 		updateInfo = updateInfo_init();
 	}
