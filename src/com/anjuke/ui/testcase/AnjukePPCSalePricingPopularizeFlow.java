@@ -42,7 +42,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 		driver = null;
 	}
 
-	@Test
+	@Test(groups = {"unstable"})
 	public void NewPricingPlan() {
 		saleInfo = saleInfo_init();
 		driver = FactoryBrowser.factoryBrowser();
