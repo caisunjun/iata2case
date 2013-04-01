@@ -39,7 +39,8 @@ public class AnjukeRegressPropViewInfo {
     @Test
     public void testSaleSearchComm(){
     	//根据config里配置的anjukeCityInfo，随机返回一个城市域名
-    	String city = PublicProcess.getRandomCityFromConfig();
+//    	String city = PublicProcess.getRandomCityFromConfig();
+    	String city = "gy";
     	String saleUrl = "http://"+city+".anjuke.com/sale/";
     	bs.get(saleUrl);
     	
@@ -49,22 +50,27 @@ public class AnjukeRegressPropViewInfo {
     	String brokerName = bs.getText("//*[@id='prop_"+randomPropNo+"']/div[2]/p[2]", "获得经纪人姓名");
     	String a[] = brokerName.split(" ");
     	brokerName = a[0];
-    	bs.click(Ajk_Sale.getTitle(randomPropNo), "在列表第一页随机点一套房源");
-    	bs.switchWindo(2);
-    	
-    	String propUrl = bs.getCurrentUrl();
-    	String brokerNameProp = bs.getText(Ajk_PropView.BROKERNAME, "获得房源单页经纪人姓名");
-    	bs.assertEquals(brokerName, brokerNameProp, "列表和单页的经纪人姓名是否一致，房源url："+propUrl, "");
-    	
-    	bs.click(Ajk_PropView.COMMINTROTAB, "移动下页面，触发ajax");
-    	String priceCount = bs.getText(Ajk_PropView.PriceCount, "按售价统计房源数量",10);
-    	//去掉结果中的非数字
-    	priceCount = priceCount.replaceAll("\\D", "");
-    	if(Integer.parseInt(priceCount)>0)
-    	{
-    		Report.writeHTMLLog("房源单页", "小区在售二手房有数据", Report.PASS, "");
-    	}else{
-    		Report.writeHTMLLog("房源单页", "小区在售二手房无数据,出问题的房源为："+propUrl, Report.FAIL, bs.printScreen());
+    	if(brokerName.contains("业主")){
+    		Report.writeHTMLLog("选到了一套业主房源", "当前列表页第"+randomPropNo+"套房源是业主房源", Report.WARNING, bs.printScreen());
+    	}
+    	else{
+    		bs.click(Ajk_Sale.getTitle(randomPropNo), "在列表第一页随机点一套房源");
+        	bs.switchWindo(2);
+        	
+        	String propUrl = bs.getCurrentUrl();
+        	String brokerNameProp = bs.getText(Ajk_PropView.BROKERNAME, "获得房源单页经纪人姓名");
+        	bs.assertEquals(brokerName, brokerNameProp, "列表和单页的经纪人姓名是否一致，房源url："+propUrl, "");
+        	
+        	bs.click(Ajk_PropView.COMMINTROTAB, "移动下页面，触发ajax");
+        	String priceCount = bs.getText(Ajk_PropView.PriceCount, "按售价统计房源数量",10);
+        	//去掉结果中的非数字
+        	priceCount = priceCount.replaceAll("\\D", "");
+        	if(Integer.parseInt(priceCount)>0)
+        	{
+        		Report.writeHTMLLog("房源单页", "小区在售二手房有数据", Report.PASS, "");
+        	}else{
+        		Report.writeHTMLLog("房源单页", "小区在售二手房无数据,出问题的房源为："+propUrl, Report.FAIL, bs.printScreen());
+        	}
     	}
     }
 
