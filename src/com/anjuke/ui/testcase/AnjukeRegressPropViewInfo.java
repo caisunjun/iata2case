@@ -39,8 +39,7 @@ public class AnjukeRegressPropViewInfo {
     @Test
     public void testSaleSearchComm(){
     	//根据config里配置的anjukeCityInfo，随机返回一个城市域名
-//    	String city = PublicProcess.getRandomCityFromConfig();
-    	String city = "gy";
+    	String city = PublicProcess.getRandomCityFromConfig();
     	String saleUrl = "http://"+city+".anjuke.com/sale/";
     	bs.get(saleUrl);
     	
