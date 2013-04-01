@@ -18,6 +18,7 @@ import org.openqa.selenium.WebElement;
 
 import com.anjuke.ui.page.Broker_PropertynewRentStep;
 import com.anjuke.ui.page.Broker_PropertynewSaleStep;
+import com.anjuke.ui.page.Login_My;
 import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
@@ -45,7 +46,6 @@ public class PublicProcess {
 		String nowUrl = driver.getCurrentUrl();
 		// 如果当前url为空，或者为新开浏览器，启动的版本切换url。则执行登录操作
 		if (nowUrl == null || nowUrl.equals("") || nowUrl.equals(versionUrl)) {
-//			driver.get(url);    //意义不明 dologin里会打开上海首页的
 			dologin(driver, name, pass);
 			// 获得经纪人、用户的登录名
 			if (id == 1) {
@@ -60,7 +60,6 @@ public class PublicProcess {
 			if(!nowUrl.equals(homeUrl))
 			{driver.get(homeUrl);}
 			boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName,5);
-			boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName,5);
 			// 如果当前是经纪人用户
 			if (tycoonStatus) {
 				Report.writeHTMLLog("当前登录状态", "状态：经纪人登录", "Done", "");
@@ -76,6 +75,7 @@ public class PublicProcess {
 					reLogin(driver, currentId, id, name, pass, nowUrl);
 				}
 			}
+			boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName,5);
 			// 普通用户登录
 			if (commStatus) {
 				int currentId = 0;
@@ -92,7 +92,6 @@ public class PublicProcess {
 			// 如果未登录
 			if ((!commStatus) && (!tycoonStatus)) {
 				Report.writeHTMLLog("当前登录状态", "状态：用户未登录", "Done", "");
-//				driver.get(url);
 				dologin(driver, name, pass);
 				// 经纪人用户
 				if (id == 1) {
@@ -132,9 +131,9 @@ public class PublicProcess {
 
 	// 处理普通用户登录后操作，获取登录后用户名
 	private static void commLoin(Browser driver) {
-		if (driver.check(Public_HeaderFooter.HEADER_UserName, 20)) {
+		if (driver.check(Public_HeaderFooter.HEADER_UserName, 5)) {
 			try {
-				String welcomeinfo = driver.getText(Public_HeaderFooter.HEADER_UserName, "登录成功,获取用户名", 20);
+				String welcomeinfo = driver.getText(Public_HeaderFooter.HEADER_UserName, "登录成功,获取用户名", 10);
 				logInSuccName = PublicProcess.splitString(welcomeinfo, "，");
 				Report.writeHTMLLog("login user name", logInSuccName, "Done", "");
 			} catch (NullPointerException e) {
@@ -146,9 +145,9 @@ public class PublicProcess {
 
 	// 处理经纪人登录后操作，获取登录后用户名
 	private static void tycoonLogin(Browser driver) {
-		if (driver.check(Public_HeaderFooter.HEADER_BrokerName, 20)) {
+		if (driver.check(Public_HeaderFooter.HEADER_BrokerName, 5)) {
 			try {
-				logInSuccName = driver.getText(Public_HeaderFooter.HEADER_BrokerName, "登录成功,获取用户名", 20);
+				logInSuccName = driver.getText(Public_HeaderFooter.HEADER_BrokerName, "登录成功,获取用户名", 10);
 				Report.writeHTMLLog("login user name", logInSuccName, "Done", "");
 			} catch (NullPointerException e) {
 				String ps = driver.printScreen();
@@ -168,10 +167,10 @@ public class PublicProcess {
 	}
 
 	// 执行登录操作
-	public static void dologin(Browser driver, String name, String pass) {
+	public static String dologin(Browser driver, String name, String pass) {
 		driver.get(homeUrl);
 		//打开页面后，这里经常找不到登陆的元素--------------------------2012.7.30
-		if(driver.check(Public_HeaderFooter.Login))
+		if(driver.check(Public_HeaderFooter.Login,5))
 		{
 			driver.click(Public_HeaderFooter.Login, "点击登录按钮");
 		}
@@ -183,10 +182,11 @@ public class PublicProcess {
 			driver.click(Public_HeaderFooter.Login, "点击登录按钮");
 		}
 		
-		driver.type(Init.G_objMap.get("anjuke_login_userName"), name, "用户名");
-		driver.type(Init.G_objMap.get("anjuke_login_password"), pass, "密码");
-		driver.click(Init.G_objMap.get("anjuke_login_button"), "登录");
+		driver.type(Login_My.UserName, name, "用户名");
+		driver.type(Login_My.Password, pass, "密码");
+		driver.click(Login_My.LoginSubmit, "登录");
 
+		return driver.getText(Public_HeaderFooter.HEADER_UserName, "获取用户名");
 	}
 
 	// 注册普通账号
@@ -365,6 +365,10 @@ public class PublicProcess {
 		if (type.equals("sale")) {
 			picMess = "上传室内图";
 			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount);
+			
+//			未完成js
+//			driver.runScript("document.getElementById(\"multi_upload_apf_id_5\").style.display = \"block\";");
+			
 			driver.uploadFile(Broker_PropertynewSaleStep.SHINEISINGLE, TcTools.imgPath("600x600.jpg"), picMess ,30);
 		} else {
 			picMess = "上传室内图";
