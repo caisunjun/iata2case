@@ -98,11 +98,11 @@ public class AnjukeBrokerSaleEdit {
 
 		if(testing.equals(casestatus))
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "ajk_sh", "anjukeqa",false, 1));
+			saleInfo.setUserName(PublicProcess.dologin(driver, "ajk_sh", "anjukeqa"));
 		}
 		else
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "111111",false, 1));
+			saleInfo.setUserName(PublicProcess.dologin(driver, "test1", "111111"));
 		}
 		
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");

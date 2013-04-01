@@ -55,7 +55,7 @@ public class AnjukeAskQuestion {
 		// 普通用户登录并获取当前登录成功后的用户名
 		String loginName = "agneszhang1"; 
 
-		PublicProcess.logIn(driver, loginName, "123456", false, 0);
+		PublicProcess.dologin(driver, loginName, "123456");
 				
 		// 判断用户是否登录成功
 		driver.assertEquals(loginName, driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
@@ -75,7 +75,7 @@ public class AnjukeAskQuestion {
 	//回答
 	@Test(groups = {"unstable"},dependsOnMethods="askQustion") 
 	public void askSubmitAnswer(){
-		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
+		PublicProcess.dologin(driver, "rmfans2000", "050100001");
 		
 		// 判断用户是否登录成功
 		driver.assertEquals("rmfans2000", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
@@ -87,7 +87,7 @@ public class AnjukeAskQuestion {
 	//提问者采纳最佳答案并检测个人中心数据
 	@Test(groups = {"unstable"},dependsOnMethods="askSubmitAnswer")
 	public void askCheckUserInfo(){
-		PublicProcess.logIn(driver, "agneszhang1", "123456", false, 0);
+		PublicProcess.dologin(driver, "agneszhang1", "123456");
 		driver.assertEquals("agneszhang1", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		driver.get(askurl);
 		AnjukeAsk.AdoptBestAnswer(driver);

@@ -76,12 +76,12 @@ public class AnjukeBrokerSaleRelease {
 		//如果取出的值等于testing 则用另一个账号登陆
 		if(testing.equals(casestatus))
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "shtest", "anjukeqa",false, 1));
+			saleInfo.setUserName(PublicProcess.dologin(driver, "shtest", "anjukeqa"));
 		}
 		//如果config中casestatus的值不为testing或config未配置casestatus，用原先的账号登陆
 		else
 		{
-			saleInfo.setUserName(PublicProcess.logIn(driver, "test1", "111111",false, 1));
+			saleInfo.setUserName(PublicProcess.dologin(driver, "test1", "111111"));
 		}
 		BrokerSaleOperating.releaseSale(driver, saleInfo, needPic);
 

@@ -47,7 +47,7 @@ public class AnjukeBrokerpractice {
         /**
          * 验证执业能力---擅长区域
          */
-        PublicProcess.logIn(bs, username, passwd, false, 1);
+        PublicProcess.dologin(bs, username, passwd);
         bs.get(url);
         /*
          * 随机选择熟悉的板块，并返回选择的值

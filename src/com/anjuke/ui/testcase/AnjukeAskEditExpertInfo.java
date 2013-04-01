@@ -39,7 +39,7 @@ public class AnjukeAskEditExpertInfo {
 	@Test
 	public void EditExpertInfo(){
 		//外部专家登录
-		PublicProcess.logIn(driver, "rmfans2000", "050100001", false, 0);
+		PublicProcess.dologin(driver, "rmfans2000", "050100001");
 		// 判断用户是否登录成功
 		driver.assertEquals("rmfans2000", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		driver.get("http://shanghai.anjuke.com/ask");

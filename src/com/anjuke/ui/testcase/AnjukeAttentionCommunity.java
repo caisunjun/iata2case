@@ -49,14 +49,13 @@ public class AnjukeAttentionCommunity {
 		if(brow.contains("ie"))
 		{
 			//IE6兼容性
-//			PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
 			PublicProcess.dologin(driver, "小瓶盖001", "6634472");
 		}
 		else
 		{
 			// 普通用户登录
 //			driver.deleteAllCookies();
-			String loginName = PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
+			String loginName = PublicProcess.dologin(driver, "小瓶盖001", "6634472");
 			// 判断用户是否登录成功
 			if (!(loginName == null || loginName.equals(""))) {
 				
