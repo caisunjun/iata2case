@@ -60,8 +60,7 @@ public class AnjukeCollectHouseResource {
 			PublicProcess.dologin(driver, "max23", "123123");
 		} else {
 			// 普通用户登录
-			// driver.deleteAllCookies();
-			String loginName = PublicProcess.logIn(driver, "max23", "123123", false, 0);
+			String loginName = PublicProcess.dologin(driver, "max23", "123123");
 			// 判断用户是否登录成功
 			if (!(loginName == null || loginName.equals(""))) {
 

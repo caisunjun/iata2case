@@ -27,144 +27,8 @@ import com.anjukeinc.iata.ui.util.GetRandom;
 import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {
-	private static String url = "http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v";
+//	private static String url = "http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v";
 	private static String homeUrl = "http://shanghai.anjuke.com/";
-	private static String versionUrl = "http://www.anjuke.com/version/switch/";
-	private static String logInSuccName = null;
-
-	/*
-	 * 简介：该方法为安居客登录的公共方法，用户身份分为普通用户和经纪人 原因：因为普通用户以及经纪人用户的登录、退出的页面元素地址不同，所以操作分开进行
-	 * 使用：使用分为以下情况 1、用户直接访问登录页面，进行登录 2、用户正在访问某些页面，然后需要执行登录操作，当前状态如下
-	 * 1.当前用户已经登录（身份：普通用户） 以上情况分为三种：1.直接返回，不需要再登录 2.换另外一个普通用户登录 3.换经纪人身份登录
-	 * 2.当前用户已经登录（身份：经纪人用户） 以上情况分为三种：1.直接返回，不需要再登录 2.换另外一个普通用户登录 3.换经纪人身份登录
-	 * 3.当前用户未登录 以上情况分为两种：1.以普通用户登录 2.以经纪人进行登录 参数：参数含义如下 name/pass为需要登录的用户名以及密码
-	 * relogin用来表示如果用户已经登录，是否需要重新登录（true：需要；false：不需要）
-	 * id用来表示将以普通用户登录还是经纪人（0：普通用户；1：经纪人）
-	 */
-	public static final String logIn(Browser driver, String name, String pass, boolean relogin, int id) {
-		// 获取当前url
-		String nowUrl = driver.getCurrentUrl();
-		// 如果当前url为空，或者为新开浏览器，启动的版本切换url。则执行登录操作
-		if (nowUrl == null || nowUrl.equals("") || nowUrl.equals(versionUrl)) {
-			dologin(driver, name, pass);
-			// 获得经纪人、用户的登录名
-			if (id == 1) {
-				tycoonLogin(driver);
-			} else {
-				commLoin(driver);
-			}
-			// 如果当前url不为空，则跳转到首页，判断是否登录
-		} else {
-			// 跳转到主页
-			nowUrl = driver.getCurrentUrl();
-			if(!nowUrl.equals(homeUrl))
-			{driver.get(homeUrl);}
-			boolean tycoonStatus = driver.check(Public_HeaderFooter.HEADER_BrokerName,5);
-			// 如果当前是经纪人用户
-			if (tycoonStatus) {
-				Report.writeHTMLLog("当前登录状态", "状态：经纪人登录", "Done", "");
-				// 当前为经纪人登录
-				int currentId = 1;
-				Report.writeHTMLLog("当前登录状态", "经纪人登录", "Done", "");
-				// 且不需要从新登录
-				if (!relogin) {
-					logInSuccName = driver.getText(Public_HeaderFooter.HEADER_BrokerName, "获取用户名");
-					Report.writeHTMLLog("current user name", logInSuccName, "Done", "");
-					driver.get(nowUrl);
-				} else {
-					reLogin(driver, currentId, id, name, pass, nowUrl);
-				}
-			}
-			boolean commStatus = driver.check(Public_HeaderFooter.HEADER_UserName,5);
-			// 普通用户登录
-			if (commStatus) {
-				int currentId = 0;
-				Report.writeHTMLLog("当前登录状态", "状态：普通用户登录", "Done", "");
-				// 且不需要从新登录
-				if (!relogin) {
-					logInSuccName = driver.getText(Public_HeaderFooter.HEADER_UserName, "获取用户名");
-					Report.writeHTMLLog("current user name", logInSuccName, "Done", "");
-					driver.get(nowUrl);
-				} else {
-					reLogin(driver, currentId, id, name, pass, nowUrl);
-				}
-			}
-			// 如果未登录
-			if ((!commStatus) && (!tycoonStatus)) {
-				Report.writeHTMLLog("当前登录状态", "状态：用户未登录", "Done", "");
-				dologin(driver, name, pass);
-				// 经纪人用户
-				if (id == 1) {
-					tycoonLogin(driver);
-				} else {
-					// 普通用户
-					commLoin(driver);
-				}
-				//登陆后会回到原页面的
-				//driver.get(nowUrl);
-			}
-
-		}
-		return logInSuccName;
-	}
-
-	// 用户执行重新登录
-	private static void reLogin(Browser driver, int currentId, int id, String name, String pass, String nowUrl) {
-		if (id == 1) {
-			logOut(driver);
-//			driver.get(url);
-			dologin(driver, name, pass);
-			tycoonLogin(driver);
-			if (currentId == id) {
-				driver.get(nowUrl);
-			}
-		} else {
-			logOut(driver);
-//			driver.get(url);
-			dologin(driver, name, pass);
-			commLoin(driver);
-			if (currentId == id) {
-				driver.get(nowUrl);
-			}
-		}
-	}
-
-	// 处理普通用户登录后操作，获取登录后用户名
-	private static void commLoin(Browser driver) {
-		if (driver.check(Public_HeaderFooter.HEADER_UserName, 5)) {
-			try {
-				String welcomeinfo = driver.getText(Public_HeaderFooter.HEADER_UserName, "登录成功,获取用户名", 10);
-				logInSuccName = PublicProcess.splitString(welcomeinfo, "，");
-				Report.writeHTMLLog("login user name", logInSuccName, "Done", "");
-			} catch (NullPointerException e) {
-				String ps = driver.printScreen();
-				Report.writeHTMLLog("login fail", "return username is null", Report.FAIL, ps);
-			}
-		}
-	}
-
-	// 处理经纪人登录后操作，获取登录后用户名
-	private static void tycoonLogin(Browser driver) {
-		if (driver.check(Public_HeaderFooter.HEADER_BrokerName, 5)) {
-			try {
-				logInSuccName = driver.getText(Public_HeaderFooter.HEADER_BrokerName, "登录成功,获取用户名", 10);
-				Report.writeHTMLLog("login user name", logInSuccName, "Done", "");
-			} catch (NullPointerException e) {
-				String ps = driver.printScreen();
-				Report.writeHTMLLog("login fail", "return username is null", Report.FAIL, ps);
-			}
-		}
-	}
-
-	// 执行退出（包括普通用于以及经纪人用户）
-	public static void logOut(Browser driver) {
-		// 退出已通用
-		driver.get(homeUrl);
-
-		if (driver.check(Public_HeaderFooter.HEADER_LogOut)) {
-			driver.click(Public_HeaderFooter.HEADER_LogOut, "普通用户退出登录");
-		}
-	}
 
 	// 执行登录操作
 	public static String dologin(Browser driver, String name, String pass) {
@@ -187,6 +51,16 @@ public class PublicProcess {
 		driver.click(Login_My.LoginSubmit, "登录");
 
 		return driver.getText(Public_HeaderFooter.HEADER_UserName, "获取用户名");
+	}
+	
+	// 执行退出（包括普通用户以及经纪人用户）
+	public static void logOut(Browser driver) {
+		// 退出已通用
+		driver.get(homeUrl);
+
+		if (driver.check(Public_HeaderFooter.HEADER_LogOut)) {
+			driver.click(Public_HeaderFooter.HEADER_LogOut, "普通用户退出登录");
+		}
 	}
 
 	// 注册普通账号
@@ -358,7 +232,7 @@ public class PublicProcess {
 
 	}
 
-	// 房源发布、编辑单张、多张混合上传图片操作
+	// 房源发布、编辑 单张、多张混合上传图片操作
 	public static void uploadPicMix(Browser driver, String type) {
 		String picMess = null;
 		int picCount = 0;
@@ -393,6 +267,9 @@ public class PublicProcess {
 //			driver.uploadFile(Broker_PropertynewRentStep.FANGXINGTU, TcTools.imgPath("800x800.jpg"), picMess);
 		}
 		exception(driver, picMess ,picCount);
+		//firefox多图上传之后会失焦
+		driver.switchWindo(driver.getWindowHandles());
+		
 		// 上传小区图片
 		if (type.equals("sale")) {
 			picCount = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
@@ -410,7 +287,8 @@ public class PublicProcess {
 //			driver.uploadFile(Broker_PropertynewRentStep.XIAOQUTU, TcTools.imgPath("600x600x0.jpg"), picMess);
 		}
 		exception(driver, picMess ,picCount);
-
+		//firefox多图上传之后会失焦
+		driver.switchWindo(driver.getWindowHandles());
 	}
 
 	

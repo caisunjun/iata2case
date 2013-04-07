@@ -78,7 +78,7 @@ public class AnjukeBrokerReport {
 		    passwd = "anjukeqa";
 		}
 
-    	PublicProcess.logIn(bs,username,passwd,false, 1);
+    	PublicProcess.dologin(bs,username,passwd);
     	if(!bs.check("Public_HeaderFooter.HEADER_BROKERLINK"))
     	{bs.refresh();}
     	
