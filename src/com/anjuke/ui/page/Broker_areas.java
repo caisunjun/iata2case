@@ -44,6 +44,13 @@ public class Broker_areas {
     public static final String IFRAME2 = "id^ifrCommunityList2";
     public static final String IFRAME3 = "id^ifrCommunityList3";
     /**
+     * 熟悉小区的下拉框
+     */
+    public static final String SelectCommInRange(int range){
+    	String locator = "//div[@class='showCommName clearfix']/ul/li["+range+"]/span[1]";
+    	return locator;
+    }
+    /**
      * 保存成功
      */
     public static final String SAVEOK = "//*[@id='userbox']/ul";

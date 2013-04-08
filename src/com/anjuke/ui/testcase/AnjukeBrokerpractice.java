@@ -62,17 +62,13 @@ public class AnjukeBrokerpractice {
 		/*
 		 * 随机选择熟悉的小区
 		 */
-		bs.type(Broker_areas.COMM1, "s ", "选择熟悉的小区1");
-		liSelect(Broker_areas.IFRAME1, bs, Broker_areas.COMMDIV,
-				"选择熟悉的小区并返回该小区");
+		bs.type(Broker_areas.COMM1, "s ", "输入熟悉的小区1");
+		liSelect(Broker_areas.IFRAME1, bs, Broker_areas.COMMDIV, "选择熟悉的小区");
+		bs.type(Broker_areas.COMM2, "g ", "输入熟悉的小区2");
+		liSelect(Broker_areas.IFRAME2, bs, Broker_areas.COMMDIV, "选择熟悉的小区");
+		bs.type(Broker_areas.COMM3, "m ", "输入熟悉的小区3");
+		liSelect(Broker_areas.IFRAME3, bs, Broker_areas.COMMDIV, "选择熟悉的小区");
 
-		bs.type(Broker_areas.COMM2, "s ", "选择熟悉的小区2");
-		liSelect(Broker_areas.IFRAME2, bs, Broker_areas.COMMDIV,
-				"选择熟悉的小区并返回该小区");
-
-		bs.type(Broker_areas.COMM3, "s ", "选择熟悉的小区3");
-		liSelect(Broker_areas.IFRAME3, bs, Broker_areas.COMMDIV,
-				"选择熟悉的小区并返回该小区");
 		bs.click(Broker_areas.OKENTER, "确认保存");
 		String savetext = bs.getText(Broker_areas.SAVEOK, "取得保存后提示文案");
 		bs.assertContains(savetext, "保存成功");
@@ -92,38 +88,27 @@ public class AnjukeBrokerpractice {
 		String knownarea = bs.getText(Ajk_ShopView.KNOWNAREA, "获取最熟悉的区域");
 		String tmpUrl = bs.getCurrentUrl();
 		bs.get(tmpUrl);
-		if (!checkOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1, comm2,
-				comm3)) {
+		if (!checkOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1, comm2, comm3)) {
 			tmpUrl = bs.getCurrentUrl() + "?cc=cc";
 			bs.get(tmpUrl);
 			bs.refresh();
 			knowncomm = bs.getText(Ajk_ShopView.KNOWNCOMM, "获取最熟悉的小区 ");
 			knownarea = bs.getText(Ajk_ShopView.KNOWNAREA, "获取最熟悉的区域");
-			bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1,
-					comm2, comm3);
+			bs.assertOneContainsMany(knowncomm, "验证我的店铺中小区显示是否完整", comm1, comm2, comm3);
 		}
-		bs.assertOneContainsMany(knownarea, "验证我的店铺中区域板块显示是否完整", area1, area2);
+		 bs.assertOneContainsMany(knownarea, "验证我的店铺中区域板块显示是否完整", area1,
+		 area2);
 	}
 
-	private String liSelect(String frame, Browser bs, String locator,
-			String Info) {
+	private void liSelect(String frame, Browser bs, String locator, String Info){
 		bs.switchToIframe(frame, "");
-		WebElement list = bs.findElement(locator, Info, 60);
-		List<WebElement> lilist = list.findElements(By.tagName("li"));
-		WebElement li = lilist.get(GetRandom.getrandom(20));
-		String text = li.findElements(By.tagName("span")).get(0).getText();
-		// if( text.contains("（") ){
-		// text = text.substring(0, text.lastIndexOf("（"));
-		// }
-		bs.check("//div[@class='showCommName clearfix']/ul/li[1]/span[2]", 5);
-		li.findElements(By.tagName("span")).get(0).click();
-
+		//随机选前10个小区
+		bs.click(Broker_areas.SelectCommInRange(10), "下拉中随机选一个小区");
 		bs.exitFrame();
-		return text;
+		return;
 	}
 
-	private boolean checkOneContainsMany(String actual, String scase,
-			String... expected) {
+	private boolean checkOneContainsMany(String actual, String scase, String... expected) {
 		boolean tag = true;
 		for (String text : expected) {
 			if (!actual.contains(text)) {
