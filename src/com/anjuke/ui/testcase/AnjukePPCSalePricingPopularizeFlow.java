@@ -56,7 +56,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 		driver.quit();
 	}
 
-	@Test(dependsOnMethods = "NewPricingPlan")
+	@Test(groups = {"unstable"},dependsOnMethods = "NewPricingPlan")
 	public void ClickFee() {
 		driver = FactoryBrowser.factoryProxyBrowser();
 		driver.get("http://shanghai.anjuke.com/sale/");
@@ -75,7 +75,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 		driver.quit();
 	}
 
-	@Test(dependsOnMethods = "ClickFee")
+	@Test(groups = {"unstable"},dependsOnMethods = "ClickFee")
 	public void CheckCost() {
 		driver = FactoryBrowser.factoryBrowser();
 		PublicProcess.dologin(driver, "1349689430yzN", "abc123");
