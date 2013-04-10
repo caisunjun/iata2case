@@ -33,7 +33,6 @@ public class AnjukeGujiaDetail {
 	public void tearDown() {
 		driver.quit();
 		driver = null;
-		Report.seleniumReport("shanghai.anjuke.com", "房价评估页验证");
 	}
 	
 	private AnjukeGujiaInformation gujiaInfo_init(){

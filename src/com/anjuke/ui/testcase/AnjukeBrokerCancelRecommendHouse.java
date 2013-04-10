@@ -41,7 +41,6 @@ public class AnjukeBrokerCancelRecommendHouse {
 		bs.quit();
 		bs = null;
 	}
-    @SuppressWarnings("deprecation")
 	@Configuration(afterTestClass = true)
 	public void doBeforeTests() {
 		System.out.println("***AnjukeCancelRecommendHouse is done***");

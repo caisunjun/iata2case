@@ -56,12 +56,11 @@ public class AnjukeSaleHaopanCheck_otherCity {
 		bs.click(Ajk_Sale.S_SELECT("成华"), "选择区域：成华");
 		bs.click(Ajk_Sale.S_SELECT("电子科大"), "选择板块：电子科大");
 		//获取分页总数
-		String temp = bs.findElement(Ajk_Sale.PAGE_COUNT, "获取分页总数", 5).getText();
+		String temp = bs.getText(Ajk_Sale.PAGE_COUNT, "获取分页总数");
 		String s[] = temp.split("/");
 		int pageNo = Integer.parseInt(s[1]);
 		
-		int sum  = Integer.parseInt(bs.findElement(Ajk_Sale.S_COUNT, "获取搜索结果数",5).getText());
-		
+		int sum  = Integer.parseInt(bs.getText(Ajk_Sale.S_COUNT, "获取搜索结果数"));
 		//计算预期分页总数（向上取整）
 		int p = (int)Math.ceil((double)sum/25);
 		
@@ -76,14 +75,13 @@ public class AnjukeSaleHaopanCheck_otherCity {
 	//检查外地城市，搜索列表页分页是否正确
 	public void saleSearchListPaging_otherCity(){
 		bs.get(baseUrl);
-		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("电子科大");
+		bs.type(Ajk_Sale.KwInput, "电子科大", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		//获取分页总数
-		String temp = bs.findElement(Ajk_Sale.PAGE_COUNT, "获取分页总数", 5).getText();
+		String temp = bs.getText(Ajk_Sale.PAGE_COUNT, "获取分页总数");
 		String s[] = temp.split("/");
 		int pageNo = Integer.parseInt(s[1]);
-		
-		int sum  = Integer.parseInt(bs.findElement(Ajk_Sale.S_COUNT, "获取搜索结果数",5).getText());	
+		int sum  = Integer.parseInt(bs.getText(Ajk_Sale.S_COUNT, "获取搜索结果数"));	
 		
 		//计算预期分页总数（向上取整）
 		int p = (int)Math.ceil((double)sum/25);
@@ -99,7 +97,7 @@ public class AnjukeSaleHaopanCheck_otherCity {
 	//检查外地城市，搜索列表页，是否展示好盘房源
 	public void saleSearchListHaopanCheck_otherCity(){
 		bs.get(baseUrl);
-		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("电子科大");
+		bs.type(Ajk_Sale.KwInput, "电子科大", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		for(int i=1;i<=5;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");

@@ -42,7 +42,7 @@ public class AnjukeBrokerSaleEdit {
 		driver.quit();
 		driver=null;		
 	}
-    @SuppressWarnings("deprecation")
+    //@SuppressWarnings("deprecation")
 	@Configuration(afterTestClass = true)
 	public void doBeforeTests() {
 		System.out.println("***AnjukeBrokerSaleEdit is done***");

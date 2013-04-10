@@ -58,7 +58,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 
 	@Test(groups = {"unstable"},dependsOnMethods = "NewPricingPlan")
 	public void ClickFee() {
-		driver = FactoryBrowser.factoryProxyBrowser();
+		//driver = FactoryBrowser.factoryProxyBrowser();
 		driver.get("http://shanghai.anjuke.com/sale/");
 		sleep(30000);
 		driver.type("//input[@class='input_text']", PropId, "输入刚推广的定价房源ID："
@@ -206,7 +206,7 @@ public class AnjukePPCSalePricingPopularizeFlow {
 				.setProperty("webdriver.firefox.bin", Init.G_config
 						.get("FFpath"));
 		webDriver = new FirefoxDriver(ffPro);
-		driver = new Browser(webDriver);
+		driver = FactoryBrowser.factoryBrowser();
 	}
 
 	private int getInt(String val) {

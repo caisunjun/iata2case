@@ -73,11 +73,11 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		bs.click(Ajk_Sale.S_SELECT("陆家嘴"), "选择板块：陆家嘴");
 		bs.click(Ajk_Sale.S_SELECT("四室"), "选择房型：四室");
 		//获取分页总数
-		String temp = bs.findElement(Ajk_Sale.PAGE_COUNT, "获取分页总数", 5).getText();
+		String temp = bs.getText(Ajk_Sale.PAGE_COUNT, "获取分页总数");
 		String s[] = temp.split("/");
 		int pageNo = Integer.parseInt(s[1]);
 		
-		int sum  = Integer.parseInt(bs.findElement(Ajk_Sale.S_COUNT, "获取搜索结果数",5).getText());
+		int sum  = Integer.parseInt(bs.getText(Ajk_Sale.S_COUNT, "获取搜索结果数"));
 		
 		//计算预期分页总数（向上取证）
 		int p = (int)Math.ceil((double)sum/25);
@@ -104,14 +104,13 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-搜索列表页分页检测
 	private void saleSearchListPaging_Shanghai(){
 		bs.get(baseUrl);
-		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("陆家嘴四室");
+		bs.type(Ajk_Sale.KwInput, "陆家嘴四室", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		//获取分页总数
-		String temp = bs.findElement(Ajk_Sale.PAGE_COUNT, "获取分页总数", 5).getText();
+		String temp = bs.getText(Ajk_Sale.PAGE_COUNT, "获取分页总数");
 		String s[] = temp.split("/");
 		int pageNo = Integer.parseInt(s[1]);
-		
-		int sum  = Integer.parseInt(bs.findElement(Ajk_Sale.S_COUNT, "获取搜索结果数",5).getText());	
+		int sum  = Integer.parseInt(bs.getText(Ajk_Sale.S_COUNT,  "获取搜索结果数"));	
 		
 		//计算预期分页总数（向上取证）
 		int p = (int)Math.ceil((double)sum/25);
@@ -127,7 +126,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-搜索列表页-搜小区词，展示该小区所有竞价房源
 	private void saleSearchListHaopanCheck_CommSearch_Shanghai(){
 		bs.get(baseUrl);
-		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("中远两湾城");
+		bs.type(Ajk_Sale.KwInput, "中远两湾城", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		
 		//获取该小区竞价房源总数
@@ -141,7 +140,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		}
 		//小区竞价房源>25套
 		if(m==25){
-			bs.findElement(Ajk_Sale.NextPage, "下一页", 10);
+			bs.click(Ajk_Sale.NextPage, "下一页");
 			for(int i=1;i<=25;i++){
 				tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
 				if(tmp.endsWith("from=comm_one&spread=commsearch")){
@@ -164,7 +163,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		}
 		//小区竞价房源>20套
 		if(n==20){
-			bs.findElement(Ajk_CommunitySale.NextPageUP, "下一页", 10).click();
+			bs.click(Ajk_CommunitySale.NextPageUP, "下一页");
 			for(int i=1;i<=20;i++){
 				tmp = bs.getAttribute("//*[@id='prop_name_qt_"+i+"']","href");
 				if(tmp.endsWith("spread=commprop")){
@@ -182,7 +181,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-搜索列表页-同小区同价格段，展示竞价房源：3套
 	private void saleSearchListHaopanCheck_SameCommAndPrice_Shanghai(){
 		bs.get(baseUrl);
-		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("中远两湾城");
+		bs.type(Ajk_Sale.KwInput, "中远两湾城", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		bs.click(Ajk_Sale.S_SELECT("250-300万"), "选择价格段：250-300万");
 		int m = 0;
@@ -202,7 +201,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-搜索列表页-搜索结构词，展示竞价房源：15套
 	private void saleSearchListHaopanCheck_StructureSearch_Shanghai(){
 		bs.get(baseUrl);
-		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("浦东四室");
+		bs.type(Ajk_Sale.KwInput, "浦东四室", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		int n = 0;
 		for(int i=1;i<=25;i++){
@@ -217,7 +216,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-搜索列表页-搜索普通文本，展示竞价房源：15套
 	private void saleSearchListHaopanCheck_TextSearch_Shanghai(){
 		bs.get(baseUrl);
-		bs.findElement(Ajk_Sale.KwInput, "输入关键字",10).sendKeys("朝南");
+		bs.type(Ajk_Sale.KwInput, va"朝南"lue, "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		int n = 0;
 		for(int i=1;i<=25;i++){

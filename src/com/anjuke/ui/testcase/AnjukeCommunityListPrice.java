@@ -13,7 +13,6 @@ import com.anjuke.ui.page.Ajk_Community;
 import com.anjuke.ui.page.Ajk_HomePage;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
 /**
  * 该测试用例主要完成验证城市首页取均价统计文字、以及小区列表页的价格
