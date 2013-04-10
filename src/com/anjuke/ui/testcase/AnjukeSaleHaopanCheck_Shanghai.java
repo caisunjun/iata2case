@@ -216,7 +216,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-搜索列表页-搜索普通文本，展示竞价房源：15套
 	private void saleSearchListHaopanCheck_TextSearch_Shanghai(){
 		bs.get(baseUrl);
-		bs.type(Ajk_Sale.KwInput, va"朝南"lue, "输入关键字");
+		bs.type(Ajk_Sale.KwInput, "朝南", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
 		int n = 0;
 		for(int i=1;i<=25;i++){

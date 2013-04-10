@@ -29,13 +29,12 @@ import com.anjuke.ui.page.*;
  * @last createtime 2013-4-10上午10:02:55
  */
 public class AnjukeRegressCheckRankLevel {
-
 	String shanghaiSolr = "http://10.10.6.51:8983/ajk-sale11/";
 	String beijingSolr = "http://10.10.6.51:8983/ajk-sale14/";
 	String other1Solr = "http://10.10.6.51:8983/ajk-sale00/";
 	String other2Solr = "http://10.10.6.51:8983/ajk-sale04/";
 	String customQuery = "";
-			
+	
     @BeforeMethod
     public void setUp() {
     }
