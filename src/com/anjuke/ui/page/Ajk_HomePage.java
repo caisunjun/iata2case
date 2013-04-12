@@ -13,6 +13,35 @@ public class Ajk_HomePage {
 	public static final String H_BOX = "//input[@id='home_kw']";
 	/** 首页 - 搜索 - 找二手房按钮 */
 	public static final String H_BTN = "//input[@class='find-button']";
+	
+	/** 新版首页 - 搜索 - 二手房搜索框 */
+	public static final String SaleSearchBox = "//input[@id='home_kw']";
+	/** 新版首页 - 搜索 - 新房搜索框 */
+	public static final String XinfangSearchBox = "//input[@id='houses-kw']";
+	
+	//倾向二手房的首页
+	/** 新版首页 - 搜索 - 倾向二手房的找二手房按钮 */
+	public static final String SaleSearchBtn_SMain = "//input[@id='home_kw_sale']";
+	/** 新版首页 - 搜索 - 倾向二手房的找新房按钮 */
+	public static final String XinfangSearchBtn_SMain = "//input[@id='home_kw_xinfang']";
+	//倾向新房的首页
+	/** 新版首页 - 搜索 - 倾向新房的找二手房按钮 */
+	public static final String SaleSearchBtn_XMain = "//input[@id='houses_kw_sale']";
+	/** 新版首页 - 搜索 - 倾向新房的找新房按钮 */
+	public static final String XinfangSearchBtn_XMain = "//input[@id='houses_kw_xinfang']";
+	
+	//搜索下拉联想
+	/** 新版首页 - 搜索下拉联想 - 二手房分类结果 */
+	public static final String SaleResult = "//div[@class='SearchSuggestion']/ul/li[1]";
+	/** 新版首页 - 搜索下拉联想 - 新房分类结果 */
+	public static final String XinfangResult = "//div[@class='SearchSuggestion']/ul/li[2]";
+	/** 新版首页 - 搜索下拉联想 - 第一个联想结果 */
+	public static final String FirstSuggestion = "//div[@class='SearchSuggestion']/ul/li[3]";
+	/** 新版首页 - 搜索下拉联想 - 第一个联想结果的关键词 */
+	public static final String FirstSuggestionKw = "//div[@class='SearchSuggestion']/ul/li[3]/div[1]";
+	/** 新版首页 - 搜索下拉联想 - 第一个联想结果的房源数 */
+	public static final String FirstSuggestionNum = "//div[@class='SearchSuggestion']/ul/li[3]/div[2]";
+	
 	/** 新版首页 - 有爱房 - 热门区域模块 */
 	public static final String HotAreaHasXin = "//div[@class='filter-sec']/dl[@class='area-filter']/dd/a";
 	/** 新版首页 - 无爱房 - 热门区域模块 */

@@ -13,6 +13,8 @@ public class Ajk_Sale {
 	public static final String KwInput = "//input[@class='input_text']";
 	/** 二手房列表 - 顶部搜索按钮 */
 	public static final String KwSubmit = "//input[@class='input_button se_house']";
+	/** 二手房列表 - 搜索结果页 - 搜索框 */
+	public static final String KwInput_Searched = "//input[@class='keywordkey']";
 	
 	/*移动广告横幅*/
 	/** 二手房列表 - 移动广告横幅 - 关闭广告*/
