@@ -42,52 +42,80 @@ public class AnjukeMonitorHomepageArea {
 	
 	@Test (groups = {"unstable"})
 	public void testStart() throws InterruptedException {
-    	//根据config里配置的anjukeCityInfo，随机返回一个城市域名
-    	String city = PublicProcess.getRandomCityFromConfig();
-    	String homePageUrl = "http://"+city+".anjuke.com";
+		String[] city;
+    	String cityPinyin = "";
+    	String cityName = "";
+    	int cityType = 1;
+    	
+    	city = PublicProcess.getRandomCityFromConfig(cityType).split("-");
+    	cityPinyin = city[0];
+    	cityName = city[1];
+		
+    	String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
-    	checkLink(city);
+    	checkLink(cityName,cityType);
 	}
 	//检查区域链接
-	private void checkLink(String cityName){
+	private void checkLink(String cityName ,int cityType){
 		String areaName;
 		String areaLink;
 		String highlightArea;
 		HashMap<String,String> areaLinkList = new HashMap<String,String>();
+		
+		switch (cityType){
 		//首页有三种：热门区域-有新房城市
-		if(bs.check(Ajk_HomePage.HotAreaHasXin,3)){
-			int linkCount = bs.getElementCount(Ajk_HomePage.HotAreaHasXin);
-			for(int i=1;i<linkCount;i++){
-				String tempLocator = Ajk_HomePage.HotAreaHasXin+"["+i+"]";
-				areaName = bs.getText(tempLocator, "获取区域名称");
-				areaLink = bs.getAttribute(tempLocator, "href");
-				areaLinkList.put(areaName, areaLink);
+		case 1: case 2:
+			if(bs.check(Ajk_HomePage.HotAreaHasXin,3)){
+				int linkCount = bs.getElementCount(Ajk_HomePage.HotAreaHasXin);
+				for(int i=1;i<linkCount;i++){
+					String tempLocator = Ajk_HomePage.HotAreaHasXin+"["+i+"]";
+					areaName = bs.getText(tempLocator, "获取区域名称");
+					areaLink = bs.getAttribute(tempLocator, "href");
+					areaLinkList.put(areaName, areaLink);
+				}
+				break;
+			}else{
+				System.out.println("11111");
+				String ps = bs.printScreen();
+				Report.writeHTMLLog("城市区域不存在", cityName+"不存在【热门区域】/【从区域开始】模块", Report.FAIL, ps);
+				return;
 			}
-		}
 		//热门区域-无新房城市
-		else if(bs.check(Ajk_HomePage.HotAreaNoXin,3)){
-			int linkCount = bs.getElementCount(Ajk_HomePage.HotAreaNoXin);
-			for(int i=1;i<linkCount;i++){
-				String tempLocator = Ajk_HomePage.HotAreaNoXin+"["+i+"]";
-				areaName = bs.getText(tempLocator, "获取区域名称");
-				areaLink = bs.getAttribute(tempLocator, "href");
-				areaLinkList.put(areaName, areaLink);
+		case 3:
+			if(bs.check(Ajk_HomePage.HotAreaNoXin,3)){
+				int linkCount = bs.getElementCount(Ajk_HomePage.HotAreaNoXin);
+				for(int i=1;i<linkCount;i++){
+					String tempLocator = Ajk_HomePage.HotAreaNoXin+"["+i+"]";
+					areaName = bs.getText(tempLocator, "获取区域名称");
+					areaLink = bs.getAttribute(tempLocator, "href");
+					areaLinkList.put(areaName, areaLink);
+				}
+				break;
+			}else{
+				System.out.println("22222");
+				String ps = bs.printScreen();
+				Report.writeHTMLLog("城市区域不存在", cityName+"不存在【热门区域】/【从区域开始】模块", Report.FAIL, ps);
+				return;
 			}
-		}
 		//从区域开始
-		else if(bs.check(Ajk_HomePage.AreaInfo,3)){
-			int linkCount = bs.getElementCount(Ajk_HomePage.AreaInfo);
-			for(int i=1;i<linkCount;i++){
-				String tempLocator = Ajk_HomePage.AreaInfo+"["+i+"]";
-				areaName = bs.getText(tempLocator, "获取区域名称");
-				areaLink = bs.getAttribute(tempLocator, "href");
-				areaLinkList.put(areaName, areaLink);
+		case 4:
+			if(bs.check(Ajk_HomePage.AreaInfo,3)){
+				int linkCount = bs.getElementCount(Ajk_HomePage.AreaInfo);
+				for(int i=1;i<linkCount;i++){
+					String tempLocator = Ajk_HomePage.AreaInfo+"["+i+"]";
+					areaName = bs.getText(tempLocator, "获取区域名称");
+					areaLink = bs.getAttribute(tempLocator, "href");
+					areaLinkList.put(areaName, areaLink);
+				}
+				break;
+			}else{
+				System.out.println("33333");
+				String ps = bs.printScreen();
+				Report.writeHTMLLog("城市区域不存在", cityName+"不存在【热门区域】/【从区域开始】模块", Report.FAIL, ps);
+				return;
 			}
-		}else{
-			String ps = bs.printScreen();
-			Report.writeHTMLLog("城市区域不存在", cityName+"不存在【热门区域】/【从区域开始】模块", Report.FAIL, ps);
-			return;
 		}
+		
 		Iterator<Entry<String,String>> areaItem = areaLinkList.entrySet().iterator();
 		while(areaItem.hasNext()){
 			Map.Entry<String, String> area = areaItem.next();

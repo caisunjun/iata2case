@@ -38,9 +38,15 @@ public class AnjukeRegressPropViewInfo {
     }
     @Test
     public void testSaleSearchComm(){
-    	//根据config里配置的anjukeCityInfo，随机返回一个城市域名
-    	String city = PublicProcess.getRandomCityFromConfig();
-    	String saleUrl = "http://"+city+".anjuke.com/sale/";
+    	//随机获得一个城市，123 for 非第6大区城市
+		String[] city;
+    	String cityPinyin = "";
+    	int cityType = 123;
+    	
+    	city = PublicProcess.getRandomCityFromConfig(cityType).split("-");
+    	cityPinyin = city[0];
+		
+    	String saleUrl = "http://"+cityPinyin+".anjuke.com/sale/";
     	bs.get(saleUrl);
     	
     	//随机算出点第几个房源

@@ -1,16 +1,22 @@
 package com.anjuke.ui.publicfunction;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Map.Entry;
 
 import org.openqa.selenium.Keys;
@@ -22,8 +28,10 @@ import com.anjuke.ui.page.Login_My;
 import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
+import com.anjukeinc.iata.ui.report.LogFile;
 import com.anjukeinc.iata.ui.report.Report;
 import com.anjukeinc.iata.ui.util.GetRandom;
+import com.anjukeinc.iata.ui.util.Sysprob;
 import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {
@@ -406,37 +414,104 @@ public class PublicProcess {
         return caseNameList;
 	}
     
-/**随机一个代表城市的city域名
- * getRandomCityFromConfig会调用getConfigInfo
- * @return 随机返回config里城市列表里一个城市的city域名
- */
-    public static String getRandomCityFromConfig(){
-    	int randomNum = GetRandom.getrandom(30);
-    	int now = 0;
-		// 随机城市
-    	LinkedHashMap<String, String> cityMap = getConfigInfo("anjukeCityInfo");
-		Iterator<Entry<String, String>> cityInfoIter = cityMap.entrySet().iterator();
-		String cityVal = null;
-		while (cityInfoIter.hasNext() && now < randomNum) {
-			Map.Entry<String, String> cityEntry = cityInfoIter.next();
-			cityVal = cityEntry.getValue();
-			now = now + 1;
-		}
-		return cityVal;
+    
+    /**返回随机的一个城市
+     * 
+     * cityType:
+     * 1 有爱房且倾向二手房的城市
+     * 2 有爱房且倾向新房的城市
+     * 3 非以上且非第6大区城市
+     * 4 第6大区城市
+     * 123 Type为1、2、3城市的总和
+     * @return 随机返回一个城市的"city域名（字母）+city名称（汉字）"，如：“shanghai-上海”
+     */
+    public static String getRandomCityFromConfig(int cityType){
+    	final Map<String, String> cityConfig = readCityConfig();
+    	String city = "";
+    	switch(cityType){
+    	case 1:
+    		city = getRandomCityFromCityConfig(cityConfig,"Type1City");
+    		break;
+    	case 2:
+    		city = getRandomCityFromCityConfig(cityConfig,"Type2City");
+    		break;
+    	case 3:
+    		city = getRandomCityFromCityConfig(cityConfig,"Type3City");
+    		break;
+    	case 4:
+    		city = getRandomCityFromCityConfig(cityConfig,"Type4City");
+    		break;
+    	case 123:
+    		city = getRandomCityFromCityConfig(cityConfig,"Type123City");
+    		break;
+    	default:
+    		break;
+    	}
+    	return city;
     }
-    //按config里的顺序取出城市列表
-    private static LinkedHashMap<String, String> getConfigInfo(String configKey) {
-        String dataInfo = "";
-        String[] data;
-        String[] singleData;
-        LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
-        dataInfo = Init.G_config.get(configKey);
-        data = dataInfo.split(",");
-        for (String dataStr : data) {
-            singleData = dataStr.split("-");
-            map.put(singleData[0], singleData[1]);
+    
+    /**随机获得cityConfig中，某个type里的“域名-城市名”
+     * 
+     * @param cityConfig  配置文件
+     * 
+     * @param cityType
+     * 1 有爱房且倾向二手房的城市
+     * 2 有爱房且倾向新房的城市
+     * 3 非以上且非第6大区城市
+     * 4 第6大区城市
+     * 123 Type为1、2、3城市的总和
+     * @return “shanghai-上海”
+     */
+    private static String getRandomCityFromCityConfig(Map<String, String> cityConfig,String cityType){
+    	String cityList = "";
+    	String[] city ;
+    	//获得需要的type里的所有城市
+    	cityList = cityConfig.get(cityType);
+    	//将一长串的string以“,”拆分
+    	city = cityList.split(",");
+    	
+        Random random = new Random();
+        //nextInt的范围为[0,range)，与string[]范围一致
+        int randomCity = random.nextInt(city.length);
+        
+    	System.out.println(city[randomCity]);
+    	return city[randomCity];
+    }
+    
+    final public static Map<String, String> readCityConfig() {
+        BufferedReader input = null;// 读文件用
+        Map<String, String> map = new HashMap<String, String>();// 存文件内容的map,等号前面是key,等号后面的是value
+        String text = null;// 存放读出每行的变量
+        FileInputStream file = null;
+
+        try {
+            file = new FileInputStream("cityConfigAnjuke.ini");
+            input = new BufferedReader(new InputStreamReader(file, "UTF-8"));
+            while ((text = input.readLine()) != null) {
+                if (text.length() >= 1 && text.substring(0, 1).equals("#")) {
+                    continue;
+                }
+                int number = text.indexOf("=");
+                if (number != -1) {
+                    map.put(text.substring(0, number), text.substring(number + 1, text.length()));
+                }
+            }
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException ioException) {
+            System.err.println("File Error!");
+            ioException.printStackTrace();
+        }  catch (Exception xception) {
+            xception.printStackTrace();
+        } finally {
+            try {
+                input.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return map;
     }
 
+    
 }
