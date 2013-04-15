@@ -38,7 +38,7 @@ public class AnjukeBrokerIntro {
 
 	@Test
 	public void testBrokerIntroduce() {
-		PublicProcess.dologin(bs, username, passwd);
+		new PublicProcess().dologin(bs, username, passwd);
 		bs.get(url);
 		bs.findElement(Broker_profile.SELLHOUSE, "清空卖方宣言", 60).clear();
 		String slogan = "安居客测试公告栏2011-1-20ss" + GetRandom.getrandom(1000);

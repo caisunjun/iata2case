@@ -33,7 +33,7 @@ public class AnjukeAskNormalSearchNoFound {
 	@Test
 	public void normalSearchNoFound(){
 
-		AnjukeAsk.checkAskSearch(driver, "亖");//正常搜索无结果
+		new AnjukeAsk().checkAskSearch(driver, "亖");//正常搜索无结果
 
 	}
 

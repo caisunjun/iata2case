@@ -57,10 +57,10 @@ public class AnjukeCollectHouseResource {
 		if (brow.contains("ie")) {
 			// IE6兼容性
 			// PublicProcess.logIn(driver, "小瓶盖001", "6634472", false, 0);
-			PublicProcess.dologin(driver, "max23", "123123");
+			new PublicProcess().dologin(driver, "max23", "123123");
 		} else {
 			// 普通用户登录
-			String loginName = PublicProcess.dologin(driver, "max23", "123123");
+			String loginName = new PublicProcess().dologin(driver, "max23", "123123");
 			// 判断用户是否登录成功
 			if (!(loginName == null || loginName.equals(""))) {
 

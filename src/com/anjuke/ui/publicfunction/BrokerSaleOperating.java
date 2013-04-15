@@ -8,10 +8,10 @@ import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
 
 public class BrokerSaleOperating {
-	private static ArrayList<String> houseListNumber = null;
-	private static int isPayed = 0;
+	private ArrayList<String> houseListNumber = null;
+	private int isPayed = 0;
 	//出售房源发布的方法==============================================================================================
-	public static void releaseSale(Browser driver,AnjukeSaleInfo saleInfo,boolean needPic)
+	public void releaseSale(Browser driver,AnjukeSaleInfo saleInfo,boolean needPic)
 	{
 		houseListNumber = houseNumber(driver);
 		driver.get("http://my.anjuke.com/user/broker/property/sale/step1");
@@ -76,7 +76,7 @@ public class BrokerSaleOperating {
 				// 点去上传照片  进入发房第二步
 				driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_nextBtn"),"去上传照片");
 				// 上传房型图
-				PublicProcess.uploadPicMix(driver, "sale");
+				new PublicProcess().uploadPicMix(driver, "sale");
 //				driver.click("//div[@id='popup-layer']/div/div[2]/a","防重复图片提示");
 				
 				// 点击发布房源
@@ -192,7 +192,7 @@ public class BrokerSaleOperating {
 	 * 获取 已发布房源数，剩余发布房源数 
 	 * 出售方法的配套方法
 	 */
-	private static ArrayList<String> houseNumber(Browser driver){
+	private ArrayList<String> houseNumber(Browser driver){
 		ArrayList<String> houseln = new ArrayList<String>();
 		driver.get("http://my.anjuke.com/user/broker/checked/");
 		houseln.clear();
@@ -207,7 +207,7 @@ public class BrokerSaleOperating {
 	}
 	
 	//出售房源编辑的方法==============================================================================================
-	public static void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic) throws InterruptedException
+	public void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic) throws InterruptedException
 	{
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
 		driver.click("id^edit_0", "编辑第一条数据");
@@ -263,7 +263,7 @@ public class BrokerSaleOperating {
 			// 点去上传照片  进入发房第二步
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_nextBtn"),"去上传照片");
 			// 上传房型图
-			PublicProcess.uploadPicMix(driver, "sale");
+			new PublicProcess().uploadPicMix(driver, "sale");
 			// 点击发布房源
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_sale_step2_submitup"),"编辑完毕-发布房源");
 		}

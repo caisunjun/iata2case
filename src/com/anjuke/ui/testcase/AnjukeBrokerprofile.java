@@ -52,7 +52,7 @@ public class AnjukeBrokerprofile {
         /**
          * 验证安居客经纪人基本资料
          */
-        PublicProcess.dologin(bs, username, passwd);
+        new PublicProcess().dologin(bs, username, passwd);
         bs.get(url);
         //coded by chuzhaoqin -start
         bs.click(Ajk_ShopView.Region1, "公开");
@@ -84,24 +84,24 @@ public class AnjukeBrokerprofile {
 
         // 喜欢的书
         ArrayList<String> likebook = new ArrayList<String>();
-        BrokerInfo.ulSelect(bs,Broker_profile.LIKEBOOK,
+        new BrokerInfo().ulSelect(bs,Broker_profile.LIKEBOOK,
                 Broker_profile.SELECTLIKEBOOK, "获取喜欢的书的列表", "获取选择书的列表");
 
         // 喜欢的食物
         ArrayList<String> likefood = new ArrayList<String>();
-        BrokerInfo.ulSelect(bs,Broker_profile.LIKEFOOD,
+        new BrokerInfo().ulSelect(bs,Broker_profile.LIKEFOOD,
                 Broker_profile.SELECTLIKEFOOD, "获取喜欢的食物的列表", "获取喜欢的食物的列表");
         // 娱乐活动
         ArrayList<String> recretional = new ArrayList<String>();
-        BrokerInfo.ulSelect(bs,Broker_profile.RECRETIONAL,
+        new BrokerInfo().ulSelect(bs,Broker_profile.RECRETIONAL,
                 Broker_profile.SELECTRECRETIONAL, "获取喜欢的娱乐活动", "获取娱乐活动列表");
         bs.click(Broker_profile.SAVE, "保存个人介绍修改");
 
         Report.writeHTMLLog("", "截图以作不时之需", Report.DONE, bs.printScreen());
         
-        likebook = BrokerInfo.ulSelect1(bs,Broker_profile.LIKEBOOK,"获取选择好的书的列表");
-        likefood = BrokerInfo.ulSelect1(bs,Broker_profile.LIKEFOOD,"获取选择好的食物的列表");
-        recretional = BrokerInfo.ulSelect1(bs,Broker_profile.RECRETIONAL,"获取选择好的娱乐活动");
+        likebook = new BrokerInfo().ulSelect1(bs,Broker_profile.LIKEBOOK,"获取选择好的书的列表");
+        likefood = new BrokerInfo().ulSelect1(bs,Broker_profile.LIKEFOOD,"获取选择好的食物的列表");
+        recretional = new BrokerInfo().ulSelect1(bs,Broker_profile.RECRETIONAL,"获取选择好的娱乐活动");
 
         String actualText = bs.getText(Broker_profile.SAVETEXT, "获取保存成功文本");
         bs.assertContains(actualText, "保存成功");

@@ -97,13 +97,13 @@ public class AnjukeBrokerSaleEditPPC {
 		casestatus = Init.G_config.get("casestatus");
 
 		if (testing.equals(casestatus)) {
-			saleInfo.setUserName(PublicProcess.dologin(driver, "1349689747de9", "anjukeqa"));
+			saleInfo.setUserName(new PublicProcess().dologin(driver, "1349689747de9", "anjukeqa"));
 		} else {
-			saleInfo.setUserName(PublicProcess.dologin(driver, "1349689430yzN", "abc123"));
+			saleInfo.setUserName(new PublicProcess().dologin(driver, "1349689430yzN", "abc123"));
 		}
 		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
 		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
-		BrokerSaleOperatingPPC.editSale(driver, updateInfo, needPic);
+		new BrokerSaleOperatingPPC().editSale(driver, updateInfo, needPic);
 
 	}
 

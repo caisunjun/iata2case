@@ -17,7 +17,7 @@ import com.anjukeinc.iata.ui.util.GetRandom;
 *
 */
 public class BrokerInfo {
-    public static final void ulSelect(Browser bs, String ullocator, String tdlocator,
+    public final void ulSelect(Browser bs, String ullocator, String tdlocator,
             String Info1, String Info2){
         /**
          * 安居客 经济人个人介绍 的 喜欢的图书，喜欢的食物，娱乐活动的公用函数
@@ -34,7 +34,7 @@ public class BrokerInfo {
             tds.get(GetRandom.getrandom(len)).click();
         }
     }
-    public static final ArrayList<String> ulSelect1(Browser bs, String ullocator,String Info1){
+    public final ArrayList<String> ulSelect1(Browser bs, String ullocator,String Info1){
         /**
          * 安居客 经济人个人介绍 的 喜欢的图书，喜欢的食物，娱乐活动的公用函数
          */

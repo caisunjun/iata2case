@@ -40,7 +40,7 @@ public class AnjukeBrokerUniversity {
         /**
          * 验证经纪人可以参加大学堂考试
          */
-        PublicProcess.dologin(bs, username, passwd);
+        new PublicProcess().dologin(bs, username, passwd);
         bs.get(url);
         bs.click(Broker_info.UNIVERSITYLINK, "进入大学堂");
         bs.click(Broker_info.ONLINECHECK, "点击线上考试");

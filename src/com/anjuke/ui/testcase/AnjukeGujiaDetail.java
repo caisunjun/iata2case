@@ -56,7 +56,7 @@ public class AnjukeGujiaDetail {
 
 		@Test(groups = {"unstable"})
 		public void gujia() {
-			PublicProcess.dologin(driver, "xinxin@123", "123456");
+			new PublicProcess().dologin(driver, "xinxin@123", "123456");
 			AjkGujia.GJDetail(driver, GjInfo);
 			driver.close();
 		}

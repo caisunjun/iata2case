@@ -36,10 +36,10 @@ import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {
 //	private static String url = "http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v";
-	private static String homeUrl = "http://shanghai.anjuke.com/";
+	private String homeUrl = "http://shanghai.anjuke.com/";
 
 	// 执行登录操作
-	public static String dologin(Browser driver, String name, String pass) {
+	public String dologin(Browser driver, String name, String pass) {
 		driver.get(homeUrl);
 		//打开页面后，这里经常找不到登陆的元素--------------------------2012.7.30
 		if(driver.check(Public_HeaderFooter.Login,5))
@@ -62,7 +62,7 @@ public class PublicProcess {
 	}
 	
 	// 执行退出（包括普通用户以及经纪人用户）
-	public static void logOut(Browser driver) {
+	public void logOut(Browser driver) {
 		// 退出已通用
 		driver.get(homeUrl);
 
@@ -72,7 +72,7 @@ public class PublicProcess {
 	}
 
 	// 注册普通账号
-	public static void registerCommonUser(Browser driver) {
+	public void registerCommonUser(Browser driver) {
 
 		String loginSuccessUserName = ""; // 注册成功显示的用户名
 		String userName; // 注册用户名
@@ -146,7 +146,7 @@ public class PublicProcess {
 	}
 
 	// 房源发布、编辑单张上传图片操作
-	public static void uploadPic(Browser driver, String type) {
+	public void uploadPic(Browser driver, String type) {
 		String picMess = null;
 		int picCount = 0;
 		if (type.equals("sale")) {
@@ -182,7 +182,7 @@ public class PublicProcess {
 	}
 	
 	// 房源发布、编辑多张上传图片操作
-	public static void uploadPicMulti(Browser driver, String type) {
+	public void uploadPicMulti(Browser driver, String type) {
 		String picMess = null;
 		int picCount = 0;
 		if (type.equals("sale")) {
@@ -241,7 +241,7 @@ public class PublicProcess {
 	}
 
 	// 房源发布、编辑 单张、多张混合上传图片操作
-	public static void uploadPicMix(Browser driver, String type) {
+	public void uploadPicMix(Browser driver, String type) {
 		String picMess = null;
 		int picCount = 0;
 		if (type.equals("sale")) {
@@ -301,7 +301,7 @@ public class PublicProcess {
 
 	
 	// 处理图片上传异常
-	private static void exception(Browser driver, String picMess ,int picCount) {
+	private void exception(Browser driver, String picMess ,int picCount) {
 		String getText = driver.doAlert("取值");
 		int picCountNow = driver.getElementCount(Broker_PropertynewSaleStep.PicCount,5);
 		System.out.println(picCountNow);
@@ -340,7 +340,7 @@ public class PublicProcess {
 	 * 
 	 * @locator 元素定位器
 	 */
-	public static void checkLocator(Browser driver, String locator, String sTcase, String sDetails) {
+	public void checkLocator(Browser driver, String locator, String sTcase, String sDetails) {
 		if (driver.check(locator)) {
 			Report.writeHTMLLog(sTcase, sDetails, Report.PASS, "");
 		} else {
@@ -391,7 +391,7 @@ public class PublicProcess {
 	 * 把cookie内容保存到文件中
 	 * 生成的文件地址见config中的cookiePath
 	 */
-    final public static void saveCookieToFile(Browser driver){
+    final public void saveCookieToFile(Browser driver){
     	driver.refresh();
     	String cookieContent = driver.getCookies("","");
     	saveFile(Init.G_config.get("cookiePath"), "cookie"+getTraceInfo()+".txt", cookieContent);

@@ -83,7 +83,7 @@ public class AnjukeBrokerRecommendHouse {
 		}		
 
 		//For anjuke daily
-		PublicProcess.dologin(bs, "cdtest", "anjukeqa");
+		new PublicProcess().dologin(bs, "cdtest", "anjukeqa");
         //For other
 //		PublicProcess.dologin(bs, "ajk_sh", "anjukeqa");
 

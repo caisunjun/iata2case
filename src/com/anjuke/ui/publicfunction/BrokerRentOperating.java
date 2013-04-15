@@ -5,15 +5,15 @@ import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
 
 public class BrokerRentOperating {
-	private static String releaseUrl = "http://my.anjuke.com/user/broker/property/rent/step1/";
-	private static String editUrl = "http://my.anjuke.com/user/brokerpropmanage/W0QQactZrent#proptop";
+	private String releaseUrl = "http://my.anjuke.com/user/broker/property/rent/step1/";
+	private String editUrl = "http://my.anjuke.com/user/brokerpropmanage/W0QQactZrent#proptop";
 	
 	/**
 	 * 发布租房，访问发布房源页面，输入rentinfo提交发布，到房源详情页验证数据。
 	 * @param driver browserDriver
 	 * @param info  AnjukeSaleInfo
 	 */
-	public static final void releaseRent(Browser driver, AnjukeSaleInfo info ){
+	public final void releaseRent(Browser driver, AnjukeSaleInfo info ){
 		driver.get(releaseUrl);
 		rent(driver, info, "Release");
 	}
@@ -24,13 +24,13 @@ public class BrokerRentOperating {
 	 * @param info	 AnjukeSaleInfo
 	 * @param Num    管理房源，编辑第几条房源
 	 */
-	public static final void editRent(Browser driver, AnjukeSaleInfo info , int num){
+	public final void editRent(Browser driver, AnjukeSaleInfo info , int num){
 		driver.get(editUrl);
 		driver.click("id^edit_"+num, "编辑第"+num+"套房源");
 		rent(driver, info, "Edit");
 	}
 	
-	public static final void rent(Browser driver, AnjukeSaleInfo info, String type){
+	public final void rent(Browser driver, AnjukeSaleInfo info, String type){
 		driver.assertFalse(driver.check(Init.G_objMap.get("ajk_releaseSale_div_full")), "本月发布房源是否到上限", "本期发布房源未到上限！", "抱歉，您本期发布的新房源已达上限，无法再发布了。");
 
 		//小区名
@@ -100,13 +100,13 @@ public class BrokerRentOperating {
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_lijifabu_SaveEdit"), "租房立即发布");
 		}else{
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_UploadImg_To2"), "去上传照片");
-			PublicProcess.uploadPic(driver, "rent");
+			new PublicProcess().uploadPic(driver, "rent");
 			driver.click(Init.G_objMap.get("anjuke_wangluojingjiren_rent_step2_submitup"), "发布出租房源");
 		}
 		verifyRent(driver, info, type);
 }
 
-	public static final void verifyRent(Browser driver,AnjukeSaleInfo info, String type) {
+	public final void verifyRent(Browser driver,AnjukeSaleInfo info, String type) {
 		// 判断是否发布成功
 		String releaseMess = driver.getText(Init.G_objMap.get("anjuke_wangluojingjiren_sale_newSuccMess"), "获取发布后提示信息");
 		driver.assertEquals("发布成功！", releaseMess, "发布成功", "判断房源发布是否成功");

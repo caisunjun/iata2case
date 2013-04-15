@@ -47,7 +47,7 @@ public class AnjukeBrokerIntegral {
         /**
          * 获取兑换列表中第一个兑换，兑换成功后判断 积分余额和 成功文本
          */
-        PublicProcess.dologin(bs, username, passwd);
+        new PublicProcess().dologin(bs, username, passwd);
         bs.get(url);
         String allpoint = bs.getText(Broker_gradeexchanges.UNCHANGEPOINT,"获取消耗前积分");
         System.out.println(allpoint);

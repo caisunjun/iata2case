@@ -36,14 +36,13 @@ public class AnjukeAskEditExpertInfo {
 	@Test
 	public void EditExpertInfo(){
 		//外部专家登录
-		PublicProcess.dologin(driver, "rmfans2000", "050100001");
+		new PublicProcess().dologin(driver, "rmfans2000", "050100001");
 		// 判断用户是否登录成功
 		driver.assertEquals("rmfans2000", driver.getText(Public_HeaderFooter.HEADER_UserName, "当前用户名"), "用户名登录判断", "是否成功");
 		driver.get("http://shanghai.anjuke.com/ask");
 		driver.click(Ajk_Ask.ExpertPersonal, "从问答首页进入专家个人主页");
 		driver.switchWindo(2);
         String imgPath = System.getProperty("user.dir") + "\\tools\\Water lilies.jpg";
-		AnjukeAsk.EditExternalExpertInfo(driver, "刘先生", "13918909652", "专家机械化制造工厂磊", "中华人民共和国江苏省太仓市大在", "13918909652", "我是专业的贷款律师", imgPath);
-		
+        new AnjukeAsk().EditExternalExpertInfo(driver, "刘先生", "13918909652", "专家机械化制造工厂磊", "中华人民共和国江苏省太仓市大在", "13918909652", "我是专业的贷款律师", imgPath);
 	}
 }

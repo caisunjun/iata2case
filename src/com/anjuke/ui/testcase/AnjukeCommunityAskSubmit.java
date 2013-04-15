@@ -48,7 +48,7 @@ public class AnjukeCommunityAskSubmit {
     	String Time="";
     	String currentQuestion="";
     	    	
-    	PublicProcess.dologin(bs, "chenxiaojia", "chenjia");
+    	new PublicProcess().dologin(bs, "chenxiaojia", "chenjia");
     	//普通用户“chenxiaojia”登录
     	
     	bs.click(Ajk_HomePage.COMMTAB, "点击TAB里的小区链接");

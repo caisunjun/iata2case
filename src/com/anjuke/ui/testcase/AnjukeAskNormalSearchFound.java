@@ -36,7 +36,7 @@ public class AnjukeAskNormalSearchFound {
 	@Test
 	public void normalSearchFound() {
 
-		AnjukeAsk.checkAskSearch(driver, "关于房产");// 正常搜索有结果
+		new AnjukeAsk().checkAskSearch(driver, "关于房产");// 正常搜索有结果
 
 	}
 

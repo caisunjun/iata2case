@@ -49,12 +49,12 @@ public class AnjukeBrokerExpertise {
         /**
          * 经纪人职业特长 验证，我的店铺页
          */
-        PublicProcess.dologin(bs, username, passwd);
+        new PublicProcess().dologin(bs, username, passwd);
         bs.get(url);
-        BrokerInfo.ulSelect(bs, Broker_areas.JOBS, Broker_areas.SELECTJOBS, "获取职业特长列表", "获取待选择的特长列表");
+        new BrokerInfo().ulSelect(bs, Broker_areas.JOBS, Broker_areas.SELECTJOBS, "获取职业特长列表", "获取待选择的特长列表");
         bs.click(Broker_areas.OKBUTTON, "保存确认");
         ArrayList<String> jobs = new ArrayList<String>();
-        jobs = BrokerInfo.ulSelect1(bs, Broker_areas.JOBS, "重新获取职业特长列表");
+        jobs = new BrokerInfo().ulSelect1(bs, Broker_areas.JOBS, "重新获取职业特长列表");
         bs.click(Broker_profile.MYSHOP, "进入我的店铺");
         bs.switchWindo(2);
         WebElement shopjob = bs.findElement(Ajk_ShopView.EXPERTISE, "获得职业特长对象", 60);

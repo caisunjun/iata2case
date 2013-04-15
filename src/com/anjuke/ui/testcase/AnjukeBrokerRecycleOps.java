@@ -63,7 +63,7 @@ public class AnjukeBrokerRecycleOps {
 		//以经纪人账号登陆anjuke网站
 		if(id == 1 ){
 			bs.get("http://my.anjuke.com/my/login?history=aHR0cDovL3NoYW5naGFpLmFuanVrZS5jb20v");
-			PublicProcess.dologin(bs, "test1", "111111");
+			new PublicProcess().dologin(bs, "test1", "111111");
 		}else{
 			bs.get("http://shanghai.anjuke.com");
 		}
@@ -121,7 +121,7 @@ public class AnjukeBrokerRecycleOps {
 		}
 		
 		//判断是否出现成功删除标志
-		PublicProcess.checkLocator(bs,Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"), "回收站操作", "删除选中房源成功提示是否正确显示");
+		new PublicProcess().checkLocator(bs,Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"), "回收站操作", "删除选中房源成功提示是否正确显示");
 		//点击回收站链接
 		bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_recycle_tab_IE8"), "点击回收站标签链接");
 
@@ -152,7 +152,7 @@ public class AnjukeBrokerRecycleOps {
 			bs.doAlert("确定");
 
 			//判断是否出现成功永久删除标志
-			PublicProcess.checkLocator(bs, Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"), "回收站操作", "永久删除房源成功提示是否正确显示");
+			new PublicProcess().checkLocator(bs, Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"), "回收站操作", "永久删除房源成功提示是否正确显示");
 
 		}else{  //否则为还原房源至店铺操作
 			
@@ -163,10 +163,10 @@ public class AnjukeBrokerRecycleOps {
 			bs.click(Init.G_objMap.get("anjuke_broke_manage_sale_recycle_restore_btn_IE8"),"还原选中房源至店铺");
 
 			//判断是否出现成功还原删除房源标志
-			PublicProcess.checkLocator(bs, Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"), "回收站操作", "还原删除房源成功提示是否正确显示");
+			new PublicProcess().checkLocator(bs, Init.G_objMap.get("anjuke_broke_manage_sale_rec_succ_prompt_IE8"), "回收站操作", "还原删除房源成功提示是否正确显示");
 			
 			//case操作完毕后退出当前登陆账户
-			PublicProcess.logOut(bs);		}
+			new PublicProcess().logOut(bs);		}
 
 		//点击”回收站“标签链接
 

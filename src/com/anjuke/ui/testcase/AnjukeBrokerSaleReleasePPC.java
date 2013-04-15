@@ -79,16 +79,16 @@ public class AnjukeBrokerSaleReleasePPC {
 		//如果取出的值等于testing 则用另一个账号登陆
 		if(testing.equals(casestatus))
 		{
-			saleInfo.setUserName(PublicProcess.dologin(driver, "1349689430yzN", "abc123"));
+			saleInfo.setUserName(new PublicProcess().dologin(driver, "1349689430yzN", "abc123"));
 		}
 		//如果config中casestatus的值不为testing或config未配置casestatus，用原先的账号登陆
 		else
 		{
-			saleInfo.setUserName(PublicProcess.dologin(driver, "1349689430yzN", "abc123"));
+			saleInfo.setUserName(new PublicProcess().dologin(driver, "1349689430yzN", "abc123"));
 		}
 		driver.click(Public_HeaderFooter.HEADER_BROKERLINK, "进入我的网络经纪人");
 		driver.click(Broker_Checked.Fangyuanku_ppc, "进入房源库");
-		BrokerSaleOperatingPPC.releaseSale(driver, saleInfo, needPic);
+		new BrokerSaleOperatingPPC().releaseSale(driver, saleInfo, needPic);
 		
 		driver.close();
 	}

@@ -25,7 +25,7 @@ import com.anjukeinc.iata.ui.report.Report;
  */
 public class BrokerSaleOperatingPPC {
 	//出售房源发布的方法==============================================================================================
-	public static void releaseSale(Browser driver,AnjukeSaleInfo saleInfo,boolean needPic)
+	public void releaseSale(Browser driver,AnjukeSaleInfo saleInfo,boolean needPic)
 	{
 		//获得已发布房源数和剩余发布数
 		
@@ -91,7 +91,7 @@ public class BrokerSaleOperatingPPC {
 				// 点去上传照片  进入发房第二步
 				driver.click(Broker_PropertynewSaleStep.NEXTSTEP,"去上传照片");
 				// 上传房型图
-				PublicProcess.uploadPicMulti(driver, "sale");
+				new PublicProcess().uploadPicMulti(driver, "sale");
 				// 点击发布房源
 				driver.click(Broker_PropertynewSaleStep.SECONDSUBMIT,"编辑完毕-保存至房源库");
 			}
@@ -195,7 +195,7 @@ public class BrokerSaleOperatingPPC {
 		
 	
 	//出售房源编辑的方法==============================================================================================
-	public static void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic) throws InterruptedException
+	public void editSale(Browser driver,AnjukeSaleInfo updateInfo,boolean needPic) throws InterruptedException
 	{
 		if(!driver.check("id^Proname0")){
 			releaseSale(driver,updateInfo,needPic);
@@ -246,7 +246,7 @@ public class BrokerSaleOperatingPPC {
 			// 点去上传照片  进入发房第二步
 			driver.click(Broker_PropertynewSaleStep.NEXTSTEP,"去上传照片");
 			// 上传房型图
-			PublicProcess.uploadPicMulti(driver, "sale");
+			new PublicProcess().uploadPicMulti(driver, "sale");
 			// 点击发布房源
 			driver.click(Broker_PropertynewSaleStep.SECONDSUBMIT,"编辑完毕-保存至房源库");
 		}

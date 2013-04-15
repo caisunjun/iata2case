@@ -74,12 +74,12 @@ public class AnjukeBrokerRentEdit {
 		casestatus = Init.G_config.get("casestatus");
 		if(testing.equals(casestatus))
 		{
-			PublicProcess.dologin(driver, "ajk_sh", "anjukeqa");
+			new PublicProcess().dologin(driver, "ajk_sh", "anjukeqa");
 		}
 		else
 		{
-			PublicProcess.dologin(driver, "test1", "111111");
+			new PublicProcess().dologin(driver, "test1", "111111");
 		}
-		BrokerRentOperating.editRent(driver, rentUpInfo, 0);
+		new BrokerRentOperating().editRent(driver, rentUpInfo, 0);
 	}
 }

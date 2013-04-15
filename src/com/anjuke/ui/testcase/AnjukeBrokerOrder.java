@@ -41,7 +41,7 @@ public class AnjukeBrokerOrder {
         /**
          * 检查套餐列表
          */
-        PublicProcess.dologin(bs, username, passwd);
+        new PublicProcess().dologin(bs, username, passwd);
         bs.get(url);
         bs.click(Broker_order.COMBOFIRST, "点击一个套餐");
         bs.click(Broker_order.XIAYIBU, "点击下一步");

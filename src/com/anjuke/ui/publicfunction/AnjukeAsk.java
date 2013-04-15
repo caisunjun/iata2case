@@ -28,7 +28,7 @@ public class AnjukeAsk {
 	 * public Browser driver; public AnjukeAsk(Browser driver){ this.driver =
 	 * driver; }
 	 */
-	public static String[] expertlist = { Ajk_AskQuestion.EXPERT_LOAN,
+	public String[] expertlist = { Ajk_AskQuestion.EXPERT_LOAN,
 			Ajk_AskQuestion.EXPERT_LAW, Ajk_AskQuestion.EXPERT_ZX,
 			Ajk_AskQuestion.EXPERT_FS, Ajk_AskQuestion.EXPERT_FC };
 
@@ -45,7 +45,7 @@ public class AnjukeAsk {
 	 * @param type
 	 *            对应专家的类型（0-贷款专家，1-法律专家，2-装修专家，3-风水专家，4-房产专家）
 	 */
-	public static String submitQuestion(Browser driver, String question_title,
+	public String submitQuestion(Browser driver, String question_title,
 			String question_description, int type) {
 		String question_href = "";
 		while (driver.check(Ajk_AskQuestion.REG)) {
@@ -88,7 +88,7 @@ public class AnjukeAsk {
 	 * @param type
 	 *            对应专家的类型（0-贷款专家，1-法律专家，2-装修专家，3-风水专家，4-房产专家）
 	 */
-	public static String getExpertText(Browser driver, int type) {
+	public String getExpertText(Browser driver, int type) {
 		String expertText = driver.getText(expertlist[type], "返回指定专家的类型名称");
 		return expertText;
 	}
@@ -98,7 +98,7 @@ public class AnjukeAsk {
 	 * 
 	 * @param content为输入回答的内容
 	 */
-	public static void submitAnswer(Browser driver, String content) {
+	public void submitAnswer(Browser driver, String content) {
 		// 获取当前列表页所有回答总条数
 		int m, n;
 		m = 0;
@@ -174,7 +174,7 @@ public class AnjukeAsk {
 	 * @param addContent:补充问题的内容
 	 * 
 	 */
-	public static void submitSupplement(Browser driver, String addContent) {
+	public void submitSupplement(Browser driver, String addContent) {
 		driver.click(Ajk_AskView.AddLi, "点击补充问题TAB");
 		driver.type(Ajk_AskView.Supplement, addContent, "输入补充问题内容");
 		driver.click(Ajk_AskView.SupplementSubmit, "点击补充框下面的确认提交按钮");
@@ -187,7 +187,7 @@ public class AnjukeAsk {
 	 * 
 	 * @expertTitle 为用户提问成功后的问答标题
 	 */
-	public static void checkNormalUserAskInfo(Browser driver, String expertTitle) {
+	public void checkNormalUserAskInfo(Browser driver, String expertTitle) {
 		driver
 				.get("http://my.anjuke.com/prop/collection?from=header_true&show=best");// 进入个性化推荐页
 		driver.click(Ajk_AskNormalUserInfo.MYASK, "点击左侧导航我的问答");
@@ -220,35 +220,35 @@ public class AnjukeAsk {
 	}
 
 	/** 个人中心提问列表的数据检测 -- 返回当前用户显示的经验值数据 */
-	public static String getNormalUserExperience(Browser driver) {
+	public String getNormalUserExperience(Browser driver) {
 		return driver.getText(Ajk_AskNormalUserInfo.EXPERIENCE,
 				"获取当前用户显示的经验值数据");
 	}
 
 	/** 个人中心提问列表的数据检测 -- 返回当前用户显示的金币值数据 */
-	public static String getNormalUserGold(Browser driver) {
+	public String getNormalUserGold(Browser driver) {
 		return driver.getText(Ajk_AskNormalUserInfo.GOLD, "获取当前用户显示的金币值数据");
 	}
 
 	/** 个人中心提问列表的数据检测 -- 返回当前用户显示的提问数值数据 */
-	public static String getNormalUserAskNum(Browser driver) {
+	public String getNormalUserAskNum(Browser driver) {
 		return driver.getText(Ajk_AskNormalUserInfo.ASKNUM, "获取当前用户显示的提问数值数据");
 	}
 
 	/** 个人中心提问列表的数据检测 -- 返回当前用户显示的回答数值数据 */
-	public static String getNormalUserAnswerNum(Browser driver) {
+	public String getNormalUserAnswerNum(Browser driver) {
 		return driver.getText(Ajk_AskNormalUserInfo.ANSWERNUM,
 				"获取当前用户显示的回答数值数据");
 	}
 
 	/** 个人中心提问列表的数据检测 -- 返回当前用户显示的采纳率数据 */
-	public static String getNormalUserAdoptionRate(Browser driver) {
+	public String getNormalUserAdoptionRate(Browser driver) {
 		return driver.getText(Ajk_AskNormalUserInfo.ADOPTIONRATE,
 				"获取当前用户显示的采纳率数据");
 	}
 
 	/** 个人中心提问列表的数据检测 -- 返回我提出的问题列表中第一条数据问答标题 */
-	public static String getNormalUserMyQuestionListFirst(Browser driver) {
+	public String getNormalUserMyQuestionListFirst(Browser driver) {
 		return driver.getText(Ajk_AskNormalUserInfo.MYQUESTIONSLISTFIRST,
 				"获取我提出的问题列表中第一条数据问答标题");
 	}
@@ -259,7 +259,7 @@ public class AnjukeAsk {
 	 * 
 	 * @param key为搜索框中输入的关键字
 	 */
-	public static void checkAskSearch(Browser driver, String key) {
+	public void checkAskSearch(Browser driver, String key) {
 		driver.get("http://shanghai.anjuke.com/ask");
 		if (!driver.check(Ajk_Ask.SEARCHBOX, 10)) {
 			driver.refresh();
@@ -306,7 +306,7 @@ public class AnjukeAsk {
 	}
 
 	/** 问答首页--搜索结果列表页，返回高亮的关键字 */
-	public static String getSearchHighlightKey(Browser driver) {
+	public String getSearchHighlightKey(Browser driver) {
 		int n = driver.getElementCount(Ajk_Ask.HIGHLIGHT_KEY);
 		String actualKey = "";
 		String[] partKey = null;
@@ -320,12 +320,12 @@ public class AnjukeAsk {
 	}
 
 	/** 问答单页--返回问答标题 */
-	public static String getAskViewTitle(Browser driver) {
+	public String getAskViewTitle(Browser driver) {
 		return driver.getText(Ajk_AskView.TITLE, "获取当前页任意一条数据的问答标题");
 	}
 
 	/** 问答单页--返回问答描述 */
-	public static String getAskViewDescription(Browser driver) {
+	public String getAskViewDescription(Browser driver) {
 		String description;
 		if (driver.check(Ajk_AskView.DESCRIPTION)) {
 			description = driver.getText(Ajk_AskView.DESCRIPTION,
@@ -337,7 +337,7 @@ public class AnjukeAsk {
 	}
 
 	/** 问答单页--返回问答补充 */
-	public static String getAskViewDescriptionAdd(Browser driver) {
+	public String getAskViewDescriptionAdd(Browser driver) {
 		String descriptionAdd;
 		if (driver.check(Ajk_AskView.DESCRIPTIONADD)) {
 			descriptionAdd = driver.getText(Ajk_AskView.DESCRIPTIONADD,
@@ -349,7 +349,7 @@ public class AnjukeAsk {
 	}
 
 	/** 问答首页--搜索结果列表页，返回当前页任意一条数据的问答标题和描述及补充 */
-	public static String getListsAnyoneTitle(Browser driver) {
+	public String getListsAnyoneTitle(Browser driver) {
 		String title, description, descriptionAdd, content;
 		int m = driver.getElementCount(Ajk_Ask.NORMALSEARCHLIST);
 		System.out.println("正常搜索列表页第一页共显示" + m + "条数据");
@@ -388,12 +388,12 @@ public class AnjukeAsk {
 	}
 
 	/** 问答首页--搜索结果列表页，正常搜索无结果页时，返回友情提示语 */
-	public static String getNormalSearchNoResults(Browser driver) {
+	public String getNormalSearchNoResults(Browser driver) {
 		return driver.getText(Ajk_Ask.NOT_FOUND, "正常搜索无结果页时，返回友情提示语");
 	}
 
 	/** 问答单页--采纳最佳答案 */
-	public static void AdoptBestAnswer(Browser driver) {
+	public void AdoptBestAnswer(Browser driver) {
 		driver.click(Ajk_AskView.AdoptBestAnswer, "点击第一条回答数据的”采纳最佳答案“按钮");
 		driver.assertEquals("最佳答案", driver.getText(Ajk_AskView.BestAnswer,
 				"最佳答案模块上的文案"), "检测采纳最佳答案是否成功", "检测采纳最佳答案是否成功");
@@ -410,7 +410,7 @@ public class AnjukeAsk {
 	 * @param personalCV：个人简介
 	 * @param imgPath：公司LOGO图片地址
 	 */
-	public static void EditExternalExpertInfo(Browser driver, String trueName,
+	public void EditExternalExpertInfo(Browser driver, String trueName,
 			String mobile, String firmName, String firmAdress,
 			String firmPhone, String personalCV, String imgPath) {
 		driver.click(Ajk_AskExpertView.Edit, "点击编辑资料按钮");
@@ -434,7 +434,7 @@ public class AnjukeAsk {
 	 * 
 	 */
 
-	public static void checkExpertMovingData(Browser driver) {
+	public void checkExpertMovingData(Browser driver) {
 		int n = driver.getElementCount(Ajk_Ask.ExpertMoving);
 		System.out.println("专家动态模块一共展示" + n + "条数据");
 		// driver.assertIntEquals(3, n, "检测问答右侧专家模块数据是否展示3条",
@@ -457,7 +457,7 @@ public class AnjukeAsk {
 	/**
 	 * 访问指定城市问答首页
 	 */
-	public static void getCityAskHome(Browser driver, String city) {
+	public void getCityAskHome(Browser driver, String city) {
 		driver.get("http://" + city + ".anjuke.com/ask");
 	}
 
@@ -471,7 +471,7 @@ public class AnjukeAsk {
 	 *            4表示贷款问题TAB下列表，
 	 *            5表示装修风水TAB下列表，。
 	 */
-	public static void checkFiveTabData(Browser driver, int tab) {
+	public void checkFiveTabData(Browser driver, int tab) {
 		String fiveTabElement[] = { Ajk_Ask.NomalQuestion,
 				Ajk_Ask.EstateQuestion, 
 				Ajk_Ask.NewFangQuestion,
@@ -521,7 +521,7 @@ public class AnjukeAsk {
 	 * 问答首页--未登录状态下等待解决问题列表数据检测
 	 * 
 	 */
-	public static void checkAskHomeToBeResolveQuestion(Browser driver) {
+	public void checkAskHomeToBeResolveQuestion(Browser driver) {
 		int n = driver.getElementCount(Ajk_Ask.ToBeResolvedQuestionList);
 		int ids[] = new int[n];
 		for (int i = 1; i <= n; i++) {

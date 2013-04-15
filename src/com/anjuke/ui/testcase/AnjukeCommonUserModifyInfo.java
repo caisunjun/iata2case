@@ -89,7 +89,7 @@ public class AnjukeCommonUserModifyInfo {
 //		bs.deleteAllCookies();
 		
 		//注册普通账户
-		PublicProcess.registerCommonUser(bs);
+		new PublicProcess().registerCommonUser(bs);
 
 		//点击右上角用户名链接
 		if(!bs.check(Public_HeaderFooter.HEADER_UserName))
@@ -334,7 +334,7 @@ public class AnjukeCommonUserModifyInfo {
 		}		 
 		
 //		//登出账户
-		PublicProcess.logOut(bs);
+		new PublicProcess().logOut(bs);
 		
 //		//点击登录链接
 		if(bs.check("//a[contains(text(),'请登录')]")){
@@ -342,7 +342,7 @@ public class AnjukeCommonUserModifyInfo {
 		}		
 		
 		//检查是否可以用新的密码登录网站
-		PublicProcess.dologin(bs, userName, newPassword);		
+		new PublicProcess().dologin(bs, userName, newPassword);		
 	}
 	
 	/*

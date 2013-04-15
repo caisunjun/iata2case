@@ -98,22 +98,22 @@ public class AnjukeBrokerSaleEdit {
 
 		if(testing.equals(casestatus))
 		{
-			saleInfo.setUserName(PublicProcess.dologin(driver, "ajk_sh", "anjukeqa"));
+			saleInfo.setUserName(new PublicProcess().dologin(driver, "ajk_sh", "anjukeqa"));
 		}
 		else
 		{
-			saleInfo.setUserName(PublicProcess.dologin(driver, "test1", "111111"));
+			saleInfo.setUserName(new PublicProcess().dologin(driver, "test1", "111111"));
 		}
 		
 		driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
 		//driver.check(Init.G_objMap.get("anjuke_wangluojingjiren_sale_update_firstEdit"));
 		
 		if(driver.check("id^edit_0")){
-			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
+			new BrokerSaleOperating().editSale(driver, updateInfo, needPic);
 		}else{
-			BrokerSaleOperating.releaseSale(driver, saleInfo,needPic);
+			new BrokerSaleOperating().releaseSale(driver, saleInfo,needPic);
 			driver.get("http://my.anjuke.com/user/brokerpropmanage/W0QQactZsale#proptop");
-			BrokerSaleOperating.editSale(driver, updateInfo, needPic);
+			new BrokerSaleOperating().editSale(driver, updateInfo, needPic);
 		}
 	}
 
