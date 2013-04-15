@@ -139,7 +139,7 @@ public class AnjukeBrokerModifyInfo {
 
         String actualText = null;
         actualText = bs.getText(Broker_info.INFOOKTEXT, "获取修改资料提交成功文本");
-        bs.assertContains(actualText, "	您提交的资料正在审核中，请耐心等待…");
+        bs.assertContains(actualText, "您提交的资料正在审核中，请耐心等待…");
     }
     
     @Test
