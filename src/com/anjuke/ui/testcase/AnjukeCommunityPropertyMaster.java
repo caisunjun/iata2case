@@ -39,9 +39,7 @@ public class AnjukeCommunityPropertyMaster {
 	//(timeOut = 120000)
 	@Test
 	public void testStart() {
-		//Report.setTCNameLog("检查主营小区-- AnjukeCommunityPropertyMaster --gabrielgao");
-//		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1550");
-		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1670");
+//		checkCommPropMaster("http://shanghai.anjuke.com/community/view/1670");
 		checkCommPropMaster("http://shanghai.anjuke.com/community/view/27");
 	}
 
