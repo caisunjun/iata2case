@@ -125,7 +125,7 @@ public class PublicProcess {
 
 		// 根据当时的时间（年月日分秒）来作为userName的体部分
 		Date date = new Date();
-		DateFormat df = new SimpleDateFormat("YYMMddmmss");
+		DateFormat df = new SimpleDateFormat("yyMMddmmss");
 		userName_body = df.format(date);
 
 		userName = userName_prefix.concat(userName_body);
@@ -138,7 +138,7 @@ public class PublicProcess {
 		String email_suffix = null; // 注册邮箱后缀
 		
 		Date date = new Date();
-		DateFormat df = new SimpleDateFormat("YYMMddmmss");
+		DateFormat df = new SimpleDateFormat("yyMMddmmss");
 		
 		email_suffix = "@m"+df.format(date)+".com";
 		email = df.format(date)+email_suffix;
