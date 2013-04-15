@@ -123,9 +123,9 @@ public class PublicProcess {
 
 		userName_prefix = "Test";
 
-		// 根据当时的时间（月日时分）来作为userName的体部分
+		// 根据当时的时间（年月日分秒）来作为userName的体部分
 		Date date = new Date();
-		DateFormat df = new SimpleDateFormat("MMddHHmm");
+		DateFormat df = new SimpleDateFormat("YYMMddmmss");
 		userName_body = df.format(date);
 
 		userName = userName_prefix.concat(userName_body);
@@ -134,15 +134,15 @@ public class PublicProcess {
 
 	// 根据注册邮箱
 	public static String generateEmail() {
-		String userName; // 注册用户名
 		String email = null; // 注册邮箱
 		String email_suffix = null; // 注册邮箱后缀
-
-		email_suffix = "@mail.com";
-		userName = generateUserName();
-		email = userName.concat(email_suffix);
+		
+		Date date = new Date();
+		DateFormat df = new SimpleDateFormat("YYMMddmmss");
+		
+		email_suffix = "@m"+df.format(date)+".com";
+		email = df.format(date)+email_suffix;
 		return email;
-
 	}
 
 	// 房源发布、编辑单张上传图片操作
