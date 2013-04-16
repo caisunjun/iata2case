@@ -9,6 +9,8 @@
 			<class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeRegressPropViewInfo"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageArea"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest"></class>
 		</classes>
 	</test>
 </suite>

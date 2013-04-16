@@ -40,7 +40,7 @@ public class AnjukeMonitorHomepageArea {
 		bs = null;
 	}
 	
-	@Test (groups = {"unstable"})
+	@Test
 	public void testStart() throws InterruptedException {
 		String[] city;
     	String cityPinyin = "";
@@ -75,7 +75,6 @@ public class AnjukeMonitorHomepageArea {
 				}
 				break;
 			}else{
-				System.out.println("11111");
 				String ps = bs.printScreen();
 				Report.writeHTMLLog("城市区域不存在", cityName+"不存在【热门区域】/【从区域开始】模块", Report.FAIL, ps);
 				return;
@@ -92,7 +91,6 @@ public class AnjukeMonitorHomepageArea {
 				}
 				break;
 			}else{
-				System.out.println("22222");
 				String ps = bs.printScreen();
 				Report.writeHTMLLog("城市区域不存在", cityName+"不存在【热门区域】/【从区域开始】模块", Report.FAIL, ps);
 				return;
@@ -109,7 +107,6 @@ public class AnjukeMonitorHomepageArea {
 				}
 				break;
 			}else{
-				System.out.println("33333");
 				String ps = bs.printScreen();
 				Report.writeHTMLLog("城市区域不存在", cityName+"不存在【热门区域】/【从区域开始】模块", Report.FAIL, ps);
 				return;
