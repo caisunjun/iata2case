@@ -3,6 +3,8 @@ package com.anjuke.ui.testcase;
 /**
  * 该用例主要用来检查anjuke城市首页的搜索下拉联想
  * 步骤：
+ * 随机一个二手房城市，首页输入搜索关键词，判断第一个下拉联想是否是二手房联想，点击并判断联想词带入是否正确
+ * 随机一个新城市，首页输入搜索关键词，判断第一个下拉联想是否是新房联想，点击并判断联想词带入是否正确
  * 
  * @UpdateAuthor ccyang
  * @last updatetime  2013/03/13
@@ -24,6 +26,7 @@ public class AnjukeMonitorHomepageSearchSuggest {
 	private Browser bs = null;
 	@BeforeMethod
 	public void setUp() {
+		Report.G_CASECONTENT = "监控城市首页搜索下拉联想";
 		bs = FactoryBrowser.factoryBrowser();
 	}
 	@AfterMethod
@@ -32,7 +35,7 @@ public class AnjukeMonitorHomepageSearchSuggest {
 		bs = null;
 	}
 	
-	@Test (groups = {"unstable"})
+	@Test
 	public void testSaleSuggestion() throws InterruptedException {
 		String[] city;
     	String cityPinyin = "";
@@ -45,7 +48,7 @@ public class AnjukeMonitorHomepageSearchSuggest {
     	checkSaleSearchSuggest(cityPinyin,cityName);
 	}
 	
-	@Test (groups = {"unstable"})
+	@Test
 	public void testXinfangSuggestion() throws InterruptedException {
 		String[] city;
     	String cityPinyin = "";
