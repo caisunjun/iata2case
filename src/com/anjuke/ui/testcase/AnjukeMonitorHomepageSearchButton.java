@@ -26,6 +26,7 @@ public class AnjukeMonitorHomepageSearchButton {
 	@BeforeMethod
 	public void setUp() {
 		bs = FactoryBrowser.factoryBrowser();
+		Report.G_CASECONTENT = "监控城市首页搜索按钮顺序";
 	}
 	@AfterMethod
 	public void tearDown() {

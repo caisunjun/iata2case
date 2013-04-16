@@ -26,6 +26,7 @@ public class AnjukeMonitorHomepageSearchSuggest {
 	private Browser bs = null;
 	@BeforeMethod
 	public void setUp() {
+		Report.G_CASECONTENT = "监控城市首页搜索下拉联想";
 		bs = FactoryBrowser.factoryBrowser();
 	}
 	@AfterMethod
