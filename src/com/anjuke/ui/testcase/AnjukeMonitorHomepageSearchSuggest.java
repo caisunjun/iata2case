@@ -28,6 +28,8 @@ public class AnjukeMonitorHomepageSearchSuggest {
 	public void setUp() {
 		Report.G_CASECONTENT = "监控城市首页搜索下拉联想";
 		bs = FactoryBrowser.factoryBrowser();
+		//清空cookie，防止guid被记住
+		bs.deleteAllCookies();
 	}
 	@AfterMethod
 	public void tearDown() {

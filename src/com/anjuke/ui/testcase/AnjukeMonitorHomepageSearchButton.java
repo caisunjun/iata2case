@@ -27,6 +27,8 @@ public class AnjukeMonitorHomepageSearchButton {
 	public void setUp() {
 		bs = FactoryBrowser.factoryBrowser();
 		Report.G_CASECONTENT = "监控城市首页搜索按钮顺序";
+		//清空cookie，防止guid被记住
+		bs.deleteAllCookies();
 	}
 	@AfterMethod
 	public void tearDown() {
