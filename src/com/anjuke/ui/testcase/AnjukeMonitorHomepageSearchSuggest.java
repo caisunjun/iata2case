@@ -68,10 +68,10 @@ public class AnjukeMonitorHomepageSearchSuggest {
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
-    	bs.refresh();
+		bs.get("http://www.anjuke.com/version/switch?f1=ga");
+    	bs.get(homePageUrl);
     	
     	bs.type(Ajk_HomePage.SaleSearchBox, cityName+" ", "输入搜索关键词");
-    	
     	String FirstSuggestion = ""; 
     	FirstSuggestion = bs.getText(Ajk_HomePage.FirstSuggestion, "获得第一个下拉联想的内容");
     	//二手房下拉联想的量词为套
@@ -90,7 +90,8 @@ public class AnjukeMonitorHomepageSearchSuggest {
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
-    	bs.refresh();
+		bs.get("http://www.anjuke.com/version/switch?f1=ga");
+    	bs.get(homePageUrl);
     	
     	bs.type(Ajk_HomePage.XinfangSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 

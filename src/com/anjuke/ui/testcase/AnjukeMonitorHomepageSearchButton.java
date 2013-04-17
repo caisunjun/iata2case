@@ -67,8 +67,8 @@ public class AnjukeMonitorHomepageSearchButton {
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
-    	
-    	bs.refresh();
+    	bs.get("http://www.anjuke.com/version/switch?f1=ga");
+    	bs.get(homePageUrl);
     	
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");
@@ -82,8 +82,9 @@ public class AnjukeMonitorHomepageSearchButton {
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
+		bs.get("http://beijing.anjuke.com/version/switch?f1=ga");
+    	bs.get(homePageUrl);
     	
-    	bs.refresh();
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");
     	bs.assertEquals("找新盘",buttonValue, "新房为主的城市，默认情况下搜索按钮的顺序", "排第一位的搜索按钮是找新房");
