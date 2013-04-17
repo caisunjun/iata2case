@@ -27,8 +27,6 @@ public class AnjukeMonitorHomepageSearchButton {
 	public void setUp() {
 		bs = FactoryBrowser.factoryBrowser();
 		Report.G_CASECONTENT = "监控城市首页搜索按钮顺序";
-		//清空cookie，防止guid被记住
-		bs.deleteAllCookies();
 	}
 	@AfterMethod
 	public void tearDown() {
@@ -66,6 +64,12 @@ public class AnjukeMonitorHomepageSearchButton {
 	private void checkSaleSearchButton(String cityPinyin,String cityName){
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
+    	
+		//清空cookie，防止guid被记住
+		bs.deleteAllCookies();
+    	
+    	bs.refresh();
+    	
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");
     	bs.assertEquals("找二手房",buttonValue, "二手房为主的城市，默认情况下搜索按钮的顺序", "排第一位的搜索按钮是找二手房");
@@ -75,6 +79,11 @@ public class AnjukeMonitorHomepageSearchButton {
 	private void checkXinfangSearchButton(String cityPinyin,String cityName){
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
+    	
+		//清空cookie，防止guid被记住
+		bs.deleteAllCookies();
+    	
+    	bs.refresh();
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");
     	bs.assertEquals("找新盘",buttonValue, "新房为主的城市，默认情况下搜索按钮的顺序", "排第一位的搜索按钮是找新房");

@@ -28,8 +28,6 @@ public class AnjukeMonitorHomepageSearchSuggest {
 	public void setUp() {
 		Report.G_CASECONTENT = "监控城市首页搜索下拉联想";
 		bs = FactoryBrowser.factoryBrowser();
-		//清空cookie，防止guid被记住
-		bs.deleteAllCookies();
 	}
 	@AfterMethod
 	public void tearDown() {
@@ -67,6 +65,11 @@ public class AnjukeMonitorHomepageSearchSuggest {
 	private void checkSaleSearchSuggest(String cityPinyin,String cityName){
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
+    	
+		//清空cookie，防止guid被记住
+		bs.deleteAllCookies();
+    	bs.refresh();
+    	
     	bs.type(Ajk_HomePage.SaleSearchBox, cityName+" ", "输入搜索关键词");
     	
     	String FirstSuggestion = ""; 
@@ -84,6 +87,11 @@ public class AnjukeMonitorHomepageSearchSuggest {
 	private void checkXinfangSearchSuggest(String cityPinyin,String cityName){
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
+    	
+		//清空cookie，防止guid被记住
+		bs.deleteAllCookies();
+    	bs.refresh();
+    	
     	bs.type(Ajk_HomePage.XinfangSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 
     	FirstSuggestion = bs.getText(Ajk_HomePage.FirstSuggestion, "获得第一个下拉联想的内容");
