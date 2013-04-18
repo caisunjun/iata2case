@@ -80,7 +80,7 @@ public class AnjukeMonitorHomepageSearchSuggest {
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	System.out.println(bs.getCookie("aQQ_ajkguid"));
+//    	System.out.println(bs.getCookie("aQQ_ajkguid"));
     	
     	bs.type(Ajk_HomePage.SaleSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 
@@ -113,7 +113,7 @@ public class AnjukeMonitorHomepageSearchSuggest {
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	System.out.println(bs.getCookie("aQQ_ajkguid"));
+//    	System.out.println(bs.getCookie("aQQ_ajkguid"));
     	
     	bs.type(Ajk_HomePage.XinfangSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 
