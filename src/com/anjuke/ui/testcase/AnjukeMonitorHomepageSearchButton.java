@@ -65,10 +65,14 @@ public class AnjukeMonitorHomepageSearchButton {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
-    	bs.get("http://www.anjuke.com/version/switch?f1=ga");
+		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
+    	
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
     	
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");
@@ -80,10 +84,14 @@ public class AnjukeMonitorHomepageSearchButton {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
-		bs.get("http://beijing.anjuke.com/version/switch?f1=ga");
+		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
+    	
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
     	
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");

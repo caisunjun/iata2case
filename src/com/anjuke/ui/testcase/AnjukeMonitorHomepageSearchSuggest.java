@@ -66,21 +66,14 @@ public class AnjukeMonitorHomepageSearchSuggest {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
-		
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		bs.click(Ajk_HomePage.SALETAB, "");
-		
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	System.out.println(bs.getCookie("aQQ_ajkguid"));
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
     	
     	bs.type(Ajk_HomePage.SaleSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 
@@ -99,21 +92,14 @@ public class AnjukeMonitorHomepageSearchSuggest {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
-		
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		bs.click(Ajk_HomePage.SALETAB, "");
-		
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	System.out.println(bs.getCookie("aQQ_ajkguid"));
+    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
     	
     	bs.type(Ajk_HomePage.XinfangSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 
