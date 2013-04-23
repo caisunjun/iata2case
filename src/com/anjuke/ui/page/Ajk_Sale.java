@@ -157,7 +157,11 @@ public class Ajk_Sale {
 		String locater = "//div[@id='prop_" + val + "']/div[4]/img";
 		return locater;
 	}
-	
+	/** 二手房列表 - 房源 - 发布时间 */
+	public static final String PropReleaseTime(int val) {
+		String locater = "//div[@id='prop_" + val + "']/div[2]/p[2]";
+		return locater;
+	}
 	/** 二手房列表 - 您可能感兴趣的新房 */
 	public static final String interestXinfang = "//div[@id='IFX_p9']/div/div[1]";
 }
