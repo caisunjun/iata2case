@@ -12,7 +12,7 @@ import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
 /**
- * 该测试用例主要完成: 1、查看GA环境的页面底部是否“您可能感兴趣
+ * 该测试用例主要完成: 查看GA环境的页面底部是否存在“您可能感兴趣的新房”模块
  * @author minzhao
  **/
 
