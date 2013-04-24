@@ -10,12 +10,11 @@ import com.anjukeinc.iata.ui.report.Report;
 import com.anjuke.ui.page.*;
 import com.anjuke.ui.publicfunction.AjkSaleSearchAction;
 
-/**
- * 该测试用例主要完成: 检测二手房列表页显示的发布时间是否正常
- * 
+/**该测试用例主要完成: 检测二手房列表页显示的发布时间是否正常
+ * 用于回归bug 15146
  * @author minzhao
  **/
-public class AnjukeSalePropReleaseTime {
+public class AnjukeRegressSalePropReleaseTime {
 	Browser driver = null;
 
 	@BeforeMethod

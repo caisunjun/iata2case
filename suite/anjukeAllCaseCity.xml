@@ -43,6 +43,9 @@
 			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageArea"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost"></class>
 		</classes>
 	</test>
 </suite>

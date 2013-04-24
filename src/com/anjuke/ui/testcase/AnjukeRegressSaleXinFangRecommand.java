@@ -11,12 +11,12 @@ import com.anjuke.ui.page.*;
 //import com.anjuke.ui.publicfunction.AjkSaleSearchAction;
 import com.anjuke.ui.publicfunction.PublicProcess;
 
-/**
- * 该测试用例主要完成: 查看GA环境的页面底部是否存在“您可能感兴趣的新房”模块
+/**该测试用例主要完成: 查看GA环境的页面底部是否存在“您可能感兴趣的新房”模块
+ * 用于回归bug 15212
  * @author minzhao
  **/
 
-public class AnjukeSaleXinFangRecommand {
+public class AnjukeRegressSaleXinFangRecommand {
     Browser driver = null;
     
     @BeforeMethod
