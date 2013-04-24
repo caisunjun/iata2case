@@ -1,7 +1,11 @@
+.project
 *.bak
 /bin
 config.ini
+src/main/resources/config.ini
+src/main/resources/configlocal.ini
 /bulid
 chromedriver.log
 /test-output
 /config.ini
+.classpath
