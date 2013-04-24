@@ -70,6 +70,12 @@ public class Ajk_Sale {
 	/** 二手房列表 - 搜索 - 搜索结果数量 */
 	public static final String S_COUNT = "//div[@class='totalnum']/strong";
 	
+	/** 二手房列表 - 搜索结果页 - 按总价排序*/
+	public static final String SortByPrice = "//div[@class='sortby']/a[1]";
+	
+	/** 二手房列表 - 搜索结果页 - 按面积排序*/
+	public static final String SortByArea = "//div[@class='sortby']/a[2]";
+	
 	/** 二手房列表 - 搜索 - 房源分页 */
 	public static final String PAGE_COUNT = "//div[@class='current']";
 	
