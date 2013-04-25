@@ -64,14 +64,14 @@ public class AnjukeMonitorHomepageSearchSuggest {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
     	bs.type(Ajk_HomePage.SaleSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 
@@ -90,14 +90,14 @@ public class AnjukeMonitorHomepageSearchSuggest {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
     	bs.type(Ajk_HomePage.XinfangSearchBox, cityName+" ", "输入搜索关键词");
     	String FirstSuggestion = ""; 

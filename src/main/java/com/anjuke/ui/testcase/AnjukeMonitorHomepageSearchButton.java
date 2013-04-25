@@ -9,13 +9,14 @@ package com.anjuke.ui.testcase;
  * @last updatetime 2013-4-16上午10:55:38
  */
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 public class AnjukeMonitorHomepageSearchButton {
 	private Browser bs = null;
@@ -61,14 +62,14 @@ public class AnjukeMonitorHomepageSearchButton {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");
@@ -80,14 +81,14 @@ public class AnjukeMonitorHomepageSearchButton {
 		String homePageUrl = "http://"+cityPinyin+".anjuke.com";
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
 		//清空cookie，防止guid被记住
 		bs.deleteAllCookies();
 		bs.get("http://www.anjuke.com/version/switch?f1=ga");
     	bs.get(homePageUrl);
     	
-    	Report.writeHTMLLog("guid", bs.getCookie("aQQ_ajkguid"), Report.DONE, "");
+    	Report.writeHTMLLog("guid", bs.getCookieValueByName("aQQ_ajkguid"), Report.DONE, "");
     	
     	//input[@class='find-button']的按钮总共有两个，selenium默认取到的那个就是排在靠前位置的
     	String buttonValue = bs.getAttribute("//input[@class='find-button']", "value");
