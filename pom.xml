@@ -21,7 +21,7 @@
                 <version>2.14.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>suite/AllCase.xml</suiteXmlFile>
+                        <suiteXmlFile>suite/test.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

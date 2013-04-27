@@ -1,13 +1,12 @@
 package com.anjuke.ui.testcase;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
 import com.anjuke.ui.publicfunction.AnjukeAsk;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 /**
  * 该用例完成问答搜索功能--异常搜索显示全部问答列表的情况
  * @Author agneszhang

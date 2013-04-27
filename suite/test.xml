@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="suite" parallel="classes" thread-count="3">
+    <parameter name = "websiteName" value = "Anjuke Part2"/>
+    <parameter name = "suiteName" value = "--安居客常规测试--"/>
+    <test name="Default" preserve-order="true">
+        <classes>
+            <class name="com.anjukeinc.iata.ui.init.Init"></class>
+            <class name="package com.anjuke.ui.testcase.AnjukeAskAbnormalSearch"></class>
+        </classes>
+    </test>
+</suite>
