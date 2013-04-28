@@ -53,8 +53,8 @@ public class AnjukeSaleHaopanCheck_otherCity {
 	//外地城市，筛选列表页分页检测
 	public void saleScreenListPaging_otherCity(){
 		bs.get(baseUrl);
-		bs.click(Ajk_Sale.S_SELECT("成华"), "选择区域：成华");
-		bs.click(Ajk_Sale.S_SELECT("电子科大"), "选择板块：电子科大");
+		bs.click(Ajk_Sale.fliterAB_SELECT("成华"), "选择区域：成华");
+		bs.click(Ajk_Sale.fliterAB_SELECT("电子科大"), "选择板块：电子科大");
 		//获取分页总数
 		String temp = bs.getText(Ajk_Sale.PAGE_COUNT, "获取分页总数");
 		String s[] = temp.split("/");

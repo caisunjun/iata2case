@@ -33,11 +33,10 @@ public class AnjukeSaleTagCheck {
     @Test
     public void testSaleFliterTagCheck(){
 		driver.get("http://shenzhen.anjuke.com/sale/");
-		driver.click(ass.getLocater("宝安"), "点击宝安区域的筛选条件");
-		driver.click(ass.getLocater("龙华"), "点击龙华板块的筛选条件");
-		driver.click(ass.getLocater("120-150万"), "点击100-150万的筛选条件");
-		driver.click(ass.getLocater("70-90平米"), "点击70-90平米的筛选条件");
-//		driver.click(ass.getLocater("二室"), "点击2室的筛选条件");
+		driver.click(ass.getABFliterLocater("宝安"), "点击宝安区域的筛选条件");
+		driver.click(ass.getABFliterLocater("龙华"), "点击龙华板块的筛选条件");
+		driver.click(ass.getOtherFliterLocater("120-150万"), "点击100-150万的筛选条件");
+		driver.click(ass.getOtherFliterLocater("70-90平米"), "点击70-90平米的筛选条件");
 		
 //		checkTag(driver,"急售","sale");
 //		checkTag(driver,"新推","sale");

@@ -38,10 +38,17 @@ public class Ajk_Sale {
 	public static final String CloseSaveCondPopUp = "//a[contains(.,'继续找房')]";
 	
 	/*筛选区域*/
-	/** 二手房列表 - 筛选条件 - 区域
+	/** 二手房列表 - 筛选条件 - 区域板块
+	 * @param val 为页面区域板块名*/
+	public static final String fliterAB_SELECT(String val) {
+		String locater = "//a[@title='" + val + "二手房']";
+		return locater;
+	}
+	
+	/** 二手房列表 - 筛选条件 - 售价面积房型等
 	 * @param val 为页面显示值
 	 * 传入筛选条件值时，售价需添加“元”，“50-80”万为：“50-80万元”，其他按页面显示值 */
-	public static final String S_SELECT(String val) {
+	public static final String fliterOther_SELECT(String val) {
 		String locater = "//a[@title='" + val + "']";
 		return locater;
 	}
@@ -49,12 +56,6 @@ public class Ajk_Sale {
 	//新推等tag切换栏
 	/** 二手房列表 - tag切换 - 全部房源 */
 	public static final String TagAll = "//div[@class='quicktabs']/ul/li[1]";
-	
-//	/** 二手房列表 - tag切换 - 急售房源 */
-//	public static final String TagHot = "//div[@class='quicktabs']/ul/li[2]";
-//	
-//	/** 二手房列表 - tag切换 - 新推房源 */
-//	public static final String TagNew = "//div[@class='quicktabs']/ul/li[3]";
 	
 	/** 二手房列表 - tag切换 - 多图房源 */
 	public static final String TagMore = "//div[@class='quicktabs']/ul/li[2]";
