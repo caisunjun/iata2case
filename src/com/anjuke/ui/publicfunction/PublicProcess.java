@@ -13,14 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.Map.Entry;
-
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 
 import com.anjuke.ui.page.Broker_PropertynewRentStep;
 import com.anjuke.ui.page.Broker_PropertynewSaleStep;
@@ -28,10 +22,7 @@ import com.anjuke.ui.page.Login_My;
 import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.init.Init;
-import com.anjukeinc.iata.ui.report.LogFile;
 import com.anjukeinc.iata.ui.report.Report;
-import com.anjukeinc.iata.ui.util.GetRandom;
-import com.anjukeinc.iata.ui.util.Sysprob;
 import com.anjukeinc.iata.ui.util.TcTools;
 
 public class PublicProcess {

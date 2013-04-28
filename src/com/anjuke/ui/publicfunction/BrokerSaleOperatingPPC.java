@@ -2,12 +2,9 @@ package com.anjuke.ui.publicfunction;
 
 import com.anjuke.ui.bean.AnjukeSaleInfo;
 import com.anjuke.ui.page.Ajk_PropView;
-import com.anjuke.ui.page.Broker_Checked;
 import com.anjuke.ui.page.Broker_PPC_PropmanageSale;
 import com.anjuke.ui.page.Broker_PropertynewSaleStep;
-import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjukeinc.iata.ui.browser.Browser;
-import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
 
 /**二手房发布方法：

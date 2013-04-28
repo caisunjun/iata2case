@@ -1,9 +1,7 @@
 package com.anjuke.ui.publicfunction;
 
 import com.anjuke.ui.page.Ajk_PropRent;
-import com.anjuke.ui.page.Ajk_PropView;
 import com.anjuke.ui.page.Ajk_Rental;
-import com.anjuke.ui.page.Ajk_Sale;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.report.Report;
 

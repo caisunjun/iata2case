@@ -1,5 +1,4 @@
 package com.anjuke.ui.page;
-import org.openqa.selenium.NoSuchElementException;;
 
 /**
  * 安居客 - 问答详情页 http://www.anjuke.com/ask/view/*****
