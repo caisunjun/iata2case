@@ -44,7 +44,7 @@ public class AnjukeCommunityAsk {
     	String Ptitle="";
     	
     	bs.get("http://shanghai.anjuke.com");
-    	if(!bs.check("Ajk_HomePage.CommHideLink"))
+    	if(!bs.check(Ajk_HomePage.CommHideLink))
     	{bs.refresh();}
     	bs.click(Ajk_HomePage.COMMTAB, "点击TAB里的小区链接");
     	bs.click(Ajk_Community.FirsrComm, "点击小区列表页第一个小区");

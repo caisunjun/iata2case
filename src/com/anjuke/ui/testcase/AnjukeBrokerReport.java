@@ -79,7 +79,7 @@ public class AnjukeBrokerReport {
 		}
 
     	new PublicProcess().dologin(bs,username,passwd);
-    	if(!bs.check("Public_HeaderFooter.HEADER_BROKERLINK"))
+    	if(!bs.check(Public_HeaderFooter.HEADER_BROKERLINK))
     	{bs.refresh();}
     	
     	
