@@ -28,9 +28,11 @@ public class Ajk_Community {
 	/** 小区列表 - 列表页第一个小区 */
 	public static final String FirsrComm = "//ol[@id='list_body']/li[1]";
 	/** 小区列表 - 列表页第一个小区的小区名 */
-	public static final String FirsrCommName = "//ol[@id='list_body']/li[1]/div/div[@class='details']/h4";
+	public static final String FirsrCommName = "//ol[@id='list_body']/li[1]/div/div[@class='details']/h4/a";
 	/** 小区列表 - 列表页第一个小区的二手房数量*/
 	public static final String FirsrCommPropNum = "//ol[@id='list_body']/li[1]/div/div[@class='details']/p[@class='house']/span";
+	/** 小区列表 - 列表页第一个小区的均价 */
+	public static final String FirsrCommPrice = "//ol[@id='list_body']/li[1]/div/div[@class='price']/strong/em";
 	/** 小区列表 - 随机获得列表页的一个小区 （1页10个小区）*/
 	public static final String RandomComm = "//ol[@id='list_body']/li["+GetRandom.getrandom(10)+"]";
 	

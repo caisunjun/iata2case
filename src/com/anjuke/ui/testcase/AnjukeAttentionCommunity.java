@@ -2,11 +2,12 @@ package com.anjuke.ui.testcase;
 
 import org.testng.annotations.*;
 
+import com.anjuke.ui.page.Ajk_Community;
+import com.anjuke.ui.page.Ajk_CommunityView;
 import com.anjuke.ui.page.Ajk_MemberConcerned;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
 
 /**
@@ -43,48 +44,28 @@ public class AnjukeAttentionCommunity {
     //(timeOut = 250000)
 	@Test
 	public void attentionCommunity() {
-		String brow = "";
-		//从config.ini中取出browser
-		brow = Init.G_config.get("browser");
-		if(brow.contains("ie"))
-		{
-			//IE6兼容性
-			new PublicProcess().dologin(driver, "小瓶盖001", "6634472");
-		}
-		else
-		{
-			// 普通用户登录
-//			driver.deleteAllCookies();
-			String loginName = new PublicProcess().dologin(driver, "小瓶盖001", "6634472");
-			// 判断用户是否登录成功
-			if (!(loginName == null || loginName.equals(""))) {
-				
-				Report.writeHTMLLog("user login", "user login sucess,and name is: " + loginName, Report.DONE, "");
-			} else {
-				String ps = driver.printScreen();
-				Report.writeHTMLLog("user login", "user login fail,and name is: " + loginName, Report.FAIL, ps);
-			}
-		}
+
+		new PublicProcess().dologin(driver, "小瓶盖001", "6634472");
 		
 		// 访问小区列表
 		driver.get("http://shanghai.anjuke.com/community/");
 		// 判断小区列表数据是否存在数据
-		if (!driver.check(Init.G_objMap.get("anjuke_community_text_no_found"))) {
+		if (!driver.check(Ajk_Community.NO_FOUND)){
 			// 获取第一条记录标题
-			commTitle = driver.getText(Init.G_objMap.get("anjuke_community_list_firstData_title"), "第一条记录标题");
+			commTitle = driver.getText(Ajk_Community.FirsrCommName, "第一条记录标题");
 			// 获取第一条记录价格
-			commPrice = driver.getText("//*[@id='mid_price_1550']/em", "第一条记录价格");
+			commPrice = driver.getText(Ajk_Community.FirsrCommPrice, "第一条记录价格");
 			// 获取当前URL
-			formerUrl = driver.getAttribute(Init.G_objMap.get("anjuke_community_list_firstData_title"), "href");
+			formerUrl = driver.getAttribute(Ajk_Community.FirsrCommName, "href");
 			// 访问第一条记录
-			driver.click(Init.G_objMap.get("anjuke_community_list_firstData_title"), "访问第一条记录");
+			driver.click(Ajk_Community.FirsrCommName, "访问第一条记录");
 			driver.switchWindo(2);
 			// 如果关注小区按钮不可用，则退出当前执行
 			if (!attentionComm()) {
 				return;
 			}
 			// 判断关注小区弹出框是否出现
-			if (driver.check(Init.G_objMap.get("community_detail_attention_popup"), 30)) {
+			if (driver.check(Ajk_CommunityView.attentionPopup, 30)) {
 				// 获取弹出框返回内容
 				String returnMess = returnMessage();
 				// 判断是否已经关注过该小区，并返回消息
@@ -110,14 +91,14 @@ public class AnjukeAttentionCommunity {
 	public void clearExistComm() {
 		String ps = driver.printScreen();
 		Report.writeHTMLLog("关注小区", "已经收藏了该小区", Report.DONE, ps);
-		driver.click(Init.G_objMap.get("community_detail_attention_linkerr"), "去关注的小区列表查看");
+		driver.click(Ajk_CommunityView.attentionFailPopupLink, "去关注的小区列表查看");
 		driver.switchWindo(3);
 		deleteAllcomm();
 		driver.close();
 		driver.switchWindo(2);
 		driver.click("//a[@class='submit']", "点击确定按钮");
 		if (attentionComm()) {
-			String returnMess = driver.getText(Init.G_objMap.get("community_detail_attention_message_suc"), "获取弹出框返回内容");
+			String returnMess = driver.getText(Ajk_CommunityView.attentionSucPopupMessage, "获取弹出框返回内容");
 			if (returnMess.equals("您成功收藏了该小区！")) {
 				verifyAttention();
 			} else {
@@ -135,15 +116,15 @@ public class AnjukeAttentionCommunity {
 	// 关注小区操作
 	public boolean attentionComm() {
 		// 关注小区操作,判断关注按钮是否可用
-		if (driver.check(Init.G_objMap.get("community_detail_attention_button"), 20)) {
-			driver.click(Init.G_objMap.get("community_detail_attention_button"), "点击关注小区按钮");
+		if (driver.check(Ajk_CommunityView.attentionButton, 20)) {
+			driver.click(Ajk_CommunityView.attentionButton, "点击关注小区按钮");
 			return true;
 		} else {
 			// 当按钮不存在，进行一次刷新页面
 			driver.refresh();
 			// 刷新完毕后再次确认是否可以进行关注小区操作，不可以则退出该方法
-			if (driver.check(Init.G_objMap.get("community_detail_attention_button"), 20)) {
-				driver.click(Init.G_objMap.get("community_detail_attention_button"), "点击关注小区按钮");
+			if (driver.check(Ajk_CommunityView.attentionButton, 20)) {
+				driver.click(Ajk_CommunityView.attentionButton, "点击关注小区按钮");
 				return true;
 			} else {
 				String ps = driver.printScreen();
@@ -157,9 +138,9 @@ public class AnjukeAttentionCommunity {
 	// 验证关注小区操作是否成功
 	public void verifyAttention() {
 		// 获取邮件订阅状态
-		checkMail = driver.isSelect(Init.G_objMap.get("community_detail_attention_mail"), 10);
+		checkMail = driver.isSelect(Ajk_CommunityView.attentionSucPopupMail, 10);
 		Report.writeHTMLLog("邮件订阅checkbox", "邮件订阅状态：" + checkMail, Report.DONE, "");
-		driver.click(Init.G_objMap.get("community_detail_attention_link"), "点击去看看关注的小区连接");
+		driver.click(Ajk_CommunityView.attentionSucPopupLink, "点击去看看关注的小区连接");
 		// 跳转到关注小区列表页
 		driver.switchWindo(3);
 
@@ -170,6 +151,8 @@ public class AnjukeAttentionCommunity {
 		if (!driver.check(Ajk_MemberConcerned.NoComm)) {
 			// 获取第一条记录的URL,且判断是否为关注小区的URL
 			String nowUrl = driver.getAttribute(Ajk_MemberConcerned.FirstCommName, "href");
+			System.out.println(formerUrl);
+			System.out.println(nowUrl);
 			if (formerUrl.equals(nowUrl)) {
 				Report.writeHTMLLog("关注小区成功", "关注小区成功，前后URL一致：" + formerUrl, Report.PASS, "");
 			} else {
@@ -217,8 +200,8 @@ public class AnjukeAttentionCommunity {
 
 	// 获取弹出框内容
 	public String returnMessage() {
-		driver.check(Init.G_objMap.get("community_detail_attention_message"), 10);
-		String returnMess = driver.getText(Init.G_objMap.get("community_detail_attention_message"), "获取弹出框返回内容");
+		driver.check(Ajk_CommunityView.attentionPopupMessage, 10);
+		String returnMess = driver.getText(Ajk_CommunityView.attentionPopupMessage, "获取弹出框返回内容");
 		return returnMess;
 	}
 
