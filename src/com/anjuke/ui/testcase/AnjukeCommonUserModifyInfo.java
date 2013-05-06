@@ -14,8 +14,8 @@ import com.anjuke.ui.page.Public_HeaderFooter;
 import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
-import com.anjukeinc.iata.ui.init.Init;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.util.TcTools;
 
 /**
  * 该用例主要用来做安居客普通用户修改个人资料，步骤简介如下：
@@ -241,7 +241,7 @@ public class AnjukeCommonUserModifyInfo {
 		bs.click(Ajk_MemberModifyInfo.HeadpicTab,"点击修改头像标签栏");
 
 		//上传尺寸正确的头像
-		String picPath = Init.G_config.get("picPath") + "Correct Icon.gif";
+		String picPath = TcTools.imgPath("Correct Icon.gif");
 		bs.uploadFile(Ajk_MemberModifyHeadpic.UploadPic, picPath, "选中一张头像尺寸正确的图片上传");
 
 		//检查正确提示是否显示正确
