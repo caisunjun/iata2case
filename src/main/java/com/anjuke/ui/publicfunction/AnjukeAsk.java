@@ -163,7 +163,7 @@ public class AnjukeAsk {
 	 * @expertTitle 为用户提问成功后的问答标题
 	 */
 	public void checkNormalUserAskInfo(Browser driver, String expertTitle) {
-		driver.get("http://my.anjuke.com/prop/collection?from=header_true&show=best");// 进入个性化推荐页
+		driver.click(Public_HeaderFooter.HEADER_UserName,"进入用户中心");
 		driver.click(Ajk_AskNormalUserInfo.MYASK, "点击左侧导航我的问答");
 
 		driver.assertNonEquals(null, getNormalUserExperience(driver), "个人中心提问列表的数据检测", "检测经验值是否为空");
