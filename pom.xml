@@ -68,7 +68,7 @@
         <repository>   
             <id>nexus</id>   
             <name>157</name>   
-            <url>http://192.168.193.37:8081/nexus/content/groups/public/</url>   
+            <url>http://10.20.6.110:8081/nexus/content/groups/public/</url>   
             <releases>   
                 <enabled> true</enabled>   
             </releases>   
@@ -81,7 +81,7 @@
         <pluginRepository>   
             <id>nexus-p</id>   
             <name>157</name>   
-            <url>http://192.168.193.37:8081/nexus/content/groups/public/</url>   
+            <url>http://10.20.6.110:8081/nexus/content/groups/public/</url>   
             <releases>   
                 <enabled> true</enabled>   
             </releases>   
