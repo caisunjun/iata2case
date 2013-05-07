@@ -39,11 +39,8 @@
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_Shanghai"></class>
 			
-			<class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeRegressPropViewInfo"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageArea"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton"></class>
-			<class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand"></class>
+			<class name="com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime"></class>
 		</classes>
 	</test>
 </suite>

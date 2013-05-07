@@ -27,6 +27,23 @@ public class Ajk_CommunityView {
 	/** 小区单页 - 顶部切换tab - 小区问答*/
 	public static final String navtabQa = "//a[.='小区问答']";
 	
+	
+	/** 小区单页 - 关注小区 - 关注小区按钮*/
+	public static final String attentionButton = "//a[@id='concerned2']";
+	/** 小区单页 - 关注小区 - 弹出框*/
+	public static final String attentionPopup = "//div[@id='view_prop_popup_fav_new_dialog']/div/div";
+	/** 小区单页 - 关注小区 - 成功关注小区 - 提示文案*/
+	public static final String attentionSucPopupMessage = "//dl[@class='msg']/dt/b";
+	/** 小区单页 - 关注小区 - 成功关注小区 - 订阅新房源邮件*/
+	public static final String attentionSucPopupMail = "//input[@id='view_prop_add_feed']";
+	/** 小区单页 - 关注小区 - 成功关注小区 - 小区链接*/
+	public static final String attentionSucPopupLink = "//dl[@class='msg']/dd[1]/a";
+	/** 小区单页 - 关注小区 - 已关注过这个小区了 - 小区链接*/
+	public static final String attentionFailPopupLink = "//dl[@class='msg error']/dd/a";
+	/** 小区单页 - 关注小区 - 返回信息*/
+	public static final String attentionPopupMessage = "//div[@class='border']/dl/dt/b";
+	
+	
 	/** 小区单页 - 主营小区房源模块*/
 	public static final String CommMaster = "//div[@id='comm-property-master']";
 	/** 小区单页 - 主营小区房源模块 - 房源数量*/

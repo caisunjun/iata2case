@@ -22,7 +22,7 @@ import java.util.Map;
  * @author Gabrielgao
  * @time 2012-04-13 13:30
  * @updateAuthor ccyang
- * @last updatetime 2013-01-06 15:40
+ * @last updatetime 2013-4-28 9:49:38
  */
 public class AnjukeSaveFindHouseCondition {
 	private Browser driver = null;
@@ -80,21 +80,21 @@ public class AnjukeSaveFindHouseCondition {
 		// 破移动广告
 		driver.click(Ajk_Sale.CloseMobAdv, "关掉移动广告",5);
 		// 选择区域
-		driver.check(Ajk_Sale.S_SELECT("浦东"), 30);
-		driver.click(Ajk_Sale.S_SELECT("浦东"), "选择区域");
+		driver.check(Ajk_Sale.fliterAB_SELECT("浦东"), 10);
+		driver.click(Ajk_Sale.fliterAB_SELECT("浦东"), "选择区域");
 		condition.put("range", "浦东");
 		// 等待加载完毕
 		driver.check("//form[@id='propcondform']/div/span[2]");
 		// 选择售价
-		driver.click(Ajk_Sale.S_SELECT("100-120万"), "选择价格");
+		driver.click(Ajk_Sale.fliterOther_SELECT("100-120万"), "选择价格");
 		condition.put("price", "100-120万元");
 		driver.check("//form[@id='propcondform']/div/span[3]");
 		// 选择面积
-		driver.click(Ajk_Sale.S_SELECT("90-110平米"), "选择面积");
+		driver.click(Ajk_Sale.fliterOther_SELECT("90-110平米"), "选择面积");
 		condition.put("area", "90-110平米");
 		driver.check("//form[@id='propcondform']/div/span[4]");
 		// 选择房型
-		driver.click(Ajk_Sale.S_SELECT("三室"), "选择房型");
+		driver.click(Ajk_Sale.fliterOther_SELECT("三室"), "选择房型");
 		condition.put("room", "三室");
 		driver.check("//form[@id='propcondform']/div/span[5]");
 		// 选择房屋类型
@@ -108,7 +108,7 @@ public class AnjukeSaveFindHouseCondition {
 		driver.check("//form[@id='propcondform']/div/span[6]");
 		// 访问二手房列表
 		driver.click(Ajk_HomePage.SALETAB, "访问二手房列表");
-		driver.check(Ajk_Sale.S_SELECT("浦东"));
+		driver.check(Ajk_Sale.fliterAB_SELECT("浦东"));
 		// 获取上次找房条件
 		String searchCondition = driver.getText(Ajk_Sale.LastCond, "获取上次访问条件");
 		// 比较找房条件
@@ -270,7 +270,7 @@ public class AnjukeSaveFindHouseCondition {
 				driver.click(Ajk_MemberManpropcond.DeleteFirstCond, "删除保存的条件");
 				driver.doAlert("确定");
 				// 点完确定按钮后检查保存按钮是否可以被捕获到，如果否则表明当前还在alert窗口中，则继续等
-				driver.check(Ajk_MemberManpropcond.DeleteFirstCond, 10);
+				driver.check(Ajk_MemberManpropcond.DeleteFirstCond, 3);
 			}
 		} else {
 			String ps = driver.printScreen();

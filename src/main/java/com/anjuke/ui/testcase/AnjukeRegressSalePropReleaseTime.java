@@ -8,12 +8,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-/**
- * 该测试用例主要完成: 检测二手房列表页显示的发布时间是否正常
- * 
+/**该测试用例主要完成: 检测二手房列表页显示的发布时间是否正常
+ * 用于回归bug 15146
  * @author minzhao
  **/
-public class AnjukeSalePropReleaseTime {
+public class AnjukeRegressSalePropReleaseTime {
 	Browser driver = null;
 
 	@BeforeMethod

@@ -27,13 +27,19 @@ public class AjkSaleSearchAction {
 	}
 
 	/**
-	 * 点击筛选条件搜索 - 获得所有筛选条件locater
-	 * 
-	 * @param val
-	 *            筛选条件在页面显示的值，其中售价需由“50-80万”改为：“50-80万元”；
+	 * 点击筛选条件搜索 - 获得区域板块筛选条件locater
+	 * @param val 页面显示的区域板块名
 	 * */
-	public String getLocater(String val) {
-		return getPath(val.toString());
+	public String getABFliterLocater(String val) {
+		return getABFliterPath(val.toString());
+	}
+	
+	/**
+	 * 点击筛选条件搜索 - 获得售价房型面积等筛选条件locater
+	 * @param val 筛选条件在页面显示的值，其中售价需由“50-80万”改为：“50-80万元”；
+	 * */
+	public String getOtherFliterLocater(String val) {
+		return getOtherFliterPath(val.toString());
 	}
 
 	/** 筛选条件搜索 - 验证房源的总价 */
@@ -86,9 +92,15 @@ public class AjkSaleSearchAction {
 		return compareKeywordResult(val, "district");
 	}
 
-	private String getPath(String value) {
+	private String getABFliterPath(String value) {
 		String locater = value;
-		locater = Ajk_Sale.S_SELECT(value);
+		locater = Ajk_Sale.fliterAB_SELECT(value);
+		return locater;
+	}
+	
+	private String getOtherFliterPath(String value) {
+		String locater = value;
+		locater = Ajk_Sale.fliterOther_SELECT(value);
 		return locater;
 	}
 
@@ -142,7 +154,7 @@ public class AjkSaleSearchAction {
 		String value = val;
 		String locater = null;
 		String viewLocater = null;
-		for (int i = 0, j = 1; j <= listCount; i++, j++) {
+		for (int j = 1; j <= listCount; j++) {
 			driver.click(Ajk_Sale.getTitle(j), "点击房源图片跳转到房源详情页");
 			driver.switchWindo(2);
 			if (category.equals("region")) {

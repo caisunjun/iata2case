@@ -1,7 +1,5 @@
 package com.anjuke.ui.page;
 
-;
-
 /**
  * 安居客 - 问答详情页 http://www.anjuke.com/ask/view/*****
  * 
@@ -25,8 +23,8 @@ public class Ajk_AskView {
 	public static final String ANSWERLISTS_NoRelated = "//*[@id='content']/div[3]/div[3]/ul/li";
 
 	/** 问答单页 - 获取回答列表中的某一条数据的元素，
-	 * @param n表示第几条
-	 * @param relate为true时，表示存在相关问题模块;为false时，表示不存在相关问题模块;
+	 * @param n 表示第几条
+	 * @param relate 为true时，表示存在相关问题模块;为false时，表示不存在相关问题模块;
 	 * */
 	public static String getAnswerElement (int n,boolean relate){
 		String element = null;

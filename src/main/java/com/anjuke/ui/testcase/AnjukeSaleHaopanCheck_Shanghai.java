@@ -68,9 +68,9 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//上海-筛选列表页分页检测
 	private void saleScreenListPaging_Shanghai(){
 		bs.get(baseUrl);
-		bs.click(Ajk_Sale.S_SELECT("浦东"), "选择区域：浦东");
-		bs.click(Ajk_Sale.S_SELECT("陆家嘴"), "选择板块：陆家嘴");
-		bs.click(Ajk_Sale.S_SELECT("四室"), "选择房型：四室");
+		bs.click(Ajk_Sale.fliterAB_SELECT("浦东"), "选择区域：浦东");
+		bs.click(Ajk_Sale.fliterAB_SELECT("陆家嘴"), "选择板块：陆家嘴");
+		bs.click(Ajk_Sale.fliterOther_SELECT("四室"), "选择房型：四室");
 		//获取分页总数
 		String temp = bs.getText(Ajk_Sale.PAGE_COUNT, "获取分页总数");
 		String s[] = temp.split("/");
@@ -92,8 +92,8 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 	//检查上海-筛选列表页，展示竞价房源:5套
 	private void saleScreenListHaopanCheck_Shanghai(){
 		bs.get(baseUrl);
-		bs.click(Ajk_Sale.S_SELECT("浦东"), "选择区域：浦东");
-		bs.click(Ajk_Sale.S_SELECT("陆家嘴"), "选择板块：陆家嘴");
+		bs.click(Ajk_Sale.fliterAB_SELECT("浦东"), "选择区域：浦东");
+		bs.click(Ajk_Sale.fliterAB_SELECT("陆家嘴"), "选择板块：陆家嘴");
 		for(int i=1;i<=5;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
 			bs.assertContains(tmp,"spread=filtersearch");
@@ -182,7 +182,7 @@ public class AnjukeSaleHaopanCheck_Shanghai {
 		bs.get(baseUrl);
 		bs.type(Ajk_Sale.KwInput, "中远两湾城", "输入关键字");
 		bs.click(Ajk_Sale.KwSubmit, "点击：找房子");
-		bs.click(Ajk_Sale.S_SELECT("250-300万"), "选择价格段：250-300万");
+		bs.click(Ajk_Sale.fliterOther_SELECT("250-300万"), "选择价格段：250-300万");
 		int m = 0;
 		for(int i=1;i<=25;i++){
 			String tmp = bs.getAttribute("//*[@id='prop_name_qt_prop_"+i+"']","href");
