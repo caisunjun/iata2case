@@ -71,41 +71,35 @@ public class AnjukeAttentionCommunity {
 		
 		// 访问小区列表
 		driver.get("http://shanghai.anjuke.com/community/");
-		// 判断小区列表数据是否存在数据
-		if (!driver.check(Init.G_objMap.get("anjuke_community_text_no_found"))) {
-			// 获取第一条记录标题
-			commTitle = driver.getText(Init.G_objMap.get("anjuke_community_list_firstData_title"), "第一条记录标题");
-			// 获取第一条记录价格
-			commPrice = driver.getText("//*[@id='mid_price_1550']/em", "第一条记录价格");
-			// 获取当前URL
-			formerUrl = driver.getAttribute(Init.G_objMap.get("anjuke_community_list_firstData_title"), "href");
-			// 访问第一条记录
-			driver.click(Init.G_objMap.get("anjuke_community_list_firstData_title"), "访问第一条记录");
-			driver.switchWindo(2);
-			// 如果关注小区按钮不可用，则退出当前执行
-			if (!attentionComm()) {
-				return;
+		// 获取第一条记录标题
+		commTitle = driver.getText(Init.G_objMap.get("anjuke_community_list_firstData_title"), "第一条记录标题");
+		// 获取第一条记录价格
+		commPrice = driver.getText("//*[@id='mid_price_1550']/em", "第一条记录价格");
+		// 获取当前URL
+		formerUrl = driver.getAttribute(Init.G_objMap.get("anjuke_community_list_firstData_title"), "href");
+		// 访问第一条记录
+		driver.click(Init.G_objMap.get("anjuke_community_list_firstData_title"), "访问第一条记录");
+		driver.switchWindo(2);
+		// 如果关注小区按钮不可用，则退出当前执行
+		if (!attentionComm()) {
+			return;
+		}
+		// 判断关注小区弹出框是否出现
+		if (driver.check(Init.G_objMap.get("community_detail_attention_popup"), 10)) {
+			// 获取弹出框返回内容
+			String returnMess = returnMessage();
+			// 判断是否已经关注过该小区，并返回消息
+			if (returnMess.equals("您已经收藏了该小区！")) {
+				clearExistComm();
 			}
-			// 判断关注小区弹出框是否出现
-			if (driver.check(Init.G_objMap.get("community_detail_attention_popup"), 30)) {
-				// 获取弹出框返回内容
-				String returnMess = returnMessage();
-				// 判断是否已经关注过该小区，并返回消息
-				if (returnMess.equals("您已经收藏了该小区！")) {
-					clearExistComm();
-				}
-				// 判断小区是否收藏成功
-				if (returnMess.equals("您成功收藏了该小区！")) {
-					// 验证小区关注操作是否成功
-					verifyAttention();
-				}
-			} else {
-				String psm = driver.printScreen();
-				Report.writeHTMLLog("关注小区失败", "关注小区失败，没有出现弹出框", Report.FAIL, psm);
+			// 判断小区是否收藏成功
+			if (returnMess.equals("您成功收藏了该小区！")) {
+				// 验证小区关注操作是否成功
+				verifyAttention();
 			}
 		} else {
-			String ps = driver.printScreen();
-			Report.writeHTMLLog("community list is null", "community list is null", Report.FAIL, ps);
+			String psm = driver.printScreen();
+			Report.writeHTMLLog("关注小区失败", "关注小区失败，没有出现弹出框", Report.FAIL, psm);
 		}
 	}
 
