@@ -6,7 +6,7 @@
     <test name="Default" preserve-order="true">
         <classes>
             <class name="com.anjukeinc.iata.ui.init.Init"></class>
-            <class name="com.anjuke.ui.testcase.AnjukeAskAbnormalSearch"></class>
+            <class name="com.anjuke.ui.testcase.Tt"></class>
         </classes>
     </test>
 </suite>
