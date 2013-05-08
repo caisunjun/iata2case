@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite verbose="0" name="suite">
+<suite verbose="0" name="suite" parallel="classes" thread-count="2">
     <parameter name = "websiteName" value = "Anjuke"/>
     <parameter name = "suiteName" value = "--经纪人部分脚本--"/> 
 	<test name="Default" preserve-order="true">
+		<groups>
+            <run>
+            	<exclude name = "unstable"/>
+            </run>
+        </groups>
 		<classes>
 			<class name="com.anjukeinc.iata.ui.init.Init"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeBrokerSaleRelease"></class>
