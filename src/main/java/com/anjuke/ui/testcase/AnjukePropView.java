@@ -56,7 +56,7 @@ public class AnjukePropView {
 //    	priceNotice(bs);//受制于弹出框，目前不好用
     }    
     
-    private static void checkCommNameAndLink(Browser bs)
+    private void checkCommNameAndLink(Browser bs)
     {
     	//验证小区名，小区链接========================================================================================
     	String textCommName = bs.getText(Ajk_PropView.COMMNAME, "房源信息处的小区名");
@@ -82,7 +82,7 @@ public class AnjukePropView {
     	bs.switchWindo(2);
     }
     
-    private static void checkCaculator(Browser bs)
+    private void checkCaculator(Browser bs)
     {
     	//验证房贷计算器链接==========================================================================================
     	//点房贷计算器链接（打开新页面）
@@ -96,7 +96,7 @@ public class AnjukePropView {
     	bs.switchWindo(2);
     }
     
-    private static void checkBrokerAndCompanyName(Browser bs,String brokerName,String brokerCompany)
+    private void checkBrokerAndCompanyName(Browser bs,String brokerName,String brokerCompany)
     {
     	//3验证经纪人姓名，公司门店======================================================================================
     	//取右侧头像处经纪人姓名，公司门店
@@ -163,7 +163,7 @@ public class AnjukePropView {
 
     }
     
-    private static void priceCountDiff(Browser bs)
+    private void priceCountDiff(Browser bs)
     {
     	//验证按售价统计数量正确性=============================================================================
     	String priceCount = "";
@@ -197,7 +197,7 @@ public class AnjukePropView {
     	bs.switchWindo(2);
     }
     
-    private static void areaCountDiff(Browser bs)
+    private void areaCountDiff(Browser bs)
     {
     	//验证按面积统计数量证确性=============================================================================
 		String areaCount =  bs.getText(Ajk_PropView.AreaCount, "按面积统计房源数量");
@@ -226,7 +226,7 @@ public class AnjukePropView {
 		//回到房源单页
 		bs.switchWindo(2);
     }
-    private static void tryReport(Browser bs)
+    private void tryReport(Browser bs)
     {
     	//点举报
     	bs.click("id^report", "点举报");
@@ -239,7 +239,7 @@ public class AnjukePropView {
     	bs.click("//form[@id='rptForm_apf_id_16']/div[1]/span", "关掉举报弹出层");
 
     }
-    private static void priceNotice(Browser bs)
+    private void priceNotice(Browser bs)
     {
     	//点变价通知
     	bs.click("id^pricenotice_apf_id_13", "点变价通知");
