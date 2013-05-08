@@ -454,7 +454,7 @@ public class PublicProcess {
 		FileInputStream file = null;
 
 		try {
-			file = new FileInputStream("cityConfigAnjuke.ini");
+			file = new FileInputStream(new TcTools().getProjectPath()+"cityConfigAnjuke.ini");
 			input = new BufferedReader(new InputStreamReader(file, "UTF-8"));
 			while ((text = input.readLine()) != null) {
 				if (text.length() >= 1 && text.substring(0, 1).equals("#")) {

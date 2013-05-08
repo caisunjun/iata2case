@@ -164,6 +164,7 @@ public class AnjukeAsk {
 	 */
 	public void checkNormalUserAskInfo(Browser driver, String expertTitle) {
 		driver.click(Public_HeaderFooter.HEADER_UserName,"进入用户中心");
+		driver.switchWindo(2);
 		driver.click(Ajk_AskNormalUserInfo.MYASK, "点击左侧导航我的问答");
 
 		driver.assertNonEquals(null, getNormalUserExperience(driver), "个人中心提问列表的数据检测", "检测经验值是否为空");
