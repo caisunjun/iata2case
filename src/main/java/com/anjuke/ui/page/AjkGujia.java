@@ -11,21 +11,12 @@ import com.anjukeinc.iata.ui.report.Report;
 
 public class AjkGujia {
 	private static String gujiaUrl = "http://shanghai.anjuke.com/gujia/";
-	
-	//定义等待时间
-	public static void waitForPageToLoad(long longtime){
-		try {
-			Thread.sleep(longtime);
-		} catch (InterruptedException exception) {
-			exception.getStackTrace();
-		}
-	}
-	
-	public static final void GJDetail(Browser driver , AnjukeGujiaInformation info ){
+
+	public final void GJDetail(Browser driver , AnjukeGujiaInformation info ){
 		driver.get(gujiaUrl);
 		gujia(driver, info, "Release");
 }
-	public static final void gujia(Browser driver, AnjukeGujiaInformation gujiaInfo, String type){
+	public final void gujia(Browser driver, AnjukeGujiaInformation gujiaInfo, String type){
 
 		//小区名
 		if( type.equals("Release")){

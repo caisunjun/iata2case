@@ -55,7 +55,7 @@ public class AnjukePropRent {
 		checkCommAveragePrice(bs);
 	}
 
-	private static void checkCommNameAndLink(Browser bs) {
+	private void checkCommNameAndLink(Browser bs) {
 		// 验证小区名，小区链接========================================================================================
 		String textCommName = bs.getText(Ajk_PropRent.XIAOQUMING, "房源信息处的小区名");
 		// 是否有必要继续验证页面其他地方的小区名是否一致？
@@ -85,7 +85,7 @@ public class AnjukePropRent {
 		bs.switchWindo(2);
 	}
 
-	private static void checkBrokerAndCompanyName(Browser bs, String brokerName, String brokerCompany) {
+	private void checkBrokerAndCompanyName(Browser bs, String brokerName, String brokerCompany) {
 		// 3验证经纪人姓名，公司门店======================================================================================
 		// 取右侧头像处经纪人姓名，公司门店
 		brokerName = bs.getText(Ajk_PropRent.BROKERNAME, "取经纪人姓名");
@@ -132,7 +132,7 @@ public class AnjukePropRent {
 		bs.switchWindo(2);
 	}
 
-	private static void checkCommAveragePrice(Browser bs) {
+	private void checkCommAveragePrice(Browser bs) {
 		// 检查小区均价
 		bs.click(Ajk_PropRent.COMMINTROTAB, "移动下页面，触发ajax");
 		bs.refresh();
