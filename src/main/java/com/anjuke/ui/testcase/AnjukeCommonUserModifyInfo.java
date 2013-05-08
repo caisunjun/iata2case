@@ -235,7 +235,7 @@ public class AnjukeCommonUserModifyInfo {
         bs.click(Ajk_MemberModifyInfo.HeadpicTab, "点击修改头像标签栏");
 
         //上传尺寸正确的头像
-        String picPath = new TcTools().getProjectPath() + "image/Correct Icon.gif";
+        String picPath = TcTools.imgPath("Correct Icon.gif");
         bs.uploadFile(Ajk_MemberModifyHeadpic.UploadPic, picPath, "选中一张头像尺寸正确的图片上传");
 
         //检查正确提示是否显示正确

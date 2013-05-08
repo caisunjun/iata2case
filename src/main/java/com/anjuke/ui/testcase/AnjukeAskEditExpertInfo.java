@@ -7,6 +7,8 @@ import com.anjuke.ui.publicfunction.PublicProcess;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.util.TcTools;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -41,7 +43,7 @@ public class AnjukeAskEditExpertInfo {
 		driver.get("http://shanghai.anjuke.com/ask");
 		driver.click(Ajk_Ask.ExpertPersonal, "从问答首页进入专家个人主页");
 		driver.switchWindo(2);
-        String imgPath = System.getProperty("user.dir") + "\\tools\\Water lilies.jpg";
+        String imgPath = TcTools.imgPath("Water lilies.jpg");
         new AnjukeAsk().EditExternalExpertInfo(driver, "刘先生", "13918909652", "专家机械化制造工厂磊", "中华人民共和国江苏省太仓市大在", "13918909652", "我是专业的贷款律师", imgPath);
 	}
 }
