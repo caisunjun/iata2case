@@ -5,6 +5,8 @@ import com.anjuke.ui.page.Login_Anget;
 import com.anjukeinc.iata.ui.browser.Browser;
 import com.anjukeinc.iata.ui.browser.FactoryBrowser;
 import com.anjukeinc.iata.ui.report.Report;
+import com.anjukeinc.iata.ui.util.TcTools;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -45,8 +47,6 @@ public class AnjukeBrokerModifyInfo {
         bs.type(Login_Anget.USERNAME, username, "输入用户账号");
         bs.type(Login_Anget.PASSWORD,passwd, "输入用户密码");
         bs.click(Login_Anget.BTN, "点击登录");
-        if(!bs.check("class^logo"))
-        {bs.refresh();}
     }
     public int getrandom(){ //取得4以内的随机数
         Random a = new Random();
@@ -132,8 +132,8 @@ public class AnjukeBrokerModifyInfo {
         }else{
             bs.click(Broker_info.INDIVIDUAL, "更改独立经济人");
         }
-        //获得项目\tools里图片的绝对路径
-        String imgPath = System.getProperty("user.dir") + "\\tools\\320x240.jpg";
+        //获得图片的路径
+        String imgPath = TcTools.imgPath("320x240.jpg");
         bs.uploadFile(Broker_info.IMAGEUPLOAD, imgPath, "上传用户图片");
         bs.click(Broker_info.SUBMIT, "提交资料修改");
 
