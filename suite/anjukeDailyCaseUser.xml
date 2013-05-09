@@ -3,12 +3,7 @@
 <suite verbose="0" name="suite" parallel="classes" thread-count="5">
     <parameter name = "websiteName" value = "Anjuke"/>
     <parameter name = "suiteName" value = "--user部分脚本--"/> 
-	<test name="Default" preserve-order="true">
-	    <groups>
-            <run>
-            	<exclude name = "unstable"/>
-            </run>
-        </groups>
+	<test name="Default" preserve-order="false">
 		<classes>
 			<class name="com.anjukeinc.iata.ui.init.Init"></class>
 			<class name="com.anjuke.ui.testcase.AnjukeAttentionCommunity"></class>
