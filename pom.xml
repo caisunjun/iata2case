@@ -46,7 +46,7 @@
         <dependency>
             <groupId>com.anjukeinc</groupId>
             <artifactId>iata2</artifactId>
-            <version>3.0-SNAPSHOT </version>
+            <version>3.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
@@ -70,10 +70,12 @@
             <name>157</name>   
             <url>http://10.20.6.110:8081/nexus/content/groups/public/</url>   
             <releases>   
-                <enabled> true</enabled>   
+                <enabled>true</enabled>   
+                <updatePolicy>always</updatePolicy>
             </releases>   
             <snapshots>   
-                <enabled> true</enabled>   
+                <enabled>true</enabled>   
+                <updatePolicy>always</updatePolicy>
             </snapshots>   
         </repository>   
     </repositories>   
@@ -83,10 +85,12 @@
             <name>157</name>   
             <url>http://10.20.6.110:8081/nexus/content/groups/public/</url>   
             <releases>   
-                <enabled> true</enabled>   
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
             </releases>   
             <snapshots>   
-                <enabled> true</enabled>   
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
             </snapshots>        
         </pluginRepository>   
     </pluginRepositories>
