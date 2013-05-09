@@ -121,9 +121,8 @@ public class AnjukeCollectHouseResource {
 			// 判断房源收藏操作是否成功-弹出框是否出现
 			if (driver.check(Init.G_objMap.get("anjuke_sale_detail_collectPop"))) {
 				// 判断收藏房源后返回信息是否正确
-				String returnMsg = driver.getText(
-						Init.G_objMap.get("anjuke_sale_detal_collectsuc_msg"), "获取返回信息");
-				if (returnMsg.equals("成功添加到选房单啦！")) {
+				String returnMsg = driver.getText("//p[@class='success']", "获取返回信息");
+				if (returnMsg.equals("您已收藏成功！")) {
 					Report.writeHTMLLog("添加选房单成功", "添加成功返回消息:" + returnMsg, Report.PASS, "");
 					try {
 						Thread.sleep(2);
@@ -136,8 +135,7 @@ public class AnjukeCollectHouseResource {
 					Report.writeHTMLLog("添加选房单失败", "已经添加过该选房单:" + returnMsg, Report.DONE, ps);
 				}
 				// 进入选房单页面
-				driver.click(Init.G_objMap.get("anjuke_sale_detal_collectsuc_link"), "查看选房单");
-				driver.switchWindo(3);
+				driver.click("//p[@class='success']/a", "查看选房单");
 				// 判断选房单列表是否为空
 				if (!driver.check(Init.G_objMap.get("anjuke_sale_member_houselist_noresult"))) {
 					// 判断选房单标题
