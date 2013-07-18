@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG:  Unit Test</title>
+<style type="text/css">
+table caption,table.info_table,table.param,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.param td,table.param th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.param th {vertical-align:bottom}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.param td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.param tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+</head>
+<body>
+<table cellspacing=0 cellpadding=0 class="param">
+<tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em">Default</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">52</td><td class="numi">0</td><td class="numi">0.1 seconds</td><td class="numi"></td><td class="numi">unstable </td></tr>
+</table>
+<a id="summary"></a>
+<table cellspacing=0 cellpadding=0 class="passed">
+<tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Time<br/>(Msecs)</th></tr>
+<tr><th colspan="4">Default &#8212; failed (configuration methods)</th></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai<td><a href="#m1"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskNormalSearchFound<td><a href="#m2"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskEditExpertInfo<td><a href="#m3"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity<td><a href="#m4"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerUniversity<td><a href="#m5"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest<td><a href="#m6"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleTagCheck<td><a href="#m7"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressPropViewInfo<td><a href="#m8"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo<td><a href="#m9"><b>stratUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton<td><a href="#m10"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleUfsIcon<td><a href="#m11"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSearchCheck<td><a href="#m12"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListPhoto<td><a href="#m13"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster<td><a href="#m14"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCollectHouseResource<td><a href="#m15"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime<td><a href="#m16"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerprofile<td><a href="#m17"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerExpertise<td><a href="#m18"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound<td><a href="#m19"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRentEdit<td><a href="#m20"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand<td><a href="#m21"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityAsk<td><a href="#m22"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleRelease<td><a href="#m23"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerIntro<td><a href="#m24"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListEvaluation<td><a href="#m25"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck<td><a href="#m26"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRentRelease<td><a href="#m27"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityListPrice<td><a href="#m28"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageArea<td><a href="#m29"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropList<td><a href="#m30"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskHome<td><a href="#m31"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm<td><a href="#m32"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar<td><a href="#m33"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerpractice<td><a href="#m34"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleEdit<td><a href="#m35"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListAsk<td><a href="#m36"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAttentionCommunity<td><a href="#m37"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult<td><a href="#m38"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition<td><a href="#m39"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskAbnormalSearch<td><a href="#m40"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRecycleOps<td><a href="#m41"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukePropView<td><a href="#m42"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m43"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="failedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost<td><a href="#m44"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr><th colspan="4">Default &#8212; skipped (configuration methods)</th></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSearchCheck<td><a href="#m45"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskHome<td><a href="#m46"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleTagCheck<td><a href="#m47"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton<td><a href="#m48"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleRelease<td><a href="#m49"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m50"><b>tearDown</b>  </a></td><td class="numi">3</td><td class="numi">4</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAttentionCommunity<td><a href="#m51"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleUfsIcon<td><a href="#m52"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageArea<td><a href="#m53"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime<td><a href="#m54"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo<td><a href="#m55"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck<td><a href="#m56"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleTagCheck<td><a href="#m57"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListAsk<td><a href="#m58"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime<td><a href="#m59"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai<td><a href="#m60"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskAbnormalSearch<td><a href="#m61"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound<td><a href="#m62"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m63"><b>setUp</b>  </a></td><td class="numi">2</td><td class="numi">2</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRentRelease<td><a href="#m64"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand<td><a href="#m65"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm<td><a href="#m66"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukePropView<td><a href="#m67"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerIntro<td><a href="#m68"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest<td><a href="#m69"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressPropViewInfo<td><a href="#m70"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAttentionCommunity<td><a href="#m71"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m72"><b>tearDown</b>  </a></td><td class="numi">3</td><td class="numi">4</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton<td><a href="#m73"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck<td><a href="#m74"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar<td><a href="#m75"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m76"><b>tearDown</b>  </a></td><td class="numi">3</td><td class="numi">4</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskNormalSearchFound<td><a href="#m77"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskEditExpertInfo<td><a href="#m78"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton<td><a href="#m79"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRecycleOps<td><a href="#m80"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleEdit<td><a href="#m81"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCollectHouseResource<td><a href="#m82"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerExpertise<td><a href="#m83"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition<td><a href="#m84"><b>startUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListPhoto<td><a href="#m85"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster<td><a href="#m86"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime<td><a href="#m87"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster<td><a href="#m88"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerpractice<td><a href="#m89"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerUniversity<td><a href="#m90"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck<td><a href="#m91"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukePropView<td><a href="#m92"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityAsk<td><a href="#m93"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition<td><a href="#m94"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleRelease<td><a href="#m95"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRecycleOps<td><a href="#m96"><b>teardown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerprofile<td><a href="#m97"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropList<td><a href="#m98"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar<td><a href="#m99"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListEvaluation<td><a href="#m100"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition<td><a href="#m101"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost<td><a href="#m102"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition<td><a href="#m103"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest<td><a href="#m104"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRentEdit<td><a href="#m105"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity<td><a href="#m106"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleTagCheck<td><a href="#m107"><b>setUp</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck<td><a href="#m108"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m109"><b>setUp</b>  </a></td><td class="numi">2</td><td class="numi">2</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCollectHouseResource<td><a href="#m110"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSearchCheck<td><a href="#m111"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest<td><a href="#m112"><b>tearDown</b>  </a></td><td class="numi">2</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult<td><a href="#m113"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityListPrice<td><a href="#m114"><b>tearDown</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleEdit<td><a href="#m115"><b>doBeforeTests</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr><th colspan="4">Default &#8212; skipped</th></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m116"><b>testBrokerupdateinfo</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleTagCheck<td><a href="#m117"><b>testSaleKeywordTagCheck</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityListPrice<td><a href="#m118"><b>testStart</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m119"><b>testBrokeremail</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerIntro<td><a href="#m120"><b>testBrokerIntroduce</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerExpertise<td><a href="#m121"><b>testBrokerExpertise</b>  </a></td><td class="numi">1</td><td class="numi">26</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskAbnormalSearch<td><a href="#m122"><b>abnormalSearch</b>  </a></td><td class="numi">1</td><td class="numi">2</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListAsk<td><a href="#m123"><b>testBrokerListAsk</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRecycleOps<td><a href="#m124"><b>testStart</b>  </a></td><td class="numi">1</td><td class="numi">6</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskHome<td><a href="#m125"><b>checkAskHomeData</b>  </a></td><td class="numi">1</td><td class="numi">22</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition<td><a href="#m126"><b>testSaveLastCon</b>  </a></td><td class="numi">1</td><td class="numi">14</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleUfsIcon<td><a href="#m127"><b>testAnjukeSaleUfsIcon</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition<td><a href="#m128"><b>testSaveThisCon</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleEdit<td><a href="#m129"><b>editSale</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound<td><a href="#m130"><b>normalSearchNoFound</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListPhoto<td><a href="#m131"><b>testBrokerListPhoto</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeTycoonListEvaluation<td><a href="#m132"><b>testBrokerListEvaluation</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime<td><a href="#m133"><b>testSaleReleseLastest</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressPropViewInfo<td><a href="#m134"><b>testSaleSearchComm</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm<td><a href="#m135"><b>testSaleSearchComm</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo<td><a href="#m136"><b>testStart</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskNormalSearchFound<td><a href="#m137"><b>normalSearchFound</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerModifyInfo<td><a href="#m138"><b>testBrokerUpdatePasswd</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAttentionCommunity<td><a href="#m139"><b>attentionCommunity</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRentEdit<td><a href="#m140"><b>rentEdit</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster<td><a href="#m141"><b>testStart</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropList<td><a href="#m142"><b>testCommunitySaleListCheck</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck<td><a href="#m143"><b>keywordSearch</b>  </a></td><td class="numi">1</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerpractice<td><a href="#m144"><b>testBrokerPractice</b>  </a></td><td class="numi">1</td><td class="numi">38</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime<td><a href="#m145"><b>testSaleReleaseTime</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity<td><a href="#m146"><b>haopanCheck</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest<td><a href="#m147"><b>testSaleSuggestion</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityAsk<td><a href="#m148"><b>testBrokerCommunityAsk</b>  </a></td><td class="numi">1</td><td class="numi">28</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton<td><a href="#m149"><b>testXinfangButton</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSearchCheck<td><a href="#m150"><b>searchCheck</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerRentRelease<td><a href="#m151"><b>rentRelease</b>  </a></td><td class="numi">1</td><td class="numi">1</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerUniversity<td><a href="#m152"><b>testUniversity</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar<td><a href="#m153"><b>keywordSearch</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukePropView<td><a href="#m154"><b>testPropView</b>  </a></td><td class="numi">1</td><td class="numi">2</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerprofile<td><a href="#m155"><b>testBrokerprofile</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck<td><a href="#m156"><b>filterSearch</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCollectHouseResource<td><a href="#m157"><b>collectHouse</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest<td><a href="#m158"><b>testXinfangSuggestion</b>  </a></td><td class="numi">1</td><td class="numi">14</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost<td><a href="#m159"><b>testSaleSearchKwLost</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeSaleTagCheck<td><a href="#m160"><b>testSaleFliterTagCheck</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai<td><a href="#m161"><b>haopanCheck</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageArea<td><a href="#m162"><b>testStart</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeAskEditExpertInfo<td><a href="#m163"><b>EditExpertInfo</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeBrokerSaleRelease<td><a href="#m164"><b>releaseSale</b>  </a></td><td class="numi">1</td><td class="numi">6</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult<td><a href="#m165"><b>testSaleSearchFliterNoResultInfo</b>  </a></td><td class="numi">1</td><td class="numi">24</td></tr>
+<tr class="skippedodd"><td rowspan="1">com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand<td><a href="#m166"><b>testSaleXinFangRecommand</b>  </a></td><td class="numi">1</td><td class="numi">1</td></tr>
+<tr class="skippedeven"><td rowspan="1">com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton<td><a href="#m167"><b>testSaleButton</b>  </a></td><td class="numi">1</td><td class="numi">0</td></tr>
+</table>
+<h1>Default</h1>
+<a id="m1"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai.setUp(AnjukeCommunityPropListHaopanCheck_Shanghai.java:29)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m2"></a><h2>com.anjuke.ui.testcase.AnjukeAskNormalSearchFound:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeAskNormalSearchFound.setUp(AnjukeAskNormalSearchFound.java:25)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m3"></a><h2>com.anjuke.ui.testcase.AnjukeAskEditExpertInfo:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeAskEditExpertInfo.setUp(AnjukeAskEditExpertInfo.java:28)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m4"></a><h2>com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity.setUp(AnjukeSaleHaopanCheck_otherCity.java:29)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m5"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerUniversity:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerUniversity.setUp(AnjukeBrokerUniversity.java:29)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m6"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest.setUp(AnjukeMonitorHomepageSearchSuggest.java:28)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m7"></a><h2>com.anjuke.ui.testcase.AnjukeSaleTagCheck:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeSaleTagCheck.setUp(AnjukeSaleTagCheck.java:24)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m8"></a><h2>com.anjuke.ui.testcase.AnjukeRegressPropViewInfo:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeRegressPropViewInfo.setUp(AnjukeRegressPropViewInfo.java:26)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m9"></a><h2>com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo:stratUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo.stratUp(AnjukeCommonUserModifyInfo.java:33)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m10"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton.setUp(AnjukeMonitorHomepageSearchButton.java:24)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m11"></a><h2>com.anjuke.ui.testcase.AnjukeSaleUfsIcon:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeSaleUfsIcon.setUp(AnjukeSaleUfsIcon.java:24)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m12"></a><h2>com.anjuke.ui.testcase.AnjukeSearchCheck:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeSearchCheck.setUp(AnjukeSearchCheck.java:31)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m13"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListPhoto:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeTycoonListPhoto.setUp(AnjukeTycoonListPhoto.java:28)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m14"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster.setUp(AnjukeCommunityPropertyMaster.java:24)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m15"></a><h2>com.anjuke.ui.testcase.AnjukeCollectHouseResource:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeCollectHouseResource.startUp(AnjukeCollectHouseResource.java:34)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m16"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime.setUp(AnjukeRegressSalePropReleaseTime.java:21)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m17"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerprofile:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerprofile.setUp(AnjukeBrokerprofile.java:40)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m18"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerExpertise:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerExpertise.setUp(AnjukeBrokerExpertise.java:40)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m19"></a><h2>com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound.setUp(AnjukeAskNormalSearchNoFound.java:23)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m20"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRentEdit:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerRentEdit.startUp(AnjukeBrokerRentEdit.java:35)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m21"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand.setUp(AnjukeRegressSaleXinFangRecommand.java:25)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m22"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityAsk:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeCommunityAsk.setUp(AnjukeCommunityAsk.java:26)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m23"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleRelease:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerSaleRelease.startUp(AnjukeBrokerSaleRelease.java:31)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m24"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerIntro:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerIntro.setUp(AnjukeBrokerIntro.java:30)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m25"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListEvaluation:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeTycoonListEvaluation.setUp(AnjukeTycoonListEvaluation.java:29)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m26"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck.setUp(AnjukeSaleSearchResultCheck.java:30)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m27"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRentRelease:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerRentRelease.startUp(AnjukeBrokerRentRelease.java:32)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m28"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityListPrice:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeCommunityListPrice.setUp(AnjukeCommunityListPrice.java:31)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m29"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageArea:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeMonitorHomepageArea.setUp(AnjukeMonitorHomepageArea.java:32)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m30"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropList:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeCommunityPropList.setUp(AnjukeCommunityPropList.java:36)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m31"></a><h2>com.anjuke.ui.testcase.AnjukeAskHome:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeAskHome.setUp(AnjukeAskHome.java:23)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m32"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm.setUp(AnjukeRegressSaleSearchComm.java:29)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m33"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar.setUp(AnjukeSaleSearchNoResultSimilar.java:30)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m34"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerpractice:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerpractice.setUp(AnjukeBrokerpractice.java:31)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m35"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleEdit:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:154)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerSaleEdit.startUp(AnjukeBrokerSaleEdit.java:34)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m36"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListAsk:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeTycoonListAsk.setUp(AnjukeTycoonListAsk.java:39)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m37"></a><h2>com.anjuke.ui.testcase.AnjukeAttentionCommunity:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeAttentionCommunity.startUp(AnjukeAttentionCommunity.java:36)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m38"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult.setUp(AnjukeRegressSaleSearchFliterNoResult.java:24)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m39"></a><h2>com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition.startUp(AnjukeSaveFindHouseCondition.java:35)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m40"></a><h2>com.anjuke.ui.testcase.AnjukeAskAbnormalSearch:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeAskAbnormalSearch.setUp(AnjukeAskAbnormalSearch.java:23)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m41"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRecycleOps:startUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerRecycleOps.startUp(AnjukeBrokerRecycleOps.java:33)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m42"></a><h2>com.anjuke.ui.testcase.AnjukePropView:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukePropView.setUp(AnjukePropView.java:23)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m43"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeBrokerModifyInfo.setUp(AnjukeBrokerModifyInfo.java:38)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m44"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost:setUp</h2>
+<div style="padding-left:3em">
+<p>null</p>
+com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+<br/>at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+<br/>at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+<br/>at com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost.setUp(AnjukeRegressSaleSearchKwLost.java:25)
+<br/>16 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m45"></a><h2>com.anjuke.ui.testcase.AnjukeSearchCheck:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m46"></a><h2>com.anjuke.ui.testcase.AnjukeAskHome:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m47"></a><h2>com.anjuke.ui.testcase.AnjukeSaleTagCheck:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m48"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m49"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleRelease:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m50"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m51"></a><h2>com.anjuke.ui.testcase.AnjukeAttentionCommunity:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m52"></a><h2>com.anjuke.ui.testcase.AnjukeSaleUfsIcon:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m53"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageArea:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m54"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m55"></a><h2>com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m56"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck:setUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m57"></a><h2>com.anjuke.ui.testcase.AnjukeSaleTagCheck:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m58"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListAsk:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m59"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m60"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m61"></a><h2>com.anjuke.ui.testcase.AnjukeAskAbnormalSearch:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m62"></a><h2>com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m63"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:setUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m64"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRentRelease:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m65"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m66"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m67"></a><h2>com.anjuke.ui.testcase.AnjukePropView:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m68"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerIntro:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m69"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest:setUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m70"></a><h2>com.anjuke.ui.testcase.AnjukeRegressPropViewInfo:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m71"></a><h2>com.anjuke.ui.testcase.AnjukeAttentionCommunity:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m72"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m73"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m74"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m75"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m76"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m77"></a><h2>com.anjuke.ui.testcase.AnjukeAskNormalSearchFound:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m78"></a><h2>com.anjuke.ui.testcase.AnjukeAskEditExpertInfo:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m79"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton:setUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m80"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRecycleOps:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m81"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleEdit:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m82"></a><h2>com.anjuke.ui.testcase.AnjukeCollectHouseResource:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m83"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerExpertise:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m84"></a><h2>com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition:startUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m85"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListPhoto:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m86"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m87"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime:setUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m88"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m89"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerpractice:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m90"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerUniversity:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m91"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m92"></a><h2>com.anjuke.ui.testcase.AnjukePropView:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m93"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityAsk:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m94"></a><h2>com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m95"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleRelease:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m96"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRecycleOps:teardown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m97"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerprofile:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m98"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropList:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m99"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m100"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListEvaluation:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m101"></a><h2>com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m102"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m103"></a><h2>com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m104"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m105"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRentEdit:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m106"></a><h2>com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m107"></a><h2>com.anjuke.ui.testcase.AnjukeSaleTagCheck:setUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m108"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m109"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:setUp</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m110"></a><h2>com.anjuke.ui.testcase.AnjukeCollectHouseResource:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m111"></a><h2>com.anjuke.ui.testcase.AnjukeSearchCheck:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m112"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m113"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m114"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityListPrice:tearDown</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m115"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleEdit:doBeforeTests</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m116"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:testBrokerupdateinfo</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m117"></a><h2>com.anjuke.ui.testcase.AnjukeSaleTagCheck:testSaleKeywordTagCheck</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m118"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityListPrice:testStart</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m119"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:testBrokeremail</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m120"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerIntro:testBrokerIntroduce</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m121"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerExpertise:testBrokerExpertise</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m122"></a><h2>com.anjuke.ui.testcase.AnjukeAskAbnormalSearch:abnormalSearch</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m123"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListAsk:testBrokerListAsk</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m124"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRecycleOps:testStart</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m125"></a><h2>com.anjuke.ui.testcase.AnjukeAskHome:checkAskHomeData</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m126"></a><h2>com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition:testSaveLastCon</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m127"></a><h2>com.anjuke.ui.testcase.AnjukeSaleUfsIcon:testAnjukeSaleUfsIcon</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m128"></a><h2>com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition:testSaveThisCon</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m129"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleEdit:editSale</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m130"></a><h2>com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound:normalSearchNoFound</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m131"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListPhoto:testBrokerListPhoto</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m132"></a><h2>com.anjuke.ui.testcase.AnjukeTycoonListEvaluation:testBrokerListEvaluation</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m133"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime:testSaleReleseLastest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m134"></a><h2>com.anjuke.ui.testcase.AnjukeRegressPropViewInfo:testSaleSearchComm</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m135"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm:testSaleSearchComm</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m136"></a><h2>com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo:testStart</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m137"></a><h2>com.anjuke.ui.testcase.AnjukeAskNormalSearchFound:normalSearchFound</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m138"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerModifyInfo:testBrokerUpdatePasswd</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m139"></a><h2>com.anjuke.ui.testcase.AnjukeAttentionCommunity:attentionCommunity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m140"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRentEdit:rentEdit</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m141"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster:testStart</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m142"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropList:testCommunitySaleListCheck</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m143"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck:keywordSearch</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m144"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerpractice:testBrokerPractice</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m145"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime:testSaleReleaseTime</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m146"></a><h2>com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity:haopanCheck</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m147"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest:testSaleSuggestion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m148"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityAsk:testBrokerCommunityAsk</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m149"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton:testXinfangButton</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m150"></a><h2>com.anjuke.ui.testcase.AnjukeSearchCheck:searchCheck</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m151"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerRentRelease:rentRelease</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m152"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerUniversity:testUniversity</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m153"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar:keywordSearch</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m154"></a><h2>com.anjuke.ui.testcase.AnjukePropView:testPropView</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m155"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerprofile:testBrokerprofile</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m156"></a><h2>com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck:filterSearch</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m157"></a><h2>com.anjuke.ui.testcase.AnjukeCollectHouseResource:collectHouse</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m158"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest:testXinfangSuggestion</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m159"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost:testSaleSearchKwLost</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m160"></a><h2>com.anjuke.ui.testcase.AnjukeSaleTagCheck:testSaleFliterTagCheck</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m161"></a><h2>com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai:haopanCheck</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m162"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageArea:testStart</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m163"></a><h2>com.anjuke.ui.testcase.AnjukeAskEditExpertInfo:EditExpertInfo</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m164"></a><h2>com.anjuke.ui.testcase.AnjukeBrokerSaleRelease:releaseSale</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m165"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult:testSaleSearchFliterNoResultInfo</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m166"></a><h2>com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand:testSaleXinFangRecommand</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<a id="m167"></a><h2>com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton:testSaleButton</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>

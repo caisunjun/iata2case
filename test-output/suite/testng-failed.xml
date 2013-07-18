@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" verbose="0" name="Failed suite [suite]" parallel="classes">
+  <parameter name="websiteName" value="Anjuke Part2"/>
+  <parameter name="suiteName" value="--安居客常规测试--"/>
+  <test name="Default(failed)" parallel="classes">
+    <groups>
+      <run>
+        <exclude name="unstable"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="pic.anjuke.qa.Pic">
+        <methods>
+          <include name="shanghai"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- pic.anjuke.qa.Pic -->
+      <class name="com.anjukeinc.iata.ui.init.Init">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+        </methods>
+      </class> <!-- com.anjukeinc.iata.ui.init.Init -->
+    </classes>
+  </test> <!-- Default(failed) -->
+</suite> <!-- Failed suite [suite] -->

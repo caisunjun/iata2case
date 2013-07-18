@@ -11,9 +11,10 @@
         </groups>
         <classes>
             <class name="com.anjukeinc.iata.ui.init.Init"></class>
+            <class name="pic.anjuke.qa.Pic"></class>
         </classes>
-        <packages>
-            <package name="com.anjuke.ui.testcase"/>
-        </packages>
+        <!--<packages>
+            <package name="pic.anjuke.qa"/>
+        </packages>-->
     </test>
 </suite>

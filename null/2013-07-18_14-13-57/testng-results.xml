@@ -1,0 +1,1551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="52" failed="0" total="52" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="suite" duration-ms="63" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+    <groups>
+    </groups>
+    <test name="Default" duration-ms="63" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+      <class name="com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo">
+        <test-method status="SKIP" signature="testStart()" name="testStart" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="stratUp()" name="stratUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo.stratUp(AnjukeCommonUserModifyInfo.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest">
+        <test-method status="SKIP" signature="testXinfangSuggestion()" name="testXinfangSuggestion" duration-ms="14" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest.setUp(AnjukeMonitorHomepageSearchSuggest.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testSaleSuggestion()" name="testSaleSuggestion" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand.setUp(AnjukeRegressSaleXinFangRecommand.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testSaleXinFangRecommand()" name="testSaleXinFangRecommand" duration-ms="1" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck.setUp(AnjukeSaleSearchResultCheck.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="keywordSearch()" name="keywordSearch" duration-ms="1" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="filterSearch()" name="filterSearch" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEdit">
+        <test-method status="SKIP" signature="editSale()" name="editSale" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:154)
+	at com.anjuke.ui.testcase.AnjukeBrokerSaleEdit.startUp(AnjukeBrokerSaleEdit.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageArea">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeMonitorHomepageArea.setUp(AnjukeMonitorHomepageArea.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testStart()" name="testStart" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskNormalSearchFound">
+        <test-method status="SKIP" signature="normalSearchFound()" name="normalSearchFound" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeAskNormalSearchFound.setUp(AnjukeAskNormalSearchFound.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressPropViewInfo">
+        <test-method status="SKIP" signature="testSaleSearchComm()" name="testSaleSearchComm" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeRegressPropViewInfo.setUp(AnjukeRegressPropViewInfo.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityPropList">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeCommunityPropList.setUp(AnjukeCommunityPropList.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testCommunitySaleListCheck()" name="testCommunitySaleListCheck" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai.setUp(AnjukeCommunityPropListHaopanCheck_Shanghai.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="haopanCheck()" name="haopanCheck" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerExpertise">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerExpertise.setUp(AnjukeBrokerExpertise.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerExpertise()" name="testBrokerExpertise" duration-ms="26" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps">
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerRecycleOps.startUp(AnjukeBrokerRecycleOps.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testStart()" name="testStart" duration-ms="6" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="teardown()" name="teardown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar.setUp(AnjukeSaleSearchNoResultSimilar.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="keywordSearch()" name="keywordSearch" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition">
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition.startUp(AnjukeSaveFindHouseCondition.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testSaveLastCon()" name="testSaveLastCon" duration-ms="14" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testSaveThisCon()" name="testSaveThisCon" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukePropView">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukePropView.setUp(AnjukePropView.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testPropView()" name="testPropView" duration-ms="2" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityListPrice">
+        <test-method status="SKIP" signature="testStart()" name="testStart" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeCommunityListPrice.setUp(AnjukeCommunityListPrice.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost.setUp(AnjukeRegressSaleSearchKwLost.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testSaleSearchKwLost()" name="testSaleSearchKwLost" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerModifyInfo">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerModifyInfo.setUp(AnjukeBrokerModifyInfo.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerUpdatePasswd()" name="testBrokerUpdatePasswd" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerupdateinfo()" name="testBrokerupdateinfo" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testBrokeremail()" name="testBrokeremail" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster.setUp(AnjukeCommunityPropertyMaster.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testStart()" name="testStart" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeTycoonListPhoto">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeTycoonListPhoto.setUp(AnjukeTycoonListPhoto.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerListPhoto()" name="testBrokerListPhoto" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerRentEdit">
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerRentEdit.startUp(AnjukeBrokerRentEdit.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="rentEdit()" name="rentEdit" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime">
+        <test-method status="SKIP" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime.setUp(AnjukeRegressSalePropReleaseTime.java:21)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testSaleReleaseTime()" name="testSaleReleaseTime" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testSaleReleseLastest()" name="testSaleReleseLastest" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeTycoonListEvaluation">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeTycoonListEvaluation.setUp(AnjukeTycoonListEvaluation.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerListEvaluation()" name="testBrokerListEvaluation" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton.setUp(AnjukeMonitorHomepageSearchButton.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testSaleButton()" name="testSaleButton" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testXinfangButton()" name="testXinfangButton" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjukeinc.iata.ui.init.Init">
+        <test-method status="PASS" signature="beforeSuite()" name="beforeSuite" is-config="true" duration-ms="6" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="PASS" signature="afterSuite(java.lang.String, java.lang.String)" name="afterSuite" is-config="true" duration-ms="2" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Anjuke Part2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[--安居客常规测试--]]>
+              </value>
+            </param>
+          </params>
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerUniversity">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerUniversity.setUp(AnjukeBrokerUniversity.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testUniversity()" name="testUniversity" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSearchCheck">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeSearchCheck.setUp(AnjukeSearchCheck.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="searchCheck()" name="searchCheck" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult.setUp(AnjukeRegressSaleSearchFliterNoResult.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testSaleSearchFliterNoResultInfo()" name="testSaleSearchFliterNoResultInfo" duration-ms="24" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskAbnormalSearch">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeAskAbnormalSearch.setUp(AnjukeAskAbnormalSearch.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="abnormalSearch()" name="abnormalSearch" duration-ms="2" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleUfsIcon">
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testAnjukeSaleUfsIcon()" name="testAnjukeSaleUfsIcon" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeSaleUfsIcon.setUp(AnjukeSaleUfsIcon.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity">
+        <test-method status="SKIP" signature="haopanCheck()" name="haopanCheck" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity.setUp(AnjukeSaleHaopanCheck_otherCity.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskEditExpertInfo">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeAskEditExpertInfo.setUp(AnjukeAskEditExpertInfo.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="EditExpertInfo()" name="EditExpertInfo" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityAsk">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeCommunityAsk.setUp(AnjukeCommunityAsk.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerCommunityAsk()" name="testBrokerCommunityAsk" duration-ms="28" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerIntro">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerIntro.setUp(AnjukeBrokerIntro.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerIntroduce()" name="testBrokerIntroduce" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeTycoonListAsk">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeTycoonListAsk.setUp(AnjukeTycoonListAsk.java:39)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerListAsk()" name="testBrokerListAsk" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAttentionCommunity">
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeAttentionCommunity.startUp(AnjukeAttentionCommunity.java:36)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="attentionCommunity()" name="attentionCommunity" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskHome">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeAskHome.setUp(AnjukeAskHome.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="checkAskHomeData()" name="checkAskHomeData" duration-ms="22" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleTagCheck">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeSaleTagCheck.setUp(AnjukeSaleTagCheck.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testSaleKeywordTagCheck()" name="testSaleKeywordTagCheck" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testSaleFliterTagCheck()" name="testSaleFliterTagCheck" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerSaleRelease">
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerSaleRelease.startUp(AnjukeBrokerSaleRelease.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="releaseSale()" name="releaseSale" duration-ms="6" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerprofile">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerprofile.setUp(AnjukeBrokerprofile.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerprofile()" name="testBrokerprofile" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerpractice">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerpractice.setUp(AnjukeBrokerpractice.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testBrokerPractice()" name="testBrokerPractice" duration-ms="38" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm.setUp(AnjukeRegressSaleSearchComm.java:29)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="testSaleSearchComm()" name="testSaleSearchComm" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource">
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeCollectHouseResource.startUp(AnjukeCollectHouseResource.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="collectHouse()" name="collectHouse" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="doBeforeTests()" name="doBeforeTests" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerRentRelease">
+        <test-method status="SKIP" signature="rentRelease()" name="rentRelease" duration-ms="1" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="FAIL" signature="startUp()" name="startUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeBrokerRentRelease.startUp(AnjukeBrokerRentRelease.java:32)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound">
+        <test-method status="FAIL" signature="setUp()" name="setUp" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.factoryMethod(BrowserDriverFactory.java:21)
+	at com.anjukeinc.iata.ui.browser.BrowserDriverFactory.getBrowserDriver(BrowserDriverFactory.java:15)
+	at com.anjukeinc.iata.ui.browser.FactoryBrowser.factoryBrowser(FactoryBrowser.java:37)
+	at com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound.setUp(AnjukeAskNormalSearchNoFound.java:23)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:525)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:202)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:613)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:842)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1166)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
+	at java.lang.Thread.run(Thread.java:662)
+]]>
+            </full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="SKIP" signature="normalSearchNoFound()" name="normalSearchNoFound" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+        <test-method status="SKIP" signature="tearDown()" name="tearDown" is-config="true" duration-ms="0" started-at="2013-07-18T14:13:58Z" finished-at="2013-07-18T14:13:58Z">
+        </test-method>
+      </class>
+    </test>
+  </suite>
+</testng-results>

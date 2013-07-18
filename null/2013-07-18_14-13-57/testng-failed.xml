@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="10" verbose="0" name="Failed suite [suite]" parallel="classes">
+  <parameter name="websiteName" value="Anjuke Part2"/>
+  <parameter name="suiteName" value="--安居客常规测试--"/>
+  <test name="Default(failed)" parallel="classes" preserve-order="false">
+    <parameter name="websiteName" value="Anjuke Part2"/>
+    <parameter name="suiteName" value="--安居客常规测试--"/>
+    <groups>
+      <run>
+        <exclude name="unstable"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleSearchNoResultSimilar">
+        <methods>
+          <include name="setUp"/>
+          <include name="keywordSearch"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleSearchResultCheck">
+        <methods>
+          <include name="setUp"/>
+          <include name="keywordSearch"/>
+          <include name="filterSearch"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityAsk">
+        <methods>
+          <include name="testBrokerCommunityAsk"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityPropListHaopanCheck_Shanghai">
+        <methods>
+          <include name="haopanCheck"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerSaleEdit">
+        <methods>
+          <include name="editSale"/>
+          <include name="startUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerModifyInfo">
+        <methods>
+          <include name="setUp"/>
+          <include name="testBrokerupdateinfo"/>
+          <include name="testBrokeremail"/>
+          <include name="testBrokerUpdatePasswd"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerIntro">
+        <methods>
+          <include name="setUp"/>
+          <include name="testBrokerIntroduce"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskNormalSearchNoFound">
+        <methods>
+          <include name="setUp"/>
+          <include name="normalSearchNoFound"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchComm">
+        <methods>
+          <include name="setUp"/>
+          <include name="testSaleSearchComm"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchSuggest">
+        <methods>
+          <include name="testXinfangSuggestion"/>
+          <include name="setUp"/>
+          <include name="testSaleSuggestion"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCollectHouseResource">
+        <methods>
+          <include name="startUp"/>
+          <include name="collectHouse"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressPropViewInfo">
+        <methods>
+          <include name="testSaleSearchComm"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageArea">
+        <methods>
+          <include name="setUp"/>
+          <include name="testStart"/>
+        </methods>
+      </class>
+      <class name="com.anjukeinc.iata.ui.init.Init">
+        <methods>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukePropView">
+        <methods>
+          <include name="setUp"/>
+          <include name="testPropView"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchFliterNoResult">
+        <methods>
+          <include name="setUp"/>
+          <include name="testSaleSearchFliterNoResultInfo"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerRentRelease">
+        <methods>
+          <include name="startUp"/>
+          <include name="rentRelease"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeTycoonListPhoto">
+        <methods>
+          <include name="testBrokerListPhoto"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaveFindHouseCondition">
+        <methods>
+          <include name="testSaveThisCon"/>
+          <include name="startUp"/>
+          <include name="testSaveLastCon"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskNormalSearchFound">
+        <methods>
+          <include name="normalSearchFound"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeMonitorHomepageSearchButton">
+        <methods>
+          <include name="testSaleButton"/>
+          <include name="setUp"/>
+          <include name="testXinfangButton"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleSearchKwLost">
+        <methods>
+          <include name="setUp"/>
+          <include name="testSaleSearchKwLost"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerExpertise">
+        <methods>
+          <include name="setUp"/>
+          <include name="testBrokerExpertise"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskHome">
+        <methods>
+          <include name="checkAskHomeData"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityPropList">
+        <methods>
+          <include name="setUp"/>
+          <include name="testCommunitySaleListCheck"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskEditExpertInfo">
+        <methods>
+          <include name="EditExpertInfo"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleUfsIcon">
+        <methods>
+          <include name="testAnjukeSaleUfsIcon"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerUniversity">
+        <methods>
+          <include name="setUp"/>
+          <include name="testUniversity"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityPropertyMaster">
+        <methods>
+          <include name="setUp"/>
+          <include name="testStart"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeTycoonListEvaluation">
+        <methods>
+          <include name="setUp"/>
+          <include name="testBrokerListEvaluation"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSaleXinFangRecommand">
+        <methods>
+          <include name="testSaleXinFangRecommand"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeRegressSalePropReleaseTime">
+        <methods>
+          <include name="testSaleReleaseTime"/>
+          <include name="setUp"/>
+          <include name="testSaleReleseLastest"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerRentEdit">
+        <methods>
+          <include name="rentEdit"/>
+          <include name="startUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerpractice">
+        <methods>
+          <include name="testBrokerPractice"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerRecycleOps">
+        <methods>
+          <include name="startUp"/>
+          <include name="testStart"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerSaleRelease">
+        <methods>
+          <include name="releaseSale"/>
+          <include name="startUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSearchCheck">
+        <methods>
+          <include name="searchCheck"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleTagCheck">
+        <methods>
+          <include name="testSaleKeywordTagCheck"/>
+          <include name="testSaleFliterTagCheck"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommonUserModifyInfo">
+        <methods>
+          <include name="testStart"/>
+          <include name="stratUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeSaleHaopanCheck_otherCity">
+        <methods>
+          <include name="setUp"/>
+          <include name="haopanCheck"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAttentionCommunity">
+        <methods>
+          <include name="attentionCommunity"/>
+          <include name="startUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeBrokerprofile">
+        <methods>
+          <include name="testBrokerprofile"/>
+          <include name="setUp"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeCommunityListPrice">
+        <methods>
+          <include name="setUp"/>
+          <include name="testStart"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeTycoonListAsk">
+        <methods>
+          <include name="setUp"/>
+          <include name="testBrokerListAsk"/>
+        </methods>
+      </class>
+      <class name="com.anjuke.ui.testcase.AnjukeAskAbnormalSearch">
+        <methods>
+          <include name="setUp"/>
+          <include name="abnormalSearch"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
